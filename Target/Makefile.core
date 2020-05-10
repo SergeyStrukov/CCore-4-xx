@@ -1,0 +1,43 @@
+# Makefile.core
+#----------------------------------------------------------------------------------------
+#
+#  Project: CCore 4.01
+#
+#  Tag: General
+#
+#  License: Boost Software License - Version 1.0 - August 17th, 2003 
+#
+#            see http://www.boost.org/LICENSE_1_0.txt or the local copy
+#
+#  Copyright (c) 2020 Sergey Strukov. All rights reserved.
+#
+#----------------------------------------------------------------------------------------
+
+OBJ_PATH = .obj
+
+TARGET = CCore.a
+
+RULES_FILE = $(CCORE_ROOT)/Target/Makefile.core.rules
+
+GEN_LIST = $(shell $(FIND) $(GEN_PATH_LIST) -name "*.gen.h")
+
+include $(CCORE_ROOT)/Target/$(CCORE_TARGET)/Makefile.tools
+
+.PHONY : all list
+
+all: $(TARGET)
+
+Makefile.files:
+	$(HOME)/bin/CCore-MakeList.exe $(OBJ_PATH) -s $(SRC_PATH_LIST)
+
+ifneq ($(MAKECMDGOALS),list)
+
+include Makefile.files
+
+endif
+
+list:
+	$(HOME)/bin/CCore-MakeList.exe $(OBJ_PATH) -s $(SRC_PATH_LIST)
+
+
+
