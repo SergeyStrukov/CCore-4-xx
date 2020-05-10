@@ -1,0 +1,17 @@
+/* TODO.txt */
+
+=== Simple =======================================
+
+--- gadget/Function.h ---
+
+remove Creator-function
+
+ToFunction() 
+
+--- PrintBits.h ---
+
+remove Creator-function
+
+PrintBits()
+
+==================================================
