@@ -1,13 +1,22 @@
 OBJ_LIST = \
 .obj/AutoCast.o \
+.obj/ExceptionType.o \
+.obj/Handle.o \
+.obj/NoCopy.o \
 
 
 ASM_LIST = \
 .obj/AutoCast.s \
+.obj/ExceptionType.s \
+.obj/Handle.s \
+.obj/NoCopy.s \
 
 
 DEP_LIST = \
 .obj/AutoCast.dep \
+.obj/ExceptionType.dep \
+.obj/Handle.dep \
+.obj/NoCopy.dep \
 
 
 ASM_OBJ_LIST = \
@@ -19,15 +28,42 @@ include $(RULES_FILE)
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 
 
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
 
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
+
+.obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
+
+.obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
 
 
 
