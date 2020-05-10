@@ -1,0 +1,41 @@
+OBJ_LIST = \
+.obj/AutoCast.o \
+
+
+ASM_LIST = \
+.obj/AutoCast.s \
+
+
+DEP_LIST = \
+.obj/AutoCast.dep \
+
+
+ASM_OBJ_LIST = \
+
+
+include $(RULES_FILE)
+
+
+.obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+
+
+.obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+
+
+.obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
+
+
+
+
+
+ifneq ($(MAKECMDGOALS),clean)
+
+-include $(DEP_FILE)
+
+endif
+
