@@ -1,3 +1,12 @@
+# My
+
+.eclipse/*
+
+PTPServerLog.txt
+PTPSecureServerLog.txt
+
+CCore.book.vol
+
 # Prerequisites
 *.dep
 
