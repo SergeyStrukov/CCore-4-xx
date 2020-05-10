@@ -2,21 +2,30 @@ OBJ_LIST = \
 .obj/AutoCast.o \
 .obj/ExceptionType.o \
 .obj/Handle.o \
+.obj/Locked.o \
+.obj/NegBool.o \
 .obj/NoCopy.o \
+.obj/Nothing.o \
 
 
 ASM_LIST = \
 .obj/AutoCast.s \
 .obj/ExceptionType.s \
 .obj/Handle.s \
+.obj/Locked.s \
+.obj/NegBool.s \
 .obj/NoCopy.s \
+.obj/Nothing.s \
 
 
 DEP_LIST = \
 .obj/AutoCast.dep \
 .obj/ExceptionType.dep \
 .obj/Handle.dep \
+.obj/Locked.dep \
+.obj/NegBool.dep \
 .obj/NoCopy.dep \
+.obj/Nothing.dep \
 
 
 ASM_OBJ_LIST = \
@@ -34,7 +43,16 @@ include $(RULES_FILE)
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Locked.o : ../../Simple/CCore/src/gadget/Locked.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Nothing.o : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
@@ -48,7 +66,16 @@ include $(RULES_FILE)
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Locked.s : ../../Simple/CCore/src/gadget/Locked.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Nothing.s : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -62,8 +89,17 @@ include $(RULES_FILE)
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
 
+.obj/Locked.dep : ../../Simple/CCore/src/gadget/Locked.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Locked.o $< -MF $@
+
+.obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
+
 .obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
+
+.obj/Nothing.dep : ../../Simple/CCore/src/gadget/Nothing.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Nothing.o $< -MF $@
 
 
 
