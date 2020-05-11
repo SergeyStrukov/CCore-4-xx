@@ -12,8 +12,11 @@ OBJ_LIST = \
 .obj/MetaList.o \
 .obj/NegBool.o \
 .obj/NoCopy.o \
+.obj/NoThrowFlags.o \
 .obj/Nothing.o \
+.obj/OpAddHelper.o \
 .obj/PlatformBase.o \
+.obj/PosSub.o \
 
 
 ASM_LIST = \
@@ -30,8 +33,11 @@ ASM_LIST = \
 .obj/MetaList.s \
 .obj/NegBool.s \
 .obj/NoCopy.s \
+.obj/NoThrowFlags.s \
 .obj/Nothing.s \
+.obj/OpAddHelper.s \
 .obj/PlatformBase.s \
+.obj/PosSub.s \
 
 
 DEP_LIST = \
@@ -48,8 +54,11 @@ DEP_LIST = \
 .obj/MetaList.dep \
 .obj/NegBool.dep \
 .obj/NoCopy.dep \
+.obj/NoThrowFlags.dep \
 .obj/Nothing.dep \
+.obj/OpAddHelper.dep \
 .obj/PlatformBase.dep \
+.obj/PosSub.dep \
 
 
 ASM_OBJ_LIST = \
@@ -98,10 +107,19 @@ include $(RULES_FILE)
 .obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/NoThrowFlags.o : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Nothing.o : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/OpAddHelper.o : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
@@ -145,10 +163,19 @@ include $(RULES_FILE)
 .obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NoThrowFlags.s : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Nothing.s : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/OpAddHelper.s : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -192,11 +219,20 @@ include $(RULES_FILE)
 .obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
 
+.obj/NoThrowFlags.dep : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NoThrowFlags.o $< -MF $@
+
 .obj/Nothing.dep : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Nothing.o $< -MF $@
 
+.obj/OpAddHelper.dep : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/OpAddHelper.o $< -MF $@
+
 .obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
+
+.obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
 
 
 
