@@ -1,40 +1,62 @@
 OBJ_LIST = \
 .obj/AutoCast.o \
+.obj/CheckPlatformBase.o \
+.obj/Classification.o \
 .obj/ExceptionType.o \
 .obj/Handle.o \
 .obj/Locked.o \
+.obj/Meta.o \
+.obj/MetaList.o \
 .obj/NegBool.o \
 .obj/NoCopy.o \
 .obj/Nothing.o \
+.obj/PlatformBase.o \
 
 
 ASM_LIST = \
 .obj/AutoCast.s \
+.obj/CheckPlatformBase.s \
+.obj/Classification.s \
 .obj/ExceptionType.s \
 .obj/Handle.s \
 .obj/Locked.s \
+.obj/Meta.s \
+.obj/MetaList.s \
 .obj/NegBool.s \
 .obj/NoCopy.s \
 .obj/Nothing.s \
+.obj/PlatformBase.s \
 
 
 DEP_LIST = \
 .obj/AutoCast.dep \
+.obj/CheckPlatformBase.dep \
+.obj/Classification.dep \
 .obj/ExceptionType.dep \
 .obj/Handle.dep \
 .obj/Locked.dep \
+.obj/Meta.dep \
+.obj/MetaList.dep \
 .obj/NegBool.dep \
 .obj/NoCopy.dep \
 .obj/Nothing.dep \
+.obj/PlatformBase.dep \
 
 
 ASM_OBJ_LIST = \
+.obj/PlatformBase.s.o \
 
 
 include $(RULES_FILE)
 
 
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
@@ -46,6 +68,12 @@ include $(RULES_FILE)
 .obj/Locked.o : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Meta.o : ../../Simple/CCore/src/gadget/Meta.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MetaList.o : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -55,9 +83,18 @@ include $(RULES_FILE)
 .obj/Nothing.o : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 
 
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
@@ -69,6 +106,12 @@ include $(RULES_FILE)
 .obj/Locked.s : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Meta.s : ../../Simple/CCore/src/gadget/Meta.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MetaList.s : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -78,10 +121,19 @@ include $(RULES_FILE)
 .obj/Nothing.s : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 
 
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
+
+.obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
+
+.obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
 
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
@@ -92,6 +144,12 @@ include $(RULES_FILE)
 .obj/Locked.dep : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Locked.o $< -MF $@
 
+.obj/Meta.dep : ../../Simple/CCore/src/gadget/Meta.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Meta.o $< -MF $@
+
+.obj/MetaList.dep : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MetaList.o $< -MF $@
+
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
 
@@ -101,7 +159,13 @@ include $(RULES_FILE)
 .obj/Nothing.dep : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Nothing.o $< -MF $@
 
+.obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
 
+
+
+.obj/PlatformBase.s.o : ../../Target/WIN32/CCore/src/base/PlatformBase.s
+	$(AS) $(ASOPT) $< -o $@
 
 
 
