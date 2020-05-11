@@ -9,20 +9,25 @@ OBJ_LIST = \
 .obj/LockObject.o \
 .obj/LockUse.o \
 .obj/Locked.o \
+.obj/MSec.o \
 .obj/Meta.o \
 .obj/MetaList.o \
 .obj/NegBool.o \
 .obj/NoCopy.o \
 .obj/NoThrowFlags.o \
 .obj/Nothing.o \
+.obj/NullMovePtr.o \
 .obj/OpAddHelper.o \
+.obj/Place.o \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
 .obj/Quick.o \
 .obj/Replace.o \
 .obj/SIntFunc.o \
 .obj/ScopeGuard.o \
+.obj/Space.o \
 .obj/UIntFunc.o \
+.obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
 .obj/UtilFunc.o \
 
@@ -38,20 +43,25 @@ ASM_LIST = \
 .obj/LockObject.s \
 .obj/LockUse.s \
 .obj/Locked.s \
+.obj/MSec.s \
 .obj/Meta.s \
 .obj/MetaList.s \
 .obj/NegBool.s \
 .obj/NoCopy.s \
 .obj/NoThrowFlags.s \
 .obj/Nothing.s \
+.obj/NullMovePtr.s \
 .obj/OpAddHelper.s \
+.obj/Place.s \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
 .obj/Quick.s \
 .obj/Replace.s \
 .obj/SIntFunc.s \
 .obj/ScopeGuard.s \
+.obj/Space.s \
 .obj/UIntFunc.s \
+.obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
 .obj/UtilFunc.s \
 
@@ -67,20 +77,25 @@ DEP_LIST = \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
 .obj/Locked.dep \
+.obj/MSec.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
 .obj/NegBool.dep \
 .obj/NoCopy.dep \
 .obj/NoThrowFlags.dep \
 .obj/Nothing.dep \
+.obj/NullMovePtr.dep \
 .obj/OpAddHelper.dep \
+.obj/Place.dep \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
 .obj/Quick.dep \
 .obj/Replace.dep \
 .obj/SIntFunc.dep \
 .obj/ScopeGuard.dep \
+.obj/Space.dep \
 .obj/UIntFunc.dep \
+.obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
 .obj/UtilFunc.dep \
 
@@ -123,6 +138,9 @@ include $(RULES_FILE)
 .obj/Locked.o : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Meta.o : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -141,7 +159,13 @@ include $(RULES_FILE)
 .obj/Nothing.o : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/NullMovePtr.o : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/OpAddHelper.o : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
@@ -162,7 +186,13 @@ include $(RULES_FILE)
 .obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/UIntFunc.o : ../../Simple/CCore/src/gadget/UIntFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UIntSat.o : ../../Simple/CCore/src/gadget/UIntSat.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UIntSlowMulAlgo.o : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
@@ -203,6 +233,9 @@ include $(RULES_FILE)
 .obj/Locked.s : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Meta.s : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -221,7 +254,13 @@ include $(RULES_FILE)
 .obj/Nothing.s : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NullMovePtr.s : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/OpAddHelper.s : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
@@ -242,7 +281,13 @@ include $(RULES_FILE)
 .obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/UIntFunc.s : ../../Simple/CCore/src/gadget/UIntFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UIntSat.s : ../../Simple/CCore/src/gadget/UIntSat.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UIntSlowMulAlgo.s : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
@@ -283,6 +328,9 @@ include $(RULES_FILE)
 .obj/Locked.dep : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Locked.o $< -MF $@
 
+.obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
+
 .obj/Meta.dep : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Meta.o $< -MF $@
 
@@ -301,8 +349,14 @@ include $(RULES_FILE)
 .obj/Nothing.dep : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Nothing.o $< -MF $@
 
+.obj/NullMovePtr.dep : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NullMovePtr.o $< -MF $@
+
 .obj/OpAddHelper.dep : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OpAddHelper.o $< -MF $@
+
+.obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
 
 .obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
@@ -322,8 +376,14 @@ include $(RULES_FILE)
 .obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
 
+.obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
+
 .obj/UIntFunc.dep : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntFunc.o $< -MF $@
+
+.obj/UIntSat.dep : ../../Simple/CCore/src/gadget/UIntSat.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UIntSat.o $< -MF $@
 
 .obj/UIntSlowMulAlgo.dep : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntSlowMulAlgo.o $< -MF $@
