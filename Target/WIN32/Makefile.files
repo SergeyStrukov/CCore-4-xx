@@ -2,9 +2,12 @@ OBJ_LIST = \
 .obj/AutoCast.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
+.obj/CreateAt.o \
+.obj/DefaultTimeout.o \
 .obj/ExceptionType.o \
 .obj/Function.o \
 .obj/Handle.o \
+.obj/Init.o \
 .obj/Len.o \
 .obj/LockObject.o \
 .obj/LockUse.o \
@@ -36,9 +39,12 @@ ASM_LIST = \
 .obj/AutoCast.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
+.obj/CreateAt.s \
+.obj/DefaultTimeout.s \
 .obj/ExceptionType.s \
 .obj/Function.s \
 .obj/Handle.s \
+.obj/Init.s \
 .obj/Len.s \
 .obj/LockObject.s \
 .obj/LockUse.s \
@@ -70,9 +76,12 @@ DEP_LIST = \
 .obj/AutoCast.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
+.obj/CreateAt.dep \
+.obj/DefaultTimeout.dep \
 .obj/ExceptionType.dep \
 .obj/Function.dep \
 .obj/Handle.dep \
+.obj/Init.dep \
 .obj/Len.dep \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
@@ -117,6 +126,12 @@ include $(RULES_FILE)
 .obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/CreateAt.o : ../../Simple/CCore/src/gadget/CreateAt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -124,6 +139,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
@@ -212,6 +230,12 @@ include $(RULES_FILE)
 .obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CreateAt.s : ../../Simple/CCore/src/gadget/CreateAt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -219,6 +243,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
@@ -307,6 +334,12 @@ include $(RULES_FILE)
 .obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
 
+.obj/CreateAt.dep : ../../Simple/CCore/src/gadget/CreateAt.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CreateAt.o $< -MF $@
+
+.obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
+
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
 
@@ -315,6 +348,9 @@ include $(RULES_FILE)
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
 
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
