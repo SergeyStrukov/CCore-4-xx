@@ -5,6 +5,7 @@ OBJ_LIST = \
 .obj/ExceptionType.o \
 .obj/Function.o \
 .obj/Handle.o \
+.obj/Len.o \
 .obj/LockObject.o \
 .obj/LockUse.o \
 .obj/Locked.o \
@@ -18,6 +19,8 @@ OBJ_LIST = \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
 .obj/Quick.o \
+.obj/Replace.o \
+.obj/SIntFunc.o \
 .obj/ScopeGuard.o \
 .obj/UIntFunc.o \
 .obj/UIntSlowMulAlgo.o \
@@ -31,6 +34,7 @@ ASM_LIST = \
 .obj/ExceptionType.s \
 .obj/Function.s \
 .obj/Handle.s \
+.obj/Len.s \
 .obj/LockObject.s \
 .obj/LockUse.s \
 .obj/Locked.s \
@@ -44,6 +48,8 @@ ASM_LIST = \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
 .obj/Quick.s \
+.obj/Replace.s \
+.obj/SIntFunc.s \
 .obj/ScopeGuard.s \
 .obj/UIntFunc.s \
 .obj/UIntSlowMulAlgo.s \
@@ -57,6 +63,7 @@ DEP_LIST = \
 .obj/ExceptionType.dep \
 .obj/Function.dep \
 .obj/Handle.dep \
+.obj/Len.dep \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
 .obj/Locked.dep \
@@ -70,6 +77,8 @@ DEP_LIST = \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
 .obj/Quick.dep \
+.obj/Replace.dep \
+.obj/SIntFunc.dep \
 .obj/ScopeGuard.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSlowMulAlgo.dep \
@@ -100,6 +109,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/LockObject.o : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -141,6 +153,12 @@ include $(RULES_FILE)
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Replace.o : ../../Simple/CCore/src/gadget/Replace.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -171,6 +189,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/LockObject.s : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -212,6 +233,12 @@ include $(RULES_FILE)
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Replace.s : ../../Simple/CCore/src/gadget/Replace.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -243,6 +270,9 @@ include $(RULES_FILE)
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
 
 .obj/LockObject.dep : ../../Simple/CCore/src/gadget/LockObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LockObject.o $< -MF $@
@@ -282,6 +312,12 @@ include $(RULES_FILE)
 
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
+
+.obj/Replace.dep : ../../Simple/CCore/src/gadget/Replace.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Replace.o $< -MF $@
+
+.obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@
 
 .obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
