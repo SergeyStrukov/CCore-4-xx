@@ -17,6 +17,11 @@ OBJ_LIST = \
 .obj/OpAddHelper.o \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
+.obj/Quick.o \
+.obj/ScopeGuard.o \
+.obj/UIntFunc.o \
+.obj/UIntSlowMulAlgo.o \
+.obj/UtilFunc.o \
 
 
 ASM_LIST = \
@@ -38,6 +43,11 @@ ASM_LIST = \
 .obj/OpAddHelper.s \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
+.obj/Quick.s \
+.obj/ScopeGuard.s \
+.obj/UIntFunc.s \
+.obj/UIntSlowMulAlgo.s \
+.obj/UtilFunc.s \
 
 
 DEP_LIST = \
@@ -59,10 +69,16 @@ DEP_LIST = \
 .obj/OpAddHelper.dep \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
+.obj/Quick.dep \
+.obj/ScopeGuard.dep \
+.obj/UIntFunc.dep \
+.obj/UIntSlowMulAlgo.dep \
+.obj/UtilFunc.dep \
 
 
 ASM_OBJ_LIST = \
 .obj/PlatformBase.s.o \
+.obj/Quick.s.o \
 
 
 include $(RULES_FILE)
@@ -122,6 +138,21 @@ include $(RULES_FILE)
 .obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UIntFunc.o : ../../Simple/CCore/src/gadget/UIntFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UIntSlowMulAlgo.o : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UtilFunc.o : ../../Simple/CCore/src/gadget/UtilFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 
 
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
@@ -176,6 +207,21 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UIntFunc.s : ../../Simple/CCore/src/gadget/UIntFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UIntSlowMulAlgo.s : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UtilFunc.s : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -234,9 +280,27 @@ include $(RULES_FILE)
 .obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
 
+.obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
+
+.obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
+
+.obj/UIntFunc.dep : ../../Simple/CCore/src/gadget/UIntFunc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UIntFunc.o $< -MF $@
+
+.obj/UIntSlowMulAlgo.dep : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UIntSlowMulAlgo.o $< -MF $@
+
+.obj/UtilFunc.dep : ../../Simple/CCore/src/gadget/UtilFunc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UtilFunc.o $< -MF $@
+
 
 
 .obj/PlatformBase.s.o : ../../Target/WIN32/CCore/src/base/PlatformBase.s
+	$(AS) $(ASOPT) $< -o $@
+
+.obj/Quick.s.o : ../../Target/WIN32/CCore/src/base/Quick.s
 	$(AS) $(ASOPT) $< -o $@
 
 
