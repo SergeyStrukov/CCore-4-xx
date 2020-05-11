@@ -3,7 +3,10 @@ OBJ_LIST = \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/ExceptionType.o \
+.obj/Function.o \
 .obj/Handle.o \
+.obj/LockObject.o \
+.obj/LockUse.o \
 .obj/Locked.o \
 .obj/Meta.o \
 .obj/MetaList.o \
@@ -18,7 +21,10 @@ ASM_LIST = \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/ExceptionType.s \
+.obj/Function.s \
 .obj/Handle.s \
+.obj/LockObject.s \
+.obj/LockUse.s \
 .obj/Locked.s \
 .obj/Meta.s \
 .obj/MetaList.s \
@@ -33,7 +39,10 @@ DEP_LIST = \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/ExceptionType.dep \
+.obj/Function.dep \
 .obj/Handle.dep \
+.obj/LockObject.dep \
+.obj/LockUse.dep \
 .obj/Locked.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
@@ -62,7 +71,16 @@ include $(RULES_FILE)
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Function.o : ../../Simple/CCore/src/gadget/Function.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/LockObject.o : ../../Simple/CCore/src/gadget/LockObject.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/LockUse.o : ../../Simple/CCore/src/gadget/LockUse.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Locked.o : ../../Simple/CCore/src/gadget/Locked.cpp
@@ -100,7 +118,16 @@ include $(RULES_FILE)
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Function.s : ../../Simple/CCore/src/gadget/Function.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/LockObject.s : ../../Simple/CCore/src/gadget/LockObject.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/LockUse.s : ../../Simple/CCore/src/gadget/LockUse.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Locked.s : ../../Simple/CCore/src/gadget/Locked.cpp
@@ -138,8 +165,17 @@ include $(RULES_FILE)
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
 
+.obj/Function.dep : ../../Simple/CCore/src/gadget/Function.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Function.o $< -MF $@
+
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/LockObject.dep : ../../Simple/CCore/src/gadget/LockObject.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LockObject.o $< -MF $@
+
+.obj/LockUse.dep : ../../Simple/CCore/src/gadget/LockUse.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LockUse.o $< -MF $@
 
 .obj/Locked.dep : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Locked.o $< -MF $@
