@@ -92,6 +92,13 @@ struct MSec
   constexpr bool operator ! () const { return !time; }
 
   MSec cap(MSec lim) { Replace_min(time,lim.time); return *this; }
+
+  MSec operator - (UIntType auto t) const
+   {
+    if( t>=time ) return Null;
+
+    return MSec(unsigned(time-t));
+   }
  };
 
 inline constexpr MSec operator + (MSec a,MSec b) { return MSec(MSecAdd(a.time,b.time)); }
