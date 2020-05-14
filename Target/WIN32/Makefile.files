@@ -4,12 +4,15 @@ OBJ_LIST = \
 .obj/BlockFifo.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
+.obj/Counters.o \
+.obj/Crc.o \
 .obj/CreateAt.o \
 .obj/DefaultTimeout.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
+.obj/Fifo.o \
 .obj/ForLoop.o \
 .obj/Function.o \
 .obj/FunctorType.o \
@@ -72,12 +75,15 @@ ASM_LIST = \
 .obj/BlockFifo.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
+.obj/Counters.s \
+.obj/Crc.s \
 .obj/CreateAt.s \
 .obj/DefaultTimeout.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
+.obj/Fifo.s \
 .obj/ForLoop.s \
 .obj/Function.s \
 .obj/FunctorType.s \
@@ -140,12 +146,15 @@ DEP_LIST = \
 .obj/BlockFifo.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
+.obj/Counters.dep \
+.obj/Crc.dep \
 .obj/CreateAt.dep \
 .obj/DefaultTimeout.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
+.obj/Fifo.dep \
 .obj/ForLoop.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
@@ -225,6 +234,12 @@ include $(RULES_FILE)
 .obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Counters.o : ../../Simple/CCore/src/./Counters.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Crc.o : ../../Simple/CCore/src/./Crc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/CreateAt.o : ../../Simple/CCore/src/gadget/CreateAt.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -241,6 +256,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Fifo.o : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ForLoop.o : ../../Simple/CCore/src/./ForLoop.cpp
@@ -422,6 +440,12 @@ include $(RULES_FILE)
 .obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Counters.s : ../../Simple/CCore/src/./Counters.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Crc.s : ../../Simple/CCore/src/./Crc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CreateAt.s : ../../Simple/CCore/src/gadget/CreateAt.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -438,6 +462,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Fifo.s : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ForLoop.s : ../../Simple/CCore/src/./ForLoop.cpp
@@ -619,6 +646,12 @@ include $(RULES_FILE)
 .obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
 
+.obj/Counters.dep : ../../Simple/CCore/src/./Counters.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
+
+.obj/Crc.dep : ../../Simple/CCore/src/./Crc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Crc.o $< -MF $@
+
 .obj/CreateAt.dep : ../../Simple/CCore/src/gadget/CreateAt.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CreateAt.o $< -MF $@
 
@@ -636,6 +669,9 @@ include $(RULES_FILE)
 
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
+
+.obj/Fifo.dep : ../../Simple/CCore/src/./Fifo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
 
 .obj/ForLoop.dep : ../../Simple/CCore/src/./ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
