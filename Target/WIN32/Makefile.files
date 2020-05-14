@@ -26,6 +26,8 @@ OBJ_LIST = \
 .obj/LockUse.o \
 .obj/Locked.o \
 .obj/MSec.o \
+.obj/MakeString.o \
+.obj/MemberFold.o \
 .obj/Meta.o \
 .obj/MetaList.o \
 .obj/Move.o \
@@ -101,6 +103,8 @@ ASM_LIST = \
 .obj/LockUse.s \
 .obj/Locked.s \
 .obj/MSec.s \
+.obj/MakeString.s \
+.obj/MemberFold.s \
 .obj/Meta.s \
 .obj/MetaList.s \
 .obj/Move.s \
@@ -176,6 +180,8 @@ DEP_LIST = \
 .obj/LockUse.dep \
 .obj/Locked.dep \
 .obj/MSec.dep \
+.obj/MakeString.dep \
+.obj/MemberFold.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
 .obj/Move.dep \
@@ -310,6 +316,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MakeString.o : ../../Simple/CCore/src/./MakeString.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MemberFold.o : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Meta.o : ../../Simple/CCore/src/gadget/Meta.cpp
@@ -530,6 +542,12 @@ include $(RULES_FILE)
 .obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MakeString.s : ../../Simple/CCore/src/./MakeString.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MemberFold.s : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Meta.s : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -747,6 +765,12 @@ include $(RULES_FILE)
 
 .obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
+
+.obj/MakeString.dep : ../../Simple/CCore/src/./MakeString.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MakeString.o $< -MF $@
+
+.obj/MemberFold.dep : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
 
 .obj/Meta.dep : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Meta.o $< -MF $@
