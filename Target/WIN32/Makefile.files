@@ -41,6 +41,7 @@ OBJ_LIST = \
 .obj/PosSub.o \
 .obj/PrintAbort.o \
 .obj/PrintBase.o \
+.obj/PrintBits.o \
 .obj/PrintCon.o \
 .obj/PrintProxy.o \
 .obj/Printf.o \
@@ -50,6 +51,7 @@ OBJ_LIST = \
 .obj/Quick.o \
 .obj/Replace.o \
 .obj/SIntFunc.o \
+.obj/ScanBit.o \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Space.o \
@@ -57,6 +59,7 @@ OBJ_LIST = \
 .obj/StrPrint.o \
 .obj/Swap.o \
 .obj/SymCount.o \
+.obj/TextLabel.o \
 .obj/TimeScope.o \
 .obj/Timer.o \
 .obj/TlsSlot.o \
@@ -65,6 +68,7 @@ OBJ_LIST = \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
+.obj/UIntSplit.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 
@@ -112,6 +116,7 @@ ASM_LIST = \
 .obj/PosSub.s \
 .obj/PrintAbort.s \
 .obj/PrintBase.s \
+.obj/PrintBits.s \
 .obj/PrintCon.s \
 .obj/PrintProxy.s \
 .obj/Printf.s \
@@ -121,6 +126,7 @@ ASM_LIST = \
 .obj/Quick.s \
 .obj/Replace.s \
 .obj/SIntFunc.s \
+.obj/ScanBit.s \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Space.s \
@@ -128,6 +134,7 @@ ASM_LIST = \
 .obj/StrPrint.s \
 .obj/Swap.s \
 .obj/SymCount.s \
+.obj/TextLabel.s \
 .obj/TimeScope.s \
 .obj/Timer.s \
 .obj/TlsSlot.s \
@@ -136,6 +143,7 @@ ASM_LIST = \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
+.obj/UIntSplit.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 
@@ -183,6 +191,7 @@ DEP_LIST = \
 .obj/PosSub.dep \
 .obj/PrintAbort.dep \
 .obj/PrintBase.dep \
+.obj/PrintBits.dep \
 .obj/PrintCon.dep \
 .obj/PrintProxy.dep \
 .obj/Printf.dep \
@@ -192,6 +201,7 @@ DEP_LIST = \
 .obj/Quick.dep \
 .obj/Replace.dep \
 .obj/SIntFunc.dep \
+.obj/ScanBit.dep \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Space.dep \
@@ -199,6 +209,7 @@ DEP_LIST = \
 .obj/StrPrint.dep \
 .obj/Swap.dep \
 .obj/SymCount.dep \
+.obj/TextLabel.dep \
 .obj/TimeScope.dep \
 .obj/Timer.dep \
 .obj/TlsSlot.dep \
@@ -207,6 +218,7 @@ DEP_LIST = \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
+.obj/UIntSplit.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 
@@ -345,6 +357,9 @@ include $(RULES_FILE)
 .obj/PrintBase.o : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintBits.o : ../../Simple/CCore/src/./PrintBits.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintCon.o : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -372,6 +387,9 @@ include $(RULES_FILE)
 .obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ScanBit.o : ../../Simple/CCore/src/./ScanBit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Scope.o : ../../Fundamental/CCore/src/./Scope.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -391,6 +409,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SymCount.o : ../../Simple/CCore/src/./SymCount.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TextLabel.o : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TimeScope.o : ../../Simple/CCore/src/./TimeScope.cpp
@@ -415,6 +436,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UIntSlowMulAlgo.o : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UIntSplit.o : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Utf8.o : ../../Simple/CCore/src/./Utf8.cpp
@@ -551,6 +575,9 @@ include $(RULES_FILE)
 .obj/PrintBase.s : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintBits.s : ../../Simple/CCore/src/./PrintBits.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintCon.s : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -578,6 +605,9 @@ include $(RULES_FILE)
 .obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ScanBit.s : ../../Simple/CCore/src/./ScanBit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Scope.s : ../../Fundamental/CCore/src/./Scope.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -597,6 +627,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SymCount.s : ../../Simple/CCore/src/./SymCount.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TextLabel.s : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/TimeScope.s : ../../Simple/CCore/src/./TimeScope.cpp
@@ -621,6 +654,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UIntSlowMulAlgo.s : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UIntSplit.s : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Utf8.s : ../../Simple/CCore/src/./Utf8.cpp
@@ -757,6 +793,9 @@ include $(RULES_FILE)
 .obj/PrintBase.dep : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintBase.o $< -MF $@
 
+.obj/PrintBits.dep : ../../Simple/CCore/src/./PrintBits.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintBits.o $< -MF $@
+
 .obj/PrintCon.dep : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintCon.o $< -MF $@
 
@@ -784,6 +823,9 @@ include $(RULES_FILE)
 .obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@
 
+.obj/ScanBit.dep : ../../Simple/CCore/src/./ScanBit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanBit.o $< -MF $@
+
 .obj/Scope.dep : ../../Fundamental/CCore/src/./Scope.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Scope.o $< -MF $@
 
@@ -804,6 +846,9 @@ include $(RULES_FILE)
 
 .obj/SymCount.dep : ../../Simple/CCore/src/./SymCount.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SymCount.o $< -MF $@
+
+.obj/TextLabel.dep : ../../Simple/CCore/src/./TextLabel.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TextLabel.o $< -MF $@
 
 .obj/TimeScope.dep : ../../Simple/CCore/src/./TimeScope.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TimeScope.o $< -MF $@
@@ -828,6 +873,9 @@ include $(RULES_FILE)
 
 .obj/UIntSlowMulAlgo.dep : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntSlowMulAlgo.o $< -MF $@
+
+.obj/UIntSplit.dep : ../../Simple/CCore/src/./UIntSplit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UIntSplit.o $< -MF $@
 
 .obj/Utf8.dep : ../../Simple/CCore/src/./Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
