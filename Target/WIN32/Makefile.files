@@ -1,20 +1,31 @@
 OBJ_LIST = \
+.obj/AbortMsgFunc.o \
 .obj/AutoCast.o \
+.obj/BlockFifo.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/CreateAt.o \
 .obj/DefaultTimeout.o \
+.obj/DestroyGuard.o \
+.obj/DetectProxy.o \
+.obj/Exception.o \
 .obj/ExceptionType.o \
+.obj/ForLoop.o \
 .obj/Function.o \
+.obj/FunctorType.o \
+.obj/Gadget.o \
 .obj/Handle.o \
 .obj/Init.o \
+.obj/IntPrint.o \
 .obj/Len.o \
+.obj/List.o \
 .obj/LockObject.o \
 .obj/LockUse.o \
 .obj/Locked.o \
 .obj/MSec.o \
 .obj/Meta.o \
 .obj/MetaList.o \
+.obj/Move.o \
 .obj/NegBool.o \
 .obj/NoCopy.o \
 .obj/NoThrowFlags.o \
@@ -22,36 +33,67 @@ OBJ_LIST = \
 .obj/NullMovePtr.o \
 .obj/OpAddHelper.o \
 .obj/Place.o \
+.obj/PlanInit.o \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
+.obj/PrintAbort.o \
+.obj/PrintBase.o \
+.obj/PrintCon.o \
+.obj/PrintProxy.o \
+.obj/Printf.o \
+.obj/PtrLen.o \
+.obj/PtrLenReverse.o \
+.obj/PtrStepLen.o \
 .obj/Quick.o \
 .obj/Replace.o \
 .obj/SIntFunc.o \
+.obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Space.o \
+.obj/StrParse.o \
+.obj/StrPrint.o \
+.obj/Swap.o \
+.obj/SymCount.o \
+.obj/TimeScope.o \
+.obj/Timer.o \
+.obj/TlsSlot.o \
+.obj/ToMoveCtor.o \
+.obj/Tuple.o \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
+.obj/Utf8.o \
 .obj/UtilFunc.o \
 
 
 ASM_LIST = \
+.obj/AbortMsgFunc.s \
 .obj/AutoCast.s \
+.obj/BlockFifo.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/CreateAt.s \
 .obj/DefaultTimeout.s \
+.obj/DestroyGuard.s \
+.obj/DetectProxy.s \
+.obj/Exception.s \
 .obj/ExceptionType.s \
+.obj/ForLoop.s \
 .obj/Function.s \
+.obj/FunctorType.s \
+.obj/Gadget.s \
 .obj/Handle.s \
 .obj/Init.s \
+.obj/IntPrint.s \
 .obj/Len.s \
+.obj/List.s \
 .obj/LockObject.s \
 .obj/LockUse.s \
 .obj/Locked.s \
 .obj/MSec.s \
 .obj/Meta.s \
 .obj/MetaList.s \
+.obj/Move.s \
 .obj/NegBool.s \
 .obj/NoCopy.s \
 .obj/NoThrowFlags.s \
@@ -59,36 +101,67 @@ ASM_LIST = \
 .obj/NullMovePtr.s \
 .obj/OpAddHelper.s \
 .obj/Place.s \
+.obj/PlanInit.s \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
+.obj/PrintAbort.s \
+.obj/PrintBase.s \
+.obj/PrintCon.s \
+.obj/PrintProxy.s \
+.obj/Printf.s \
+.obj/PtrLen.s \
+.obj/PtrLenReverse.s \
+.obj/PtrStepLen.s \
 .obj/Quick.s \
 .obj/Replace.s \
 .obj/SIntFunc.s \
+.obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Space.s \
+.obj/StrParse.s \
+.obj/StrPrint.s \
+.obj/Swap.s \
+.obj/SymCount.s \
+.obj/TimeScope.s \
+.obj/Timer.s \
+.obj/TlsSlot.s \
+.obj/ToMoveCtor.s \
+.obj/Tuple.s \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
+.obj/Utf8.s \
 .obj/UtilFunc.s \
 
 
 DEP_LIST = \
+.obj/AbortMsgFunc.dep \
 .obj/AutoCast.dep \
+.obj/BlockFifo.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/CreateAt.dep \
 .obj/DefaultTimeout.dep \
+.obj/DestroyGuard.dep \
+.obj/DetectProxy.dep \
+.obj/Exception.dep \
 .obj/ExceptionType.dep \
+.obj/ForLoop.dep \
 .obj/Function.dep \
+.obj/FunctorType.dep \
+.obj/Gadget.dep \
 .obj/Handle.dep \
 .obj/Init.dep \
+.obj/IntPrint.dep \
 .obj/Len.dep \
+.obj/List.dep \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
 .obj/Locked.dep \
 .obj/MSec.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
+.obj/Move.dep \
 .obj/NegBool.dep \
 .obj/NoCopy.dep \
 .obj/NoThrowFlags.dep \
@@ -96,16 +169,36 @@ DEP_LIST = \
 .obj/NullMovePtr.dep \
 .obj/OpAddHelper.dep \
 .obj/Place.dep \
+.obj/PlanInit.dep \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
+.obj/PrintAbort.dep \
+.obj/PrintBase.dep \
+.obj/PrintCon.dep \
+.obj/PrintProxy.dep \
+.obj/Printf.dep \
+.obj/PtrLen.dep \
+.obj/PtrLenReverse.dep \
+.obj/PtrStepLen.dep \
 .obj/Quick.dep \
 .obj/Replace.dep \
 .obj/SIntFunc.dep \
+.obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Space.dep \
+.obj/StrParse.dep \
+.obj/StrPrint.dep \
+.obj/Swap.dep \
+.obj/SymCount.dep \
+.obj/TimeScope.dep \
+.obj/Timer.dep \
+.obj/TlsSlot.dep \
+.obj/ToMoveCtor.dep \
+.obj/Tuple.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
+.obj/Utf8.dep \
 .obj/UtilFunc.dep \
 
 
@@ -117,7 +210,13 @@ ASM_OBJ_LIST = \
 include $(RULES_FILE)
 
 
+.obj/AbortMsgFunc.o : ../../Simple/CCore/src/./AbortMsgFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BlockFifo.o : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -132,10 +231,28 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DestroyGuard.o : ../../Simple/CCore/src/./DestroyGuard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Exception.o : ../../Fundamental/CCore/src/./Exception.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ForLoop.o : ../../Simple/CCore/src/./ForLoop.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Function.o : ../../Simple/CCore/src/gadget/Function.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FunctorType.o : ../../Simple/CCore/src/./FunctorType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Gadget.o : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
@@ -144,7 +261,13 @@ include $(RULES_FILE)
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/IntPrint.o : ../../Fundamental/CCore/src/printf/IntPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/List.o : ../../Fundamental/CCore/src/./List.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/LockObject.o : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -163,6 +286,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MetaList.o : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Move.o : ../../Simple/CCore/src/./Move.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
@@ -186,10 +312,37 @@ include $(RULES_FILE)
 .obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PlanInit.o : ../../Fundamental/CCore/src/./PlanInit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintAbort.o : ../../Simple/CCore/src/./PrintAbort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintBase.o : ../../Fundamental/CCore/src/printf/PrintBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintCon.o : ../../HCore/CCore/src/print/PrintCon.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintProxy.o : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Printf.o : ../../Fundamental/CCore/src/./Printf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PtrLen.o : ../../Simple/CCore/src/gadget/PtrLen.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PtrLenReverse.o : ../../Simple/CCore/src/gadget/PtrLenReverse.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PtrStepLen.o : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
@@ -201,10 +354,40 @@ include $(RULES_FILE)
 .obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Scope.o : ../../Fundamental/CCore/src/./Scope.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/StrParse.o : ../../Fundamental/CCore/src/./StrParse.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/StrPrint.o : ../../Fundamental/CCore/src/printf/StrPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Swap.o : ../../Simple/CCore/src/./Swap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SymCount.o : ../../Simple/CCore/src/./SymCount.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TimeScope.o : ../../Simple/CCore/src/./TimeScope.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Timer.o : ../../Simple/CCore/src/./Timer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TlsSlot.o : ../../Simple/CCore/src/./TlsSlot.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ToMoveCtor.o : ../../Simple/CCore/src/./ToMoveCtor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Tuple.o : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UIntFunc.o : ../../Simple/CCore/src/gadget/UIntFunc.cpp
@@ -216,12 +399,21 @@ include $(RULES_FILE)
 .obj/UIntSlowMulAlgo.o : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Utf8.o : ../../Simple/CCore/src/./Utf8.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/UtilFunc.o : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
 
+.obj/AbortMsgFunc.s : ../../Simple/CCore/src/./AbortMsgFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BlockFifo.s : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -236,10 +428,28 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DestroyGuard.s : ../../Simple/CCore/src/./DestroyGuard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Exception.s : ../../Fundamental/CCore/src/./Exception.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ForLoop.s : ../../Simple/CCore/src/./ForLoop.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Function.s : ../../Simple/CCore/src/gadget/Function.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FunctorType.s : ../../Simple/CCore/src/./FunctorType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Gadget.s : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
@@ -248,7 +458,13 @@ include $(RULES_FILE)
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/IntPrint.s : ../../Fundamental/CCore/src/printf/IntPrint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/List.s : ../../Fundamental/CCore/src/./List.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/LockObject.s : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -267,6 +483,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MetaList.s : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Move.s : ../../Simple/CCore/src/./Move.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
@@ -290,10 +509,37 @@ include $(RULES_FILE)
 .obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PlanInit.s : ../../Fundamental/CCore/src/./PlanInit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintAbort.s : ../../Simple/CCore/src/./PrintAbort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintBase.s : ../../Fundamental/CCore/src/printf/PrintBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintCon.s : ../../HCore/CCore/src/print/PrintCon.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintProxy.s : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Printf.s : ../../Fundamental/CCore/src/./Printf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PtrLen.s : ../../Simple/CCore/src/gadget/PtrLen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PtrLenReverse.s : ../../Simple/CCore/src/gadget/PtrLenReverse.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PtrStepLen.s : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
@@ -305,10 +551,40 @@ include $(RULES_FILE)
 .obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Scope.s : ../../Fundamental/CCore/src/./Scope.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/StrParse.s : ../../Fundamental/CCore/src/./StrParse.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/StrPrint.s : ../../Fundamental/CCore/src/printf/StrPrint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Swap.s : ../../Simple/CCore/src/./Swap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SymCount.s : ../../Simple/CCore/src/./SymCount.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TimeScope.s : ../../Simple/CCore/src/./TimeScope.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Timer.s : ../../Simple/CCore/src/./Timer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TlsSlot.s : ../../Simple/CCore/src/./TlsSlot.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ToMoveCtor.s : ../../Simple/CCore/src/./ToMoveCtor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Tuple.s : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UIntFunc.s : ../../Simple/CCore/src/gadget/UIntFunc.cpp
@@ -320,13 +596,22 @@ include $(RULES_FILE)
 .obj/UIntSlowMulAlgo.s : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Utf8.s : ../../Simple/CCore/src/./Utf8.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/UtilFunc.s : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
 
+.obj/AbortMsgFunc.dep : ../../Simple/CCore/src/./AbortMsgFunc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AbortMsgFunc.o $< -MF $@
+
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
+
+.obj/BlockFifo.dep : ../../Simple/CCore/src/./BlockFifo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
 
 .obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
@@ -340,11 +625,29 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
 
+.obj/DestroyGuard.dep : ../../Simple/CCore/src/./DestroyGuard.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DestroyGuard.o $< -MF $@
+
+.obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
+
+.obj/Exception.dep : ../../Fundamental/CCore/src/./Exception.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Exception.o $< -MF $@
+
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
 
+.obj/ForLoop.dep : ../../Simple/CCore/src/./ForLoop.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
+
 .obj/Function.dep : ../../Simple/CCore/src/gadget/Function.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Function.o $< -MF $@
+
+.obj/FunctorType.dep : ../../Simple/CCore/src/./FunctorType.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FunctorType.o $< -MF $@
+
+.obj/Gadget.dep : ../../Simple/CCore/src/./Gadget.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Gadget.o $< -MF $@
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
@@ -352,8 +655,14 @@ include $(RULES_FILE)
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
 
+.obj/IntPrint.dep : ../../Fundamental/CCore/src/printf/IntPrint.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntPrint.o $< -MF $@
+
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
+
+.obj/List.dep : ../../Fundamental/CCore/src/./List.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/List.o $< -MF $@
 
 .obj/LockObject.dep : ../../Simple/CCore/src/gadget/LockObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LockObject.o $< -MF $@
@@ -372,6 +681,9 @@ include $(RULES_FILE)
 
 .obj/MetaList.dep : ../../Simple/CCore/src/gadget/MetaList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MetaList.o $< -MF $@
+
+.obj/Move.dep : ../../Simple/CCore/src/./Move.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Move.o $< -MF $@
 
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
@@ -394,11 +706,38 @@ include $(RULES_FILE)
 .obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
 
+.obj/PlanInit.dep : ../../Fundamental/CCore/src/./PlanInit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PlanInit.o $< -MF $@
+
 .obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
 
 .obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
+
+.obj/PrintAbort.dep : ../../Simple/CCore/src/./PrintAbort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintAbort.o $< -MF $@
+
+.obj/PrintBase.dep : ../../Fundamental/CCore/src/printf/PrintBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintBase.o $< -MF $@
+
+.obj/PrintCon.dep : ../../HCore/CCore/src/print/PrintCon.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintCon.o $< -MF $@
+
+.obj/PrintProxy.dep : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintProxy.o $< -MF $@
+
+.obj/Printf.dep : ../../Fundamental/CCore/src/./Printf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Printf.o $< -MF $@
+
+.obj/PtrLen.dep : ../../Simple/CCore/src/gadget/PtrLen.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PtrLen.o $< -MF $@
+
+.obj/PtrLenReverse.dep : ../../Simple/CCore/src/gadget/PtrLenReverse.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PtrLenReverse.o $< -MF $@
+
+.obj/PtrStepLen.dep : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PtrStepLen.o $< -MF $@
 
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
@@ -409,11 +748,41 @@ include $(RULES_FILE)
 .obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@
 
+.obj/Scope.dep : ../../Fundamental/CCore/src/./Scope.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Scope.o $< -MF $@
+
 .obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
 
 .obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
+
+.obj/StrParse.dep : ../../Fundamental/CCore/src/./StrParse.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StrParse.o $< -MF $@
+
+.obj/StrPrint.dep : ../../Fundamental/CCore/src/printf/StrPrint.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StrPrint.o $< -MF $@
+
+.obj/Swap.dep : ../../Simple/CCore/src/./Swap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Swap.o $< -MF $@
+
+.obj/SymCount.dep : ../../Simple/CCore/src/./SymCount.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SymCount.o $< -MF $@
+
+.obj/TimeScope.dep : ../../Simple/CCore/src/./TimeScope.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TimeScope.o $< -MF $@
+
+.obj/Timer.dep : ../../Simple/CCore/src/./Timer.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Timer.o $< -MF $@
+
+.obj/TlsSlot.dep : ../../Simple/CCore/src/./TlsSlot.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TlsSlot.o $< -MF $@
+
+.obj/ToMoveCtor.dep : ../../Simple/CCore/src/./ToMoveCtor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ToMoveCtor.o $< -MF $@
+
+.obj/Tuple.dep : ../../Simple/CCore/src/./Tuple.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Tuple.o $< -MF $@
 
 .obj/UIntFunc.dep : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntFunc.o $< -MF $@
@@ -423,6 +792,9 @@ include $(RULES_FILE)
 
 .obj/UIntSlowMulAlgo.dep : ../../Fundamental/CCore/src/math/UIntSlowMulAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntSlowMulAlgo.o $< -MF $@
+
+.obj/Utf8.dep : ../../Simple/CCore/src/./Utf8.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
 
 .obj/UtilFunc.dep : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UtilFunc.o $< -MF $@
