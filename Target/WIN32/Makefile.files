@@ -2,6 +2,7 @@ OBJ_LIST = \
 .obj/AbortMsgFunc.o \
 .obj/AutoCast.o \
 .obj/BlockFifo.o \
+.obj/CharProp.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/Counters.o \
@@ -56,6 +57,7 @@ OBJ_LIST = \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
 .obj/Quick.o \
+.obj/RefPtr.o \
 .obj/Replace.o \
 .obj/SIntFunc.o \
 .obj/ScanBit.o \
@@ -66,12 +68,16 @@ OBJ_LIST = \
 .obj/StrPrint.o \
 .obj/Swap.o \
 .obj/SymCount.o \
+.obj/SymPart.o \
+.obj/Symbol.o \
 .obj/TextLabel.o \
+.obj/TextTools.o \
 .obj/TimeScope.o \
 .obj/Timer.o \
 .obj/TlsSlot.o \
 .obj/ToMoveCtor.o \
 .obj/Tuple.o \
+.obj/TypeSwitch.o \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
@@ -84,6 +90,7 @@ ASM_LIST = \
 .obj/AbortMsgFunc.s \
 .obj/AutoCast.s \
 .obj/BlockFifo.s \
+.obj/CharProp.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/Counters.s \
@@ -138,6 +145,7 @@ ASM_LIST = \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
 .obj/Quick.s \
+.obj/RefPtr.s \
 .obj/Replace.s \
 .obj/SIntFunc.s \
 .obj/ScanBit.s \
@@ -148,12 +156,16 @@ ASM_LIST = \
 .obj/StrPrint.s \
 .obj/Swap.s \
 .obj/SymCount.s \
+.obj/SymPart.s \
+.obj/Symbol.s \
 .obj/TextLabel.s \
+.obj/TextTools.s \
 .obj/TimeScope.s \
 .obj/Timer.s \
 .obj/TlsSlot.s \
 .obj/ToMoveCtor.s \
 .obj/Tuple.s \
+.obj/TypeSwitch.s \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
@@ -166,6 +178,7 @@ DEP_LIST = \
 .obj/AbortMsgFunc.dep \
 .obj/AutoCast.dep \
 .obj/BlockFifo.dep \
+.obj/CharProp.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/Counters.dep \
@@ -220,6 +233,7 @@ DEP_LIST = \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
 .obj/Quick.dep \
+.obj/RefPtr.dep \
 .obj/Replace.dep \
 .obj/SIntFunc.dep \
 .obj/ScanBit.dep \
@@ -230,12 +244,16 @@ DEP_LIST = \
 .obj/StrPrint.dep \
 .obj/Swap.dep \
 .obj/SymCount.dep \
+.obj/SymPart.dep \
+.obj/Symbol.dep \
 .obj/TextLabel.dep \
+.obj/TextTools.dep \
 .obj/TimeScope.dep \
 .obj/Timer.dep \
 .obj/TlsSlot.dep \
 .obj/ToMoveCtor.dep \
 .obj/Tuple.dep \
+.obj/TypeSwitch.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
@@ -259,6 +277,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BlockFifo.o : ../../Simple/CCore/src/./BlockFifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CharProp.o : ../../Fundamental/CCore/src/./CharProp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -423,6 +444,9 @@ include $(RULES_FILE)
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RefPtr.o : ../../Simple/CCore/src/./RefPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Replace.o : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -453,7 +477,16 @@ include $(RULES_FILE)
 .obj/SymCount.o : ../../Simple/CCore/src/./SymCount.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SymPart.o : ../../Simple/CCore/src/./SymPart.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Symbol.o : ../../Simple/CCore/src/./Symbol.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TextLabel.o : ../../Simple/CCore/src/./TextLabel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TextTools.o : ../../Fundamental/CCore/src/./TextTools.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TimeScope.o : ../../Simple/CCore/src/./TimeScope.cpp
@@ -469,6 +502,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Tuple.o : ../../Simple/CCore/src/./Tuple.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TypeSwitch.o : ../../Simple/CCore/src/./TypeSwitch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UIntFunc.o : ../../Simple/CCore/src/gadget/UIntFunc.cpp
@@ -498,6 +534,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BlockFifo.s : ../../Simple/CCore/src/./BlockFifo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CharProp.s : ../../Fundamental/CCore/src/./CharProp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -662,6 +701,9 @@ include $(RULES_FILE)
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RefPtr.s : ../../Simple/CCore/src/./RefPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Replace.s : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -692,7 +734,16 @@ include $(RULES_FILE)
 .obj/SymCount.s : ../../Simple/CCore/src/./SymCount.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SymPart.s : ../../Simple/CCore/src/./SymPart.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Symbol.s : ../../Simple/CCore/src/./Symbol.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TextLabel.s : ../../Simple/CCore/src/./TextLabel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TextTools.s : ../../Fundamental/CCore/src/./TextTools.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/TimeScope.s : ../../Simple/CCore/src/./TimeScope.cpp
@@ -708,6 +759,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Tuple.s : ../../Simple/CCore/src/./Tuple.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TypeSwitch.s : ../../Simple/CCore/src/./TypeSwitch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UIntFunc.s : ../../Simple/CCore/src/gadget/UIntFunc.cpp
@@ -738,6 +792,9 @@ include $(RULES_FILE)
 
 .obj/BlockFifo.dep : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
+
+.obj/CharProp.dep : ../../Fundamental/CCore/src/./CharProp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CharProp.o $< -MF $@
 
 .obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
@@ -901,6 +958,9 @@ include $(RULES_FILE)
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
 
+.obj/RefPtr.dep : ../../Simple/CCore/src/./RefPtr.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RefPtr.o $< -MF $@
+
 .obj/Replace.dep : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Replace.o $< -MF $@
 
@@ -931,8 +991,17 @@ include $(RULES_FILE)
 .obj/SymCount.dep : ../../Simple/CCore/src/./SymCount.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SymCount.o $< -MF $@
 
+.obj/SymPart.dep : ../../Simple/CCore/src/./SymPart.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SymPart.o $< -MF $@
+
+.obj/Symbol.dep : ../../Simple/CCore/src/./Symbol.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Symbol.o $< -MF $@
+
 .obj/TextLabel.dep : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TextLabel.o $< -MF $@
+
+.obj/TextTools.dep : ../../Fundamental/CCore/src/./TextTools.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TextTools.o $< -MF $@
 
 .obj/TimeScope.dep : ../../Simple/CCore/src/./TimeScope.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TimeScope.o $< -MF $@
@@ -948,6 +1017,9 @@ include $(RULES_FILE)
 
 .obj/Tuple.dep : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Tuple.o $< -MF $@
+
+.obj/TypeSwitch.dep : ../../Simple/CCore/src/./TypeSwitch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TypeSwitch.o $< -MF $@
 
 .obj/UIntFunc.dep : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntFunc.o $< -MF $@
