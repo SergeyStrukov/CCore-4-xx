@@ -36,14 +36,6 @@ struct SIntFunc
 
   static SInt ToSInt(UInt a) { return SInt(a); }
 
-   //
-   // assume
-   //
-   //  SInt a;
-   //
-   //  ToSInt( (UInt)a ) == a
-   //
-
   // consts
 
   static constexpr UInt MaxPositiveAbs = UIntFunc<UInt>::MaxPositive ; // 2's complement property
@@ -62,9 +54,9 @@ struct SIntFunc
 
   // shift
 
-  static SInt LShift(SInt a,unsigned shift) { return ToSInt(UInt(a)<<shift); } // ASL
+  static SInt LShift(SInt a,unsigned shift) { return a<<shift; } // ASL
 
-  static SInt RShift(SInt a,unsigned shift) { return a>>shift; } // assume ASR
+  static SInt RShift(SInt a,unsigned shift) { return a>>shift; } // ASR
 
   // mask
 
