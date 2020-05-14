@@ -37,6 +37,7 @@ OBJ_LIST = \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
 .obj/OpAddHelper.o \
+.obj/OwnPtr.o \
 .obj/Place.o \
 .obj/PlanInit.o \
 .obj/PlatformBase.o \
@@ -45,7 +46,11 @@ OBJ_LIST = \
 .obj/PrintBase.o \
 .obj/PrintBits.o \
 .obj/PrintCon.o \
+.obj/PrintError.o \
 .obj/PrintProxy.o \
+.obj/PrintSet.o \
+.obj/PrintTime.o \
+.obj/PrintTitle.o \
 .obj/Printf.o \
 .obj/PtrLen.o \
 .obj/PtrLenReverse.o \
@@ -114,6 +119,7 @@ ASM_LIST = \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
 .obj/OpAddHelper.s \
+.obj/OwnPtr.s \
 .obj/Place.s \
 .obj/PlanInit.s \
 .obj/PlatformBase.s \
@@ -122,7 +128,11 @@ ASM_LIST = \
 .obj/PrintBase.s \
 .obj/PrintBits.s \
 .obj/PrintCon.s \
+.obj/PrintError.s \
 .obj/PrintProxy.s \
+.obj/PrintSet.s \
+.obj/PrintTime.s \
+.obj/PrintTitle.s \
 .obj/Printf.s \
 .obj/PtrLen.s \
 .obj/PtrLenReverse.s \
@@ -191,6 +201,7 @@ DEP_LIST = \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
 .obj/OpAddHelper.dep \
+.obj/OwnPtr.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
 .obj/PlatformBase.dep \
@@ -199,7 +210,11 @@ DEP_LIST = \
 .obj/PrintBase.dep \
 .obj/PrintBits.dep \
 .obj/PrintCon.dep \
+.obj/PrintError.dep \
 .obj/PrintProxy.dep \
+.obj/PrintSet.dep \
+.obj/PrintTime.dep \
+.obj/PrintTitle.dep \
 .obj/Printf.dep \
 .obj/PtrLen.dep \
 .obj/PtrLenReverse.dep \
@@ -351,6 +366,9 @@ include $(RULES_FILE)
 .obj/OpAddHelper.o : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/OwnPtr.o : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -375,7 +393,19 @@ include $(RULES_FILE)
 .obj/PrintCon.o : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintError.o : ../../Simple/CCore/src/./PrintError.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintProxy.o : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintSet.o : ../../Simple/CCore/src/./PrintSet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintTime.o : ../../Simple/CCore/src/./PrintTime.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintTitle.o : ../../Simple/CCore/src/./PrintTitle.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Printf.o : ../../Fundamental/CCore/src/./Printf.cpp
@@ -575,6 +605,9 @@ include $(RULES_FILE)
 .obj/OpAddHelper.s : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/OwnPtr.s : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -599,7 +632,19 @@ include $(RULES_FILE)
 .obj/PrintCon.s : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintError.s : ../../Simple/CCore/src/./PrintError.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintProxy.s : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintSet.s : ../../Simple/CCore/src/./PrintSet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintTime.s : ../../Simple/CCore/src/./PrintTime.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintTitle.s : ../../Simple/CCore/src/./PrintTitle.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Printf.s : ../../Fundamental/CCore/src/./Printf.cpp
@@ -799,6 +844,9 @@ include $(RULES_FILE)
 .obj/OpAddHelper.dep : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OpAddHelper.o $< -MF $@
 
+.obj/OwnPtr.dep : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
+
 .obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
 
@@ -823,8 +871,20 @@ include $(RULES_FILE)
 .obj/PrintCon.dep : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintCon.o $< -MF $@
 
+.obj/PrintError.dep : ../../Simple/CCore/src/./PrintError.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintError.o $< -MF $@
+
 .obj/PrintProxy.dep : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintProxy.o $< -MF $@
+
+.obj/PrintSet.dep : ../../Simple/CCore/src/./PrintSet.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintSet.o $< -MF $@
+
+.obj/PrintTime.dep : ../../Simple/CCore/src/./PrintTime.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintTime.o $< -MF $@
+
+.obj/PrintTitle.dep : ../../Simple/CCore/src/./PrintTitle.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintTitle.o $< -MF $@
 
 .obj/Printf.dep : ../../Fundamental/CCore/src/./Printf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Printf.o $< -MF $@
