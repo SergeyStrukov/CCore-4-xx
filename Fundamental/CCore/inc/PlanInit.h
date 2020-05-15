@@ -135,6 +135,8 @@ class PlanInitObject : PlanInitReqList<RR...> , public PlanInitNode
 
    explicit PlanInitObject() : PlanInitNode(T::GetTag(),this->getReqList()),obj{0} {}
 
+   // object ptr
+
    T * operator + () const { return +obj; }
 
    bool operator ! () const { return !obj; }

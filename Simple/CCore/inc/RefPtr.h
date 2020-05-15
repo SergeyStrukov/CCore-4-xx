@@ -25,7 +25,9 @@ namespace CCore {
 template <class Algo,class T>
 concept RefPtrAlgo = requires(T *obj)
  {
-  Algo::IncRef(obj);
+  { Algo::IncRef(obj) } noexcept;
+
+  { Algo::DecRef(obj) } noexcept;
 
   Ground<bool>( Algo::DecRef(obj) );
 
@@ -37,7 +39,9 @@ concept RefPtrAlgo = requires(T *obj)
 template <class T>
 concept RefCountType = requires(T &obj)
  {
-  obj.incRef();
+  { obj.incRef() } noexcept;
+
+  { obj.decRef() } noexcept;
 
   Ground<bool>( obj.decRef() );
 
@@ -55,9 +59,9 @@ template <class T,class Algo=RefAlgo<T> > class RefPtr;
 template <class T>
 struct RefAlgo
  {
-  static void IncRef(T *ptr) requires ( RefCountType<T> ) { ptr->incRef(); }
+  static void IncRef(T *ptr) noexcept requires ( RefCountType<T> ) { ptr->incRef(); }
 
-  static bool DecRef(T *ptr) requires ( RefCountType<T> ) { return ptr->decRef(); }
+  static bool DecRef(T *ptr) noexcept requires ( RefCountType<T> ) { return ptr->decRef(); }
 
   static void Destroy(T *ptr) noexcept requires ( RefCountType<T> ) { ptr->destroy(); }
  };
@@ -65,25 +69,25 @@ struct RefAlgo
 /* class RefPtr<T,Algo> */
 
 template <class T,class Algo>
-class RefPtr
+class RefPtr : public ObjectNonNullPtr<T>
  {
-   T *ptr;
+   using ObjectNonNullPtr<T>::ptr;
 
   private:
 
-   static void SoftDestroy(RefPtr<T,Algo> *obj)
+   static void SoftDestroy(RefPtr<T,Algo> *obj) noexcept
     {
      obj->ptr=0;
 
      obj->~RefPtr();
     }
 
-   static void Hold(T *ptr) requires( RefPtrAlgo<Algo,T> )
+   static void Hold(T *ptr) noexcept requires( RefPtrAlgo<Algo,T> )
     {
      Algo::IncRef(ptr);
     }
 
-   static void Release(T *ptr) requires( RefPtrAlgo<Algo,T> )
+   static void Release(T *ptr) noexcept requires( RefPtrAlgo<Algo,T> )
     {
      if( Algo::DecRef(ptr) ) Algo::Destroy(ptr);
     }
@@ -92,13 +96,13 @@ class RefPtr
 
    // constructors
 
-   explicit RefPtr(T *ptr_) : ptr(ptr_) {} // ptr_!=0
+   explicit RefPtr(T *ptr) noexcept : ObjectNonNullPtr<T>(ptr) {} // ptr!=0
 
    ~RefPtr() { if( ptr ) this->Release(ptr); }
 
    // copying
 
-   RefPtr(const RefPtr<T,Algo> &obj) noexcept : ptr(obj.ptr) { this->Hold(ptr); }
+   RefPtr(const RefPtr<T,Algo> &obj) noexcept : ObjectNonNullPtr<T>(obj.ptr) { this->Hold(ptr); }
 
    RefPtr<T,Algo> & operator = (const RefPtr<T,Algo> &obj) noexcept
     {
@@ -110,14 +114,6 @@ class RefPtr
 
      return *this;
     }
-
-   // object ptr
-
-   T * getPtr() const { return ptr; }
-
-   T & operator * () const { return *ptr; }
-
-   T * operator -> () const { return ptr; }
 
    // reset
 
@@ -132,11 +128,11 @@ class RefPtr
 
    // swap/move objects
 
-   void objSwap(RefPtr<T,Algo> &obj) { Swap(ptr,obj.ptr); }
+   void objSwap(RefPtr<T,Algo> &obj) noexcept { Swap(ptr,obj.ptr); }
 
-   explicit RefPtr(ToMoveCtor< RefPtr<T,Algo> > obj) : ptr(Replace_null(obj->ptr)) {}
+   explicit RefPtr(ToMoveCtor< RefPtr<T,Algo> > obj) noexcept : ObjectNonNullPtr<T>(Replace_null(obj->ptr)) {}
 
-   RefPtr<T,Algo> * objMove(Place<void> place)
+   RefPtr<T,Algo> * objMove(Place<void> place) noexcept
     {
      RefPtr<T,Algo> *ret=new(place) RefPtr<T,Algo>(ptr);
 

@@ -18,7 +18,7 @@
 
 #include <CCore/inc/gadget/NoCopy.h>
 #include <CCore/inc/gadget/Replace.h>
-#include <CCore/inc/gadget/Nothing.h>
+#include <CCore/inc/gadget/ObjectPtr.h>
 
 namespace CCore {
 
@@ -29,23 +29,21 @@ template <class T> class NullMovePtr;
 /* class NullMovePtr<T> */
 
 template <class T>
-class NullMovePtr : NoCopy
+class NullMovePtr : public ObjectPtr<T,NoCopy>
  {
-   T *ptr;
+   using ObjectPtr<T,NoCopy>::ptr;
 
   public:
 
    // constructors
 
-   NullMovePtr() noexcept : ptr(0) {}
+   NullMovePtr() noexcept {}
 
-   NullMovePtr(NothingType) : NullMovePtr() {}
-
-   explicit NullMovePtr(T *ptr_) : ptr(ptr_) {}
+   explicit NullMovePtr(T *ptr) noexcept : ObjectPtr<T,NoCopy>(ptr) {}
 
    // std move
 
-   NullMovePtr(NullMovePtr<T> &&obj) noexcept : ptr(Replace_null(obj.ptr)) {}
+   NullMovePtr(NullMovePtr<T> &&obj) noexcept : ObjectPtr<T,NoCopy>(Replace_null(obj.ptr)) {}
 
    NullMovePtr<T> & operator = (NullMovePtr<T> &&obj) noexcept
     {
@@ -53,18 +51,6 @@ class NullMovePtr : NoCopy
 
      return *this;
     }
-
-   // object ptr
-
-   T * operator + () const { return ptr; }
-
-   bool operator ! () const { return !ptr; }
-
-   T * getPtr() const { return ptr; }
-
-   T & operator * () const { return *ptr; }
-
-   T * operator -> () const { return ptr; }
  };
 
 } // namespace CCore

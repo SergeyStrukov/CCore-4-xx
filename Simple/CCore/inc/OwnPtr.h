@@ -45,20 +45,20 @@ struct OwnAlgo
 /* class OwnPtr<T,Algo> */
 
 template <class T,class Algo>
-class OwnPtr : NoCopy
+class OwnPtr : public ObjectPtr<T,NoCopy>
  {
-   T *ptr;
+   using ObjectPtr<T,NoCopy>::ptr;
 
   private:
 
-   static void SoftDestroy(OwnPtr<T,Algo> *obj)
+   static void SoftDestroy(OwnPtr<T,Algo> *obj) noexcept
     {
      obj->ptr=0;
 
      obj->~OwnPtr();
     }
 
-   static void Destroy(T *ptr) requires ( OwnPtrAlgo<Algo,T> )
+   static void Destroy(T *ptr) noexcept requires ( OwnPtrAlgo<Algo,T> )
     {
      if( ptr ) Algo::Destroy(ptr);
     }
@@ -67,15 +67,15 @@ class OwnPtr : NoCopy
 
    // constructors
 
-   OwnPtr() noexcept : ptr(0) {}
+   OwnPtr() noexcept {}
 
-   explicit OwnPtr(T *ptr_) : ptr(ptr_) {}
+   explicit OwnPtr(T *ptr) noexcept : ObjectPtr<T,NoCopy>(ptr) {}
 
    ~OwnPtr() { this->Destroy(ptr); }
 
    // std move
 
-   OwnPtr(OwnPtr<T,Algo> &&obj) noexcept : ptr(Replace_null(obj.ptr)) {}
+   OwnPtr(OwnPtr<T,Algo> &&obj) noexcept : ObjectPtr<T,NoCopy>(Replace_null(obj.ptr)) {}
 
    OwnPtr<T,Algo> & operator = (OwnPtr<T,Algo> &&obj) noexcept
     {
@@ -87,31 +87,19 @@ class OwnPtr : NoCopy
      return *this;
     }
 
-   // object ptr
-
-   T * operator + () const { return ptr; }
-
-   bool operator ! () const { return !ptr; }
-
-   T * getPtr() const { return ptr; }
-
-   T & operator * () const { return *ptr; }
-
-   T * operator -> () const { return ptr; }
-
    // reset
 
-   void set(T *new_ptr) { this->Destroy(Replace(ptr,new_ptr)); }
+   void set(T *new_ptr) noexcept { this->Destroy(Replace(ptr,new_ptr)); }
 
-   T * detach(T *new_ptr=0) { return Replace(ptr,new_ptr); }
+   T * detach(T *new_ptr=0) noexcept { return Replace(ptr,new_ptr); }
 
    // swap/move objects
 
-   void objSwap(OwnPtr<T,Algo> &obj) { Swap(ptr,obj.ptr); }
+   void objSwap(OwnPtr<T,Algo> &obj) noexcept { Swap(ptr,obj.ptr); }
 
-   explicit OwnPtr(ToMoveCtor< OwnPtr<T,Algo> > obj) : ptr(Replace_null(obj->ptr)) {}
+   explicit OwnPtr(ToMoveCtor< OwnPtr<T,Algo> > obj) noexcept : ObjectPtr<T,NoCopy>(Replace_null(obj->ptr)) {}
 
-   OwnPtr<T,Algo> * objMove(Place<void> place)
+   OwnPtr<T,Algo> * objMove(Place<void> place) noexcept
     {
      OwnPtr<T,Algo> *ret=new(place) OwnPtr<T,Algo>(ptr);
 

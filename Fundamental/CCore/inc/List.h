@@ -63,25 +63,15 @@ struct SLink
 
     // ptr -> next -> ... -> null
 
-    struct Cur
+    struct Cur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
 
       // constructors
 
-      Cur() noexcept : ptr(0) {}
+      Cur() noexcept {}
 
-      explicit Cur(T *ptr_) : ptr(ptr_) {}
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
+      explicit Cur(T *ptr) noexcept : ObjectPtr<T>(ptr) {}
 
       // cursor
 
@@ -259,16 +249,17 @@ struct SLink
 
     // ptr -> next -> ... -> bottom
 
-    struct Cur
+    struct Cur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
+
       T *bottom;
 
       // constructors
 
-      Cur() noexcept : ptr(0),bottom(0) {}
+      Cur() noexcept : bottom(0) {}
 
-      explicit Cur(T *bottom_)
+      explicit Cur(T *bottom_) noexcept
        : bottom(bottom_)
        {
         if( bottom_ )
@@ -276,16 +267,6 @@ struct SLink
         else
           ptr=0;
        }
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
 
       // cursor
 
@@ -547,25 +528,15 @@ struct DLink
 
     // ptr -> next -> ... -> null
 
-    struct Cur
+    struct Cur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
 
       // constructors
 
-      Cur() noexcept : ptr(0) {}
+      Cur() noexcept {}
 
-      explicit Cur(T *ptr_) : ptr(ptr_) {}
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
+      explicit Cur(T *ptr) noexcept : ObjectPtr<T>(ptr) {}
 
       // cursor
 
@@ -576,25 +547,15 @@ struct DLink
 
     // null <- ... <- prev <- ptr
 
-    struct RevCur
+    struct RevCur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
 
       // constructors
 
-      RevCur() noexcept : ptr(0) {}
+      RevCur() noexcept {}
 
-      explicit RevCur(T *ptr_) : ptr(ptr_) {}
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
+      explicit RevCur(T *ptr) noexcept : ObjectPtr<T>(ptr) {}
 
       // cursor
 
@@ -1077,33 +1038,24 @@ struct DLink
 
     // ptr -> next -> ... -> last
 
-    struct Cur
+    struct Cur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
+
       T *last;
 
       // constructors
 
-      Cur() noexcept : ptr(0),last(0) {}
+      Cur() noexcept : last(0) {}
 
-      explicit Cur(T *ptr_)
-       : ptr(ptr_)
+      explicit Cur(T *ptr_) noexcept
+       : ObjectPtr<T>(ptr_)
        {
         if( ptr_ )
           last=Link(ptr_).prev;
         else
           last=0;
        }
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
 
       // cursor
 
@@ -1136,16 +1088,17 @@ struct DLink
 
     // first <- ... <- prev <- ptr
 
-    struct RevCur
+    struct RevCur : ObjectPtr<T>
      {
-      T *ptr;
+      using ObjectPtr<T>::ptr;
+
       T *first;
 
       // constructors
 
-      RevCur() noexcept : ptr(0),first(0) {}
+      RevCur() noexcept : first(0) {}
 
-      explicit RevCur(T *first_)
+      explicit RevCur(T *first_) noexcept
        : first(first_)
        {
         if( first_ )
@@ -1153,16 +1106,6 @@ struct DLink
         else
           ptr=0;
        }
-
-      // object ptr
-
-      T * operator + () const { return ptr; }
-
-      bool operator ! () const { return !ptr; }
-
-      T & operator * () const { return *ptr; }
-
-      T * operator -> () const { return ptr; }
 
       // cursor
 
