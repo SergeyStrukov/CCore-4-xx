@@ -109,6 +109,8 @@ concept CopyableType = Meta::IsCopyable<T> ;
 template <class T>
 concept NothrowCopyableType = CopyableType<T> && Meta::IsNothrowCopyable<T> ;
 
+//----------------------------------------------------------------------------------------
+
 /* complex concepts */
 
 /* concept ConstructibleType<T,SS> */
