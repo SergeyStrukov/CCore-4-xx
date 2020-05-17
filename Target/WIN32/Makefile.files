@@ -37,6 +37,7 @@ OBJ_LIST = \
 .obj/NoThrowFlags.o \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
+.obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
 .obj/OwnPtr.o \
 .obj/Place.o \
@@ -125,6 +126,7 @@ ASM_LIST = \
 .obj/NoThrowFlags.s \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
+.obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
 .obj/OwnPtr.s \
 .obj/Place.s \
@@ -213,6 +215,7 @@ DEP_LIST = \
 .obj/NoThrowFlags.dep \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
+.obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
 .obj/OwnPtr.dep \
 .obj/Place.dep \
@@ -384,6 +387,9 @@ include $(RULES_FILE)
 .obj/NullMovePtr.o : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ObjectPtr.o : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/OpAddHelper.o : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -480,7 +486,7 @@ include $(RULES_FILE)
 .obj/SymPart.o : ../../Simple/CCore/src/./SymPart.cpp
 	$(CC) $(CCOPT) $< -o $@
 
-.obj/Symbol.o : ../../Simple/CCore/src/./Symbol.cpp
+.obj/Symbol.o : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TextLabel.o : ../../Simple/CCore/src/./TextLabel.cpp
@@ -495,7 +501,7 @@ include $(RULES_FILE)
 .obj/Timer.o : ../../Simple/CCore/src/./Timer.cpp
 	$(CC) $(CCOPT) $< -o $@
 
-.obj/TlsSlot.o : ../../Simple/CCore/src/./TlsSlot.cpp
+.obj/TlsSlot.o : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ToMoveCtor.o : ../../Simple/CCore/src/./ToMoveCtor.cpp
@@ -519,7 +525,7 @@ include $(RULES_FILE)
 .obj/UIntSplit.o : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
-.obj/Utf8.o : ../../Simple/CCore/src/./Utf8.cpp
+.obj/Utf8.o : ../../Fundamental/CCore/src/./Utf8.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UtilFunc.o : ../../Simple/CCore/src/gadget/UtilFunc.cpp
@@ -641,6 +647,9 @@ include $(RULES_FILE)
 .obj/NullMovePtr.s : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ObjectPtr.s : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/OpAddHelper.s : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -737,7 +746,7 @@ include $(RULES_FILE)
 .obj/SymPart.s : ../../Simple/CCore/src/./SymPart.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
-.obj/Symbol.s : ../../Simple/CCore/src/./Symbol.cpp
+.obj/Symbol.s : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/TextLabel.s : ../../Simple/CCore/src/./TextLabel.cpp
@@ -752,7 +761,7 @@ include $(RULES_FILE)
 .obj/Timer.s : ../../Simple/CCore/src/./Timer.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
-.obj/TlsSlot.s : ../../Simple/CCore/src/./TlsSlot.cpp
+.obj/TlsSlot.s : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ToMoveCtor.s : ../../Simple/CCore/src/./ToMoveCtor.cpp
@@ -776,7 +785,7 @@ include $(RULES_FILE)
 .obj/UIntSplit.s : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
-.obj/Utf8.s : ../../Simple/CCore/src/./Utf8.cpp
+.obj/Utf8.s : ../../Fundamental/CCore/src/./Utf8.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UtilFunc.s : ../../Simple/CCore/src/gadget/UtilFunc.cpp
@@ -898,6 +907,9 @@ include $(RULES_FILE)
 .obj/NullMovePtr.dep : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NullMovePtr.o $< -MF $@
 
+.obj/ObjectPtr.dep : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ObjectPtr.o $< -MF $@
+
 .obj/OpAddHelper.dep : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OpAddHelper.o $< -MF $@
 
@@ -994,7 +1006,7 @@ include $(RULES_FILE)
 .obj/SymPart.dep : ../../Simple/CCore/src/./SymPart.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SymPart.o $< -MF $@
 
-.obj/Symbol.dep : ../../Simple/CCore/src/./Symbol.cpp
+.obj/Symbol.dep : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Symbol.o $< -MF $@
 
 .obj/TextLabel.dep : ../../Simple/CCore/src/./TextLabel.cpp
@@ -1009,7 +1021,7 @@ include $(RULES_FILE)
 .obj/Timer.dep : ../../Simple/CCore/src/./Timer.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Timer.o $< -MF $@
 
-.obj/TlsSlot.dep : ../../Simple/CCore/src/./TlsSlot.cpp
+.obj/TlsSlot.dep : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TlsSlot.o $< -MF $@
 
 .obj/ToMoveCtor.dep : ../../Simple/CCore/src/./ToMoveCtor.cpp
@@ -1033,7 +1045,7 @@ include $(RULES_FILE)
 .obj/UIntSplit.dep : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntSplit.o $< -MF $@
 
-.obj/Utf8.dep : ../../Simple/CCore/src/./Utf8.cpp
+.obj/Utf8.dep : ../../Fundamental/CCore/src/./Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
 
 .obj/UtilFunc.dep : ../../Simple/CCore/src/gadget/UtilFunc.cpp
