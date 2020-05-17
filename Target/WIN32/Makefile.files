@@ -105,6 +105,7 @@ OBJ_LIST = \
 .obj/SysTask.o \
 .obj/SysTime.o \
 .obj/SysTlsSlot.o \
+.obj/SysTypes.o \
 .obj/SysUtf8.o \
 .obj/Task.o \
 .obj/TaskCore.o \
@@ -235,6 +236,7 @@ ASM_LIST = \
 .obj/SysTask.s \
 .obj/SysTime.s \
 .obj/SysTlsSlot.s \
+.obj/SysTypes.s \
 .obj/SysUtf8.s \
 .obj/Task.s \
 .obj/TaskCore.s \
@@ -365,6 +367,7 @@ DEP_LIST = \
 .obj/SysTask.dep \
 .obj/SysTime.dep \
 .obj/SysTlsSlot.dep \
+.obj/SysTypes.dep \
 .obj/SysUtf8.dep \
 .obj/Task.dep \
 .obj/TaskCore.dep \
@@ -714,6 +717,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysTlsSlot.o : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysTypes.o : ../../Target/WIN32/CCore/src/sys/SysTypes.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysUtf8.o : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
@@ -1099,6 +1105,9 @@ include $(RULES_FILE)
 .obj/SysTlsSlot.s : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SysTypes.s : ../../Target/WIN32/CCore/src/sys/SysTypes.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SysUtf8.s : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1481,6 +1490,9 @@ include $(RULES_FILE)
 
 .obj/SysTlsSlot.dep : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysTlsSlot.o $< -MF $@
+
+.obj/SysTypes.dep : ../../Target/WIN32/CCore/src/sys/SysTypes.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysTypes.o $< -MF $@
 
 .obj/SysUtf8.dep : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysUtf8.o $< -MF $@
