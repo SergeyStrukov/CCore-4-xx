@@ -1,24 +1,32 @@
 OBJ_LIST = \
+.obj/Abort.o \
 .obj/AbortMsgFunc.o \
+.obj/AntiSem.o \
+.obj/Atomic.o \
 .obj/AutoCast.o \
 .obj/BlockFifo.o \
 .obj/CharProp.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
+.obj/Cmp.o \
 .obj/Counters.o \
 .obj/Crc.o \
 .obj/CreateAt.o \
 .obj/DefaultTimeout.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/Event.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
+.obj/FastMutex.o \
 .obj/Fifo.o \
 .obj/ForLoop.o \
+.obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
 .obj/Gadget.o \
 .obj/Handle.o \
+.obj/HeapEngine.o \
 .obj/Init.o \
 .obj/IntPrint.o \
 .obj/Len.o \
@@ -28,12 +36,20 @@ OBJ_LIST = \
 .obj/Locked.o \
 .obj/MSec.o \
 .obj/MakeString.o \
+.obj/MemBase.o \
+.obj/MemBase_general.o \
+.obj/MemPageHeap.o \
 .obj/MemberFold.o \
 .obj/Meta.o \
 .obj/MetaList.o \
 .obj/Move.o \
+.obj/MultiEvent.o \
+.obj/MultiSem.o \
+.obj/Mutex.o \
+.obj/MutexSpinCount.o \
 .obj/NegBool.o \
 .obj/NoCopy.o \
+.obj/NoMutex.o \
 .obj/NoThrowFlags.o \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
@@ -58,12 +74,19 @@ OBJ_LIST = \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
 .obj/Quick.o \
+.obj/RBTreeBase.o \
+.obj/RBTreeLink.o \
+.obj/RBTreeUpLink.o \
+.obj/RadixHeap.o \
 .obj/RefPtr.o \
 .obj/Replace.o \
+.obj/ResSem.o \
 .obj/SIntFunc.o \
 .obj/ScanBit.o \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
+.obj/Sem.o \
+.obj/SlowSem.o \
 .obj/Space.o \
 .obj/StrParse.o \
 .obj/StrPrint.o \
@@ -71,12 +94,30 @@ OBJ_LIST = \
 .obj/SymCount.o \
 .obj/SymPart.o \
 .obj/Symbol.o \
+.obj/SysAbort.o \
+.obj/SysAtomic.o \
+.obj/SysCon.o \
+.obj/SysError.o \
+.obj/SysMemPage.o \
+.obj/SysPlanInit.o \
+.obj/SysProp.o \
+.obj/SysSem.o \
+.obj/SysTask.o \
+.obj/SysTime.o \
+.obj/SysTlsSlot.o \
+.obj/SysUtf8.o \
+.obj/Task.o \
+.obj/TaskCore.o \
 .obj/TextLabel.o \
 .obj/TextTools.o \
 .obj/TimeScope.o \
 .obj/Timer.o \
 .obj/TlsSlot.o \
 .obj/ToMoveCtor.o \
+.obj/Tree.o \
+.obj/TreeBase.o \
+.obj/TreeLink.o \
+.obj/TreeUpLink.o \
 .obj/Tuple.o \
 .obj/TypeSwitch.o \
 .obj/UIntFunc.o \
@@ -88,26 +129,34 @@ OBJ_LIST = \
 
 
 ASM_LIST = \
+.obj/Abort.s \
 .obj/AbortMsgFunc.s \
+.obj/AntiSem.s \
+.obj/Atomic.s \
 .obj/AutoCast.s \
 .obj/BlockFifo.s \
 .obj/CharProp.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
+.obj/Cmp.s \
 .obj/Counters.s \
 .obj/Crc.s \
 .obj/CreateAt.s \
 .obj/DefaultTimeout.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/Event.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
+.obj/FastMutex.s \
 .obj/Fifo.s \
 .obj/ForLoop.s \
+.obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
 .obj/Gadget.s \
 .obj/Handle.s \
+.obj/HeapEngine.s \
 .obj/Init.s \
 .obj/IntPrint.s \
 .obj/Len.s \
@@ -117,12 +166,20 @@ ASM_LIST = \
 .obj/Locked.s \
 .obj/MSec.s \
 .obj/MakeString.s \
+.obj/MemBase.s \
+.obj/MemBase_general.s \
+.obj/MemPageHeap.s \
 .obj/MemberFold.s \
 .obj/Meta.s \
 .obj/MetaList.s \
 .obj/Move.s \
+.obj/MultiEvent.s \
+.obj/MultiSem.s \
+.obj/Mutex.s \
+.obj/MutexSpinCount.s \
 .obj/NegBool.s \
 .obj/NoCopy.s \
+.obj/NoMutex.s \
 .obj/NoThrowFlags.s \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
@@ -147,12 +204,19 @@ ASM_LIST = \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
 .obj/Quick.s \
+.obj/RBTreeBase.s \
+.obj/RBTreeLink.s \
+.obj/RBTreeUpLink.s \
+.obj/RadixHeap.s \
 .obj/RefPtr.s \
 .obj/Replace.s \
+.obj/ResSem.s \
 .obj/SIntFunc.s \
 .obj/ScanBit.s \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
+.obj/Sem.s \
+.obj/SlowSem.s \
 .obj/Space.s \
 .obj/StrParse.s \
 .obj/StrPrint.s \
@@ -160,12 +224,30 @@ ASM_LIST = \
 .obj/SymCount.s \
 .obj/SymPart.s \
 .obj/Symbol.s \
+.obj/SysAbort.s \
+.obj/SysAtomic.s \
+.obj/SysCon.s \
+.obj/SysError.s \
+.obj/SysMemPage.s \
+.obj/SysPlanInit.s \
+.obj/SysProp.s \
+.obj/SysSem.s \
+.obj/SysTask.s \
+.obj/SysTime.s \
+.obj/SysTlsSlot.s \
+.obj/SysUtf8.s \
+.obj/Task.s \
+.obj/TaskCore.s \
 .obj/TextLabel.s \
 .obj/TextTools.s \
 .obj/TimeScope.s \
 .obj/Timer.s \
 .obj/TlsSlot.s \
 .obj/ToMoveCtor.s \
+.obj/Tree.s \
+.obj/TreeBase.s \
+.obj/TreeLink.s \
+.obj/TreeUpLink.s \
 .obj/Tuple.s \
 .obj/TypeSwitch.s \
 .obj/UIntFunc.s \
@@ -177,26 +259,34 @@ ASM_LIST = \
 
 
 DEP_LIST = \
+.obj/Abort.dep \
 .obj/AbortMsgFunc.dep \
+.obj/AntiSem.dep \
+.obj/Atomic.dep \
 .obj/AutoCast.dep \
 .obj/BlockFifo.dep \
 .obj/CharProp.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
+.obj/Cmp.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
 .obj/DefaultTimeout.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/Event.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
+.obj/FastMutex.dep \
 .obj/Fifo.dep \
 .obj/ForLoop.dep \
+.obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
 .obj/Gadget.dep \
 .obj/Handle.dep \
+.obj/HeapEngine.dep \
 .obj/Init.dep \
 .obj/IntPrint.dep \
 .obj/Len.dep \
@@ -206,12 +296,20 @@ DEP_LIST = \
 .obj/Locked.dep \
 .obj/MSec.dep \
 .obj/MakeString.dep \
+.obj/MemBase.dep \
+.obj/MemBase_general.dep \
+.obj/MemPageHeap.dep \
 .obj/MemberFold.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
 .obj/Move.dep \
+.obj/MultiEvent.dep \
+.obj/MultiSem.dep \
+.obj/Mutex.dep \
+.obj/MutexSpinCount.dep \
 .obj/NegBool.dep \
 .obj/NoCopy.dep \
+.obj/NoMutex.dep \
 .obj/NoThrowFlags.dep \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
@@ -236,12 +334,19 @@ DEP_LIST = \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
 .obj/Quick.dep \
+.obj/RBTreeBase.dep \
+.obj/RBTreeLink.dep \
+.obj/RBTreeUpLink.dep \
+.obj/RadixHeap.dep \
 .obj/RefPtr.dep \
 .obj/Replace.dep \
+.obj/ResSem.dep \
 .obj/SIntFunc.dep \
 .obj/ScanBit.dep \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
+.obj/Sem.dep \
+.obj/SlowSem.dep \
 .obj/Space.dep \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
@@ -249,12 +354,30 @@ DEP_LIST = \
 .obj/SymCount.dep \
 .obj/SymPart.dep \
 .obj/Symbol.dep \
+.obj/SysAbort.dep \
+.obj/SysAtomic.dep \
+.obj/SysCon.dep \
+.obj/SysError.dep \
+.obj/SysMemPage.dep \
+.obj/SysPlanInit.dep \
+.obj/SysProp.dep \
+.obj/SysSem.dep \
+.obj/SysTask.dep \
+.obj/SysTime.dep \
+.obj/SysTlsSlot.dep \
+.obj/SysUtf8.dep \
+.obj/Task.dep \
+.obj/TaskCore.dep \
 .obj/TextLabel.dep \
 .obj/TextTools.dep \
 .obj/TimeScope.dep \
 .obj/Timer.dep \
 .obj/TlsSlot.dep \
 .obj/ToMoveCtor.dep \
+.obj/Tree.dep \
+.obj/TreeBase.dep \
+.obj/TreeLink.dep \
+.obj/TreeUpLink.dep \
 .obj/Tuple.dep \
 .obj/TypeSwitch.dep \
 .obj/UIntFunc.dep \
@@ -268,12 +391,23 @@ DEP_LIST = \
 ASM_OBJ_LIST = \
 .obj/PlatformBase.s.o \
 .obj/Quick.s.o \
+.obj/SysAtomic.s.o \
+.obj/SysTime.s.o \
 
 
 include $(RULES_FILE)
 
 
+.obj/Abort.o : ../../HCore/CCore/src/./Abort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AbortMsgFunc.o : ../../Simple/CCore/src/./AbortMsgFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AntiSem.o : ../../HCore/CCore/src/task/AntiSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Atomic.o : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
@@ -289,6 +423,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Cmp.o : ../../Simple/CCore/src/./Cmp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Counters.o : ../../Simple/CCore/src/./Counters.cpp
@@ -309,16 +446,25 @@ include $(RULES_FILE)
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Event.o : ../../HCore/CCore/src/task/Event.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Exception.o : ../../Fundamental/CCore/src/./Exception.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FastMutex.o : ../../HCore/CCore/src/task/FastMutex.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Fifo.o : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ForLoop.o : ../../Simple/CCore/src/./ForLoop.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FuncTask.o : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Function.o : ../../Simple/CCore/src/gadget/Function.cpp
@@ -331,6 +477,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/HeapEngine.o : ../../Fundamental/CCore/src/./HeapEngine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
@@ -360,6 +509,15 @@ include $(RULES_FILE)
 .obj/MakeString.o : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MemBase.o : ../../HCore/CCore/src/./MemBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MemBase_general.o : ../../Fundamental/CCore/src/./MemBase_general.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MemPageHeap.o : ../../HCore/CCore/src/./MemPageHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/MemberFold.o : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -372,10 +530,25 @@ include $(RULES_FILE)
 .obj/Move.o : ../../Simple/CCore/src/./Move.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MultiEvent.o : ../../HCore/CCore/src/task/MultiEvent.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MultiSem.o : ../../HCore/CCore/src/task/MultiSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Mutex.o : ../../HCore/CCore/src/task/Mutex.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MutexSpinCount.o : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NoMutex.o : ../../Fundamental/CCore/src/task/NoMutex.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NoThrowFlags.o : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
@@ -450,10 +623,25 @@ include $(RULES_FILE)
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RBTreeBase.o : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/RBTreeLink.o : ../../Fundamental/CCore/src/tree/RBTreeLink.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/RBTreeUpLink.o : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/RadixHeap.o : ../../Fundamental/CCore/src/./RadixHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/RefPtr.o : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Replace.o : ../../Simple/CCore/src/gadget/Replace.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ResSem.o : ../../HCore/CCore/src/task/ResSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
@@ -466,6 +654,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Sem.o : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SlowSem.o : ../../HCore/CCore/src/task/SlowSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
@@ -489,6 +683,48 @@ include $(RULES_FILE)
 .obj/Symbol.o : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SysAbort.o : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysAtomic.o : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysCon.o : ../../Target/WIN32/CCore/src/sys/SysCon.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysError.o : ../../Target/WIN32/CCore/src/sys/SysError.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysMemPage.o : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysPlanInit.o : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysProp.o : ../../Target/WIN32/CCore/src/sys/SysProp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysSem.o : ../../Target/WIN32/CCore/src/sys/SysSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysTask.o : ../../Target/WIN32/CCore/src/sys/SysTask.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysTime.o : ../../Target/WIN32/CCore/src/sys/SysTime.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysTlsSlot.o : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysUtf8.o : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Task.o : ../../HCore/CCore/src/./Task.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TaskCore.o : ../../HCore/CCore/src/task/TaskCore.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TextLabel.o : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -505,6 +741,18 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ToMoveCtor.o : ../../Simple/CCore/src/./ToMoveCtor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Tree.o : ../../Fundamental/CCore/src/./Tree.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TreeBase.o : ../../Fundamental/CCore/src/tree/TreeBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TreeLink.o : ../../Fundamental/CCore/src/tree/TreeLink.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TreeUpLink.o : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Tuple.o : ../../Simple/CCore/src/./Tuple.cpp
@@ -533,7 +781,16 @@ include $(RULES_FILE)
 
 
 
+.obj/Abort.s : ../../HCore/CCore/src/./Abort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AbortMsgFunc.s : ../../Simple/CCore/src/./AbortMsgFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AntiSem.s : ../../HCore/CCore/src/task/AntiSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Atomic.s : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
@@ -549,6 +806,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Cmp.s : ../../Simple/CCore/src/./Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Counters.s : ../../Simple/CCore/src/./Counters.cpp
@@ -569,16 +829,25 @@ include $(RULES_FILE)
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Event.s : ../../HCore/CCore/src/task/Event.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Exception.s : ../../Fundamental/CCore/src/./Exception.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FastMutex.s : ../../HCore/CCore/src/task/FastMutex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Fifo.s : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ForLoop.s : ../../Simple/CCore/src/./ForLoop.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FuncTask.s : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Function.s : ../../Simple/CCore/src/gadget/Function.cpp
@@ -591,6 +860,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/HeapEngine.s : ../../Fundamental/CCore/src/./HeapEngine.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
@@ -620,6 +892,15 @@ include $(RULES_FILE)
 .obj/MakeString.s : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MemBase.s : ../../HCore/CCore/src/./MemBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MemBase_general.s : ../../Fundamental/CCore/src/./MemBase_general.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MemPageHeap.s : ../../HCore/CCore/src/./MemPageHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/MemberFold.s : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -632,10 +913,25 @@ include $(RULES_FILE)
 .obj/Move.s : ../../Simple/CCore/src/./Move.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MultiEvent.s : ../../HCore/CCore/src/task/MultiEvent.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MultiSem.s : ../../HCore/CCore/src/task/MultiSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Mutex.s : ../../HCore/CCore/src/task/Mutex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MutexSpinCount.s : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NoMutex.s : ../../Fundamental/CCore/src/task/NoMutex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NoThrowFlags.s : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
@@ -710,10 +1006,25 @@ include $(RULES_FILE)
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RBTreeBase.s : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/RBTreeLink.s : ../../Fundamental/CCore/src/tree/RBTreeLink.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/RBTreeUpLink.s : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/RadixHeap.s : ../../Fundamental/CCore/src/./RadixHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RefPtr.s : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Replace.s : ../../Simple/CCore/src/gadget/Replace.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ResSem.s : ../../HCore/CCore/src/task/ResSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
@@ -726,6 +1037,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Sem.s : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SlowSem.s : ../../HCore/CCore/src/task/SlowSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
@@ -749,6 +1066,48 @@ include $(RULES_FILE)
 .obj/Symbol.s : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SysAbort.s : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysAtomic.s : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysCon.s : ../../Target/WIN32/CCore/src/sys/SysCon.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysError.s : ../../Target/WIN32/CCore/src/sys/SysError.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysMemPage.s : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysPlanInit.s : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysProp.s : ../../Target/WIN32/CCore/src/sys/SysProp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysSem.s : ../../Target/WIN32/CCore/src/sys/SysSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysTask.s : ../../Target/WIN32/CCore/src/sys/SysTask.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysTime.s : ../../Target/WIN32/CCore/src/sys/SysTime.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysTlsSlot.s : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysUtf8.s : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Task.s : ../../HCore/CCore/src/./Task.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TaskCore.s : ../../HCore/CCore/src/task/TaskCore.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TextLabel.s : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -765,6 +1124,18 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ToMoveCtor.s : ../../Simple/CCore/src/./ToMoveCtor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Tree.s : ../../Fundamental/CCore/src/./Tree.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TreeBase.s : ../../Fundamental/CCore/src/tree/TreeBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TreeLink.s : ../../Fundamental/CCore/src/tree/TreeLink.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TreeUpLink.s : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Tuple.s : ../../Simple/CCore/src/./Tuple.cpp
@@ -793,8 +1164,17 @@ include $(RULES_FILE)
 
 
 
+.obj/Abort.dep : ../../HCore/CCore/src/./Abort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Abort.o $< -MF $@
+
 .obj/AbortMsgFunc.dep : ../../Simple/CCore/src/./AbortMsgFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AbortMsgFunc.o $< -MF $@
+
+.obj/AntiSem.dep : ../../HCore/CCore/src/task/AntiSem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AntiSem.o $< -MF $@
+
+.obj/Atomic.dep : ../../Fundamental/CCore/src/task/Atomic.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Atomic.o $< -MF $@
 
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
@@ -810,6 +1190,9 @@ include $(RULES_FILE)
 
 .obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
+
+.obj/Cmp.dep : ../../Simple/CCore/src/./Cmp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Cmp.o $< -MF $@
 
 .obj/Counters.dep : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
@@ -829,17 +1212,26 @@ include $(RULES_FILE)
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
 
+.obj/Event.dep : ../../HCore/CCore/src/task/Event.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Event.o $< -MF $@
+
 .obj/Exception.dep : ../../Fundamental/CCore/src/./Exception.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Exception.o $< -MF $@
 
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
 
+.obj/FastMutex.dep : ../../HCore/CCore/src/task/FastMutex.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FastMutex.o $< -MF $@
+
 .obj/Fifo.dep : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
 
 .obj/ForLoop.dep : ../../Simple/CCore/src/./ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
+
+.obj/FuncTask.dep : ../../Applied/CCore/src/task/FuncTask.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FuncTask.o $< -MF $@
 
 .obj/Function.dep : ../../Simple/CCore/src/gadget/Function.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Function.o $< -MF $@
@@ -852,6 +1244,9 @@ include $(RULES_FILE)
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/HeapEngine.dep : ../../Fundamental/CCore/src/./HeapEngine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HeapEngine.o $< -MF $@
 
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
@@ -880,6 +1275,15 @@ include $(RULES_FILE)
 .obj/MakeString.dep : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MakeString.o $< -MF $@
 
+.obj/MemBase.dep : ../../HCore/CCore/src/./MemBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemBase.o $< -MF $@
+
+.obj/MemBase_general.dep : ../../Fundamental/CCore/src/./MemBase_general.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemBase_general.o $< -MF $@
+
+.obj/MemPageHeap.dep : ../../HCore/CCore/src/./MemPageHeap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemPageHeap.o $< -MF $@
+
 .obj/MemberFold.dep : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
 
@@ -892,11 +1296,26 @@ include $(RULES_FILE)
 .obj/Move.dep : ../../Simple/CCore/src/./Move.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Move.o $< -MF $@
 
+.obj/MultiEvent.dep : ../../HCore/CCore/src/task/MultiEvent.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MultiEvent.o $< -MF $@
+
+.obj/MultiSem.dep : ../../HCore/CCore/src/task/MultiSem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MultiSem.o $< -MF $@
+
+.obj/Mutex.dep : ../../HCore/CCore/src/task/Mutex.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Mutex.o $< -MF $@
+
+.obj/MutexSpinCount.dep : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MutexSpinCount.o $< -MF $@
+
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
 
 .obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
+
+.obj/NoMutex.dep : ../../Fundamental/CCore/src/task/NoMutex.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NoMutex.o $< -MF $@
 
 .obj/NoThrowFlags.dep : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoThrowFlags.o $< -MF $@
@@ -970,11 +1389,26 @@ include $(RULES_FILE)
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
 
+.obj/RBTreeBase.dep : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RBTreeBase.o $< -MF $@
+
+.obj/RBTreeLink.dep : ../../Fundamental/CCore/src/tree/RBTreeLink.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RBTreeLink.o $< -MF $@
+
+.obj/RBTreeUpLink.dep : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RBTreeUpLink.o $< -MF $@
+
+.obj/RadixHeap.dep : ../../Fundamental/CCore/src/./RadixHeap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RadixHeap.o $< -MF $@
+
 .obj/RefPtr.dep : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefPtr.o $< -MF $@
 
 .obj/Replace.dep : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Replace.o $< -MF $@
+
+.obj/ResSem.dep : ../../HCore/CCore/src/task/ResSem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ResSem.o $< -MF $@
 
 .obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@
@@ -987,6 +1421,12 @@ include $(RULES_FILE)
 
 .obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
+
+.obj/Sem.dep : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Sem.o $< -MF $@
+
+.obj/SlowSem.dep : ../../HCore/CCore/src/task/SlowSem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SlowSem.o $< -MF $@
 
 .obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
@@ -1009,6 +1449,48 @@ include $(RULES_FILE)
 .obj/Symbol.dep : ../../Fundamental/CCore/src/./Symbol.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Symbol.o $< -MF $@
 
+.obj/SysAbort.dep : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysAbort.o $< -MF $@
+
+.obj/SysAtomic.dep : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysAtomic.o $< -MF $@
+
+.obj/SysCon.dep : ../../Target/WIN32/CCore/src/sys/SysCon.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysCon.o $< -MF $@
+
+.obj/SysError.dep : ../../Target/WIN32/CCore/src/sys/SysError.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysError.o $< -MF $@
+
+.obj/SysMemPage.dep : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysMemPage.o $< -MF $@
+
+.obj/SysPlanInit.dep : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysPlanInit.o $< -MF $@
+
+.obj/SysProp.dep : ../../Target/WIN32/CCore/src/sys/SysProp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysProp.o $< -MF $@
+
+.obj/SysSem.dep : ../../Target/WIN32/CCore/src/sys/SysSem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysSem.o $< -MF $@
+
+.obj/SysTask.dep : ../../Target/WIN32/CCore/src/sys/SysTask.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysTask.o $< -MF $@
+
+.obj/SysTime.dep : ../../Target/WIN32/CCore/src/sys/SysTime.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysTime.o $< -MF $@
+
+.obj/SysTlsSlot.dep : ../../Target/WIN32/CCore/src/sys/SysTlsSlot.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysTlsSlot.o $< -MF $@
+
+.obj/SysUtf8.dep : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysUtf8.o $< -MF $@
+
+.obj/Task.dep : ../../HCore/CCore/src/./Task.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Task.o $< -MF $@
+
+.obj/TaskCore.dep : ../../HCore/CCore/src/task/TaskCore.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TaskCore.o $< -MF $@
+
 .obj/TextLabel.dep : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TextLabel.o $< -MF $@
 
@@ -1026,6 +1508,18 @@ include $(RULES_FILE)
 
 .obj/ToMoveCtor.dep : ../../Simple/CCore/src/./ToMoveCtor.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ToMoveCtor.o $< -MF $@
+
+.obj/Tree.dep : ../../Fundamental/CCore/src/./Tree.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Tree.o $< -MF $@
+
+.obj/TreeBase.dep : ../../Fundamental/CCore/src/tree/TreeBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TreeBase.o $< -MF $@
+
+.obj/TreeLink.dep : ../../Fundamental/CCore/src/tree/TreeLink.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TreeLink.o $< -MF $@
+
+.obj/TreeUpLink.dep : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TreeUpLink.o $< -MF $@
 
 .obj/Tuple.dep : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Tuple.o $< -MF $@
@@ -1057,6 +1551,12 @@ include $(RULES_FILE)
 	$(AS) $(ASOPT) $< -o $@
 
 .obj/Quick.s.o : ../../Target/WIN32/CCore/src/base/Quick.s
+	$(AS) $(ASOPT) $< -o $@
+
+.obj/SysAtomic.s.o : ../../Target/WIN32/CCore/src/sys/SysAtomic.s
+	$(AS) $(ASOPT) $< -o $@
+
+.obj/SysTime.s.o : ../../Target/WIN32/CCore/src/sys/SysTime.s
 	$(AS) $(ASOPT) $< -o $@
 
 
