@@ -27,26 +27,26 @@ auto TlsSlot::Alloc() noexcept -> AllocType
  {
   TlsSlot::AllocType ret;
 
-  ret.index=Win32::TlsAlloc();
+  ret.index=WinNN::TlsAlloc();
 
-  ret.error=ErrorIf( ret.index==Win32::TlsNoIndex );
+  ret.error=ErrorIf( ret.index==WinNN::TlsNoIndex );
 
   return ret;
  }
 
 void TlsSlot::Free(Type index) noexcept
  {
-  AbortIf( !Win32::TlsFree(index) ,"CCore::Sys::TlsSlot::Free()");
+  AbortIf( !WinNN::TlsFree(index) ,"CCore::Sys::TlsSlot::Free()");
  }
 
 void * TlsSlot::Get(Type index) noexcept
  {
-  return Win32::TlsGetValue(index);
+  return WinNN::TlsGetValue(index);
  }
 
 void TlsSlot::Set(Type index,void *value) noexcept
  {
-  AbortIf( !Win32::TlsSetValue(index,value) ,"CCore::Sys::TlsSlot::Set()");
+  AbortIf( !WinNN::TlsSetValue(index,value) ,"CCore::Sys::TlsSlot::Set()");
  }
 
 } // namespace Sys

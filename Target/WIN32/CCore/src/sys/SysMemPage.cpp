@@ -15,6 +15,7 @@
 
 #include <CCore/inc/sys/SysMemPage.h>
 #include <CCore/inc/sys/SysAbort.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/win32/Win32.h>
 
@@ -29,12 +30,12 @@ void * MemPageAlloc(ulen num_pages) noexcept
 
   ulen len=num_pages*MemPageLen;
 
-  return Win32::VirtualAlloc(0,len,Win32::AllocReserve|Win32::AllocCommit,Win32::PageReadWrite);
+  return WinNN::VirtualAlloc(0,len,WinNN::AllocReserve|WinNN::AllocCommit,WinNN::PageReadWrite);
  }
 
 void MemPageFree(void *mem,ulen) noexcept
  {
-  AbortIf( !Win32::VirtualFree(mem,0,Win32::FreeRelease) ,"CCore::Sys::MemPageFree()");
+  AbortIf( !WinNN::VirtualFree(mem,0,WinNN::FreeRelease) ,"CCore::Sys::MemPageFree()");
  }
 
 bool MemPageExtend(void *,ulen,ulen) noexcept

@@ -15,6 +15,7 @@
 
 #include <CCore/inc/sys/SysTask.h>
 #include <CCore/inc/sys/SysAtomic.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/win32/Win32.h>
 
@@ -29,11 +30,11 @@ static_assert( MaxUInt<TaskIdType> <= MaxUInt<Atomic::Type> ,"CCore::Sys::TaskId
 
 /* functions */
 
-void YieldTask() noexcept { Win32::Sleep(0); }
+void YieldTask() noexcept { WinNN::Sleep(0); }
 
-void SleepTask(MSec time) noexcept { Win32::Sleep(+time); }
+void SleepTask(MSec time) noexcept { WinNN::Sleep(+time); }
 
-TaskIdType GetTaskId() noexcept { return Win32::GetCurrentThreadId(); }
+TaskIdType GetTaskId() noexcept { return WinNN::GetCurrentThreadId(); }
 
 /* struct TaskEntry */
 

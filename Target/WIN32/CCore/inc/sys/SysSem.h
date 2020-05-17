@@ -17,6 +17,7 @@
 #define CCore_inc_sys_SysSem_h
 
 #include <CCore/inc/sys/SysError.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/TimeScope.h>
 
@@ -33,7 +34,7 @@ struct Sem
  {
   // private data
 
-  using Type = int ;
+  using Type = handle_t ;
 
   Type handle;
 

@@ -17,6 +17,7 @@
 #define CCore_inc_sys_SysCon_h
 
 #include <CCore/inc/sys/SysError.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/TimeScope.h>
 
@@ -45,15 +46,15 @@ struct ConRead
 
   // private data
 
-  using Type = int ;
-  using ModeType = unsigned ;
+  using Type = handle_t ;
+  using ModeType = flags_t ;
 
   Type handle;
   ModeType modes;
 
   struct Symbol
    {
-    uint16 hi;
+    WChar hi;
 
     char buf[8];
     ulen len;
@@ -62,11 +63,11 @@ struct ConRead
 
     void reset() { len=0; hi=0; }
 
-    void put(uint32 sym);
+    void put(unicode_t sym);
 
-    bool pushUnicode(uint32 sym);
+    bool pushUnicode(unicode_t sym);
 
-    bool push(uint16 wch);
+    bool push(WChar wch);
 
     void shift(ulen delta);
 

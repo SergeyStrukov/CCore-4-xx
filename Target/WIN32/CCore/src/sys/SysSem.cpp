@@ -28,7 +28,7 @@ auto Sem::Create(ulen count) noexcept -> CreateType
  {
   CreateType ret;
 
-  ret.handle=Win32::CreateSemaphoreW(0,count,Win32::MaxSemaphoreCount,0);
+  ret.handle=WinNN::CreateSemaphoreW(0,count,WinNN::MaxSemaphoreCount,0);
 
   ret.error=ErrorIf( ret.handle==0 );
 
@@ -37,42 +37,42 @@ auto Sem::Create(ulen count) noexcept -> CreateType
 
 void Sem::Destroy(Type handle) noexcept
  {
-  AbortIf( !Win32::CloseHandle(handle) ,"CCore::Sys::Sem::Destroy()");
+  AbortIf( !WinNN::CloseHandle(handle) ,"CCore::Sys::Sem::Destroy()");
  }
 
 void Sem::Give(Type handle) noexcept
  {
-  AbortIf( !Win32::ReleaseSemaphore(handle,1,0) ,"CCore::Sys::Sem::Give()");
+  AbortIf( !WinNN::ReleaseSemaphore(handle,1,0) ,"CCore::Sys::Sem::Give()");
  }
 
 void Sem::GiveMany(Type handle,ulen count) noexcept
  {
   if( !count ) return;
 
-  AbortIf( count>(ulen)Win32::MaxSemaphoreCount || !Win32::ReleaseSemaphore(handle,count,0) ,"CCore::Sys::Sem::GiveMany()");
+  AbortIf( count>(ulen)WinNN::MaxSemaphoreCount || !WinNN::ReleaseSemaphore(handle,count,0) ,"CCore::Sys::Sem::GiveMany()");
  }
 
 bool Sem::TryTake(Type handle) noexcept
  {
-  Win32::options_t ret=Win32::WaitForSingleObject(handle,Win32::TryTimeout);
+  WinNN::options_t ret=WinNN::WaitForSingleObject(handle,WinNN::TryTimeout);
 
-  AbortIf( ret!=Win32::WaitObject_0 && ret!=Win32::WaitTimeout ,"CCore::Sys::Sem::TryTake()");
+  AbortIf( ret!=WinNN::WaitObject_0 && ret!=WinNN::WaitTimeout ,"CCore::Sys::Sem::TryTake()");
 
-  return ret==Win32::WaitObject_0;
+  return ret==WinNN::WaitObject_0;
  }
 
 void Sem::Take(Type handle) noexcept
  {
-  AbortIf( Win32::WaitForSingleObject(handle,Win32::NoTimeout)!=Win32::WaitObject_0 ,"CCore::Sys::Sem::Take()");
+  AbortIf( WinNN::WaitForSingleObject(handle,WinNN::NoTimeout)!=WinNN::WaitObject_0 ,"CCore::Sys::Sem::Take()");
  }
 
 bool Sem::Take(Type handle,MSec timeout) noexcept
  {
-  Win32::options_t ret=Win32::WaitForSingleObject(handle,+timeout);
+  WinNN::options_t ret=WinNN::WaitForSingleObject(handle,+timeout);
 
-  AbortIf( ret!=Win32::WaitObject_0 && ret!=Win32::WaitTimeout ,"CCore::Sys::Sem::Take()");
+  AbortIf( ret!=WinNN::WaitObject_0 && ret!=WinNN::WaitTimeout ,"CCore::Sys::Sem::Take()");
 
-  return ret==Win32::WaitObject_0;
+  return ret==WinNN::WaitObject_0;
  }
 
 } // namespace Sys

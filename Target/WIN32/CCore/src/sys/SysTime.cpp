@@ -14,6 +14,7 @@
 //----------------------------------------------------------------------------------------
 
 #include <CCore/inc/sys/SysTime.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/win32/Win32.h>
 
@@ -24,14 +25,14 @@ namespace Sys {
 
 MSecTimeType GetMSecTime() noexcept
  {
-  return Win32::GetTickCount();
+  return WinNN::GetTickCount();
  }
 
 SecTimeType GetSecTime() noexcept
  {
-  Win32::file_time_t sys_time;
+  WinNN::file_time_t sys_time;
 
-  Win32::GetSystemTimeAsFileTime(&sys_time);
+  WinNN::GetSystemTimeAsFileTime(&sys_time);
 
   return SecTimeType( sys_time/10'000'000-11'644'473'600ull );
  }

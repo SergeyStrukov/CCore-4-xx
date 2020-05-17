@@ -17,6 +17,7 @@
 #define CCore_inc_sys_SysTlsSlot_h
 
 #include <CCore/inc/sys/SysError.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 namespace CCore {
 namespace Sys {
@@ -31,7 +32,7 @@ struct TlsSlot
  {
   // private data
 
-  using Type = int ;
+  using Type = index_t ;
 
   Type index;
 

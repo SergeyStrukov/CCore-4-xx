@@ -21,7 +21,7 @@
 namespace CCore {
 namespace Sys {
 
-/* internal */
+/* namespace Private_SysCon */
 
 namespace Private_SysCon {
 
@@ -29,26 +29,26 @@ namespace Private_SysCon {
 
 class ConOut : NoCopy
  {
-   Win32::handle_t handle;
+   WinNN::handle_t handle;
    ErrorType error;
 
   public:
 
    ConOut()
     {
-     handle=Win32::GetStdHandle(Win32::StdOutputHandle);
+     handle=WinNN::GetStdHandle(WinNN::StdOutputHandle);
 
-     if( handle==Win32::InvalidFileHandle )
+     if( handle==WinNN::InvalidFileHandle )
        {
         error=NonNullError();
        }
      else if( handle==0 )
        {
-        error=ErrorType(Win32::ErrorFileNotFound);
+        error=ErrorType(WinNN::ErrorFileNotFound);
        }
      else
        {
-        error=ErrorIf( !Win32::SetConsoleOutputCP(Win32::CodePageUTF8) );
+        error=ErrorIf( !WinNN::SetConsoleOutputCP(WinNN::CodePageUTF8) );
        }
     }
 
@@ -56,9 +56,9 @@ class ConOut : NoCopy
     {
      if( error ) return;
 
-     Win32::ulen_t ret_len;
+     WinNN::ulen_t ret_len;
 
-     Win32::WriteFile(handle,str.ptr,str.len,&ret_len,0);
+     WinNN::WriteFile(handle,str.ptr,str.len,&ret_len,0);
     }
  };
 
@@ -77,7 +77,7 @@ void ConWrite(StrLen str) noexcept
 
 /* struct ConRead */
 
-void ConRead::Symbol::put(uint32 sym)
+void ConRead::Symbol::put(unicode_t sym)
  {
   Utf8Code code=ToUtf8(sym);
 
@@ -88,7 +88,7 @@ void ConRead::Symbol::put(uint32 sym)
   len+=code.getLen();
  }
 
-bool ConRead::Symbol::pushUnicode(uint32 sym)
+bool ConRead::Symbol::pushUnicode(unicode_t sym)
  {
   put(sym);
 
@@ -172,9 +172,9 @@ auto ConRead::Init() noexcept -> InitType
  {
   InitType ret;
 
-  ret.handle=Win32::GetStdHandle(Win32::StdInputHandle);
+  ret.handle=WinNN::GetStdHandle(WinNN::StdInputHandle);
 
-  if( ret.handle==Win32::InvalidFileHandle )
+  if( ret.handle==WinNN::InvalidFileHandle )
     {
      ret.modes=0;
      ret.error=NonNullError();
@@ -185,12 +185,12 @@ auto ConRead::Init() noexcept -> InitType
   if( ret.handle==0 )
     {
      ret.modes=0;
-     ret.error=ErrorType(Win32::ErrorFileNotFound);
+     ret.error=ErrorType(WinNN::ErrorFileNotFound);
 
      return ret;
     }
 
-  if( !Win32::GetConsoleMode(ret.handle,&ret.modes) )
+  if( !WinNN::GetConsoleMode(ret.handle,&ret.modes) )
     {
      ret.modes=0;
      ret.error=NonNullError();
@@ -200,9 +200,9 @@ auto ConRead::Init() noexcept -> InitType
 
   ModeType new_modes=ret.modes;
 
-  BitClear(new_modes,Win32::ConEcho|Win32::ConLineInput);
+  BitClear(new_modes,WinNN::ConEcho|WinNN::ConLineInput);
 
-  if( !Win32::SetConsoleMode(ret.handle,new_modes) )
+  if( !WinNN::SetConsoleMode(ret.handle,new_modes) )
     {
      ret.error=NonNullError();
 
@@ -216,7 +216,7 @@ auto ConRead::Init() noexcept -> InitType
 
 ErrorType ConRead::Exit(Type handle,ModeType modes) noexcept
  {
-  return ErrorIf( !Win32::SetConsoleMode(handle,modes) );
+  return ErrorIf( !WinNN::SetConsoleMode(handle,modes) );
  }
 
 auto ConRead::read(char *buf,ulen len) noexcept -> IOResult
@@ -259,14 +259,14 @@ auto ConRead::read(char *buf,ulen len,TimeScope time_scope) noexcept -> IOResult
 
   for(unsigned to_msec; (to_msec=+time_scope.get())!=0 ;)
     {
-     Win32::options_t opt=Win32::WaitForSingleObject(handle,to_msec);
+     WinNN::options_t opt=WinNN::WaitForSingleObject(handle,to_msec);
 
-     if( opt==Win32::WaitObject_0 )
+     if( opt==WinNN::WaitObject_0 )
        {
-        Win32::ConInputRecord input;
-        Win32::ulen_t ret_len;
+        WinNN::ConInputRecord input;
+        WinNN::ulen_t ret_len;
 
-        if( !Win32::ReadConsoleInputW(handle,&input,1,&ret_len) )
+        if( !WinNN::ReadConsoleInputW(handle,&input,1,&ret_len) )
           {
            ret.error=NonNullError();
            ret.len=0;
@@ -276,13 +276,13 @@ auto ConRead::read(char *buf,ulen len,TimeScope time_scope) noexcept -> IOResult
 
         if( !ret_len )
           {
-           ret.error=ErrorType(Win32::ErrorReadFault);
+           ret.error=ErrorType(WinNN::ErrorReadFault);
            ret.len=0;
 
            return ret;
           }
 
-        if( input.event_type==Win32::ConKeyEvent )
+        if( input.event_type==WinNN::ConKeyEvent )
           {
            if( input.event.key.key_down && input.event.key.ch.unicode && symbol.push(input.event.key.ch.unicode) )
              {
@@ -290,7 +290,7 @@ auto ConRead::read(char *buf,ulen len,TimeScope time_scope) noexcept -> IOResult
              }
           }
        }
-     else if( opt!=Win32::WaitTimeout )
+     else if( opt!=WinNN::WaitTimeout )
        {
         ret.error=NonNullError();
         ret.len=0;

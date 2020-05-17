@@ -14,6 +14,7 @@
 //----------------------------------------------------------------------------------------
 
 #include <CCore/inc/sys/SysProp.h>
+#include <CCore/inc/sys/SysTypes.h>
 
 #include <CCore/inc/win32/Win32.h>
 
@@ -28,13 +29,13 @@ namespace Private_SysProp {
 
 struct Info
  {
-  Win32::SystemInfo info;
+  WinNN::SystemInfo info;
 
   unsigned spin_count;
 
   Info()
    {
-    Win32::GetSystemInfo(&info);
+    WinNN::GetSystemInfo(&info);
 
     spin_count=(info.cpu_count>1)?1000:0;
    }

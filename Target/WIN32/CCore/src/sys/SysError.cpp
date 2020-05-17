@@ -25,7 +25,7 @@ namespace Sys {
 
 ErrorType NonNullError() noexcept
  {
-  if( auto ret=Win32::GetLastError() ) return ErrorType(ret);
+  if( auto ret=WinNN::GetLastError() ) return ErrorType(ret);
 
   return Error_SysErrorFault;
  }
@@ -61,13 +61,13 @@ bool ErrorDesc::init(ErrorType error,PtrLen<char> buf) noexcept
      case Error_NoVariable    : return set("No such variable"_c);
     }
 
-  Win32::flags_t flags=Win32::FormatMessageFromSystem
-                      |Win32::FormatMessageIgnoreInserts
-                      |Win32::FormatMessageMaxWidthMask;
+  WinNN::flags_t flags=WinNN::FormatMessageFromSystem
+                      |WinNN::FormatMessageIgnoreInserts
+                      |WinNN::FormatMessageMaxWidthMask;
 
   WCharToUtf8<TextBufLen+1> temp;
 
-  temp.len=Win32::FormatMessageW(flags,0,error,0,temp.buf,temp.Len,0);
+  temp.len=WinNN::FormatMessageW(flags,0,error,0,temp.buf,temp.Len,0);
 
   if( temp.len )
     {

@@ -41,9 +41,9 @@ void AbortOnError(const char *text,ErrorType error)
 
 void AbortProcess()
  {
-  Win32::TerminateProcess(Win32::GetCurrentProcess(),666);
+  WinNN::TerminateProcess(WinNN::GetCurrentProcess(),666);
 
-  Win32::Sleep(Win32::NoTimeout);
+  WinNN::Sleep(WinNN::NoTimeout);
  }
 
 } // namespace Sys
