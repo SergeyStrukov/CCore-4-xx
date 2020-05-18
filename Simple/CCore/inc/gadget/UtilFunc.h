@@ -137,6 +137,12 @@ void BitClear(UInt &obj,S bits)
  }
 
 template <UIntType UInt,class S>
+void BitMask(UInt &obj,S bits)
+ {
+  obj &= UInt(bits) ;
+ }
+
+template <UIntType UInt,class S>
 UInt BitTest(UInt val,S bits)
  {
   return UInt( val&UInt(bits) );
