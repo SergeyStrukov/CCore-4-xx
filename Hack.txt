@@ -1,0 +1,70 @@
+/* Hack.txt */
+
+==================================================
+
+<compare>
+
+  class strong_ordering
+  {
+    __cmp_cat::type _M_value;
+
+    ....
+
+    constexpr operator int() const { return _M_value; }
+
+    // comparisons
+
+    friend constexpr bool
+    operator==(strong_ordering, strong_ordering) noexcept = default;
+
+#if 0
+
+    friend constexpr bool
+    operator==(strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v._M_value == 0; }
+
+    friend constexpr bool
+    operator< (strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v._M_value < 0; }
+
+    friend constexpr bool
+    operator> (strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v._M_value > 0; }
+
+    friend constexpr bool
+    operator<=(strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v._M_value <= 0; }
+
+    friend constexpr bool
+    operator>=(strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v._M_value >= 0; }
+
+    friend constexpr bool
+    operator< (__cmp_cat::__unspec, strong_ordering __v) noexcept
+    { return 0 < __v._M_value; }
+
+    friend constexpr bool
+    operator> (__cmp_cat::__unspec, strong_ordering __v) noexcept
+    { return 0 > __v._M_value; }
+
+    friend constexpr bool
+    operator<=(__cmp_cat::__unspec, strong_ordering __v) noexcept
+    { return 0 <= __v._M_value; }
+
+    friend constexpr bool
+    operator>=(__cmp_cat::__unspec, strong_ordering __v) noexcept
+    { return 0 >= __v._M_value; }
+
+    friend constexpr strong_ordering
+    operator<=>(strong_ordering __v, __cmp_cat::__unspec) noexcept
+    { return __v; }
+
+    friend constexpr strong_ordering
+    operator<=>(__cmp_cat::__unspec, strong_ordering __v) noexcept
+    { return strong_ordering(__cmp_cat::_Ord(-__v._M_value)); }
+
+#endif
+
+  };
+
+==================================================
