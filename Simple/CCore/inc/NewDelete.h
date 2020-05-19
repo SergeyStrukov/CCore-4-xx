@@ -25,11 +25,11 @@ namespace CCore {
 template <class AllocInit,class AllocType>
 concept AllocInitType2 = requires(AllocInit &init,AllocType &alloc,ulen len,void *mem)
  {
-  AllocType(init);
+  { AllocType(init) } noexcept;
 
   Ground<void *>( alloc.alloc(len) );
 
-  alloc.free(mem,len);
+  { alloc.free(mem,len) } noexcept;
  } ;
 
 template <class AllocInit>
@@ -50,13 +50,13 @@ template <AllocInitType AllocInit> class CustomAllocGuard;
 
 struct DefaultHeapAlloc
  {
-  DefaultHeapAlloc() {}
+  DefaultHeapAlloc() noexcept {}
 
   using AllocType = DefaultHeapAlloc ;
 
   void * alloc(ulen len) { return MemAlloc(len); }
 
-  void free(void *ptr,ulen) { MemFree(ptr); }
+  void free(void *ptr,ulen) noexcept { MemFree(ptr); }
  };
 
 /* class CustomAllocGuard<AllocInit> */
@@ -106,7 +106,7 @@ T * New(AllocInit init,SS && ... ss)
 /* Delete() */
 
 template <NothrowDtorType T,AllocInitType AllocInit>
-void Delete(AllocInit init,T *obj)
+void Delete(AllocInit init,T *obj) noexcept
  {
   void *mem=obj;
 
@@ -122,7 +122,7 @@ void Delete(AllocInit init,T *obj)
 /* Delete_dynamic() */
 
 template <NothrowDtorType T,AllocInitType AllocInit>
-void Delete_dynamic(AllocInit init,T *obj)
+void Delete_dynamic(AllocInit init,T *obj) noexcept
  {
   Space space=obj->objSpace();
 

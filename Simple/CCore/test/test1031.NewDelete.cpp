@@ -52,7 +52,7 @@ struct AllocInit
  {
   public:
 
-   AllocInit() {}
+   AllocInit() noexcept {}
 
    using AllocType = AllocInit ;
 
@@ -63,7 +63,7 @@ struct AllocInit
      return MemAlloc(len);
     }
 
-   void free(void *mem,ulen len)
+   void free(void *mem,ulen len) noexcept
     {
      Printf(Con,"free() : len = #;\n",len);
 
