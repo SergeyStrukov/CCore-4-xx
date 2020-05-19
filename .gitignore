@@ -1,5 +1,7 @@
 # My
 
+*.s
+
 .eclipse/*
 
 PTPServerLog.txt
