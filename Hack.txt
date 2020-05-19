@@ -10,6 +10,8 @@
 
     ....
 
+    // ops
+
     constexpr operator int() const { return _M_value; }
 
     // comparisons
