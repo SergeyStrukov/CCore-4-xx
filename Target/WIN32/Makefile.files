@@ -2,6 +2,7 @@ OBJ_LIST = \
 .obj/Abort.o \
 .obj/AbortMsgFunc.o \
 .obj/AntiSem.o \
+.obj/AnyPtr.o \
 .obj/Atomic.o \
 .obj/AutoCast.o \
 .obj/BlockFifo.o \
@@ -16,6 +17,7 @@ OBJ_LIST = \
 .obj/DefaultTimeout.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/DynObject.o \
 .obj/ErrorText.o \
 .obj/Event.o \
 .obj/Exception.o \
@@ -70,13 +72,16 @@ OBJ_LIST = \
 .obj/PlanInit.o \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
+.obj/Pow.o \
 .obj/PrintAbort.o \
 .obj/PrintBase.o \
 .obj/PrintBits.o \
 .obj/PrintCon.o \
 .obj/PrintError.o \
 .obj/PrintProxy.o \
+.obj/PrintRatio.o \
 .obj/PrintSet.o \
+.obj/PrintStem.o \
 .obj/PrintTime.o \
 .obj/PrintTitle.o \
 .obj/Printf.o \
@@ -89,16 +94,21 @@ OBJ_LIST = \
 .obj/RBTreeUpLink.o \
 .obj/RadixHeap.o \
 .obj/Random.o \
+.obj/RangeDel.o \
+.obj/RefObjectBase.o \
 .obj/RefPtr.o \
 .obj/Replace.o \
 .obj/ResSem.o \
 .obj/SIntFunc.o \
+.obj/SafeBuf.o \
 .obj/ScanBit.o \
+.obj/ScanRange.o \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Sem.o \
 .obj/SlowSem.o \
 .obj/Space.o \
+.obj/StartStop.o \
 .obj/StrParse.o \
 .obj/StrPrint.o \
 .obj/Swap.o \
@@ -144,6 +154,7 @@ ASM_LIST = \
 .obj/Abort.s \
 .obj/AbortMsgFunc.s \
 .obj/AntiSem.s \
+.obj/AnyPtr.s \
 .obj/Atomic.s \
 .obj/AutoCast.s \
 .obj/BlockFifo.s \
@@ -158,6 +169,7 @@ ASM_LIST = \
 .obj/DefaultTimeout.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/DynObject.s \
 .obj/ErrorText.s \
 .obj/Event.s \
 .obj/Exception.s \
@@ -212,13 +224,16 @@ ASM_LIST = \
 .obj/PlanInit.s \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
+.obj/Pow.s \
 .obj/PrintAbort.s \
 .obj/PrintBase.s \
 .obj/PrintBits.s \
 .obj/PrintCon.s \
 .obj/PrintError.s \
 .obj/PrintProxy.s \
+.obj/PrintRatio.s \
 .obj/PrintSet.s \
+.obj/PrintStem.s \
 .obj/PrintTime.s \
 .obj/PrintTitle.s \
 .obj/Printf.s \
@@ -231,16 +246,21 @@ ASM_LIST = \
 .obj/RBTreeUpLink.s \
 .obj/RadixHeap.s \
 .obj/Random.s \
+.obj/RangeDel.s \
+.obj/RefObjectBase.s \
 .obj/RefPtr.s \
 .obj/Replace.s \
 .obj/ResSem.s \
 .obj/SIntFunc.s \
+.obj/SafeBuf.s \
 .obj/ScanBit.s \
+.obj/ScanRange.s \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Sem.s \
 .obj/SlowSem.s \
 .obj/Space.s \
+.obj/StartStop.s \
 .obj/StrParse.s \
 .obj/StrPrint.s \
 .obj/Swap.s \
@@ -286,6 +306,7 @@ DEP_LIST = \
 .obj/Abort.dep \
 .obj/AbortMsgFunc.dep \
 .obj/AntiSem.dep \
+.obj/AnyPtr.dep \
 .obj/Atomic.dep \
 .obj/AutoCast.dep \
 .obj/BlockFifo.dep \
@@ -300,6 +321,7 @@ DEP_LIST = \
 .obj/DefaultTimeout.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/DynObject.dep \
 .obj/ErrorText.dep \
 .obj/Event.dep \
 .obj/Exception.dep \
@@ -354,13 +376,16 @@ DEP_LIST = \
 .obj/PlanInit.dep \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
+.obj/Pow.dep \
 .obj/PrintAbort.dep \
 .obj/PrintBase.dep \
 .obj/PrintBits.dep \
 .obj/PrintCon.dep \
 .obj/PrintError.dep \
 .obj/PrintProxy.dep \
+.obj/PrintRatio.dep \
 .obj/PrintSet.dep \
+.obj/PrintStem.dep \
 .obj/PrintTime.dep \
 .obj/PrintTitle.dep \
 .obj/Printf.dep \
@@ -373,16 +398,21 @@ DEP_LIST = \
 .obj/RBTreeUpLink.dep \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
+.obj/RangeDel.dep \
+.obj/RefObjectBase.dep \
 .obj/RefPtr.dep \
 .obj/Replace.dep \
 .obj/ResSem.dep \
 .obj/SIntFunc.dep \
+.obj/SafeBuf.dep \
 .obj/ScanBit.dep \
+.obj/ScanRange.dep \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Sem.dep \
 .obj/SlowSem.dep \
 .obj/Space.dep \
+.obj/StartStop.dep \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
 .obj/Swap.dep \
@@ -445,6 +475,9 @@ include $(RULES_FILE)
 .obj/AntiSem.o : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AnyPtr.o : ../../Simple/CCore/src/./AnyPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Atomic.o : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -485,6 +518,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DynObject.o : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ErrorText.o : ../../Simple/CCore/src/./ErrorText.cpp
@@ -649,6 +685,9 @@ include $(RULES_FILE)
 .obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Pow.o : ../../Simple/CCore/src/./Pow.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintAbort.o : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -667,7 +706,13 @@ include $(RULES_FILE)
 .obj/PrintProxy.o : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintRatio.o : ../../Simple/CCore/src/./PrintRatio.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintSet.o : ../../Simple/CCore/src/./PrintSet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintStem.o : ../../Simple/CCore/src/./PrintStem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PrintTime.o : ../../Simple/CCore/src/./PrintTime.cpp
@@ -706,6 +751,12 @@ include $(RULES_FILE)
 .obj/Random.o : ../../Fundamental/CCore/src/./Random.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RangeDel.o : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/RefObjectBase.o : ../../Simple/CCore/src/./RefObjectBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/RefPtr.o : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -718,7 +769,13 @@ include $(RULES_FILE)
 .obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SafeBuf.o : ../../Simple/CCore/src/./SafeBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ScanBit.o : ../../Simple/CCore/src/./ScanBit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ScanRange.o : ../../Simple/CCore/src/./ScanRange.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Scope.o : ../../Fundamental/CCore/src/./Scope.cpp
@@ -734,6 +791,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/StartStop.o : ../../Simple/CCore/src/./StartStop.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/StrParse.o : ../../Fundamental/CCore/src/./StrParse.cpp
@@ -864,6 +924,9 @@ include $(RULES_FILE)
 .obj/AntiSem.s : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AnyPtr.s : ../../Simple/CCore/src/./AnyPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Atomic.s : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -904,6 +967,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DynObject.s : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ErrorText.s : ../../Simple/CCore/src/./ErrorText.cpp
@@ -1068,6 +1134,9 @@ include $(RULES_FILE)
 .obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Pow.s : ../../Simple/CCore/src/./Pow.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintAbort.s : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1086,7 +1155,13 @@ include $(RULES_FILE)
 .obj/PrintProxy.s : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintRatio.s : ../../Simple/CCore/src/./PrintRatio.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintSet.s : ../../Simple/CCore/src/./PrintSet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintStem.s : ../../Simple/CCore/src/./PrintStem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PrintTime.s : ../../Simple/CCore/src/./PrintTime.cpp
@@ -1125,6 +1200,12 @@ include $(RULES_FILE)
 .obj/Random.s : ../../Fundamental/CCore/src/./Random.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RangeDel.s : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/RefObjectBase.s : ../../Simple/CCore/src/./RefObjectBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RefPtr.s : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1137,7 +1218,13 @@ include $(RULES_FILE)
 .obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SafeBuf.s : ../../Simple/CCore/src/./SafeBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ScanBit.s : ../../Simple/CCore/src/./ScanBit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ScanRange.s : ../../Simple/CCore/src/./ScanRange.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Scope.s : ../../Fundamental/CCore/src/./Scope.cpp
@@ -1153,6 +1240,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/StartStop.s : ../../Simple/CCore/src/./StartStop.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/StrParse.s : ../../Fundamental/CCore/src/./StrParse.cpp
@@ -1283,6 +1373,9 @@ include $(RULES_FILE)
 .obj/AntiSem.dep : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AntiSem.o $< -MF $@
 
+.obj/AnyPtr.dep : ../../Simple/CCore/src/./AnyPtr.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AnyPtr.o $< -MF $@
+
 .obj/Atomic.dep : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Atomic.o $< -MF $@
 
@@ -1324,6 +1417,9 @@ include $(RULES_FILE)
 
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
+
+.obj/DynObject.dep : ../../Simple/CCore/src/./DynObject.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DynObject.o $< -MF $@
 
 .obj/ErrorText.dep : ../../Simple/CCore/src/./ErrorText.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
@@ -1487,6 +1583,9 @@ include $(RULES_FILE)
 .obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
 
+.obj/Pow.dep : ../../Simple/CCore/src/./Pow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Pow.o $< -MF $@
+
 .obj/PrintAbort.dep : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintAbort.o $< -MF $@
 
@@ -1505,8 +1604,14 @@ include $(RULES_FILE)
 .obj/PrintProxy.dep : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintProxy.o $< -MF $@
 
+.obj/PrintRatio.dep : ../../Simple/CCore/src/./PrintRatio.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintRatio.o $< -MF $@
+
 .obj/PrintSet.dep : ../../Simple/CCore/src/./PrintSet.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintSet.o $< -MF $@
+
+.obj/PrintStem.dep : ../../Simple/CCore/src/./PrintStem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintStem.o $< -MF $@
 
 .obj/PrintTime.dep : ../../Simple/CCore/src/./PrintTime.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintTime.o $< -MF $@
@@ -1544,6 +1649,12 @@ include $(RULES_FILE)
 .obj/Random.dep : ../../Fundamental/CCore/src/./Random.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Random.o $< -MF $@
 
+.obj/RangeDel.dep : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RangeDel.o $< -MF $@
+
+.obj/RefObjectBase.dep : ../../Simple/CCore/src/./RefObjectBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RefObjectBase.o $< -MF $@
+
 .obj/RefPtr.dep : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefPtr.o $< -MF $@
 
@@ -1556,8 +1667,14 @@ include $(RULES_FILE)
 .obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@
 
+.obj/SafeBuf.dep : ../../Simple/CCore/src/./SafeBuf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SafeBuf.o $< -MF $@
+
 .obj/ScanBit.dep : ../../Simple/CCore/src/./ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScanBit.o $< -MF $@
+
+.obj/ScanRange.dep : ../../Simple/CCore/src/./ScanRange.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanRange.o $< -MF $@
 
 .obj/Scope.dep : ../../Fundamental/CCore/src/./Scope.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Scope.o $< -MF $@
@@ -1573,6 +1690,9 @@ include $(RULES_FILE)
 
 .obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
+
+.obj/StartStop.dep : ../../Simple/CCore/src/./StartStop.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StartStop.o $< -MF $@
 
 .obj/StrParse.dep : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrParse.o $< -MF $@

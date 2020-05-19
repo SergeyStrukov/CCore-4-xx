@@ -3,6 +3,9 @@ OBJ_LIST = \
 ../.test-obj/test1006.Cmp.o \
 ../.test-obj/test1022.ScanBit.o \
 ../.test-obj/test1027.Timer.o \
+../.test-obj/test1031.NewDelete.o \
+../.test-obj/test1036.PrintRatio.o \
+../.test-obj/test1039.ScanRange.o \
 ../.test-obj/testPrint.o \
 
 
@@ -11,6 +14,9 @@ ASM_LIST = \
 ../.test-obj/test1006.Cmp.s \
 ../.test-obj/test1022.ScanBit.s \
 ../.test-obj/test1027.Timer.s \
+../.test-obj/test1031.NewDelete.s \
+../.test-obj/test1036.PrintRatio.s \
+../.test-obj/test1039.ScanRange.s \
 ../.test-obj/testPrint.s \
 
 
@@ -19,6 +25,9 @@ DEP_LIST = \
 ../.test-obj/test1006.Cmp.dep \
 ../.test-obj/test1022.ScanBit.dep \
 ../.test-obj/test1027.Timer.dep \
+../.test-obj/test1031.NewDelete.dep \
+../.test-obj/test1036.PrintRatio.dep \
+../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/testPrint.dep \
 
 
@@ -40,6 +49,15 @@ include $(RULES_FILE)
 ../.test-obj/test1027.Timer.o : ../../../Simple/CCore/test/./test1027.Timer.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test1031.NewDelete.o : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1036.PrintRatio.o : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1039.ScanRange.o : ../../../Simple/CCore/test/./test1039.ScanRange.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testPrint.o : ../../../HCore/CCore/test/./testPrint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -55,6 +73,15 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test1027.Timer.s : ../../../Simple/CCore/test/./test1027.Timer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1031.NewDelete.s : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1036.PrintRatio.s : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1039.ScanRange.s : ../../../Simple/CCore/test/./test1039.ScanRange.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testPrint.s : ../../../HCore/CCore/test/./testPrint.cpp
@@ -73,6 +100,15 @@ include $(RULES_FILE)
 
 ../.test-obj/test1027.Timer.dep : ../../../Simple/CCore/test/./test1027.Timer.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1027.Timer.o $< -MF $@
+
+../.test-obj/test1031.NewDelete.dep : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1031.NewDelete.o $< -MF $@
+
+../.test-obj/test1036.PrintRatio.dep : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1036.PrintRatio.o $< -MF $@
+
+../.test-obj/test1039.ScanRange.dep : ../../../Simple/CCore/test/./test1039.ScanRange.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1039.ScanRange.o $< -MF $@
 
 ../.test-obj/testPrint.dep : ../../../HCore/CCore/test/./testPrint.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testPrint.o $< -MF $@
