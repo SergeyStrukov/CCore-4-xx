@@ -17,6 +17,19 @@
 
 namespace CCore {
 
+/* GetTextDesc() */
+
+const char * GetTextDesc(std::strong_ordering cmp)
+ {
+  if( cmp < 0 ) return "<";
+
+  if( cmp == 0 ) return "=";
+
+  if( cmp > 0 ) return ">";
+
+  return "???";
+ }
+
 /* struct PrintfDevBase */
 
 const char * PrintfDevBase::Find(const char *format,char ch)

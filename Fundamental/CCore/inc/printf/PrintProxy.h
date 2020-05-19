@@ -156,6 +156,9 @@ struct PrintProxy<const char [N]> : StrPrintProxy {};
 template <>
 struct PrintProxy<StrLen> : StrPrintProxy {};
 
+template <>
+struct PrintProxy<std::strong_ordering> : PrintProxy_noclass<std::strong_ordering> {};
+
 } // namespace CCore
 
 #endif

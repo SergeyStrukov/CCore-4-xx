@@ -17,20 +17,6 @@
 
 namespace CCore {
 
-/* enum CmpResult */
-
-const char * GetTextDesc(CmpResult cmp)
- {
-  switch( cmp )
-    {
-     case CmpLess    : return "<";
-     case CmpEqual   : return "=";
-     case CmpGreater : return ">";
-
-     default: return "???";
-    }
- }
-
 /* Str...() */
 
 CmpResult StrCmp(StrLen a,StrLen b)

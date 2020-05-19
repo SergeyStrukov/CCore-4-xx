@@ -39,6 +39,8 @@ inline long long GetTextDesc(long long value) { return value; }
 
 inline unsigned long long GetTextDesc(unsigned long long value) { return value; }
 
+const char * GetTextDesc(std::strong_ordering cmp);
+
 /* classes */
 
 template <class Func> struct PrintBy;

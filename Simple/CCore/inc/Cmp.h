@@ -30,7 +30,7 @@ inline constexpr CmpResult CmpEqual = CmpResult::equal ;
 
 inline constexpr CmpResult CmpGreater = CmpResult::greater ;
 
-const char * GetTextDesc(CmpResult cmp);
+inline CmpResult operator - (CmpResult cmp) { return 0 <=> cmp ; }
 
 /* Str...() */
 

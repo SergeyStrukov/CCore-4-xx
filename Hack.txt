@@ -14,6 +14,58 @@
 
     constexpr operator int() const { return _M_value; }
 
+#if 1
+
+    friend constexpr bool
+    operator==(strong_ordering __v, int t) noexcept
+    { return __v._M_value == t; }
+
+    friend constexpr bool
+    operator!=(strong_ordering __v, int t) noexcept
+    { return __v._M_value != t; }
+
+    friend constexpr bool
+    operator< (strong_ordering __v, int t) noexcept
+    { return __v._M_value < t; }
+
+    friend constexpr bool
+    operator> (strong_ordering __v, int t) noexcept
+    { return __v._M_value > t; }
+
+    friend constexpr bool
+    operator<=(strong_ordering __v, int t) noexcept
+    { return __v._M_value <= t; }
+
+    friend constexpr bool
+    operator>=(strong_ordering __v, int t) noexcept
+    { return __v._M_value >= t; }
+
+    friend constexpr bool
+    operator< (int t, strong_ordering __v) noexcept
+    { return t < __v._M_value; }
+
+    friend constexpr bool
+    operator> (int t, strong_ordering __v) noexcept
+    { return t > __v._M_value; }
+
+    friend constexpr bool
+    operator<=(int t, strong_ordering __v) noexcept
+    { return t <= __v._M_value; }
+
+    friend constexpr bool
+    operator>=(int t, strong_ordering __v) noexcept
+    { return t >= __v._M_value; }
+
+    friend constexpr strong_ordering
+    operator<=>(strong_ordering __v, int /*zero*/) noexcept
+    { return __v; }
+
+    friend constexpr strong_ordering
+    operator<=>(int /*zero*/, strong_ordering __v) noexcept
+    { return strong_ordering(__cmp_cat::_Ord(-__v._M_value)); }
+
+#endif
+
     // comparisons
 
     friend constexpr bool
@@ -66,7 +118,6 @@
     { return strong_ordering(__cmp_cat::_Ord(-__v._M_value)); }
 
 #endif
-
   };
 
 ==================================================
