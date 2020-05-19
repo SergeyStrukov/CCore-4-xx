@@ -4,6 +4,8 @@ OBJ_LIST = \
 ../.test-obj/test1022.ScanBit.o \
 ../.test-obj/test1027.Timer.o \
 ../.test-obj/test1031.NewDelete.o \
+../.test-obj/test1033.AnyPtr.o \
+../.test-obj/test1034.PrintStem.o \
 ../.test-obj/test1036.PrintRatio.o \
 ../.test-obj/test1039.ScanRange.o \
 ../.test-obj/testPrint.o \
@@ -15,6 +17,8 @@ ASM_LIST = \
 ../.test-obj/test1022.ScanBit.s \
 ../.test-obj/test1027.Timer.s \
 ../.test-obj/test1031.NewDelete.s \
+../.test-obj/test1033.AnyPtr.s \
+../.test-obj/test1034.PrintStem.s \
 ../.test-obj/test1036.PrintRatio.s \
 ../.test-obj/test1039.ScanRange.s \
 ../.test-obj/testPrint.s \
@@ -26,6 +30,8 @@ DEP_LIST = \
 ../.test-obj/test1022.ScanBit.dep \
 ../.test-obj/test1027.Timer.dep \
 ../.test-obj/test1031.NewDelete.dep \
+../.test-obj/test1033.AnyPtr.dep \
+../.test-obj/test1034.PrintStem.dep \
 ../.test-obj/test1036.PrintRatio.dep \
 ../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/testPrint.dep \
@@ -50,6 +56,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1031.NewDelete.o : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1033.AnyPtr.o : ../../../Simple/CCore/test/./test1033.AnyPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1034.PrintStem.o : ../../../Simple/CCore/test/./test1034.PrintStem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1036.PrintRatio.o : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
@@ -78,6 +90,12 @@ include $(RULES_FILE)
 ../.test-obj/test1031.NewDelete.s : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1033.AnyPtr.s : ../../../Simple/CCore/test/./test1033.AnyPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1034.PrintStem.s : ../../../Simple/CCore/test/./test1034.PrintStem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1036.PrintRatio.s : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -103,6 +121,12 @@ include $(RULES_FILE)
 
 ../.test-obj/test1031.NewDelete.dep : ../../../Simple/CCore/test/./test1031.NewDelete.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1031.NewDelete.o $< -MF $@
+
+../.test-obj/test1033.AnyPtr.dep : ../../../Simple/CCore/test/./test1033.AnyPtr.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1033.AnyPtr.o $< -MF $@
+
+../.test-obj/test1034.PrintStem.dep : ../../../Simple/CCore/test/./test1034.PrintStem.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1034.PrintStem.o $< -MF $@
 
 ../.test-obj/test1036.PrintRatio.dep : ../../../Simple/CCore/test/./test1036.PrintRatio.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1036.PrintRatio.o $< -MF $@
