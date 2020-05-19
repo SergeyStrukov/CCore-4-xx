@@ -1,13 +1,25 @@
 OBJ_LIST = \
 ../.test-obj/main.o \
+../.test-obj/test1006.Cmp.o \
+../.test-obj/test1022.ScanBit.o \
+../.test-obj/test1027.Timer.o \
+../.test-obj/testPrint.o \
 
 
 ASM_LIST = \
 ../.test-obj/main.s \
+../.test-obj/test1006.Cmp.s \
+../.test-obj/test1022.ScanBit.s \
+../.test-obj/test1027.Timer.s \
+../.test-obj/testPrint.s \
 
 
 DEP_LIST = \
 ../.test-obj/main.dep \
+../.test-obj/test1006.Cmp.dep \
+../.test-obj/test1022.ScanBit.dep \
+../.test-obj/test1027.Timer.dep \
+../.test-obj/testPrint.dep \
 
 
 ASM_OBJ_LIST = \
@@ -19,15 +31,51 @@ include $(RULES_FILE)
 ../.test-obj/main.o : ././main.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test1006.Cmp.o : ../../../Simple/CCore/test/./test1006.Cmp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1022.ScanBit.o : ../../../Simple/CCore/test/./test1022.ScanBit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1027.Timer.o : ../../../Simple/CCore/test/./test1027.Timer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testPrint.o : ../../../HCore/CCore/test/./testPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 
 
 ../.test-obj/main.s : ././main.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1006.Cmp.s : ../../../Simple/CCore/test/./test1006.Cmp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1022.ScanBit.s : ../../../Simple/CCore/test/./test1022.ScanBit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1027.Timer.s : ../../../Simple/CCore/test/./test1027.Timer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testPrint.s : ../../../HCore/CCore/test/./testPrint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
 
 ../.test-obj/main.dep : ././main.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/main.o $< -MF $@
+
+../.test-obj/test1006.Cmp.dep : ../../../Simple/CCore/test/./test1006.Cmp.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1006.Cmp.o $< -MF $@
+
+../.test-obj/test1022.ScanBit.dep : ../../../Simple/CCore/test/./test1022.ScanBit.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1022.ScanBit.o $< -MF $@
+
+../.test-obj/test1027.Timer.dep : ../../../Simple/CCore/test/./test1027.Timer.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1027.Timer.o $< -MF $@
+
+../.test-obj/testPrint.dep : ../../../HCore/CCore/test/./testPrint.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testPrint.o $< -MF $@
 
 
 

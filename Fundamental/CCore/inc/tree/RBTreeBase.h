@@ -36,7 +36,7 @@ concept CopyKeyTypes = requires(K &key,KRef ref)
   { key=ref } noexcept ;
  } ;
 
-/* functions */
+/* guard functions */
 
 void GuardRBTreeCheckFailed(const char *text);
 
@@ -44,6 +44,8 @@ inline void GuardRBTreeCheck(bool cond,const char *text)
  {
   if( !cond ) GuardRBTreeCheckFailed(text);
  }
+
+/* copy-key functions */
 
 template <class K,class KRef>
 void DoCopyKey(K &key,KRef ref) requires ( CopyKeyTypes<K,KRef> ) { key=ref; }

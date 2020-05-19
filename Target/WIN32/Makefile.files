@@ -5,6 +5,7 @@ OBJ_LIST = \
 .obj/Atomic.o \
 .obj/AutoCast.o \
 .obj/BlockFifo.o \
+.obj/CapString.o \
 .obj/CharProp.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
@@ -15,10 +16,12 @@ OBJ_LIST = \
 .obj/DefaultTimeout.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/ErrorText.o \
 .obj/Event.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
 .obj/FastMutex.o \
+.obj/FeedBuf.o \
 .obj/Fifo.o \
 .obj/ForLoop.o \
 .obj/FuncTask.o \
@@ -28,7 +31,10 @@ OBJ_LIST = \
 .obj/Handle.o \
 .obj/HeapEngine.o \
 .obj/Init.o \
+.obj/InstanceLock.o \
 .obj/IntPrint.o \
+.obj/IntelCPUID.o \
+.obj/IntelRandom.o \
 .obj/Len.o \
 .obj/List.o \
 .obj/LockObject.o \
@@ -36,10 +42,12 @@ OBJ_LIST = \
 .obj/Locked.o \
 .obj/MSec.o \
 .obj/MakeString.o \
+.obj/MemAllocGuard.o \
 .obj/MemBase.o \
 .obj/MemBase_general.o \
 .obj/MemPageHeap.o \
 .obj/MemberFold.o \
+.obj/MersenneTwister.o \
 .obj/Meta.o \
 .obj/MetaList.o \
 .obj/Move.o \
@@ -48,6 +56,7 @@ OBJ_LIST = \
 .obj/Mutex.o \
 .obj/MutexSpinCount.o \
 .obj/NegBool.o \
+.obj/NewDelete.o \
 .obj/NoCopy.o \
 .obj/NoMutex.o \
 .obj/NoThrowFlags.o \
@@ -55,6 +64,7 @@ OBJ_LIST = \
 .obj/NullMovePtr.o \
 .obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
+.obj/OptMember.o \
 .obj/OwnPtr.o \
 .obj/Place.o \
 .obj/PlanInit.o \
@@ -78,6 +88,7 @@ OBJ_LIST = \
 .obj/RBTreeLink.o \
 .obj/RBTreeUpLink.o \
 .obj/RadixHeap.o \
+.obj/Random.o \
 .obj/RefPtr.o \
 .obj/Replace.o \
 .obj/ResSem.o \
@@ -136,6 +147,7 @@ ASM_LIST = \
 .obj/Atomic.s \
 .obj/AutoCast.s \
 .obj/BlockFifo.s \
+.obj/CapString.s \
 .obj/CharProp.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
@@ -146,10 +158,12 @@ ASM_LIST = \
 .obj/DefaultTimeout.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/ErrorText.s \
 .obj/Event.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
 .obj/FastMutex.s \
+.obj/FeedBuf.s \
 .obj/Fifo.s \
 .obj/ForLoop.s \
 .obj/FuncTask.s \
@@ -159,7 +173,10 @@ ASM_LIST = \
 .obj/Handle.s \
 .obj/HeapEngine.s \
 .obj/Init.s \
+.obj/InstanceLock.s \
 .obj/IntPrint.s \
+.obj/IntelCPUID.s \
+.obj/IntelRandom.s \
 .obj/Len.s \
 .obj/List.s \
 .obj/LockObject.s \
@@ -167,10 +184,12 @@ ASM_LIST = \
 .obj/Locked.s \
 .obj/MSec.s \
 .obj/MakeString.s \
+.obj/MemAllocGuard.s \
 .obj/MemBase.s \
 .obj/MemBase_general.s \
 .obj/MemPageHeap.s \
 .obj/MemberFold.s \
+.obj/MersenneTwister.s \
 .obj/Meta.s \
 .obj/MetaList.s \
 .obj/Move.s \
@@ -179,6 +198,7 @@ ASM_LIST = \
 .obj/Mutex.s \
 .obj/MutexSpinCount.s \
 .obj/NegBool.s \
+.obj/NewDelete.s \
 .obj/NoCopy.s \
 .obj/NoMutex.s \
 .obj/NoThrowFlags.s \
@@ -186,6 +206,7 @@ ASM_LIST = \
 .obj/NullMovePtr.s \
 .obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
+.obj/OptMember.s \
 .obj/OwnPtr.s \
 .obj/Place.s \
 .obj/PlanInit.s \
@@ -209,6 +230,7 @@ ASM_LIST = \
 .obj/RBTreeLink.s \
 .obj/RBTreeUpLink.s \
 .obj/RadixHeap.s \
+.obj/Random.s \
 .obj/RefPtr.s \
 .obj/Replace.s \
 .obj/ResSem.s \
@@ -267,6 +289,7 @@ DEP_LIST = \
 .obj/Atomic.dep \
 .obj/AutoCast.dep \
 .obj/BlockFifo.dep \
+.obj/CapString.dep \
 .obj/CharProp.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
@@ -277,10 +300,12 @@ DEP_LIST = \
 .obj/DefaultTimeout.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/ErrorText.dep \
 .obj/Event.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
 .obj/FastMutex.dep \
+.obj/FeedBuf.dep \
 .obj/Fifo.dep \
 .obj/ForLoop.dep \
 .obj/FuncTask.dep \
@@ -290,7 +315,10 @@ DEP_LIST = \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
 .obj/Init.dep \
+.obj/InstanceLock.dep \
 .obj/IntPrint.dep \
+.obj/IntelCPUID.dep \
+.obj/IntelRandom.dep \
 .obj/Len.dep \
 .obj/List.dep \
 .obj/LockObject.dep \
@@ -298,10 +326,12 @@ DEP_LIST = \
 .obj/Locked.dep \
 .obj/MSec.dep \
 .obj/MakeString.dep \
+.obj/MemAllocGuard.dep \
 .obj/MemBase.dep \
 .obj/MemBase_general.dep \
 .obj/MemPageHeap.dep \
 .obj/MemberFold.dep \
+.obj/MersenneTwister.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
 .obj/Move.dep \
@@ -310,6 +340,7 @@ DEP_LIST = \
 .obj/Mutex.dep \
 .obj/MutexSpinCount.dep \
 .obj/NegBool.dep \
+.obj/NewDelete.dep \
 .obj/NoCopy.dep \
 .obj/NoMutex.dep \
 .obj/NoThrowFlags.dep \
@@ -317,6 +348,7 @@ DEP_LIST = \
 .obj/NullMovePtr.dep \
 .obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
+.obj/OptMember.dep \
 .obj/OwnPtr.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
@@ -340,6 +372,7 @@ DEP_LIST = \
 .obj/RBTreeLink.dep \
 .obj/RBTreeUpLink.dep \
 .obj/RadixHeap.dep \
+.obj/Random.dep \
 .obj/RefPtr.dep \
 .obj/Replace.dep \
 .obj/ResSem.dep \
@@ -392,6 +425,8 @@ DEP_LIST = \
 
 
 ASM_OBJ_LIST = \
+.obj/IntelCPUID.s.o \
+.obj/IntelRandom.s.o \
 .obj/PlatformBase.s.o \
 .obj/Quick.s.o \
 .obj/SysAtomic.s.o \
@@ -417,6 +452,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BlockFifo.o : ../../Simple/CCore/src/./BlockFifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CapString.o : ../../Simple/CCore/src/./CapString.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CharProp.o : ../../Fundamental/CCore/src/./CharProp.cpp
@@ -449,6 +487,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ErrorText.o : ../../Simple/CCore/src/./ErrorText.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Event.o : ../../HCore/CCore/src/task/Event.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -459,6 +500,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FastMutex.o : ../../HCore/CCore/src/task/FastMutex.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FeedBuf.o : ../../Simple/CCore/src/./FeedBuf.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Fifo.o : ../../Simple/CCore/src/./Fifo.cpp
@@ -488,7 +532,16 @@ include $(RULES_FILE)
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/InstanceLock.o : ../../Simple/CCore/src/./InstanceLock.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/IntPrint.o : ../../Fundamental/CCore/src/printf/IntPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntelCPUID.o : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntelRandom.o : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
@@ -512,6 +565,9 @@ include $(RULES_FILE)
 .obj/MakeString.o : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MemAllocGuard.o : ../../Simple/CCore/src/./MemAllocGuard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/MemBase.o : ../../HCore/CCore/src/./MemBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -522,6 +578,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MemberFold.o : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MersenneTwister.o : ../../Fundamental/CCore/src/./MersenneTwister.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Meta.o : ../../Simple/CCore/src/gadget/Meta.cpp
@@ -548,6 +607,9 @@ include $(RULES_FILE)
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/NewDelete.o : ../../Simple/CCore/src/./NewDelete.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -567,6 +629,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OpAddHelper.o : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/OptMember.o : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OwnPtr.o : ../../Simple/CCore/src/./OwnPtr.cpp
@@ -636,6 +701,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RadixHeap.o : ../../Fundamental/CCore/src/./RadixHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Random.o : ../../Fundamental/CCore/src/./Random.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RefPtr.o : ../../Simple/CCore/src/./RefPtr.cpp
@@ -805,6 +873,9 @@ include $(RULES_FILE)
 .obj/BlockFifo.s : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CapString.s : ../../Simple/CCore/src/./CapString.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CharProp.s : ../../Fundamental/CCore/src/./CharProp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -835,6 +906,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ErrorText.s : ../../Simple/CCore/src/./ErrorText.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Event.s : ../../HCore/CCore/src/task/Event.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -845,6 +919,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FastMutex.s : ../../HCore/CCore/src/task/FastMutex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FeedBuf.s : ../../Simple/CCore/src/./FeedBuf.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Fifo.s : ../../Simple/CCore/src/./Fifo.cpp
@@ -874,7 +951,16 @@ include $(RULES_FILE)
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/InstanceLock.s : ../../Simple/CCore/src/./InstanceLock.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/IntPrint.s : ../../Fundamental/CCore/src/printf/IntPrint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntelCPUID.s : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntelRandom.s : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
@@ -898,6 +984,9 @@ include $(RULES_FILE)
 .obj/MakeString.s : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MemAllocGuard.s : ../../Simple/CCore/src/./MemAllocGuard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/MemBase.s : ../../HCore/CCore/src/./MemBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -908,6 +997,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MemberFold.s : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MersenneTwister.s : ../../Fundamental/CCore/src/./MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Meta.s : ../../Simple/CCore/src/gadget/Meta.cpp
@@ -934,6 +1026,9 @@ include $(RULES_FILE)
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NewDelete.s : ../../Simple/CCore/src/./NewDelete.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -953,6 +1048,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/OpAddHelper.s : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/OptMember.s : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/OwnPtr.s : ../../Simple/CCore/src/./OwnPtr.cpp
@@ -1022,6 +1120,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/RadixHeap.s : ../../Fundamental/CCore/src/./RadixHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Random.s : ../../Fundamental/CCore/src/./Random.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/RefPtr.s : ../../Simple/CCore/src/./RefPtr.cpp
@@ -1191,6 +1292,9 @@ include $(RULES_FILE)
 .obj/BlockFifo.dep : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
 
+.obj/CapString.dep : ../../Simple/CCore/src/./CapString.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CapString.o $< -MF $@
+
 .obj/CharProp.dep : ../../Fundamental/CCore/src/./CharProp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CharProp.o $< -MF $@
 
@@ -1221,6 +1325,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
 
+.obj/ErrorText.dep : ../../Simple/CCore/src/./ErrorText.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
+
 .obj/Event.dep : ../../HCore/CCore/src/task/Event.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Event.o $< -MF $@
 
@@ -1232,6 +1339,9 @@ include $(RULES_FILE)
 
 .obj/FastMutex.dep : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FastMutex.o $< -MF $@
+
+.obj/FeedBuf.dep : ../../Simple/CCore/src/./FeedBuf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FeedBuf.o $< -MF $@
 
 .obj/Fifo.dep : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
@@ -1260,8 +1370,17 @@ include $(RULES_FILE)
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
 
+.obj/InstanceLock.dep : ../../Simple/CCore/src/./InstanceLock.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/InstanceLock.o $< -MF $@
+
 .obj/IntPrint.dep : ../../Fundamental/CCore/src/printf/IntPrint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntPrint.o $< -MF $@
+
+.obj/IntelCPUID.dep : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntelCPUID.o $< -MF $@
+
+.obj/IntelRandom.dep : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntelRandom.o $< -MF $@
 
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
@@ -1284,6 +1403,9 @@ include $(RULES_FILE)
 .obj/MakeString.dep : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MakeString.o $< -MF $@
 
+.obj/MemAllocGuard.dep : ../../Simple/CCore/src/./MemAllocGuard.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemAllocGuard.o $< -MF $@
+
 .obj/MemBase.dep : ../../HCore/CCore/src/./MemBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemBase.o $< -MF $@
 
@@ -1295,6 +1417,9 @@ include $(RULES_FILE)
 
 .obj/MemberFold.dep : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
+
+.obj/MersenneTwister.dep : ../../Fundamental/CCore/src/./MersenneTwister.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MersenneTwister.o $< -MF $@
 
 .obj/Meta.dep : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Meta.o $< -MF $@
@@ -1320,6 +1445,9 @@ include $(RULES_FILE)
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
 
+.obj/NewDelete.dep : ../../Simple/CCore/src/./NewDelete.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NewDelete.o $< -MF $@
+
 .obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
 
@@ -1340,6 +1468,9 @@ include $(RULES_FILE)
 
 .obj/OpAddHelper.dep : ../../Simple/CCore/src/gadget/OpAddHelper.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OpAddHelper.o $< -MF $@
+
+.obj/OptMember.dep : ../../Simple/CCore/src/./OptMember.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/OptMember.o $< -MF $@
 
 .obj/OwnPtr.dep : ../../Simple/CCore/src/./OwnPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
@@ -1409,6 +1540,9 @@ include $(RULES_FILE)
 
 .obj/RadixHeap.dep : ../../Fundamental/CCore/src/./RadixHeap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RadixHeap.o $< -MF $@
+
+.obj/Random.dep : ../../Fundamental/CCore/src/./Random.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Random.o $< -MF $@
 
 .obj/RefPtr.dep : ../../Simple/CCore/src/./RefPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefPtr.o $< -MF $@
@@ -1558,6 +1692,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) -MM -MT .obj/UtilFunc.o $< -MF $@
 
 
+
+.obj/IntelCPUID.s.o : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.s
+	$(AS) $(ASOPT) $< -o $@
+
+.obj/IntelRandom.s.o : ../../Target/WIN32/CCore/src/crypton/IntelRandom.s
+	$(AS) $(ASOPT) $< -o $@
 
 .obj/PlatformBase.s.o : ../../Target/WIN32/CCore/src/base/PlatformBase.s
 	$(AS) $(ASOPT) $< -o $@

@@ -19,7 +19,7 @@
 
 namespace CCore {
 
-/* guard functions */
+/* GuardOptMemberNoObject() */
 
 void GuardOptMemberNoObject()
  {

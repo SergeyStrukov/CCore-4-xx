@@ -32,9 +32,17 @@ inline constexpr ulen operator "" _KByte (unsigned long long len) { return len*1
 
 inline constexpr ulen operator "" _MByte (unsigned long long len) { return len*1024u*1024u; }
 
-/* functions */
+/* guard functions */
 
 void GuardLenAddOverflow(ulen len,ulen extra_len);
+
+void GuardLenFailed(ulen len,ulen maxlen);
+
+void GuardLenOfOverflow(ulen count,ulen size_of,ulen extra);
+
+void GuardIndexOutOfRange(ulen index,ulen len);
+
+/* functions */
 
 inline ulen CheckedLenAdd(ulen len,ulen extra_len)
  {
@@ -50,14 +58,10 @@ ulen LenAdd(AnyType auto ... args)
   return ( ... + OpAddHelper<ulen,CheckedLenAdd>(args) ).val;
  }
 
-void GuardLenFailed(ulen len,ulen maxlen);
-
 inline void GuardLen(ulen len,ulen maxlen)
  {
   if( len>maxlen ) GuardLenFailed(len,maxlen);
  }
-
-void GuardLenOfOverflow(ulen count,ulen size_of,ulen extra);
 
 inline ulen LenOf(ulen count,ulen size_of,ulen extra=0)
  {
@@ -70,8 +74,6 @@ inline ulen LenOf(ulen count,ulen size_of,ulen extra=0)
 
   return extra;
  }
-
-void GuardIndexOutOfRange(ulen index,ulen len);
 
 inline void GuardIndex(ulen index,ulen len)
  {

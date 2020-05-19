@@ -19,7 +19,7 @@
 
 namespace CCore {
 
-/* functions */
+/* guard functions */
 
 void GuardRBTreeCheckFailed(const char *text)
  {

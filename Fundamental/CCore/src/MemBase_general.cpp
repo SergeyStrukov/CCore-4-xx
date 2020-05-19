@@ -21,7 +21,7 @@
 
 namespace CCore {
 
-/* functions */
+/* GuardNoMem() */
 
 class NoMemCatchType : public CatchType , public std::bad_alloc {};
 

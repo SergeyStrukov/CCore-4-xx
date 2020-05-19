@@ -22,7 +22,7 @@
 
 namespace CCore {
 
-/* functions */
+/* GuardRunFuncTaskFailed() */
 
 void GuardRunFuncTaskFailed();
 

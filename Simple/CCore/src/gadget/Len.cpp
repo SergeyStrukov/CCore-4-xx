@@ -19,7 +19,7 @@
 
 namespace CCore {
 
-/* functions */
+/* guard functions */
 
 void GuardLenAddOverflow(ulen len,ulen extra_len)
  {

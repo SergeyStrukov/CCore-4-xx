@@ -20,7 +20,7 @@
 
 namespace CCore {
 
-/* guard functions */
+/* GuardInstanceLockTaken() */
 
 void GuardInstanceLockTaken(StrLen name,ulen index);
 

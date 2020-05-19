@@ -19,7 +19,7 @@
 
 namespace CCore {
 
-/* functions */
+/* guard functions */
 
 void GuardRadixTreeUpCheckFailed(const char *text)
  {

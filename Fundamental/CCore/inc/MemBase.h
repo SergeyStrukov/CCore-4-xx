@@ -29,7 +29,7 @@ PlanInitNode * GetPlanInitNode_MemBase();
 
 enum JustTryType { JustTry };
 
-/* functions */
+/* GuardNoMem() */
 
 void GuardNoMem(ulen len);
 
