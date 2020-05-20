@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test2025.SimpleRotate.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Fundamental Mini
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,33 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/algon/SimpleRotate.h>
+#include <CCore/inc/PrintSet.h>
 
 namespace App {
 
-/* Testit<0> */
+/* Testit<2025> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<2025>::Name="Test2025 SimpleRotate";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<2025>::Main()
  {
-  MemScope mem_scope;
+  int buf[]={1,2,3,4,5};
 
-  //Testit<2999>().run();
+  Printf(Con,"#;\n",PrintSet(Range(buf)));
 
-  Testit<2022>().run();
+  Algon::RangeRotateLeft(Range(buf));
 
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
+  Printf(Con,"#;\n",PrintSet(Range(buf)));
 
-  //DetachPacketBufs(); TODO
+  Algon::RangeRotateRight(Range(buf));
 
-  return 0;
+  Printf(Con,"#;\n",PrintSet(Range(buf)));
+
+  return true;
  }
 
+} // namespace App
 
