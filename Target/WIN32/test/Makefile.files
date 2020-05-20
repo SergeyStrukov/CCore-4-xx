@@ -16,6 +16,8 @@ OBJ_LIST = \
 ../.test-obj/test2036.RefArray.o \
 ../.test-obj/test2037.AtomicRefArray.o \
 ../.test-obj/test2039.Collector.o \
+../.test-obj/test2054.ApplyToRange.o \
+../.test-obj/test2055.ArrayInsDel.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
 
@@ -38,6 +40,8 @@ ASM_LIST = \
 ../.test-obj/test2036.RefArray.s \
 ../.test-obj/test2037.AtomicRefArray.s \
 ../.test-obj/test2039.Collector.s \
+../.test-obj/test2054.ApplyToRange.s \
+../.test-obj/test2055.ArrayInsDel.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
 
@@ -60,6 +64,8 @@ DEP_LIST = \
 ../.test-obj/test2036.RefArray.dep \
 ../.test-obj/test2037.AtomicRefArray.dep \
 ../.test-obj/test2039.Collector.dep \
+../.test-obj/test2054.ApplyToRange.dep \
+../.test-obj/test2055.ArrayInsDel.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
 
@@ -121,6 +127,12 @@ include $(RULES_FILE)
 ../.test-obj/test2039.Collector.o : ../../../Fundamental/CCore/test/./test2039.Collector.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2054.ApplyToRange.o : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2055.ArrayInsDel.o : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -178,6 +190,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2039.Collector.s : ../../../Fundamental/CCore/test/./test2039.Collector.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2054.ApplyToRange.s : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2055.ArrayInsDel.s : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -238,6 +256,12 @@ include $(RULES_FILE)
 
 ../.test-obj/test2039.Collector.dep : ../../../Fundamental/CCore/test/./test2039.Collector.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2039.Collector.o $< -MF $@
+
+../.test-obj/test2054.ApplyToRange.dep : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2054.ApplyToRange.o $< -MF $@
+
+../.test-obj/test2055.ArrayInsDel.dep : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2055.ArrayInsDel.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
