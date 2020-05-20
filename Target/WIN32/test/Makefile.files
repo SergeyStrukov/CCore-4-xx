@@ -24,6 +24,7 @@ OBJ_LIST = \
 ../.test-obj/test2054.ApplyToRange.o \
 ../.test-obj/test2055.ArrayInsDel.o \
 ../.test-obj/test2058.ApplyToList.o \
+../.test-obj/test2059.BestSearch.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
 
@@ -54,6 +55,7 @@ ASM_LIST = \
 ../.test-obj/test2054.ApplyToRange.s \
 ../.test-obj/test2055.ArrayInsDel.s \
 ../.test-obj/test2058.ApplyToList.s \
+../.test-obj/test2059.BestSearch.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
 
@@ -84,6 +86,7 @@ DEP_LIST = \
 ../.test-obj/test2054.ApplyToRange.dep \
 ../.test-obj/test2055.ArrayInsDel.dep \
 ../.test-obj/test2058.ApplyToList.dep \
+../.test-obj/test2059.BestSearch.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
 
@@ -169,6 +172,9 @@ include $(RULES_FILE)
 ../.test-obj/test2058.ApplyToList.o : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2059.BestSearch.o : ../../../Fundamental/CCore/test/./test2059.BestSearch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -250,6 +256,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2058.ApplyToList.s : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2059.BestSearch.s : ../../../Fundamental/CCore/test/./test2059.BestSearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -334,6 +343,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2058.ApplyToList.dep : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2058.ApplyToList.o $< -MF $@
+
+../.test-obj/test2059.BestSearch.dep : ../../../Fundamental/CCore/test/./test2059.BestSearch.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2059.BestSearch.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
