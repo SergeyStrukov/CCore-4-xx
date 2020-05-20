@@ -10,7 +10,9 @@ OBJ_LIST = \
 ../.test-obj/test1039.ScanRange.o \
 ../.test-obj/test2003.SpaceHeap.o \
 ../.test-obj/test2010.MersenneTwister.o \
+../.test-obj/test2021.GCD.o \
 ../.test-obj/test2022.EuclidRotate.o \
+../.test-obj/test2023.GCDConst.o \
 ../.test-obj/test2025.SimpleRotate.o \
 ../.test-obj/test2033.DynArray.o \
 ../.test-obj/test2034.DynArray.o \
@@ -20,6 +22,7 @@ OBJ_LIST = \
 ../.test-obj/test2039.Collector.o \
 ../.test-obj/test2054.ApplyToRange.o \
 ../.test-obj/test2055.ArrayInsDel.o \
+../.test-obj/test2058.ApplyToList.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
 
@@ -36,7 +39,9 @@ ASM_LIST = \
 ../.test-obj/test1039.ScanRange.s \
 ../.test-obj/test2003.SpaceHeap.s \
 ../.test-obj/test2010.MersenneTwister.s \
+../.test-obj/test2021.GCD.s \
 ../.test-obj/test2022.EuclidRotate.s \
+../.test-obj/test2023.GCDConst.s \
 ../.test-obj/test2025.SimpleRotate.s \
 ../.test-obj/test2033.DynArray.s \
 ../.test-obj/test2034.DynArray.s \
@@ -46,6 +51,7 @@ ASM_LIST = \
 ../.test-obj/test2039.Collector.s \
 ../.test-obj/test2054.ApplyToRange.s \
 ../.test-obj/test2055.ArrayInsDel.s \
+../.test-obj/test2058.ApplyToList.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
 
@@ -62,7 +68,9 @@ DEP_LIST = \
 ../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/test2003.SpaceHeap.dep \
 ../.test-obj/test2010.MersenneTwister.dep \
+../.test-obj/test2021.GCD.dep \
 ../.test-obj/test2022.EuclidRotate.dep \
+../.test-obj/test2023.GCDConst.dep \
 ../.test-obj/test2025.SimpleRotate.dep \
 ../.test-obj/test2033.DynArray.dep \
 ../.test-obj/test2034.DynArray.dep \
@@ -72,6 +80,7 @@ DEP_LIST = \
 ../.test-obj/test2039.Collector.dep \
 ../.test-obj/test2054.ApplyToRange.dep \
 ../.test-obj/test2055.ArrayInsDel.dep \
+../.test-obj/test2058.ApplyToList.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
 
@@ -115,7 +124,13 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.o : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2021.GCD.o : ../../../Fundamental/CCore/test/./test2021.GCD.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2022.EuclidRotate.o : ../../../Fundamental/CCore/test/./test2022.EuclidRotate.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2023.GCDConst.o : ../../../Fundamental/CCore/test/./test2023.GCDConst.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2025.SimpleRotate.o : ../../../Fundamental/CCore/test/./test2025.SimpleRotate.cpp
@@ -143,6 +158,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2055.ArrayInsDel.o : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2058.ApplyToList.o : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -186,7 +204,13 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.s : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2021.GCD.s : ../../../Fundamental/CCore/test/./test2021.GCD.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2022.EuclidRotate.s : ../../../Fundamental/CCore/test/./test2022.EuclidRotate.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2023.GCDConst.s : ../../../Fundamental/CCore/test/./test2023.GCDConst.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2025.SimpleRotate.s : ../../../Fundamental/CCore/test/./test2025.SimpleRotate.cpp
@@ -214,6 +238,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2055.ArrayInsDel.s : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2058.ApplyToList.s : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -257,8 +284,14 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.dep : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2010.MersenneTwister.o $< -MF $@
 
+../.test-obj/test2021.GCD.dep : ../../../Fundamental/CCore/test/./test2021.GCD.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2021.GCD.o $< -MF $@
+
 ../.test-obj/test2022.EuclidRotate.dep : ../../../Fundamental/CCore/test/./test2022.EuclidRotate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2022.EuclidRotate.o $< -MF $@
+
+../.test-obj/test2023.GCDConst.dep : ../../../Fundamental/CCore/test/./test2023.GCDConst.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2023.GCDConst.o $< -MF $@
 
 ../.test-obj/test2025.SimpleRotate.dep : ../../../Fundamental/CCore/test/./test2025.SimpleRotate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2025.SimpleRotate.o $< -MF $@
@@ -286,6 +319,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2055.ArrayInsDel.dep : ../../../Fundamental/CCore/test/./test2055.ArrayInsDel.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2055.ArrayInsDel.o $< -MF $@
+
+../.test-obj/test2058.ApplyToList.dep : ../../../Fundamental/CCore/test/./test2058.ApplyToList.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2058.ApplyToList.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@

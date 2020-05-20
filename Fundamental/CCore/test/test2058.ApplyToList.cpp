@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test2058.ApplyToList.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Fundamental
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,29 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/algon/ApplyToList.h>
 
 namespace App {
 
-/* Testit<0> */
+namespace Private_2058 {
+
+
+} // namespace Private_2058
+
+using namespace Private_2058;
+
+/* Testit<2058> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<2058>::Name="Test2058 ApplyToList";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<2058>::Main()
  {
-  MemScope mem_scope;
+  Algon::ApplyToList( [] (auto obj) { Printf(Con,"#;\n",obj); } ,1,2,3,4,5);
 
-  //Testit<2999>().run();
-
-  Testit<2021>().run();
-
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
-
-  //DetachPacketBufs(); TODO
-
-  return 0;
+  return true;
  }
 
+} // namespace App
 
