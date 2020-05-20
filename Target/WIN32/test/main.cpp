@@ -15,7 +15,7 @@
 
 #include <CCore/test/test.h>
 
-#include <CCore/inc/PacketPool.h>
+//#include <CCore/inc/PacketPool.h>
 #include <CCore/inc/MemBase.h>
 
 namespace App {
@@ -40,9 +40,11 @@ int main()
 
   //Testit<2999>().run();
 
+  Testit<2037>().run();
+
   Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
 
-  DetachPacketBufs();
+  //DetachPacketBufs(); TODO
 
   return 0;
  }

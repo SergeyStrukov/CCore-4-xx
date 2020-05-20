@@ -42,14 +42,14 @@ struct RefArrayHeader
   ulen maxlen;
   ulen refs; // has indeterminant value for default object due to race condition
 
-  void init(ulen maxlen_)
+  void init(ulen maxlen_) noexcept
    {
     len=0;
     maxlen=maxlen_;
     refs=1;
    }
 
-  void exit()
+  void exit() noexcept
    {
    }
 

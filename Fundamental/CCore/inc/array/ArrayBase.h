@@ -38,6 +38,10 @@ concept ArrayHeaderType = PODType<H> && requires(H obj,ulen len)
   obj.init(len);
 
   obj.exit();
+
+  { obj.init(len) } noexcept;
+
+  { obj.exit() } noexcept;
  } ;
 
 /* concept BuilderType<Builder,T> */
@@ -150,7 +154,7 @@ struct ArrayBase
     return Alloc(maxlen,mem_len);
    }
 
-  static void Free(H *ptr) requires ( ArrayAlgo_core<Algo,T> )
+  static void Free(H *ptr) noexcept requires ( ArrayAlgo_core<Algo,T> )
    {
     ptr->exit();
 
@@ -164,7 +168,7 @@ struct ArrayBase
     return Alloc(maxlen);
    }
 
-  static void Destroy(H *ptr) requires ( NothrowDtorType<T> && ArrayAlgo_core<Algo,T> )
+  static void Destroy(H *ptr) noexcept requires ( NothrowDtorType<T> && ArrayAlgo_core<Algo,T> )
    {
     if( ptr->maxlen )
       {
@@ -174,7 +178,7 @@ struct ArrayBase
       }
    }
 
-  static Place<void> MoveAndDestroy(H *ptr,Place<void> place) requires ( ArrayAlgo_move<Algo,T> )
+  static Place<void> MoveAndDestroy(H *ptr,Place<void> place) noexcept requires ( ArrayAlgo_move<Algo,T> )
    {
     if( ptr->maxlen )
       {

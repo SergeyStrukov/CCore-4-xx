@@ -39,13 +39,13 @@ struct DynArrayHeader
   ulen len;
   ulen maxlen;
 
-  void init(ulen maxlen_)
+  void init(ulen maxlen_) noexcept
    {
     len=0;
     maxlen=maxlen_;
    }
 
-  void exit()
+  void exit() noexcept
    {
    }
  };

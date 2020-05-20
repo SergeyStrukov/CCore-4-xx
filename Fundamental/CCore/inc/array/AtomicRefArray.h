@@ -44,14 +44,14 @@ struct AtomicRefArrayHeader
   ulen maxlen;
   Sys::Atomic refs;
 
-  void init(ulen maxlen_)
+  void init(ulen maxlen_) noexcept
    {
     len=0;
     maxlen=maxlen_;
     refs=Sys::Atomic{1};
    }
 
-  void exit()
+  void exit() noexcept
    {
    }
 

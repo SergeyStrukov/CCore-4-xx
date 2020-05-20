@@ -44,6 +44,12 @@ concept ArrayAlgo_core = requires(ulen len,void *mem,T *ptr)
 
   Ground<bool>( Algo::MemShrink(mem,len) );
 
+  { Algo::MemFree(mem) } noexcept;
+
+  { Algo::MemExtend(mem,len) } noexcept;
+
+  { Algo::MemShrink(mem,len) } noexcept;
+
   { Algo::Destroy(ptr) } noexcept;
 
   { Algo::Destroy(ptr,len) } noexcept;
@@ -57,6 +63,8 @@ concept ArrayAlgo_move = requires(ulen len,T *ptr,Place<void> place)
   Ground<ulen>( Algo::ProvideLen(len,len,len) );
 
   Ground< PtrLen<T> >( Algo::MoveTo(ptr,len,place) );
+
+  { Algo::MoveTo(ptr,len,place) } noexcept;
  } ;
 
 /* concept ArrayAlgo_raw<Algo,T> */
@@ -139,11 +147,11 @@ struct ArrayAlgoMemBase
  {
   static void * MemAlloc(ulen len) { return ::CCore::MemAlloc(len); }
 
-  static bool MemExtend(void *mem,ulen len) { return ::CCore::MemExtend(mem,len); }
+  static bool MemExtend(void *mem,ulen len) noexcept { return ::CCore::MemExtend(mem,len); }
 
-  static bool MemShrink(void *mem,ulen len) { return ::CCore::MemShrink(mem,len); }
+  static bool MemShrink(void *mem,ulen len) noexcept { return ::CCore::MemShrink(mem,len); }
 
-  static void MemFree(void *mem) { ::CCore::MemFree(mem); }
+  static void MemFree(void *mem) noexcept { ::CCore::MemFree(mem); }
  };
 
 /* struct ArrayAlgoBase_nodtor<T> */
