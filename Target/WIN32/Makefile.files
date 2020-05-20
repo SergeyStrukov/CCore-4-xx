@@ -3,22 +3,37 @@ OBJ_LIST = \
 .obj/AbortMsgFunc.o \
 .obj/AntiSem.o \
 .obj/AnyPtr.o \
+.obj/ApplyToList.o \
+.obj/ApplyToRange.o \
+.obj/Array.o \
+.obj/ArrayAlgo.o \
+.obj/ArrayBase.o \
+.obj/ArrayInsDel.o \
 .obj/Atomic.o \
+.obj/AtomicRefArray.o \
 .obj/AutoCast.o \
+.obj/BaseRangeAlgo.o \
+.obj/BestSearch.o \
+.obj/BinarySearch.o \
 .obj/BlockFifo.o \
 .obj/CapString.o \
 .obj/CharProp.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/Cmp.o \
+.obj/Collector.o \
+.obj/CommonIntAlgo.o \
 .obj/Counters.o \
 .obj/Crc.o \
 .obj/CreateAt.o \
+.obj/Creator.o \
 .obj/DefaultTimeout.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/DynArray.o \
 .obj/DynObject.o \
 .obj/ErrorText.o \
+.obj/EuclidRotate.o \
 .obj/Event.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
@@ -29,6 +44,7 @@ OBJ_LIST = \
 .obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
+.obj/GCDConst.o \
 .obj/Gadget.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
@@ -48,6 +64,7 @@ OBJ_LIST = \
 .obj/MemBase.o \
 .obj/MemBase_general.o \
 .obj/MemPageHeap.o \
+.obj/MemSpaceHeap.o \
 .obj/MemberFold.o \
 .obj/MersenneTwister.o \
 .obj/Meta.o \
@@ -68,6 +85,7 @@ OBJ_LIST = \
 .obj/OpAddHelper.o \
 .obj/OptMember.o \
 .obj/OwnPtr.o \
+.obj/Partition.o \
 .obj/Place.o \
 .obj/PlanInit.o \
 .obj/PlatformBase.o \
@@ -95,6 +113,7 @@ OBJ_LIST = \
 .obj/RadixHeap.o \
 .obj/Random.o \
 .obj/RangeDel.o \
+.obj/RefArray.o \
 .obj/RefObjectBase.o \
 .obj/RefPtr.o \
 .obj/Replace.o \
@@ -106,6 +125,8 @@ OBJ_LIST = \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Sem.o \
+.obj/SimpleArray.o \
+.obj/SimpleRotate.o \
 .obj/SlowSem.o \
 .obj/Space.o \
 .obj/StartStop.o \
@@ -130,6 +151,7 @@ OBJ_LIST = \
 .obj/SysUtf8.o \
 .obj/Task.o \
 .obj/TaskCore.o \
+.obj/TempArray.o \
 .obj/TextLabel.o \
 .obj/TextTools.o \
 .obj/TimeScope.o \
@@ -155,22 +177,37 @@ ASM_LIST = \
 .obj/AbortMsgFunc.s \
 .obj/AntiSem.s \
 .obj/AnyPtr.s \
+.obj/ApplyToList.s \
+.obj/ApplyToRange.s \
+.obj/Array.s \
+.obj/ArrayAlgo.s \
+.obj/ArrayBase.s \
+.obj/ArrayInsDel.s \
 .obj/Atomic.s \
+.obj/AtomicRefArray.s \
 .obj/AutoCast.s \
+.obj/BaseRangeAlgo.s \
+.obj/BestSearch.s \
+.obj/BinarySearch.s \
 .obj/BlockFifo.s \
 .obj/CapString.s \
 .obj/CharProp.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/Cmp.s \
+.obj/Collector.s \
+.obj/CommonIntAlgo.s \
 .obj/Counters.s \
 .obj/Crc.s \
 .obj/CreateAt.s \
+.obj/Creator.s \
 .obj/DefaultTimeout.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/DynArray.s \
 .obj/DynObject.s \
 .obj/ErrorText.s \
+.obj/EuclidRotate.s \
 .obj/Event.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
@@ -181,6 +218,7 @@ ASM_LIST = \
 .obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
+.obj/GCDConst.s \
 .obj/Gadget.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
@@ -200,6 +238,7 @@ ASM_LIST = \
 .obj/MemBase.s \
 .obj/MemBase_general.s \
 .obj/MemPageHeap.s \
+.obj/MemSpaceHeap.s \
 .obj/MemberFold.s \
 .obj/MersenneTwister.s \
 .obj/Meta.s \
@@ -220,6 +259,7 @@ ASM_LIST = \
 .obj/OpAddHelper.s \
 .obj/OptMember.s \
 .obj/OwnPtr.s \
+.obj/Partition.s \
 .obj/Place.s \
 .obj/PlanInit.s \
 .obj/PlatformBase.s \
@@ -247,6 +287,7 @@ ASM_LIST = \
 .obj/RadixHeap.s \
 .obj/Random.s \
 .obj/RangeDel.s \
+.obj/RefArray.s \
 .obj/RefObjectBase.s \
 .obj/RefPtr.s \
 .obj/Replace.s \
@@ -258,6 +299,8 @@ ASM_LIST = \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Sem.s \
+.obj/SimpleArray.s \
+.obj/SimpleRotate.s \
 .obj/SlowSem.s \
 .obj/Space.s \
 .obj/StartStop.s \
@@ -282,6 +325,7 @@ ASM_LIST = \
 .obj/SysUtf8.s \
 .obj/Task.s \
 .obj/TaskCore.s \
+.obj/TempArray.s \
 .obj/TextLabel.s \
 .obj/TextTools.s \
 .obj/TimeScope.s \
@@ -307,22 +351,37 @@ DEP_LIST = \
 .obj/AbortMsgFunc.dep \
 .obj/AntiSem.dep \
 .obj/AnyPtr.dep \
+.obj/ApplyToList.dep \
+.obj/ApplyToRange.dep \
+.obj/Array.dep \
+.obj/ArrayAlgo.dep \
+.obj/ArrayBase.dep \
+.obj/ArrayInsDel.dep \
 .obj/Atomic.dep \
+.obj/AtomicRefArray.dep \
 .obj/AutoCast.dep \
+.obj/BaseRangeAlgo.dep \
+.obj/BestSearch.dep \
+.obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
 .obj/CharProp.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/Cmp.dep \
+.obj/Collector.dep \
+.obj/CommonIntAlgo.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
+.obj/Creator.dep \
 .obj/DefaultTimeout.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/ErrorText.dep \
+.obj/EuclidRotate.dep \
 .obj/Event.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
@@ -333,6 +392,7 @@ DEP_LIST = \
 .obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
+.obj/GCDConst.dep \
 .obj/Gadget.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
@@ -352,6 +412,7 @@ DEP_LIST = \
 .obj/MemBase.dep \
 .obj/MemBase_general.dep \
 .obj/MemPageHeap.dep \
+.obj/MemSpaceHeap.dep \
 .obj/MemberFold.dep \
 .obj/MersenneTwister.dep \
 .obj/Meta.dep \
@@ -372,6 +433,7 @@ DEP_LIST = \
 .obj/OpAddHelper.dep \
 .obj/OptMember.dep \
 .obj/OwnPtr.dep \
+.obj/Partition.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
 .obj/PlatformBase.dep \
@@ -399,6 +461,7 @@ DEP_LIST = \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
 .obj/RangeDel.dep \
+.obj/RefArray.dep \
 .obj/RefObjectBase.dep \
 .obj/RefPtr.dep \
 .obj/Replace.dep \
@@ -410,6 +473,8 @@ DEP_LIST = \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Sem.dep \
+.obj/SimpleArray.dep \
+.obj/SimpleRotate.dep \
 .obj/SlowSem.dep \
 .obj/Space.dep \
 .obj/StartStop.dep \
@@ -434,6 +499,7 @@ DEP_LIST = \
 .obj/SysUtf8.dep \
 .obj/Task.dep \
 .obj/TaskCore.dep \
+.obj/TempArray.dep \
 .obj/TextLabel.dep \
 .obj/TextTools.dep \
 .obj/TimeScope.dep \
@@ -478,10 +544,40 @@ include $(RULES_FILE)
 .obj/AnyPtr.o : ../../Simple/CCore/src/./AnyPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ApplyToList.o : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ApplyToRange.o : ../../Fundamental/CCore/src/algon/ApplyToRange.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Array.o : ../../Fundamental/CCore/src/./Array.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ArrayAlgo.o : ../../Fundamental/CCore/src/array/ArrayAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ArrayBase.o : ../../Fundamental/CCore/src/array/ArrayBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ArrayInsDel.o : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Atomic.o : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AtomicRefArray.o : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BaseRangeAlgo.o : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BestSearch.o : ../../Fundamental/CCore/src/algon/BestSearch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BlockFifo.o : ../../Simple/CCore/src/./BlockFifo.cpp
@@ -502,6 +598,12 @@ include $(RULES_FILE)
 .obj/Cmp.o : ../../Simple/CCore/src/./Cmp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Collector.o : ../../Fundamental/CCore/src/array/Collector.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Counters.o : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -509,6 +611,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CreateAt.o : ../../Simple/CCore/src/gadget/CreateAt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Creator.o : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
@@ -520,10 +625,16 @@ include $(RULES_FILE)
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DynObject.o : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ErrorText.o : ../../Simple/CCore/src/./ErrorText.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/EuclidRotate.o : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Event.o : ../../HCore/CCore/src/task/Event.cpp
@@ -554,6 +665,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FunctorType.o : ../../Simple/CCore/src/./FunctorType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/GCDConst.o : ../../Fundamental/CCore/src/algon/GCDConst.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Gadget.o : ../../Simple/CCore/src/./Gadget.cpp
@@ -611,6 +725,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MemPageHeap.o : ../../HCore/CCore/src/./MemPageHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MemSpaceHeap.o : ../../Fundamental/CCore/src/./MemSpaceHeap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MemberFold.o : ../../Simple/CCore/src/./MemberFold.cpp
@@ -671,6 +788,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OwnPtr.o : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Partition.o : ../../Fundamental/CCore/src/algon/Partition.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
@@ -754,6 +874,9 @@ include $(RULES_FILE)
 .obj/RangeDel.o : ../../Simple/CCore/src/./RangeDel.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RefArray.o : ../../Fundamental/CCore/src/array/RefArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/RefObjectBase.o : ../../Simple/CCore/src/./RefObjectBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -785,6 +908,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Sem.o : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SimpleArray.o : ../../Fundamental/CCore/src/array/SimpleArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SimpleRotate.o : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SlowSem.o : ../../HCore/CCore/src/task/SlowSem.cpp
@@ -859,6 +988,9 @@ include $(RULES_FILE)
 .obj/TaskCore.o : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/TempArray.o : ../../Fundamental/CCore/src/array/TempArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TextLabel.o : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -927,10 +1059,40 @@ include $(RULES_FILE)
 .obj/AnyPtr.s : ../../Simple/CCore/src/./AnyPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ApplyToList.s : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ApplyToRange.s : ../../Fundamental/CCore/src/algon/ApplyToRange.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Array.s : ../../Fundamental/CCore/src/./Array.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ArrayAlgo.s : ../../Fundamental/CCore/src/array/ArrayAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ArrayBase.s : ../../Fundamental/CCore/src/array/ArrayBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ArrayInsDel.s : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Atomic.s : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AtomicRefArray.s : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BaseRangeAlgo.s : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BestSearch.s : ../../Fundamental/CCore/src/algon/BestSearch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BlockFifo.s : ../../Simple/CCore/src/./BlockFifo.cpp
@@ -951,6 +1113,12 @@ include $(RULES_FILE)
 .obj/Cmp.s : ../../Simple/CCore/src/./Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Collector.s : ../../Fundamental/CCore/src/array/Collector.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Counters.s : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -958,6 +1126,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CreateAt.s : ../../Simple/CCore/src/gadget/CreateAt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Creator.s : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
@@ -969,10 +1140,16 @@ include $(RULES_FILE)
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DynObject.s : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ErrorText.s : ../../Simple/CCore/src/./ErrorText.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/EuclidRotate.s : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Event.s : ../../HCore/CCore/src/task/Event.cpp
@@ -1003,6 +1180,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FunctorType.s : ../../Simple/CCore/src/./FunctorType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/GCDConst.s : ../../Fundamental/CCore/src/algon/GCDConst.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Gadget.s : ../../Simple/CCore/src/./Gadget.cpp
@@ -1060,6 +1240,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MemPageHeap.s : ../../HCore/CCore/src/./MemPageHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MemSpaceHeap.s : ../../Fundamental/CCore/src/./MemSpaceHeap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MemberFold.s : ../../Simple/CCore/src/./MemberFold.cpp
@@ -1120,6 +1303,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/OwnPtr.s : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Partition.s : ../../Fundamental/CCore/src/algon/Partition.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
@@ -1203,6 +1389,9 @@ include $(RULES_FILE)
 .obj/RangeDel.s : ../../Simple/CCore/src/./RangeDel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RefArray.s : ../../Fundamental/CCore/src/array/RefArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RefObjectBase.s : ../../Simple/CCore/src/./RefObjectBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1234,6 +1423,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Sem.s : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SimpleArray.s : ../../Fundamental/CCore/src/array/SimpleArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SimpleRotate.s : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SlowSem.s : ../../HCore/CCore/src/task/SlowSem.cpp
@@ -1308,6 +1503,9 @@ include $(RULES_FILE)
 .obj/TaskCore.s : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/TempArray.s : ../../Fundamental/CCore/src/array/TempArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TextLabel.s : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1376,11 +1574,41 @@ include $(RULES_FILE)
 .obj/AnyPtr.dep : ../../Simple/CCore/src/./AnyPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AnyPtr.o $< -MF $@
 
+.obj/ApplyToList.dep : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ApplyToList.o $< -MF $@
+
+.obj/ApplyToRange.dep : ../../Fundamental/CCore/src/algon/ApplyToRange.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ApplyToRange.o $< -MF $@
+
+.obj/Array.dep : ../../Fundamental/CCore/src/./Array.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Array.o $< -MF $@
+
+.obj/ArrayAlgo.dep : ../../Fundamental/CCore/src/array/ArrayAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ArrayAlgo.o $< -MF $@
+
+.obj/ArrayBase.dep : ../../Fundamental/CCore/src/array/ArrayBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ArrayBase.o $< -MF $@
+
+.obj/ArrayInsDel.dep : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ArrayInsDel.o $< -MF $@
+
 .obj/Atomic.dep : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Atomic.o $< -MF $@
 
+.obj/AtomicRefArray.dep : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AtomicRefArray.o $< -MF $@
+
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
+
+.obj/BaseRangeAlgo.dep : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BaseRangeAlgo.o $< -MF $@
+
+.obj/BestSearch.dep : ../../Fundamental/CCore/src/algon/BestSearch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BestSearch.o $< -MF $@
+
+.obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
 
 .obj/BlockFifo.dep : ../../Simple/CCore/src/./BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
@@ -1400,6 +1628,12 @@ include $(RULES_FILE)
 .obj/Cmp.dep : ../../Simple/CCore/src/./Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Cmp.o $< -MF $@
 
+.obj/Collector.dep : ../../Fundamental/CCore/src/array/Collector.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Collector.o $< -MF $@
+
+.obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
+
 .obj/Counters.dep : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
 
@@ -1408,6 +1642,9 @@ include $(RULES_FILE)
 
 .obj/CreateAt.dep : ../../Simple/CCore/src/gadget/CreateAt.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CreateAt.o $< -MF $@
+
+.obj/Creator.dep : ../../Fundamental/CCore/src/array/Creator.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Creator.o $< -MF $@
 
 .obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
@@ -1418,11 +1655,17 @@ include $(RULES_FILE)
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
 
+.obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
+
 .obj/DynObject.dep : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynObject.o $< -MF $@
 
 .obj/ErrorText.dep : ../../Simple/CCore/src/./ErrorText.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
+
+.obj/EuclidRotate.dep : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/EuclidRotate.o $< -MF $@
 
 .obj/Event.dep : ../../HCore/CCore/src/task/Event.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Event.o $< -MF $@
@@ -1453,6 +1696,9 @@ include $(RULES_FILE)
 
 .obj/FunctorType.dep : ../../Simple/CCore/src/./FunctorType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FunctorType.o $< -MF $@
+
+.obj/GCDConst.dep : ../../Fundamental/CCore/src/algon/GCDConst.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GCDConst.o $< -MF $@
 
 .obj/Gadget.dep : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Gadget.o $< -MF $@
@@ -1510,6 +1756,9 @@ include $(RULES_FILE)
 
 .obj/MemPageHeap.dep : ../../HCore/CCore/src/./MemPageHeap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemPageHeap.o $< -MF $@
+
+.obj/MemSpaceHeap.dep : ../../Fundamental/CCore/src/./MemSpaceHeap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MemSpaceHeap.o $< -MF $@
 
 .obj/MemberFold.dep : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
@@ -1570,6 +1819,9 @@ include $(RULES_FILE)
 
 .obj/OwnPtr.dep : ../../Simple/CCore/src/./OwnPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
+
+.obj/Partition.dep : ../../Fundamental/CCore/src/algon/Partition.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Partition.o $< -MF $@
 
 .obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
@@ -1652,6 +1904,9 @@ include $(RULES_FILE)
 .obj/RangeDel.dep : ../../Simple/CCore/src/./RangeDel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RangeDel.o $< -MF $@
 
+.obj/RefArray.dep : ../../Fundamental/CCore/src/array/RefArray.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RefArray.o $< -MF $@
+
 .obj/RefObjectBase.dep : ../../Simple/CCore/src/./RefObjectBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefObjectBase.o $< -MF $@
 
@@ -1684,6 +1939,12 @@ include $(RULES_FILE)
 
 .obj/Sem.dep : ../../HCore/CCore/src/task/Sem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Sem.o $< -MF $@
+
+.obj/SimpleArray.dep : ../../Fundamental/CCore/src/array/SimpleArray.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SimpleArray.o $< -MF $@
+
+.obj/SimpleRotate.dep : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SimpleRotate.o $< -MF $@
 
 .obj/SlowSem.dep : ../../HCore/CCore/src/task/SlowSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SlowSem.o $< -MF $@
@@ -1756,6 +2017,9 @@ include $(RULES_FILE)
 
 .obj/TaskCore.dep : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TaskCore.o $< -MF $@
+
+.obj/TempArray.dep : ../../Fundamental/CCore/src/array/TempArray.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TempArray.o $< -MF $@
 
 .obj/TextLabel.dep : ../../Simple/CCore/src/./TextLabel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TextLabel.o $< -MF $@
