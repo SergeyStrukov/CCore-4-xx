@@ -55,7 +55,7 @@ struct StrKey
     return StrCmp(str,obj.str);
    }
 
-  bool operator == (const StrKey &obj) const noexcept = default ;
+  bool operator == (const StrKey &obj) const noexcept { return hash==obj.hash && str.equal(obj.str) ; }
  };
 
 /* struct StringKey */
@@ -78,7 +78,7 @@ struct StringKey
     return StrCmpOf(str,obj.str);
    }
 
-  bool operator == (const StringKey &obj) const noexcept = default ;
+  bool operator == (const StringKey &obj) const noexcept { return hash==obj.hash && Range(str).equal(Range(obj.str)) ; }
  };
 
 inline CmpResult Cmp(StrKey key,const StringKey &obj)
