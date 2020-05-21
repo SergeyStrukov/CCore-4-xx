@@ -48,11 +48,13 @@ OBJ_LIST = \
 .obj/Gadget.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
+.obj/HeapSort.o \
 .obj/Init.o \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
+.obj/Job.o \
 .obj/Len.o \
 .obj/List.o \
 .obj/LockObject.o \
@@ -66,6 +68,7 @@ OBJ_LIST = \
 .obj/MemPageHeap.o \
 .obj/MemSpaceHeap.o \
 .obj/MemberFold.o \
+.obj/MergeSort.o \
 .obj/MersenneTwister.o \
 .obj/Meta.o \
 .obj/MetaList.o \
@@ -84,7 +87,9 @@ OBJ_LIST = \
 .obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
 .obj/OptMember.o \
+.obj/OutBuf.o \
 .obj/OwnPtr.o \
+.obj/ParaQuickSort.o \
 .obj/Partition.o \
 .obj/Place.o \
 .obj/PlanInit.o \
@@ -107,6 +112,7 @@ OBJ_LIST = \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
 .obj/Quick.o \
+.obj/QuickSort.o \
 .obj/RBTreeBase.o \
 .obj/RBTreeLink.o \
 .obj/RBTreeUpLink.o \
@@ -125,13 +131,20 @@ OBJ_LIST = \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Sem.o \
+.obj/ShortSort.o \
 .obj/SimpleArray.o \
 .obj/SimpleRotate.o \
+.obj/SingleHost.o \
 .obj/SlowSem.o \
+.obj/Sort.o \
+.obj/SortUnique.o \
 .obj/Space.o \
 .obj/StartStop.o \
+.obj/Starter.o \
+.obj/StrKey.o \
 .obj/StrParse.o \
 .obj/StrPrint.o \
+.obj/String.o \
 .obj/Swap.o \
 .obj/SymCount.o \
 .obj/SymPart.o \
@@ -222,11 +235,13 @@ ASM_LIST = \
 .obj/Gadget.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
+.obj/HeapSort.s \
 .obj/Init.s \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
+.obj/Job.s \
 .obj/Len.s \
 .obj/List.s \
 .obj/LockObject.s \
@@ -240,6 +255,7 @@ ASM_LIST = \
 .obj/MemPageHeap.s \
 .obj/MemSpaceHeap.s \
 .obj/MemberFold.s \
+.obj/MergeSort.s \
 .obj/MersenneTwister.s \
 .obj/Meta.s \
 .obj/MetaList.s \
@@ -258,7 +274,9 @@ ASM_LIST = \
 .obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
 .obj/OptMember.s \
+.obj/OutBuf.s \
 .obj/OwnPtr.s \
+.obj/ParaQuickSort.s \
 .obj/Partition.s \
 .obj/Place.s \
 .obj/PlanInit.s \
@@ -281,6 +299,7 @@ ASM_LIST = \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
 .obj/Quick.s \
+.obj/QuickSort.s \
 .obj/RBTreeBase.s \
 .obj/RBTreeLink.s \
 .obj/RBTreeUpLink.s \
@@ -299,13 +318,20 @@ ASM_LIST = \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Sem.s \
+.obj/ShortSort.s \
 .obj/SimpleArray.s \
 .obj/SimpleRotate.s \
+.obj/SingleHost.s \
 .obj/SlowSem.s \
+.obj/Sort.s \
+.obj/SortUnique.s \
 .obj/Space.s \
 .obj/StartStop.s \
+.obj/Starter.s \
+.obj/StrKey.s \
 .obj/StrParse.s \
 .obj/StrPrint.s \
+.obj/String.s \
 .obj/Swap.s \
 .obj/SymCount.s \
 .obj/SymPart.s \
@@ -396,11 +422,13 @@ DEP_LIST = \
 .obj/Gadget.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
+.obj/HeapSort.dep \
 .obj/Init.dep \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
+.obj/Job.dep \
 .obj/Len.dep \
 .obj/List.dep \
 .obj/LockObject.dep \
@@ -414,6 +442,7 @@ DEP_LIST = \
 .obj/MemPageHeap.dep \
 .obj/MemSpaceHeap.dep \
 .obj/MemberFold.dep \
+.obj/MergeSort.dep \
 .obj/MersenneTwister.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
@@ -432,7 +461,9 @@ DEP_LIST = \
 .obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
 .obj/OptMember.dep \
+.obj/OutBuf.dep \
 .obj/OwnPtr.dep \
+.obj/ParaQuickSort.dep \
 .obj/Partition.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
@@ -455,6 +486,7 @@ DEP_LIST = \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
 .obj/Quick.dep \
+.obj/QuickSort.dep \
 .obj/RBTreeBase.dep \
 .obj/RBTreeLink.dep \
 .obj/RBTreeUpLink.dep \
@@ -473,13 +505,20 @@ DEP_LIST = \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Sem.dep \
+.obj/ShortSort.dep \
 .obj/SimpleArray.dep \
 .obj/SimpleRotate.dep \
+.obj/SingleHost.dep \
 .obj/SlowSem.dep \
+.obj/Sort.dep \
+.obj/SortUnique.dep \
 .obj/Space.dep \
 .obj/StartStop.dep \
+.obj/Starter.dep \
+.obj/StrKey.dep \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
+.obj/String.dep \
 .obj/Swap.dep \
 .obj/SymCount.dep \
 .obj/SymPart.dep \
@@ -679,6 +718,9 @@ include $(RULES_FILE)
 .obj/HeapEngine.o : ../../Fundamental/CCore/src/./HeapEngine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/HeapSort.o : ../../Fundamental/CCore/src/sort/HeapSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -692,6 +734,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/IntelRandom.o : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Job.o : ../../Fundamental/CCore/src/./Job.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
@@ -731,6 +776,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MemberFold.o : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MergeSort.o : ../../Fundamental/CCore/src/sort/MergeSort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MersenneTwister.o : ../../Fundamental/CCore/src/./MersenneTwister.cpp
@@ -787,7 +835,13 @@ include $(RULES_FILE)
 .obj/OptMember.o : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/OutBuf.o : ../../Simple/CCore/src/./OutBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/OwnPtr.o : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ParaQuickSort.o : ../../Fundamental/CCore/src/sort/ParaQuickSort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Partition.o : ../../Fundamental/CCore/src/algon/Partition.cpp
@@ -856,6 +910,9 @@ include $(RULES_FILE)
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/QuickSort.o : ../../Fundamental/CCore/src/sort/QuickSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/RBTreeBase.o : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -910,13 +967,25 @@ include $(RULES_FILE)
 .obj/Sem.o : ../../HCore/CCore/src/task/Sem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ShortSort.o : ../../Fundamental/CCore/src/sort/ShortSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SimpleArray.o : ../../Fundamental/CCore/src/array/SimpleArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SimpleRotate.o : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SingleHost.o : ../../Fundamental/CCore/src/./SingleHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SlowSem.o : ../../HCore/CCore/src/task/SlowSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Sort.o : ../../Fundamental/CCore/src/./Sort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SortUnique.o : ../../Fundamental/CCore/src/algon/SortUnique.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
@@ -925,10 +994,19 @@ include $(RULES_FILE)
 .obj/StartStop.o : ../../Simple/CCore/src/./StartStop.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Starter.o : ../../Fundamental/CCore/src/./Starter.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/StrKey.o : ../../Simple/CCore/src/./StrKey.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/StrParse.o : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/StrPrint.o : ../../Fundamental/CCore/src/printf/StrPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/String.o : ../../Fundamental/CCore/src/./String.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Swap.o : ../../Simple/CCore/src/./Swap.cpp
@@ -1194,6 +1272,9 @@ include $(RULES_FILE)
 .obj/HeapEngine.s : ../../Fundamental/CCore/src/./HeapEngine.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/HeapSort.s : ../../Fundamental/CCore/src/sort/HeapSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1207,6 +1288,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/IntelRandom.s : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Job.s : ../../Fundamental/CCore/src/./Job.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
@@ -1246,6 +1330,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MemberFold.s : ../../Simple/CCore/src/./MemberFold.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MergeSort.s : ../../Fundamental/CCore/src/sort/MergeSort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MersenneTwister.s : ../../Fundamental/CCore/src/./MersenneTwister.cpp
@@ -1302,7 +1389,13 @@ include $(RULES_FILE)
 .obj/OptMember.s : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/OutBuf.s : ../../Simple/CCore/src/./OutBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/OwnPtr.s : ../../Simple/CCore/src/./OwnPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ParaQuickSort.s : ../../Fundamental/CCore/src/sort/ParaQuickSort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Partition.s : ../../Fundamental/CCore/src/algon/Partition.cpp
@@ -1371,6 +1464,9 @@ include $(RULES_FILE)
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/QuickSort.s : ../../Fundamental/CCore/src/sort/QuickSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RBTreeBase.s : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1425,13 +1521,25 @@ include $(RULES_FILE)
 .obj/Sem.s : ../../HCore/CCore/src/task/Sem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ShortSort.s : ../../Fundamental/CCore/src/sort/ShortSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SimpleArray.s : ../../Fundamental/CCore/src/array/SimpleArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SimpleRotate.s : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SingleHost.s : ../../Fundamental/CCore/src/./SingleHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SlowSem.s : ../../HCore/CCore/src/task/SlowSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Sort.s : ../../Fundamental/CCore/src/./Sort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SortUnique.s : ../../Fundamental/CCore/src/algon/SortUnique.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
@@ -1440,10 +1548,19 @@ include $(RULES_FILE)
 .obj/StartStop.s : ../../Simple/CCore/src/./StartStop.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Starter.s : ../../Fundamental/CCore/src/./Starter.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/StrKey.s : ../../Simple/CCore/src/./StrKey.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/StrParse.s : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/StrPrint.s : ../../Fundamental/CCore/src/printf/StrPrint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/String.s : ../../Fundamental/CCore/src/./String.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Swap.s : ../../Simple/CCore/src/./Swap.cpp
@@ -1709,6 +1826,9 @@ include $(RULES_FILE)
 .obj/HeapEngine.dep : ../../Fundamental/CCore/src/./HeapEngine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/HeapEngine.o $< -MF $@
 
+.obj/HeapSort.dep : ../../Fundamental/CCore/src/sort/HeapSort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HeapSort.o $< -MF $@
+
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
 
@@ -1723,6 +1843,9 @@ include $(RULES_FILE)
 
 .obj/IntelRandom.dep : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntelRandom.o $< -MF $@
+
+.obj/Job.dep : ../../Fundamental/CCore/src/./Job.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Job.o $< -MF $@
 
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
@@ -1762,6 +1885,9 @@ include $(RULES_FILE)
 
 .obj/MemberFold.dep : ../../Simple/CCore/src/./MemberFold.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
+
+.obj/MergeSort.dep : ../../Fundamental/CCore/src/sort/MergeSort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MergeSort.o $< -MF $@
 
 .obj/MersenneTwister.dep : ../../Fundamental/CCore/src/./MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MersenneTwister.o $< -MF $@
@@ -1817,8 +1943,14 @@ include $(RULES_FILE)
 .obj/OptMember.dep : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OptMember.o $< -MF $@
 
+.obj/OutBuf.dep : ../../Simple/CCore/src/./OutBuf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/OutBuf.o $< -MF $@
+
 .obj/OwnPtr.dep : ../../Simple/CCore/src/./OwnPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
+
+.obj/ParaQuickSort.dep : ../../Fundamental/CCore/src/sort/ParaQuickSort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ParaQuickSort.o $< -MF $@
 
 .obj/Partition.dep : ../../Fundamental/CCore/src/algon/Partition.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Partition.o $< -MF $@
@@ -1886,6 +2018,9 @@ include $(RULES_FILE)
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@
 
+.obj/QuickSort.dep : ../../Fundamental/CCore/src/sort/QuickSort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/QuickSort.o $< -MF $@
+
 .obj/RBTreeBase.dep : ../../Fundamental/CCore/src/tree/RBTreeBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RBTreeBase.o $< -MF $@
 
@@ -1940,14 +2075,26 @@ include $(RULES_FILE)
 .obj/Sem.dep : ../../HCore/CCore/src/task/Sem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Sem.o $< -MF $@
 
+.obj/ShortSort.dep : ../../Fundamental/CCore/src/sort/ShortSort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ShortSort.o $< -MF $@
+
 .obj/SimpleArray.dep : ../../Fundamental/CCore/src/array/SimpleArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleArray.o $< -MF $@
 
 .obj/SimpleRotate.dep : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleRotate.o $< -MF $@
 
+.obj/SingleHost.dep : ../../Fundamental/CCore/src/./SingleHost.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SingleHost.o $< -MF $@
+
 .obj/SlowSem.dep : ../../HCore/CCore/src/task/SlowSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SlowSem.o $< -MF $@
+
+.obj/Sort.dep : ../../Fundamental/CCore/src/./Sort.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Sort.o $< -MF $@
+
+.obj/SortUnique.dep : ../../Fundamental/CCore/src/algon/SortUnique.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SortUnique.o $< -MF $@
 
 .obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
@@ -1955,11 +2102,20 @@ include $(RULES_FILE)
 .obj/StartStop.dep : ../../Simple/CCore/src/./StartStop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StartStop.o $< -MF $@
 
+.obj/Starter.dep : ../../Fundamental/CCore/src/./Starter.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Starter.o $< -MF $@
+
+.obj/StrKey.dep : ../../Simple/CCore/src/./StrKey.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StrKey.o $< -MF $@
+
 .obj/StrParse.dep : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrParse.o $< -MF $@
 
 .obj/StrPrint.dep : ../../Fundamental/CCore/src/printf/StrPrint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrPrint.o $< -MF $@
+
+.obj/String.dep : ../../Fundamental/CCore/src/./String.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/String.o $< -MF $@
 
 .obj/Swap.dep : ../../Simple/CCore/src/./Swap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Swap.o $< -MF $@
