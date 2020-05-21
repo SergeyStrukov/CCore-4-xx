@@ -67,7 +67,9 @@ class CmpAsStr
 
    // cmp objects
 
-   CmpResult operator <=> (CmpAsStr obj) const { return StrCmp(str,obj.str); }
+   CmpResult operator <=> (CmpAsStr obj) const noexcept { return StrCmp(str,obj.str); }
+
+   bool operator == (const CmpAsStr &obj) const noexcept = default ;
  };
 
 /* concept CmpableType<T> */
