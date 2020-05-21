@@ -81,7 +81,7 @@ struct BaseRangeAlgo_gen
  {
   using LenType = ulen ;
 
-  static auto GetPtr(R r) { return r.ptr; }
+  static R GetPtr(R r) { return r; }
 
   static LenType GetLen(R r) { return r.len; }
 
@@ -109,6 +109,8 @@ struct BaseRangeAlgo<R> : R::RangeAlgo {};
 template <class T>
 struct BaseRangeAlgo<PtrLen<T> > : BaseRangeAlgo_gen<PtrLen<T> >
  {
+  static T * GetPtr(PtrLen<T> r) { return r.ptr; }
+
   static void RangeSwap(PtrLen<T> a,PtrLen<T> b)
    {
     for(T *p=b.ptr; +a ;++a,++p) Swap(*a,*p);
