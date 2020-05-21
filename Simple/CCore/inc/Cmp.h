@@ -20,21 +20,34 @@
 
 namespace CCore {
 
-/* type CmpResult */
+/* enum CmpResult */
 
-using CmpResult = std::strong_ordering ;
+enum CmpResult
+ {
+  CmpLess    = -1,
+  CmpEqual   =  0,
+  CmpGreater =  1
+ };
 
-inline constexpr CmpResult CmpLess = CmpResult::less ;
+inline CmpResult operator - (CmpResult cmp) { return CmpResult(-int(cmp)); }
 
-inline constexpr CmpResult CmpEqual = CmpResult::equal ;
+const char * GetTextDesc(CmpResult cmp);
 
-inline constexpr CmpResult CmpGreater = CmpResult::greater ;
+inline CmpResult CmpResultOf(std::strong_ordering cmp) { return CmpResult(int(cmp)); } // HACK required, see Hack.txt
 
-inline CmpResult operator - (CmpResult cmp) { return 0 <=> cmp ; }
+inline CmpResult CmpResultOf(CmpResult cmp) { return cmp; }
+
+inline bool operator < (CmpResult cmp,int zero) { return (int)cmp < zero ; }
+
+inline bool operator <= (CmpResult cmp,int zero) { return (int)cmp <= zero ; }
+
+inline bool operator > (CmpResult cmp,int zero) { return (int)cmp > zero ; }
+
+inline bool operator >= (CmpResult cmp,int zero) { return (int)cmp >= zero ; }
 
 /* Str...() */
 
-inline CmpResult CharCmp(char a,char b) { return (unsigned char)a <=> (unsigned char)b ; }
+inline CmpResult CharCmp(char a,char b) { return CmpResultOf( (unsigned char)a <=> (unsigned char)b ); }
 
 inline bool CharLess(char a,char b) { return (unsigned char)a < (unsigned char)b ; }
 
@@ -77,13 +90,13 @@ class CmpAsStr
 template <class T> // ref extended
 concept CmpableType = requires(Meta::ToConst<T> &a,Meta::ToConst<T> &b)
  {
-  Ground<CmpResult>( a <=> b );
+  CmpResultOf( a <=> b );
  } ;
 
 /* Cmp() */
 
 template <CmpableType T>
-CmpResult Cmp(const T &a,const T &b) { return a <=> b ; }
+CmpResult Cmp(const T &a,const T &b) { return CmpResultOf( a <=> b ); }
 
 /* AlphaCmp() */
 
