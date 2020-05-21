@@ -10,6 +10,9 @@ OBJ_LIST = \
 ../.test-obj/test1039.ScanRange.o \
 ../.test-obj/test1040.Cmp.o \
 ../.test-obj/test2003.SpaceHeap.o \
+../.test-obj/test2004.ShortSort.o \
+../.test-obj/test2005.Sort.o \
+../.test-obj/test2006.Sort-speed.o \
 ../.test-obj/test2010.MersenneTwister.o \
 ../.test-obj/test2017.String.o \
 ../.test-obj/test2020.BinarySearch.o \
@@ -45,6 +48,9 @@ ASM_LIST = \
 ../.test-obj/test1039.ScanRange.s \
 ../.test-obj/test1040.Cmp.s \
 ../.test-obj/test2003.SpaceHeap.s \
+../.test-obj/test2004.ShortSort.s \
+../.test-obj/test2005.Sort.s \
+../.test-obj/test2006.Sort-speed.s \
 ../.test-obj/test2010.MersenneTwister.s \
 ../.test-obj/test2017.String.s \
 ../.test-obj/test2020.BinarySearch.s \
@@ -80,6 +86,9 @@ DEP_LIST = \
 ../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/test1040.Cmp.dep \
 ../.test-obj/test2003.SpaceHeap.dep \
+../.test-obj/test2004.ShortSort.dep \
+../.test-obj/test2005.Sort.dep \
+../.test-obj/test2006.Sort-speed.dep \
 ../.test-obj/test2010.MersenneTwister.dep \
 ../.test-obj/test2017.String.dep \
 ../.test-obj/test2020.BinarySearch.dep \
@@ -140,6 +149,15 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2003.SpaceHeap.o : ../../../Fundamental/CCore/test/./test2003.SpaceHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2004.ShortSort.o : ../../../Fundamental/CCore/test/./test2004.ShortSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2005.Sort.o : ../../../Fundamental/CCore/test/./test2005.Sort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2006.Sort-speed.o : ../../../Fundamental/CCore/test/./test2006.Sort-speed.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2010.MersenneTwister.o : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
@@ -240,6 +258,15 @@ include $(RULES_FILE)
 ../.test-obj/test2003.SpaceHeap.s : ../../../Fundamental/CCore/test/./test2003.SpaceHeap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2004.ShortSort.s : ../../../Fundamental/CCore/test/./test2004.ShortSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2005.Sort.s : ../../../Fundamental/CCore/test/./test2005.Sort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2006.Sort-speed.s : ../../../Fundamental/CCore/test/./test2006.Sort-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2010.MersenneTwister.s : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -337,6 +364,15 @@ include $(RULES_FILE)
 
 ../.test-obj/test2003.SpaceHeap.dep : ../../../Fundamental/CCore/test/./test2003.SpaceHeap.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2003.SpaceHeap.o $< -MF $@
+
+../.test-obj/test2004.ShortSort.dep : ../../../Fundamental/CCore/test/./test2004.ShortSort.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2004.ShortSort.o $< -MF $@
+
+../.test-obj/test2005.Sort.dep : ../../../Fundamental/CCore/test/./test2005.Sort.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2005.Sort.o $< -MF $@
+
+../.test-obj/test2006.Sort-speed.dep : ../../../Fundamental/CCore/test/./test2006.Sort-speed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2006.Sort-speed.o $< -MF $@
 
 ../.test-obj/test2010.MersenneTwister.dep : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2010.MersenneTwister.o $< -MF $@
