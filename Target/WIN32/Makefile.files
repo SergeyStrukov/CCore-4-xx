@@ -24,6 +24,8 @@ OBJ_LIST = \
 .obj/Cmp.o \
 .obj/Collector.o \
 .obj/CommonIntAlgo.o \
+.obj/CompactMap.o \
+.obj/CompactNodeAllocator.o \
 .obj/Counters.o \
 .obj/Crc.o \
 .obj/CreateAt.o \
@@ -37,6 +39,7 @@ OBJ_LIST = \
 .obj/ErrorText.o \
 .obj/EuclidRotate.o \
 .obj/Event.o \
+.obj/EventRecorder.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
 .obj/FastMutex.o \
@@ -86,6 +89,7 @@ OBJ_LIST = \
 .obj/NoCopy.o \
 .obj/NoMutex.o \
 .obj/NoThrowFlags.o \
+.obj/NodeAllocator.o \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
 .obj/ObjectPtr.o \
@@ -95,6 +99,7 @@ OBJ_LIST = \
 .obj/OwnPtr.o \
 .obj/ParaQuickSort.o \
 .obj/Partition.o \
+.obj/PerTask.o \
 .obj/Place.o \
 .obj/PlanInit.o \
 .obj/PlatformBase.o \
@@ -130,6 +135,7 @@ OBJ_LIST = \
 .obj/ResSem.o \
 .obj/SIntFunc.o \
 .obj/SafeBuf.o \
+.obj/SaveLoad.o \
 .obj/ScanBit.o \
 .obj/ScanRange.o \
 .obj/Scope.o \
@@ -168,6 +174,7 @@ OBJ_LIST = \
 .obj/SysUtf8.o \
 .obj/Task.o \
 .obj/TaskCore.o \
+.obj/TaskEvent.o \
 .obj/TempArray.o \
 .obj/TextLabel.o \
 .obj/TextTools.o \
@@ -178,6 +185,7 @@ OBJ_LIST = \
 .obj/Tree.o \
 .obj/TreeBase.o \
 .obj/TreeLink.o \
+.obj/TreeMap.o \
 .obj/TreeUpLink.o \
 .obj/Tuple.o \
 .obj/TypeSwitch.o \
@@ -185,6 +193,7 @@ OBJ_LIST = \
 .obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
 .obj/UIntSplit.o \
+.obj/Unid.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 
@@ -215,6 +224,8 @@ ASM_LIST = \
 .obj/Cmp.s \
 .obj/Collector.s \
 .obj/CommonIntAlgo.s \
+.obj/CompactMap.s \
+.obj/CompactNodeAllocator.s \
 .obj/Counters.s \
 .obj/Crc.s \
 .obj/CreateAt.s \
@@ -228,6 +239,7 @@ ASM_LIST = \
 .obj/ErrorText.s \
 .obj/EuclidRotate.s \
 .obj/Event.s \
+.obj/EventRecorder.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
 .obj/FastMutex.s \
@@ -277,6 +289,7 @@ ASM_LIST = \
 .obj/NoCopy.s \
 .obj/NoMutex.s \
 .obj/NoThrowFlags.s \
+.obj/NodeAllocator.s \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
 .obj/ObjectPtr.s \
@@ -286,6 +299,7 @@ ASM_LIST = \
 .obj/OwnPtr.s \
 .obj/ParaQuickSort.s \
 .obj/Partition.s \
+.obj/PerTask.s \
 .obj/Place.s \
 .obj/PlanInit.s \
 .obj/PlatformBase.s \
@@ -321,6 +335,7 @@ ASM_LIST = \
 .obj/ResSem.s \
 .obj/SIntFunc.s \
 .obj/SafeBuf.s \
+.obj/SaveLoad.s \
 .obj/ScanBit.s \
 .obj/ScanRange.s \
 .obj/Scope.s \
@@ -359,6 +374,7 @@ ASM_LIST = \
 .obj/SysUtf8.s \
 .obj/Task.s \
 .obj/TaskCore.s \
+.obj/TaskEvent.s \
 .obj/TempArray.s \
 .obj/TextLabel.s \
 .obj/TextTools.s \
@@ -369,6 +385,7 @@ ASM_LIST = \
 .obj/Tree.s \
 .obj/TreeBase.s \
 .obj/TreeLink.s \
+.obj/TreeMap.s \
 .obj/TreeUpLink.s \
 .obj/Tuple.s \
 .obj/TypeSwitch.s \
@@ -376,6 +393,7 @@ ASM_LIST = \
 .obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
 .obj/UIntSplit.s \
+.obj/Unid.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 
@@ -406,6 +424,8 @@ DEP_LIST = \
 .obj/Cmp.dep \
 .obj/Collector.dep \
 .obj/CommonIntAlgo.dep \
+.obj/CompactMap.dep \
+.obj/CompactNodeAllocator.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
@@ -419,6 +439,7 @@ DEP_LIST = \
 .obj/ErrorText.dep \
 .obj/EuclidRotate.dep \
 .obj/Event.dep \
+.obj/EventRecorder.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
 .obj/FastMutex.dep \
@@ -468,6 +489,7 @@ DEP_LIST = \
 .obj/NoCopy.dep \
 .obj/NoMutex.dep \
 .obj/NoThrowFlags.dep \
+.obj/NodeAllocator.dep \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
 .obj/ObjectPtr.dep \
@@ -477,6 +499,7 @@ DEP_LIST = \
 .obj/OwnPtr.dep \
 .obj/ParaQuickSort.dep \
 .obj/Partition.dep \
+.obj/PerTask.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
 .obj/PlatformBase.dep \
@@ -512,6 +535,7 @@ DEP_LIST = \
 .obj/ResSem.dep \
 .obj/SIntFunc.dep \
 .obj/SafeBuf.dep \
+.obj/SaveLoad.dep \
 .obj/ScanBit.dep \
 .obj/ScanRange.dep \
 .obj/Scope.dep \
@@ -550,6 +574,7 @@ DEP_LIST = \
 .obj/SysUtf8.dep \
 .obj/Task.dep \
 .obj/TaskCore.dep \
+.obj/TaskEvent.dep \
 .obj/TempArray.dep \
 .obj/TextLabel.dep \
 .obj/TextTools.dep \
@@ -560,6 +585,7 @@ DEP_LIST = \
 .obj/Tree.dep \
 .obj/TreeBase.dep \
 .obj/TreeLink.dep \
+.obj/TreeMap.dep \
 .obj/TreeUpLink.dep \
 .obj/Tuple.dep \
 .obj/TypeSwitch.dep \
@@ -567,6 +593,7 @@ DEP_LIST = \
 .obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
 .obj/UIntSplit.dep \
+.obj/Unid.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 
@@ -658,6 +685,12 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/CompactMap.o : ../../Fundamental/CCore/src/./CompactMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CompactNodeAllocator.o : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Counters.o : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -695,6 +728,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Event.o : ../../HCore/CCore/src/task/Event.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/EventRecorder.o : ../../Applied/CCore/src/./EventRecorder.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Exception.o : ../../Fundamental/CCore/src/./Exception.cpp
@@ -844,6 +880,9 @@ include $(RULES_FILE)
 .obj/NoThrowFlags.o : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/NodeAllocator.o : ../../Fundamental/CCore/src/./NodeAllocator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Nothing.o : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -869,6 +908,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Partition.o : ../../Fundamental/CCore/src/algon/Partition.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PerTask.o : ../../Applied/CCore/src/./PerTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
@@ -974,6 +1016,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SafeBuf.o : ../../Simple/CCore/src/./SafeBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SaveLoad.o : ../../Fundamental/CCore/src/./SaveLoad.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ScanBit.o : ../../Simple/CCore/src/./ScanBit.cpp
@@ -1090,6 +1135,9 @@ include $(RULES_FILE)
 .obj/TaskCore.o : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/TaskEvent.o : ../../HCore/CCore/src/task/TaskEvent.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TempArray.o : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1120,6 +1168,9 @@ include $(RULES_FILE)
 .obj/TreeLink.o : ../../Fundamental/CCore/src/tree/TreeLink.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/TreeMap.o : ../../Fundamental/CCore/src/./TreeMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TreeUpLink.o : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1139,6 +1190,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UIntSplit.o : ../../Simple/CCore/src/./UIntSplit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Unid.o : ../../Fundamental/CCore/src/./Unid.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Utf8.o : ../../Fundamental/CCore/src/./Utf8.cpp
@@ -1224,6 +1278,12 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CompactMap.s : ../../Fundamental/CCore/src/./CompactMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CompactNodeAllocator.s : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Counters.s : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1261,6 +1321,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Event.s : ../../HCore/CCore/src/task/Event.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/EventRecorder.s : ../../Applied/CCore/src/./EventRecorder.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Exception.s : ../../Fundamental/CCore/src/./Exception.cpp
@@ -1410,6 +1473,9 @@ include $(RULES_FILE)
 .obj/NoThrowFlags.s : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NodeAllocator.s : ../../Fundamental/CCore/src/./NodeAllocator.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Nothing.s : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1435,6 +1501,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Partition.s : ../../Fundamental/CCore/src/algon/Partition.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PerTask.s : ../../Applied/CCore/src/./PerTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
@@ -1540,6 +1609,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SafeBuf.s : ../../Simple/CCore/src/./SafeBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SaveLoad.s : ../../Fundamental/CCore/src/./SaveLoad.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ScanBit.s : ../../Simple/CCore/src/./ScanBit.cpp
@@ -1656,6 +1728,9 @@ include $(RULES_FILE)
 .obj/TaskCore.s : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/TaskEvent.s : ../../HCore/CCore/src/task/TaskEvent.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TempArray.s : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1686,6 +1761,9 @@ include $(RULES_FILE)
 .obj/TreeLink.s : ../../Fundamental/CCore/src/tree/TreeLink.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/TreeMap.s : ../../Fundamental/CCore/src/./TreeMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TreeUpLink.s : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1705,6 +1783,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UIntSplit.s : ../../Simple/CCore/src/./UIntSplit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Unid.s : ../../Fundamental/CCore/src/./Unid.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Utf8.s : ../../Fundamental/CCore/src/./Utf8.cpp
@@ -1790,6 +1871,12 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
 
+.obj/CompactMap.dep : ../../Fundamental/CCore/src/./CompactMap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CompactMap.o $< -MF $@
+
+.obj/CompactNodeAllocator.dep : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CompactNodeAllocator.o $< -MF $@
+
 .obj/Counters.dep : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
 
@@ -1828,6 +1915,9 @@ include $(RULES_FILE)
 
 .obj/Event.dep : ../../HCore/CCore/src/task/Event.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Event.o $< -MF $@
+
+.obj/EventRecorder.dep : ../../Applied/CCore/src/./EventRecorder.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/EventRecorder.o $< -MF $@
 
 .obj/Exception.dep : ../../Fundamental/CCore/src/./Exception.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Exception.o $< -MF $@
@@ -1976,6 +2066,9 @@ include $(RULES_FILE)
 .obj/NoThrowFlags.dep : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoThrowFlags.o $< -MF $@
 
+.obj/NodeAllocator.dep : ../../Fundamental/CCore/src/./NodeAllocator.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NodeAllocator.o $< -MF $@
+
 .obj/Nothing.dep : ../../Simple/CCore/src/gadget/Nothing.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Nothing.o $< -MF $@
 
@@ -2002,6 +2095,9 @@ include $(RULES_FILE)
 
 .obj/Partition.dep : ../../Fundamental/CCore/src/algon/Partition.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Partition.o $< -MF $@
+
+.obj/PerTask.dep : ../../Applied/CCore/src/./PerTask.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PerTask.o $< -MF $@
 
 .obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
@@ -2107,6 +2203,9 @@ include $(RULES_FILE)
 
 .obj/SafeBuf.dep : ../../Simple/CCore/src/./SafeBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SafeBuf.o $< -MF $@
+
+.obj/SaveLoad.dep : ../../Fundamental/CCore/src/./SaveLoad.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SaveLoad.o $< -MF $@
 
 .obj/ScanBit.dep : ../../Simple/CCore/src/./ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScanBit.o $< -MF $@
@@ -2222,6 +2321,9 @@ include $(RULES_FILE)
 .obj/TaskCore.dep : ../../HCore/CCore/src/task/TaskCore.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TaskCore.o $< -MF $@
 
+.obj/TaskEvent.dep : ../../HCore/CCore/src/task/TaskEvent.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TaskEvent.o $< -MF $@
+
 .obj/TempArray.dep : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TempArray.o $< -MF $@
 
@@ -2252,6 +2354,9 @@ include $(RULES_FILE)
 .obj/TreeLink.dep : ../../Fundamental/CCore/src/tree/TreeLink.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TreeLink.o $< -MF $@
 
+.obj/TreeMap.dep : ../../Fundamental/CCore/src/./TreeMap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TreeMap.o $< -MF $@
+
 .obj/TreeUpLink.dep : ../../Fundamental/CCore/src/tree/TreeUpLink.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TreeUpLink.o $< -MF $@
 
@@ -2272,6 +2377,9 @@ include $(RULES_FILE)
 
 .obj/UIntSplit.dep : ../../Simple/CCore/src/./UIntSplit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntSplit.o $< -MF $@
+
+.obj/Unid.dep : ../../Fundamental/CCore/src/./Unid.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Unid.o $< -MF $@
 
 .obj/Utf8.dep : ../../Fundamental/CCore/src/./Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
