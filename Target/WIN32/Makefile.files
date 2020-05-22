@@ -12,6 +12,7 @@ OBJ_LIST = \
 .obj/Atomic.o \
 .obj/AtomicRefArray.o \
 .obj/AutoCast.o \
+.obj/AutoGlobal.o \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinarySearch.o \
@@ -32,6 +33,7 @@ OBJ_LIST = \
 .obj/DetectProxy.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
+.obj/ElementPool.o \
 .obj/ErrorText.o \
 .obj/EuclidRotate.o \
 .obj/Event.o \
@@ -46,6 +48,7 @@ OBJ_LIST = \
 .obj/FunctorType.o \
 .obj/GCDConst.o \
 .obj/Gadget.o \
+.obj/GenFile.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
@@ -57,6 +60,7 @@ OBJ_LIST = \
 .obj/Job.o \
 .obj/Len.o \
 .obj/List.o \
+.obj/ListCursor.o \
 .obj/LockObject.o \
 .obj/LockUse.o \
 .obj/Locked.o \
@@ -199,6 +203,7 @@ ASM_LIST = \
 .obj/Atomic.s \
 .obj/AtomicRefArray.s \
 .obj/AutoCast.s \
+.obj/AutoGlobal.s \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinarySearch.s \
@@ -219,6 +224,7 @@ ASM_LIST = \
 .obj/DetectProxy.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
+.obj/ElementPool.s \
 .obj/ErrorText.s \
 .obj/EuclidRotate.s \
 .obj/Event.s \
@@ -233,6 +239,7 @@ ASM_LIST = \
 .obj/FunctorType.s \
 .obj/GCDConst.s \
 .obj/Gadget.s \
+.obj/GenFile.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
@@ -244,6 +251,7 @@ ASM_LIST = \
 .obj/Job.s \
 .obj/Len.s \
 .obj/List.s \
+.obj/ListCursor.s \
 .obj/LockObject.s \
 .obj/LockUse.s \
 .obj/Locked.s \
@@ -386,6 +394,7 @@ DEP_LIST = \
 .obj/Atomic.dep \
 .obj/AtomicRefArray.dep \
 .obj/AutoCast.dep \
+.obj/AutoGlobal.dep \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinarySearch.dep \
@@ -406,6 +415,7 @@ DEP_LIST = \
 .obj/DetectProxy.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
+.obj/ElementPool.dep \
 .obj/ErrorText.dep \
 .obj/EuclidRotate.dep \
 .obj/Event.dep \
@@ -420,6 +430,7 @@ DEP_LIST = \
 .obj/FunctorType.dep \
 .obj/GCDConst.dep \
 .obj/Gadget.dep \
+.obj/GenFile.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
@@ -431,6 +442,7 @@ DEP_LIST = \
 .obj/Job.dep \
 .obj/Len.dep \
 .obj/List.dep \
+.obj/ListCursor.dep \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
 .obj/Locked.dep \
@@ -610,6 +622,9 @@ include $(RULES_FILE)
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AutoGlobal.o : ../../Fundamental/CCore/src/./AutoGlobal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/BaseRangeAlgo.o : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -670,6 +685,9 @@ include $(RULES_FILE)
 .obj/DynObject.o : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ElementPool.o : ../../Fundamental/CCore/src/./ElementPool.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ErrorText.o : ../../Simple/CCore/src/./ErrorText.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -712,6 +730,9 @@ include $(RULES_FILE)
 .obj/Gadget.o : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/GenFile.o : ../../Fundamental/CCore/src/./GenFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -743,6 +764,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/List.o : ../../Fundamental/CCore/src/./List.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ListCursor.o : ../../Fundamental/CCore/src/./ListCursor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/LockObject.o : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -1164,6 +1188,9 @@ include $(RULES_FILE)
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AutoGlobal.s : ../../Fundamental/CCore/src/./AutoGlobal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/BaseRangeAlgo.s : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1224,6 +1251,9 @@ include $(RULES_FILE)
 .obj/DynObject.s : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ElementPool.s : ../../Fundamental/CCore/src/./ElementPool.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ErrorText.s : ../../Simple/CCore/src/./ErrorText.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1266,6 +1296,9 @@ include $(RULES_FILE)
 .obj/Gadget.s : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/GenFile.s : ../../Fundamental/CCore/src/./GenFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1297,6 +1330,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/List.s : ../../Fundamental/CCore/src/./List.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ListCursor.s : ../../Fundamental/CCore/src/./ListCursor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/LockObject.s : ../../Simple/CCore/src/gadget/LockObject.cpp
@@ -1718,6 +1754,9 @@ include $(RULES_FILE)
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
 
+.obj/AutoGlobal.dep : ../../Fundamental/CCore/src/./AutoGlobal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AutoGlobal.o $< -MF $@
+
 .obj/BaseRangeAlgo.dep : ../../Fundamental/CCore/src/algon/BaseRangeAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BaseRangeAlgo.o $< -MF $@
 
@@ -1778,6 +1817,9 @@ include $(RULES_FILE)
 .obj/DynObject.dep : ../../Simple/CCore/src/./DynObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynObject.o $< -MF $@
 
+.obj/ElementPool.dep : ../../Fundamental/CCore/src/./ElementPool.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ElementPool.o $< -MF $@
+
 .obj/ErrorText.dep : ../../Simple/CCore/src/./ErrorText.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
 
@@ -1820,6 +1862,9 @@ include $(RULES_FILE)
 .obj/Gadget.dep : ../../Simple/CCore/src/./Gadget.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Gadget.o $< -MF $@
 
+.obj/GenFile.dep : ../../Fundamental/CCore/src/./GenFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GenFile.o $< -MF $@
+
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
 
@@ -1852,6 +1897,9 @@ include $(RULES_FILE)
 
 .obj/List.dep : ../../Fundamental/CCore/src/./List.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/List.o $< -MF $@
+
+.obj/ListCursor.dep : ../../Fundamental/CCore/src/./ListCursor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ListCursor.o $< -MF $@
 
 .obj/LockObject.dep : ../../Simple/CCore/src/gadget/LockObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LockObject.o $< -MF $@

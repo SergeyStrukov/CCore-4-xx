@@ -40,6 +40,12 @@ class OutBuf
    void operator () (const T &obj) { *(ptr++)=obj; }
 
    void operator () (PtrLen<const T> r) { r.copyTo(ptr); ptr+=r.len; }
+
+   template <class ... TT> requires ( sizeof ... (TT) > 1 )
+   void operator () (TT ... tt)
+    {
+     ( (*this)(tt) , ... );
+    }
  };
 
 } // namespace CCore
