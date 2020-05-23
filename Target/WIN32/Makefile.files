@@ -24,8 +24,10 @@ OBJ_LIST = \
 .obj/Cmp.o \
 .obj/Collector.o \
 .obj/CommonIntAlgo.o \
+.obj/CompactList.o \
 .obj/CompactMap.o \
 .obj/CompactNodeAllocator.o \
+.obj/ContainerList.o \
 .obj/Counters.o \
 .obj/Crc.o \
 .obj/CreateAt.o \
@@ -188,6 +190,7 @@ OBJ_LIST = \
 .obj/TreeMap.o \
 .obj/TreeUpLink.o \
 .obj/Tuple.o \
+.obj/TypeNumber.o \
 .obj/TypeSwitch.o \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
@@ -224,8 +227,10 @@ ASM_LIST = \
 .obj/Cmp.s \
 .obj/Collector.s \
 .obj/CommonIntAlgo.s \
+.obj/CompactList.s \
 .obj/CompactMap.s \
 .obj/CompactNodeAllocator.s \
+.obj/ContainerList.s \
 .obj/Counters.s \
 .obj/Crc.s \
 .obj/CreateAt.s \
@@ -388,6 +393,7 @@ ASM_LIST = \
 .obj/TreeMap.s \
 .obj/TreeUpLink.s \
 .obj/Tuple.s \
+.obj/TypeNumber.s \
 .obj/TypeSwitch.s \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
@@ -424,8 +430,10 @@ DEP_LIST = \
 .obj/Cmp.dep \
 .obj/Collector.dep \
 .obj/CommonIntAlgo.dep \
+.obj/CompactList.dep \
 .obj/CompactMap.dep \
 .obj/CompactNodeAllocator.dep \
+.obj/ContainerList.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
@@ -588,6 +596,7 @@ DEP_LIST = \
 .obj/TreeMap.dep \
 .obj/TreeUpLink.dep \
 .obj/Tuple.dep \
+.obj/TypeNumber.dep \
 .obj/TypeSwitch.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
@@ -685,10 +694,16 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/CompactList.o : ../../Fundamental/CCore/src/./CompactList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/CompactMap.o : ../../Fundamental/CCore/src/./CompactMap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CompactNodeAllocator.o : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ContainerList.o : ../../Fundamental/CCore/src/./ContainerList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Counters.o : ../../Simple/CCore/src/./Counters.cpp
@@ -1177,6 +1192,9 @@ include $(RULES_FILE)
 .obj/Tuple.o : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/TypeNumber.o : ../../Fundamental/CCore/src/./TypeNumber.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/TypeSwitch.o : ../../Simple/CCore/src/./TypeSwitch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1278,10 +1296,16 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CompactList.s : ../../Fundamental/CCore/src/./CompactList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CompactMap.s : ../../Fundamental/CCore/src/./CompactMap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CompactNodeAllocator.s : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ContainerList.s : ../../Fundamental/CCore/src/./ContainerList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Counters.s : ../../Simple/CCore/src/./Counters.cpp
@@ -1770,6 +1794,9 @@ include $(RULES_FILE)
 .obj/Tuple.s : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/TypeNumber.s : ../../Fundamental/CCore/src/./TypeNumber.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TypeSwitch.s : ../../Simple/CCore/src/./TypeSwitch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1871,11 +1898,17 @@ include $(RULES_FILE)
 .obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
 
+.obj/CompactList.dep : ../../Fundamental/CCore/src/./CompactList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CompactList.o $< -MF $@
+
 .obj/CompactMap.dep : ../../Fundamental/CCore/src/./CompactMap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CompactMap.o $< -MF $@
 
 .obj/CompactNodeAllocator.dep : ../../Fundamental/CCore/src/./CompactNodeAllocator.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CompactNodeAllocator.o $< -MF $@
+
+.obj/ContainerList.dep : ../../Fundamental/CCore/src/./ContainerList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ContainerList.o $< -MF $@
 
 .obj/Counters.dep : ../../Simple/CCore/src/./Counters.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
@@ -2362,6 +2395,9 @@ include $(RULES_FILE)
 
 .obj/Tuple.dep : ../../Simple/CCore/src/./Tuple.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Tuple.o $< -MF $@
+
+.obj/TypeNumber.dep : ../../Fundamental/CCore/src/./TypeNumber.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TypeNumber.o $< -MF $@
 
 .obj/TypeSwitch.dep : ../../Simple/CCore/src/./TypeSwitch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TypeSwitch.o $< -MF $@
