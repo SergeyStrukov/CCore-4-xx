@@ -22,8 +22,8 @@ namespace CCore {
 
 /* CreateAt() */
 
-template <class T,class ... SS>
-void CreateAt(T &obj,SS && ... ss) requires ( ConstructibleType<T,SS...> )
+template <class T,class ... SS> requires ( ConstructibleType<T,SS...> )
+void CreateAt(T &obj,SS && ... ss)
  {
   new(PlaceAt(&obj)) T( std::forward<SS>(ss)... );
  }

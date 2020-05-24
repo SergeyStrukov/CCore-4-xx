@@ -361,8 +361,8 @@ struct ArrayAlgo_mini : ArrayAlgoBase<T>
     return Create(place,len,Creator_default<T,Default_no_throw>());
    }
 
-  template <class ... SS>
-  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss) requires ( ConstructibleType<T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> )
+  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss)
    {
     return Create(place,len,Creator_fill<T,SS...>( std::forward<SS>(ss)... ));
    }
@@ -410,8 +410,8 @@ struct ArrayAlgo_pod : ArrayAlgoBase_nodtor<T>
     return ret;
    }
 
-  template <class ... SS>
-  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss) requires ( ConstructibleType<T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> )
+  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss)
    {
     return Create(place,len,Creator_fill<T,SS...>( std::forward<SS>(ss)... ));
    }
@@ -503,8 +503,8 @@ struct ArrayAlgo_class : ArrayAlgoBase<T>
     return Create(place,len,Creator_default<T,Default_no_throw>());
    }
 
-  template <class ... SS>
-  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss) requires ( ConstructibleType<T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> )
+  static PtrLen<T> Create_fill(Place<void> place,ulen len,SS && ... ss)
    {
     return Create(place,len,Creator_fill<T,SS...>( std::forward<SS>(ss)... ));
    }

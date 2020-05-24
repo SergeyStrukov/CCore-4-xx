@@ -348,8 +348,8 @@ struct ArrayBase
     return ret;
    }
 
-  template <class ... SS>
-  static PtrLen<T> Extend_fill(H *ptr,ulen delta_len,SS && ... ss) requires ( ConstructibleType<T,SS...> && ArrayAlgo_fill<Algo,T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> && ArrayAlgo_fill<Algo,T,SS...> )
+  static PtrLen<T> Extend_fill(H *ptr,ulen delta_len,SS && ... ss)
    {
     PtrLen<T> ret=Algo::Create_fill(GetExtra(ptr),delta_len, std::forward<SS>(ss)... );
 
@@ -428,8 +428,8 @@ struct ArrayBase
     return ret;
    }
 
-  template <class ... SS>
-  static T * Append_fill(H *ptr,SS && ... ss) requires ( ConstructibleType<T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> )
+  static T * Append_fill(H *ptr,SS && ... ss)
    {
     T *ret=new(GetExtra(ptr)) T( std::forward<SS>(ss)... );
 

@@ -53,8 +53,8 @@ class DynObject
 
    explicit DynObject(NothingType) requires ( ConstructibleType<T> ) : ptr(New<T>(DefaultHeapAlloc())) {}
 
-   template <class ... SS>
-   explicit DynObject(SS && ... ss) requires ( ConstructibleType<T,SS...> ) : ptr(New<T>(DefaultHeapAlloc(), std::forward<SS>(ss)... )) {}
+   template <class ... SS> requires ( ConstructibleType<T,SS...> )
+   explicit DynObject(SS && ... ss)  : ptr(New<T>(DefaultHeapAlloc(), std::forward<SS>(ss)... )) {}
 
    ~DynObject() { Destroy(ptr); }
 
@@ -85,8 +85,8 @@ class DynObject
      Destroy(Replace(ptr, New<T>(DefaultHeapAlloc()) ));
     }
 
-   template <class ... SS>
-   void create(SS && ... ss) requires ( ConstructibleType<T,SS...> )
+   template <class ... SS> requires ( ConstructibleType<T,SS...> )
+   void create(SS && ... ss)
     {
      Destroy(Replace(ptr, New<T>(DefaultHeapAlloc(), std::forward<SS>(ss)... ) ));
     }

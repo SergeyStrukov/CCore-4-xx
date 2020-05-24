@@ -67,8 +67,8 @@ struct InitExitObject
 
    // prior initialization is required ({0}) or clean()
 
-  template <class ... SS>
-  void init(SS && ... ss) requires ( ConstructibleType<T,SS...> )
+  template <class ... SS> requires ( ConstructibleType<T,SS...> )
+  void init(SS && ... ss)
    {
     if( obj ) return;
 
