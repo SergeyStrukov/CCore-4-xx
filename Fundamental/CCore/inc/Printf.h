@@ -271,30 +271,16 @@ class PrintfDev<P> : PrintfDevBase
 
    OptStr find();
 
-   // expand
-
-   template <class ... TT>
-   void expand(const Tuple<TT...> &tuple)
-    {
-     tuple.call( [this] (const TT & ...tt) { ( (*this) += ... += tt ); } );
-    }
-
-   // operator +=
-
    template <class T>
-   PrintfDev<P> & operator += (const T &t)
+   void add(const T &t)
     {
      find().print(out,t);
-
-     return *this;
     }
 
    template <class ... TT>
-   PrintfDev<P> & operator += (const Tuple<TT...> &tuple)
+   void add(const Tuple<TT...> &tuple)
     {
-     expand(tuple);
-
-     return *this;
+     tuple.call( [this] (const TT & ...tt) { ( add(tt) , ... ); } );
     }
 
   public:
@@ -307,7 +293,7 @@ class PrintfDev<P> : PrintfDevBase
    template <class ... TT>
    void operator () (const TT & ... tt)
     {
-     (void)( (*this) += ... += tt );
+     ( add(tt) , ... );
 
      while( *format ) find();
     }
@@ -384,39 +370,21 @@ class PutobjDev<P> : NoCopy
 
   private:
 
-   // expand
-
-   template <class ... TT>
-   void expand(const Tuple<TT...> &tuple)
-    {
-     tuple.call( [this] (const TT & ...tt) { ( (*this) += ... += tt ); } );
-    }
-
-   // operator +=
-
    template <class T>
-   PutobjDev<P> & operator += (const T &t)
+   void add(const T &t)
     {
      PrintAdapter<T>::Print(out,t);
-
-     return *this;
     }
 
    template <class ... TT>
-   PutobjDev<P> & operator += (const Tuple<TT...> &tuple)
+   void add(const Tuple<TT...> &tuple)
     {
-     expand(tuple);
-
-     return *this;
+     tuple.call( [this] (const TT & ...tt) { ( add(tt) , ... ); } );
     }
 
-   // operator <<
-
-   PutobjDev<P> & operator << (char ch)
+   void putc(char ch)
     {
      out.put(ch);
-
-     return *this;
     }
 
   public:
@@ -429,7 +397,7 @@ class PutobjDev<P> : NoCopy
    template <class ... TT>
    void operator () (const TT & ... tt)
     {
-     (void)( (*this) += ... += tt );
+     ( add(tt) , ... );
     }
 
    // put
@@ -437,7 +405,7 @@ class PutobjDev<P> : NoCopy
    template <class ... CC>
    void put(CC ... cc)
     {
-     (void)( (*this) << ... << cc );
+     ( putc(cc) , ... );
     }
  };
 
@@ -446,12 +414,7 @@ class PutobjDev<P> : NoCopy
 template <>
 class PutobjDev<void>
  {
-   // operator <<
-
-   PutobjDev<void> & operator << (char)
-    {
-     return *this;
-    }
+   void putc(char) {}
 
   public:
 
@@ -466,7 +429,7 @@ class PutobjDev<void>
    template <class ... CC>
    void put(CC ... cc)
     {
-     (void)( (*this) << ... << cc );
+     ( putc(cc) , ... );
     }
  };
 
