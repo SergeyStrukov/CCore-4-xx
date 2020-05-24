@@ -177,6 +177,7 @@ OBJ_LIST = \
 .obj/Task.o \
 .obj/TaskCore.o \
 .obj/TaskEvent.o \
+.obj/TaskHeap.o \
 .obj/TempArray.o \
 .obj/TextLabel.o \
 .obj/TextTools.o \
@@ -380,6 +381,7 @@ ASM_LIST = \
 .obj/Task.s \
 .obj/TaskCore.s \
 .obj/TaskEvent.s \
+.obj/TaskHeap.s \
 .obj/TempArray.s \
 .obj/TextLabel.s \
 .obj/TextTools.s \
@@ -583,6 +585,7 @@ DEP_LIST = \
 .obj/Task.dep \
 .obj/TaskCore.dep \
 .obj/TaskEvent.dep \
+.obj/TaskHeap.dep \
 .obj/TempArray.dep \
 .obj/TextLabel.dep \
 .obj/TextTools.dep \
@@ -1151,6 +1154,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TaskEvent.o : ../../HCore/CCore/src/task/TaskEvent.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TaskHeap.o : ../../HCore/CCore/src/./TaskHeap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TempArray.o : ../../Fundamental/CCore/src/array/TempArray.cpp
@@ -1755,6 +1761,9 @@ include $(RULES_FILE)
 .obj/TaskEvent.s : ../../HCore/CCore/src/task/TaskEvent.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/TaskHeap.s : ../../HCore/CCore/src/./TaskHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/TempArray.s : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2356,6 +2365,9 @@ include $(RULES_FILE)
 
 .obj/TaskEvent.dep : ../../HCore/CCore/src/task/TaskEvent.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TaskEvent.o $< -MF $@
+
+.obj/TaskHeap.dep : ../../HCore/CCore/src/./TaskHeap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TaskHeap.o $< -MF $@
 
 .obj/TempArray.dep : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TempArray.o $< -MF $@
