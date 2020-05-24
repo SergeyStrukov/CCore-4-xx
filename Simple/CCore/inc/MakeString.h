@@ -115,17 +115,16 @@ class MakeString : NoCopy
      return *this;
     }
 
-   // multiadd
-
    MakeString & add(NothingType) { return zero(); }
 
-   template <class T>
-   MakeString & operator += (T t) { return add(t); }
+   // multiadd
 
    template <class ... TT> requires ( sizeof ... (TT) > 1 )
    MakeString & add(TT ... tt)
     {
-     return ( (*this) += ... += tt );
+     ( (void)add(tt) , ... );
+
+     return *this;
     }
 
    // get result
