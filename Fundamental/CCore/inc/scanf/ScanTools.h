@@ -46,7 +46,7 @@ concept CharFailStreamType = CharStreamType<S> && requires(S &obj)
 
 inline int CharBaseValue(char ch,unsigned base)
  {
-  int dig=CharHexValue(ch);
+  int dig=charHexValue(ch);
 
   if( (unsigned)dig>=base ) return -1;
 

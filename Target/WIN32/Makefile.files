@@ -60,6 +60,7 @@ OBJ_LIST = \
 .obj/Init.o \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
+.obj/IntScan.o \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
 .obj/Job.o \
@@ -138,8 +139,12 @@ OBJ_LIST = \
 .obj/SIntFunc.o \
 .obj/SafeBuf.o \
 .obj/SaveLoad.o \
+.obj/ScanBase.o \
 .obj/ScanBit.o \
+.obj/ScanProxy.o \
 .obj/ScanRange.o \
+.obj/ScanTools.o \
+.obj/Scanf.o \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
 .obj/Sem.o \
@@ -157,6 +162,7 @@ OBJ_LIST = \
 .obj/StrParse.o \
 .obj/StrPrint.o \
 .obj/String.o \
+.obj/StringScan.o \
 .obj/Swap.o \
 .obj/SymCount.o \
 .obj/SymPart.o \
@@ -264,6 +270,7 @@ ASM_LIST = \
 .obj/Init.s \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
+.obj/IntScan.s \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
 .obj/Job.s \
@@ -342,8 +349,12 @@ ASM_LIST = \
 .obj/SIntFunc.s \
 .obj/SafeBuf.s \
 .obj/SaveLoad.s \
+.obj/ScanBase.s \
 .obj/ScanBit.s \
+.obj/ScanProxy.s \
 .obj/ScanRange.s \
+.obj/ScanTools.s \
+.obj/Scanf.s \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
 .obj/Sem.s \
@@ -361,6 +372,7 @@ ASM_LIST = \
 .obj/StrParse.s \
 .obj/StrPrint.s \
 .obj/String.s \
+.obj/StringScan.s \
 .obj/Swap.s \
 .obj/SymCount.s \
 .obj/SymPart.s \
@@ -468,6 +480,7 @@ DEP_LIST = \
 .obj/Init.dep \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
+.obj/IntScan.dep \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
 .obj/Job.dep \
@@ -546,8 +559,12 @@ DEP_LIST = \
 .obj/SIntFunc.dep \
 .obj/SafeBuf.dep \
 .obj/SaveLoad.dep \
+.obj/ScanBase.dep \
 .obj/ScanBit.dep \
+.obj/ScanProxy.dep \
 .obj/ScanRange.dep \
+.obj/ScanTools.dep \
+.obj/Scanf.dep \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
 .obj/Sem.dep \
@@ -565,6 +582,7 @@ DEP_LIST = \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
 .obj/String.dep \
+.obj/StringScan.dep \
 .obj/Swap.dep \
 .obj/SymCount.dep \
 .obj/SymPart.dep \
@@ -805,6 +823,9 @@ include $(RULES_FILE)
 .obj/IntPrint.o : ../../Fundamental/CCore/src/printf/IntPrint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/IntScan.o : ../../Fundamental/CCore/src/scanf/IntScan.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/IntelCPUID.o : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1039,10 +1060,22 @@ include $(RULES_FILE)
 .obj/SaveLoad.o : ../../Fundamental/CCore/src/./SaveLoad.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ScanBase.o : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ScanBit.o : ../../Simple/CCore/src/./ScanBit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ScanProxy.o : ../../Fundamental/CCore/src/scanf/ScanProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ScanRange.o : ../../Simple/CCore/src/./ScanRange.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ScanTools.o : ../../Fundamental/CCore/src/scanf/ScanTools.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Scanf.o : ../../Fundamental/CCore/src/./Scanf.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Scope.o : ../../Fundamental/CCore/src/./Scope.cpp
@@ -1094,6 +1127,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/String.o : ../../Fundamental/CCore/src/./String.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/StringScan.o : ../../Fundamental/CCore/src/scanf/StringScan.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Swap.o : ../../Simple/CCore/src/./Swap.cpp
@@ -1410,6 +1446,9 @@ include $(RULES_FILE)
 .obj/IntPrint.s : ../../Fundamental/CCore/src/printf/IntPrint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/IntScan.s : ../../Fundamental/CCore/src/scanf/IntScan.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/IntelCPUID.s : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1644,10 +1683,22 @@ include $(RULES_FILE)
 .obj/SaveLoad.s : ../../Fundamental/CCore/src/./SaveLoad.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ScanBase.s : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ScanBit.s : ../../Simple/CCore/src/./ScanBit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ScanProxy.s : ../../Fundamental/CCore/src/scanf/ScanProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ScanRange.s : ../../Simple/CCore/src/./ScanRange.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ScanTools.s : ../../Fundamental/CCore/src/scanf/ScanTools.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Scanf.s : ../../Fundamental/CCore/src/./Scanf.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Scope.s : ../../Fundamental/CCore/src/./Scope.cpp
@@ -1699,6 +1750,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/String.s : ../../Fundamental/CCore/src/./String.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/StringScan.s : ../../Fundamental/CCore/src/scanf/StringScan.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Swap.s : ../../Simple/CCore/src/./Swap.cpp
@@ -2015,6 +2069,9 @@ include $(RULES_FILE)
 .obj/IntPrint.dep : ../../Fundamental/CCore/src/printf/IntPrint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntPrint.o $< -MF $@
 
+.obj/IntScan.dep : ../../Fundamental/CCore/src/scanf/IntScan.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntScan.o $< -MF $@
+
 .obj/IntelCPUID.dep : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntelCPUID.o $< -MF $@
 
@@ -2249,11 +2306,23 @@ include $(RULES_FILE)
 .obj/SaveLoad.dep : ../../Fundamental/CCore/src/./SaveLoad.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SaveLoad.o $< -MF $@
 
+.obj/ScanBase.dep : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanBase.o $< -MF $@
+
 .obj/ScanBit.dep : ../../Simple/CCore/src/./ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScanBit.o $< -MF $@
 
+.obj/ScanProxy.dep : ../../Fundamental/CCore/src/scanf/ScanProxy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanProxy.o $< -MF $@
+
 .obj/ScanRange.dep : ../../Simple/CCore/src/./ScanRange.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScanRange.o $< -MF $@
+
+.obj/ScanTools.dep : ../../Fundamental/CCore/src/scanf/ScanTools.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanTools.o $< -MF $@
+
+.obj/Scanf.dep : ../../Fundamental/CCore/src/./Scanf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Scanf.o $< -MF $@
 
 .obj/Scope.dep : ../../Fundamental/CCore/src/./Scope.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Scope.o $< -MF $@
@@ -2305,6 +2374,9 @@ include $(RULES_FILE)
 
 .obj/String.dep : ../../Fundamental/CCore/src/./String.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/String.o $< -MF $@
+
+.obj/StringScan.dep : ../../Fundamental/CCore/src/scanf/StringScan.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StringScan.o $< -MF $@
 
 .obj/Swap.dep : ../../Simple/CCore/src/./Swap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Swap.o $< -MF $@
