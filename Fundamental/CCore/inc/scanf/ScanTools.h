@@ -42,9 +42,9 @@ concept CharFailStreamType = CharStreamType<S> && requires(S &obj)
   obj.fail();
  } ;
 
-/* CharBaseValue() */
+/* charBaseValue() */
 
-inline int CharBaseValue(char ch,unsigned base)
+int charBaseValue(CharCodeType auto ch,unsigned base)
  {
   int dig=charHexValue(ch);
 
