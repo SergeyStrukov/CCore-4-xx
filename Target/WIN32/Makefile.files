@@ -11,6 +11,7 @@ OBJ_LIST = \
 .obj/ArrayInsDel.o \
 .obj/Atomic.o \
 .obj/AtomicRefArray.o \
+.obj/AttachmentHost.o \
 .obj/AutoCast.o \
 .obj/AutoGlobal.o \
 .obj/BaseRangeAlgo.o \
@@ -19,6 +20,7 @@ OBJ_LIST = \
 .obj/BlockFifo.o \
 .obj/CapString.o \
 .obj/CharProp.o \
+.obj/CharUtils.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/Cmp.o \
@@ -63,6 +65,7 @@ OBJ_LIST = \
 .obj/IntScan.o \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
+.obj/InterfaceHost.o \
 .obj/Job.o \
 .obj/Len.o \
 .obj/List.o \
@@ -98,6 +101,7 @@ OBJ_LIST = \
 .obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
 .obj/OptMember.o \
+.obj/Optional.o \
 .obj/OutBuf.o \
 .obj/OwnPtr.o \
 .obj/ParaQuickSort.o \
@@ -159,6 +163,7 @@ OBJ_LIST = \
 .obj/StartStop.o \
 .obj/Starter.o \
 .obj/StrKey.o \
+.obj/StrMap.o \
 .obj/StrParse.o \
 .obj/StrPrint.o \
 .obj/String.o \
@@ -221,6 +226,7 @@ ASM_LIST = \
 .obj/ArrayInsDel.s \
 .obj/Atomic.s \
 .obj/AtomicRefArray.s \
+.obj/AttachmentHost.s \
 .obj/AutoCast.s \
 .obj/AutoGlobal.s \
 .obj/BaseRangeAlgo.s \
@@ -229,6 +235,7 @@ ASM_LIST = \
 .obj/BlockFifo.s \
 .obj/CapString.s \
 .obj/CharProp.s \
+.obj/CharUtils.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/Cmp.s \
@@ -273,6 +280,7 @@ ASM_LIST = \
 .obj/IntScan.s \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
+.obj/InterfaceHost.s \
 .obj/Job.s \
 .obj/Len.s \
 .obj/List.s \
@@ -308,6 +316,7 @@ ASM_LIST = \
 .obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
 .obj/OptMember.s \
+.obj/Optional.s \
 .obj/OutBuf.s \
 .obj/OwnPtr.s \
 .obj/ParaQuickSort.s \
@@ -369,6 +378,7 @@ ASM_LIST = \
 .obj/StartStop.s \
 .obj/Starter.s \
 .obj/StrKey.s \
+.obj/StrMap.s \
 .obj/StrParse.s \
 .obj/StrPrint.s \
 .obj/String.s \
@@ -431,6 +441,7 @@ DEP_LIST = \
 .obj/ArrayInsDel.dep \
 .obj/Atomic.dep \
 .obj/AtomicRefArray.dep \
+.obj/AttachmentHost.dep \
 .obj/AutoCast.dep \
 .obj/AutoGlobal.dep \
 .obj/BaseRangeAlgo.dep \
@@ -439,6 +450,7 @@ DEP_LIST = \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
 .obj/CharProp.dep \
+.obj/CharUtils.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/Cmp.dep \
@@ -483,6 +495,7 @@ DEP_LIST = \
 .obj/IntScan.dep \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
+.obj/InterfaceHost.dep \
 .obj/Job.dep \
 .obj/Len.dep \
 .obj/List.dep \
@@ -518,6 +531,7 @@ DEP_LIST = \
 .obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
 .obj/OptMember.dep \
+.obj/Optional.dep \
 .obj/OutBuf.dep \
 .obj/OwnPtr.dep \
 .obj/ParaQuickSort.dep \
@@ -579,6 +593,7 @@ DEP_LIST = \
 .obj/StartStop.dep \
 .obj/Starter.dep \
 .obj/StrKey.dep \
+.obj/StrMap.dep \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
 .obj/String.dep \
@@ -676,6 +691,9 @@ include $(RULES_FILE)
 .obj/AtomicRefArray.o : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AttachmentHost.o : ../../Fundamental/CCore/src/./AttachmentHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AutoCast.o : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -698,6 +716,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CharProp.o : ../../Fundamental/CCore/src/./CharProp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CharUtils.o : ../../Fundamental/CCore/src/./CharUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -832,6 +853,9 @@ include $(RULES_FILE)
 .obj/IntelRandom.o : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/InterfaceHost.o : ../../Fundamental/CCore/src/./InterfaceHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Job.o : ../../Fundamental/CCore/src/./Job.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -935,6 +959,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OptMember.o : ../../Simple/CCore/src/./OptMember.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Optional.o : ../../Fundamental/CCore/src/./Optional.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OutBuf.o : ../../Simple/CCore/src/./OutBuf.cpp
@@ -1120,6 +1147,9 @@ include $(RULES_FILE)
 .obj/StrKey.o : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/StrMap.o : ../../Fundamental/CCore/src/./StrMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/StrParse.o : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1299,6 +1329,9 @@ include $(RULES_FILE)
 .obj/AtomicRefArray.s : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AttachmentHost.s : ../../Fundamental/CCore/src/./AttachmentHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AutoCast.s : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1321,6 +1354,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CharProp.s : ../../Fundamental/CCore/src/./CharProp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CharUtils.s : ../../Fundamental/CCore/src/./CharUtils.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
@@ -1455,6 +1491,9 @@ include $(RULES_FILE)
 .obj/IntelRandom.s : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/InterfaceHost.s : ../../Fundamental/CCore/src/./InterfaceHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Job.s : ../../Fundamental/CCore/src/./Job.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1558,6 +1597,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/OptMember.s : ../../Simple/CCore/src/./OptMember.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Optional.s : ../../Fundamental/CCore/src/./Optional.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/OutBuf.s : ../../Simple/CCore/src/./OutBuf.cpp
@@ -1743,6 +1785,9 @@ include $(RULES_FILE)
 .obj/StrKey.s : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/StrMap.s : ../../Fundamental/CCore/src/./StrMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/StrParse.s : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1922,6 +1967,9 @@ include $(RULES_FILE)
 .obj/AtomicRefArray.dep : ../../Fundamental/CCore/src/array/AtomicRefArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AtomicRefArray.o $< -MF $@
 
+.obj/AttachmentHost.dep : ../../Fundamental/CCore/src/./AttachmentHost.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AttachmentHost.o $< -MF $@
+
 .obj/AutoCast.dep : ../../Simple/CCore/src/gadget/AutoCast.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AutoCast.o $< -MF $@
 
@@ -1945,6 +1993,9 @@ include $(RULES_FILE)
 
 .obj/CharProp.dep : ../../Fundamental/CCore/src/./CharProp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CharProp.o $< -MF $@
+
+.obj/CharUtils.dep : ../../Fundamental/CCore/src/./CharUtils.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CharUtils.o $< -MF $@
 
 .obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
@@ -2078,6 +2129,9 @@ include $(RULES_FILE)
 .obj/IntelRandom.dep : ../../Target/WIN32/CCore/src/crypton/IntelRandom.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntelRandom.o $< -MF $@
 
+.obj/InterfaceHost.dep : ../../Fundamental/CCore/src/./InterfaceHost.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/InterfaceHost.o $< -MF $@
+
 .obj/Job.dep : ../../Fundamental/CCore/src/./Job.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Job.o $< -MF $@
 
@@ -2182,6 +2236,9 @@ include $(RULES_FILE)
 
 .obj/OptMember.dep : ../../Simple/CCore/src/./OptMember.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OptMember.o $< -MF $@
+
+.obj/Optional.dep : ../../Fundamental/CCore/src/./Optional.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Optional.o $< -MF $@
 
 .obj/OutBuf.dep : ../../Simple/CCore/src/./OutBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OutBuf.o $< -MF $@
@@ -2365,6 +2422,9 @@ include $(RULES_FILE)
 
 .obj/StrKey.dep : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrKey.o $< -MF $@
+
+.obj/StrMap.dep : ../../Fundamental/CCore/src/./StrMap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StrMap.o $< -MF $@
 
 .obj/StrParse.dep : ../../Fundamental/CCore/src/./StrParse.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrParse.o $< -MF $@
