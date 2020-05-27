@@ -131,9 +131,9 @@ PtrLen<const Char> PrintCharBuf::close(bool guard_overflow)
   return start.prefix(out);
  }
 
-/* class ScanCharString */
+/* class ScanCharBuf */
 
-ulen ScanCharString::Put(PtrLen<char> out,PtrLen<const Char> &str)
+ulen ScanCharBuf::Put(PtrLen<char> out,PtrLen<const Char> &str)
  {
   ulen start=out.len;
 
@@ -152,20 +152,20 @@ ulen ScanCharString::Put(PtrLen<char> out,PtrLen<const Char> &str)
   return start-out.len;
  }
 
-PtrLen<const char> ScanCharString::underflow()
+PtrLen<const char> ScanCharBuf::underflow()
  {
   ulen len=Put(Range(buf),str);
 
   return Range(buf,len);
  }
 
-ScanCharString::ScanCharString(PtrLen<const Char> str_)
+ScanCharBuf::ScanCharBuf(PtrLen<const Char> str_)
  : str(str_)
  {
   pump();
  }
 
-ScanCharString::~ScanCharString()
+ScanCharBuf::~ScanCharBuf()
  {
  }
 

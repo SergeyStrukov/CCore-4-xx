@@ -28,7 +28,7 @@ struct FillCharBuf;
 
 class PrintCharBuf;
 
-class ScanCharString;
+class ScanCharBuf;
 
 /* struct FillCharBuf */
 
@@ -77,9 +77,9 @@ class PrintCharBuf : public PrintBase
    PtrLen<const Char> close(bool guard_overflow=true);
  };
 
-/* class ScanCharString */
+/* class ScanCharBuf */
 
-class ScanCharString : public ScanBase
+class ScanCharBuf : public ScanBase
  {
    PtrLen<const Char> str;
 
@@ -93,9 +93,9 @@ class ScanCharString : public ScanBase
 
   public:
 
-   explicit ScanCharString(PtrLen<const Char> str);
+   explicit ScanCharBuf(PtrLen<const Char> str);
 
-   ~ScanCharString();
+   ~ScanCharBuf();
  };
 
 } // namespace CCore
