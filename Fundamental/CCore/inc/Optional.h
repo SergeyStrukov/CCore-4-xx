@@ -65,7 +65,7 @@ class Optional : NoCopy
    ~Optional() { Destroy(root.root); }
 
    template <unsigned slot,NothrowDtorType T>
-   T * try_take();
+   T * try_take() noexcept;
 
    template <unsigned slot,NothrowDtorType T>
    T * take();
@@ -78,7 +78,7 @@ T * Optional::GetObject(Node *node)
  }
 
 template <unsigned slot,NothrowDtorType T>
-T * Optional::try_take()
+T * Optional::try_take() noexcept
  {
   if( Node *node=root.find(slot) ) return GetObject<T>(node);
 

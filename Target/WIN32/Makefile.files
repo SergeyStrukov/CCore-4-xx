@@ -35,6 +35,7 @@ OBJ_LIST = \
 .obj/CreateAt.o \
 .obj/Creator.o \
 .obj/DefaultTimeout.o \
+.obj/DeferCall.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
 .obj/DynArray.o \
@@ -88,6 +89,7 @@ OBJ_LIST = \
 .obj/Move.o \
 .obj/MultiEvent.o \
 .obj/MultiSem.o \
+.obj/MultiSignal.o \
 .obj/Mutex.o \
 .obj/MutexSpinCount.o \
 .obj/NegBool.o \
@@ -98,6 +100,7 @@ OBJ_LIST = \
 .obj/NodeAllocator.o \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
+.obj/ObjHost.o \
 .obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
 .obj/OptMember.o \
@@ -153,6 +156,7 @@ OBJ_LIST = \
 .obj/ScopeGuard.o \
 .obj/Sem.o \
 .obj/ShortSort.o \
+.obj/Signal.o \
 .obj/SimpleArray.o \
 .obj/SimpleRotate.o \
 .obj/SingleHost.o \
@@ -250,6 +254,7 @@ ASM_LIST = \
 .obj/CreateAt.s \
 .obj/Creator.s \
 .obj/DefaultTimeout.s \
+.obj/DeferCall.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
 .obj/DynArray.s \
@@ -303,6 +308,7 @@ ASM_LIST = \
 .obj/Move.s \
 .obj/MultiEvent.s \
 .obj/MultiSem.s \
+.obj/MultiSignal.s \
 .obj/Mutex.s \
 .obj/MutexSpinCount.s \
 .obj/NegBool.s \
@@ -313,6 +319,7 @@ ASM_LIST = \
 .obj/NodeAllocator.s \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
+.obj/ObjHost.s \
 .obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
 .obj/OptMember.s \
@@ -368,6 +375,7 @@ ASM_LIST = \
 .obj/ScopeGuard.s \
 .obj/Sem.s \
 .obj/ShortSort.s \
+.obj/Signal.s \
 .obj/SimpleArray.s \
 .obj/SimpleRotate.s \
 .obj/SingleHost.s \
@@ -465,6 +473,7 @@ DEP_LIST = \
 .obj/CreateAt.dep \
 .obj/Creator.dep \
 .obj/DefaultTimeout.dep \
+.obj/DeferCall.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
 .obj/DynArray.dep \
@@ -518,6 +527,7 @@ DEP_LIST = \
 .obj/Move.dep \
 .obj/MultiEvent.dep \
 .obj/MultiSem.dep \
+.obj/MultiSignal.dep \
 .obj/Mutex.dep \
 .obj/MutexSpinCount.dep \
 .obj/NegBool.dep \
@@ -528,6 +538,7 @@ DEP_LIST = \
 .obj/NodeAllocator.dep \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
+.obj/ObjHost.dep \
 .obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
 .obj/OptMember.dep \
@@ -583,6 +594,7 @@ DEP_LIST = \
 .obj/ScopeGuard.dep \
 .obj/Sem.dep \
 .obj/ShortSort.dep \
+.obj/Signal.dep \
 .obj/SimpleArray.dep \
 .obj/SimpleRotate.dep \
 .obj/SingleHost.dep \
@@ -763,6 +775,9 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DeferCall.o : ../../Fundamental/CCore/src/./DeferCall.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.o : ../../Simple/CCore/src/./DestroyGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -922,6 +937,9 @@ include $(RULES_FILE)
 .obj/MultiSem.o : ../../HCore/CCore/src/task/MultiSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MultiSignal.o : ../../Fundamental/CCore/src/./MultiSignal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Mutex.o : ../../HCore/CCore/src/task/Mutex.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -950,6 +968,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NullMovePtr.o : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ObjHost.o : ../../Fundamental/CCore/src/./ObjHost.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ObjectPtr.o : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
@@ -1115,6 +1136,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ShortSort.o : ../../Fundamental/CCore/src/sort/ShortSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Signal.o : ../../Fundamental/CCore/src/./Signal.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SimpleArray.o : ../../Fundamental/CCore/src/array/SimpleArray.cpp
@@ -1401,6 +1425,9 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DeferCall.s : ../../Fundamental/CCore/src/./DeferCall.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.s : ../../Simple/CCore/src/./DestroyGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1560,6 +1587,9 @@ include $(RULES_FILE)
 .obj/MultiSem.s : ../../HCore/CCore/src/task/MultiSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MultiSignal.s : ../../Fundamental/CCore/src/./MultiSignal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Mutex.s : ../../HCore/CCore/src/task/Mutex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1588,6 +1618,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NullMovePtr.s : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ObjHost.s : ../../Fundamental/CCore/src/./ObjHost.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ObjectPtr.s : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
@@ -1753,6 +1786,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ShortSort.s : ../../Fundamental/CCore/src/sort/ShortSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Signal.s : ../../Fundamental/CCore/src/./Signal.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SimpleArray.s : ../../Fundamental/CCore/src/array/SimpleArray.cpp
@@ -2039,6 +2075,9 @@ include $(RULES_FILE)
 .obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
 
+.obj/DeferCall.dep : ../../Fundamental/CCore/src/./DeferCall.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DeferCall.o $< -MF $@
+
 .obj/DestroyGuard.dep : ../../Simple/CCore/src/./DestroyGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DestroyGuard.o $< -MF $@
 
@@ -2198,6 +2237,9 @@ include $(RULES_FILE)
 .obj/MultiSem.dep : ../../HCore/CCore/src/task/MultiSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MultiSem.o $< -MF $@
 
+.obj/MultiSignal.dep : ../../Fundamental/CCore/src/./MultiSignal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MultiSignal.o $< -MF $@
+
 .obj/Mutex.dep : ../../HCore/CCore/src/task/Mutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Mutex.o $< -MF $@
 
@@ -2227,6 +2269,9 @@ include $(RULES_FILE)
 
 .obj/NullMovePtr.dep : ../../Simple/CCore/src/gadget/NullMovePtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NullMovePtr.o $< -MF $@
+
+.obj/ObjHost.dep : ../../Fundamental/CCore/src/./ObjHost.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ObjHost.o $< -MF $@
 
 .obj/ObjectPtr.dep : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ObjectPtr.o $< -MF $@
@@ -2392,6 +2437,9 @@ include $(RULES_FILE)
 
 .obj/ShortSort.dep : ../../Fundamental/CCore/src/sort/ShortSort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ShortSort.o $< -MF $@
+
+.obj/Signal.dep : ../../Fundamental/CCore/src/./Signal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Signal.o $< -MF $@
 
 .obj/SimpleArray.dep : ../../Fundamental/CCore/src/array/SimpleArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleArray.o $< -MF $@
