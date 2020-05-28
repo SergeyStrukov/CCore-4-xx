@@ -357,5 +357,160 @@ StrLen Utf8Move_guarded(StrLen text,ulen count)
   return text;
  }
 
+/* struct DetectUtf8 */
+
+DetectUtf8::DetectUtf8(StrLen text)
+ {
+  if( +text )
+    {
+     char b1=*text;
+
+     switch( Utf8Len(b1) )
+       {
+        case 0 : default:
+         {
+          delta=1;
+          status=Broken;
+         }
+        break;
+
+        case 1 :
+         {
+          delta=1;
+          status=Done;
+         }
+        break;
+
+        case 2 :
+         {
+          if( text.len<2 )
+            {
+             delta=0;
+             status=None;
+            }
+          else
+            {
+             char b2=text[1];
+
+             if( !Utf8Ext(b2) )
+               {
+                delta=1;
+                status=Broken;
+               }
+             else
+               {
+                Unicode ch=Utf8Code::ToUnicode(b1,b2);
+
+                if( ch<0x80u )
+                  {
+                   delta=2;
+                   status=Broken;
+                  }
+                else
+                  {
+                   delta=2;
+                   status=Done;
+                  }
+               }
+            }
+         }
+        break;
+
+        case 3 :
+         {
+          if( text.len<3 )
+            {
+             delta=0;
+             status=None;
+            }
+          else
+            {
+             char b2=text[1];
+             char b3=text[2];
+
+             if( !Utf8Ext(b2) )
+               {
+                delta=1;
+                status=Broken;
+               }
+             else if( !Utf8Ext(b3) )
+               {
+                delta=2;
+                status=Broken;
+               }
+             else
+               {
+                Unicode ch=Utf8Code::ToUnicode(b1,b2,b3);
+
+                if( ch<0x800u )
+                  {
+                   delta=3;
+                   status=Broken;
+                  }
+                else
+                  {
+                   delta=3;
+                   status=Done;
+                  }
+               }
+            }
+         }
+        break;
+
+        case 4 :
+         {
+          if( text.len<4 )
+            {
+             delta=0;
+             status=None;
+            }
+          else
+            {
+             char b2=text[1];
+             char b3=text[2];
+             char b4=text[3];
+
+             if( !Utf8Ext(b2) )
+               {
+                delta=1;
+                status=Broken;
+               }
+             else if( !Utf8Ext(b3) )
+               {
+                delta=2;
+                status=Broken;
+               }
+             else if( !Utf8Ext(b4) )
+               {
+                delta=3;
+                status=Broken;
+               }
+             else
+               {
+                Unicode ch=Utf8Code::ToUnicode(b1,b2,b3,b4);
+
+                if( ch<0x10000u )
+                  {
+                   delta=4;
+                   status=Broken;
+                  }
+                else
+                  {
+                   delta=4;
+                   status=Done;
+                  }
+               }
+            }
+         }
+        break;
+       }
+    }
+  else
+    {
+     delta=0;
+     status=None;
+    }
+ }
+
 } // namespace CCore
 

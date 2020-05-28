@@ -235,6 +235,40 @@ StrLen Utf8Move(StrLen text,ulen count);
 
 StrLen Utf8Move_guarded(StrLen text,ulen count);
 
+//----------------------------------------------------------------------------------------
+
+/* classes */
+
+struct DetectUtf8;
+
+/* struct DetectUtf8 */
+
+struct DetectUtf8
+ {
+  enum Status
+   {
+    None = 0,
+    Done,
+    Broken
+   };
+
+  unsigned delta;
+  Status status;
+
+  DetectUtf8(const char *ptr,ulen len) : DetectUtf8(StrLen(ptr,len)) {}
+
+  explicit DetectUtf8(StrLen text);
+
+  Utf8Code get(const char *ptr) const { return Utf8Code(ptr,delta); }
+
+  Utf8Code get_guarded(const char *ptr) const
+   {
+    if( status==Broken ) GuardUtf8Broken("CCore::DetectUtf8::get_guarded(...)");
+
+    return get(ptr);
+   }
+ };
+
 } // namespace CCore
 
 #endif

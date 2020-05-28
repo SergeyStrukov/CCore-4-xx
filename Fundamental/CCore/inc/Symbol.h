@@ -93,6 +93,8 @@ inline Symbol CutSymbol_guarded(StrLen &text) // +text
   return CutUtf8_guarded(text);
  }
 
+using DetectSymbol = DetectUtf8 ;
+
 //----------------------------------------------------------------------------------------
 
 /* type Char */
