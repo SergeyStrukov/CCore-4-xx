@@ -44,11 +44,13 @@ struct FillCharBuf
 
 class PrintCharBuf : public PrintBase
  {
+   static constexpr ulen Len = 2*Max_cast(MaxSymbolLen,16) ;
+
    PtrLen<Char> start;
    PtrLen<Char> out;
    bool overflow = false ;
 
-   char buf[2*Max_cast(MaxSymbolLen,16)];
+   char buf[Len];
    ulen off = 0 ;
    ulen len = 0 ;
 
@@ -81,9 +83,11 @@ class PrintCharBuf : public PrintBase
 
 class ScanCharBuf : public ScanBase
  {
+   static constexpr ulen Len = 2*Max_cast(MaxSymbolLen,16) ;
+
    PtrLen<const Char> str;
 
-   char buf[2*Max_cast(MaxSymbolLen,16)];
+   char buf[Len];
 
   private:
 
