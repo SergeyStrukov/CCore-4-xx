@@ -16,6 +16,7 @@
 #ifndef CCore_inc_gadget_Place_h
 #define CCore_inc_gadget_Place_h
 
+#include <CCore/inc/gadget/Nothing.h>
 #include <CCore/inc/gadget/Len.h>
 #include <CCore/inc/gadget/Replace.h>
 #include <CCore/inc/gadget/Classification.h>
@@ -58,7 +59,9 @@ class Place
 
   public:
 
-   explicit Place(Void *ptr_) : ptr(ptr_) {}
+   explicit Place(Void *ptr_=0) noexcept : ptr(ptr_) {}
+
+   Place(NothingType) : Place() {}
 
    Place<Void> operator + (UIntType auto delta) const { return Place<Void>(PtrAdd(ptr,delta)); }
 

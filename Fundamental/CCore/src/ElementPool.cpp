@@ -49,8 +49,8 @@ void MemPool::moveFrom(MemPool &obj)
 
   list=Replace_null(obj.list);
 
-  block=Replace(obj.block,Place<void>(0));
-  cur=Replace(obj.cur,Place<void>(0));
+  block=Replace_null(obj.block);
+  cur=Replace_null(obj.cur);
   avail=Replace_null(obj.avail);
 
   mem_cap=Replace_null(obj.mem_cap);
@@ -63,11 +63,7 @@ void MemPool::delList()
 
 MemPool::MemPool(ulen block_len_,ulen mem_cap_)
  : initial_mem_cap(mem_cap_),
-
-   block(0),
-   cur(0),
    avail(0),
-
    mem_cap(mem_cap_)
  {
   block_len=AlignDown(block_len_);
@@ -151,8 +147,8 @@ void MemPool::erase()
  {
   delList();
 
-  block=Place<void>(0);
-  cur=Place<void>(0);
+  block=Null;
+  cur=Null;
   avail=0;
 
   mem_cap=initial_mem_cap;

@@ -65,7 +65,6 @@ void MemBlockPool::Destroy(FreeNode *mem_list)
 MemBlockPool::MemBlockPool(ulen len_,ulen align_of,ulen alloc_count_)
  : free_list(0),
    mem_list(0),
-   cur(0),
    count(0)
  {
   align_of=Algon::LCM<ulen>(align_of,alignof (FreeNode));
@@ -97,7 +96,7 @@ MemBlockPool::MemBlockPool(MemBlockPool &&obj) noexcept
     free_list(Replace_null(obj.free_list)),
     mem_list(Replace_null(obj.mem_list)),
 
-    cur(Replace(obj.cur,Place<void>(0))),
+    cur(Replace_null(obj.cur)),
     count(Replace_null(obj.count))
  {
  }
@@ -113,7 +112,7 @@ MemBlockPool & MemBlockPool::operator = (MemBlockPool &&obj) noexcept
      free_list=Replace_null(obj.free_list);
      Destroy(Replace(mem_list,Replace_null(obj.mem_list)));
 
-     cur=Replace(obj.cur,Place<void>(0));
+     cur=Replace_null(obj.cur);
      count=Replace_null(obj.count);
     }
 
