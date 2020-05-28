@@ -61,6 +61,7 @@ OBJ_LIST = \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
 .obj/Init.o \
+.obj/InputUtils.o \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
 .obj/IntScan.o \
@@ -74,6 +75,7 @@ OBJ_LIST = \
 .obj/LockObject.o \
 .obj/LockUse.o \
 .obj/Locked.o \
+.obj/Log.o \
 .obj/MSec.o \
 .obj/MakeString.o \
 .obj/MemAllocGuard.o \
@@ -138,6 +140,7 @@ OBJ_LIST = \
 .obj/RadixHeap.o \
 .obj/Random.o \
 .obj/RangeDel.o \
+.obj/ReadCon.o \
 .obj/RefArray.o \
 .obj/RefObjectBase.o \
 .obj/RefPtr.o \
@@ -280,6 +283,7 @@ ASM_LIST = \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
 .obj/Init.s \
+.obj/InputUtils.s \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
 .obj/IntScan.s \
@@ -293,6 +297,7 @@ ASM_LIST = \
 .obj/LockObject.s \
 .obj/LockUse.s \
 .obj/Locked.s \
+.obj/Log.s \
 .obj/MSec.s \
 .obj/MakeString.s \
 .obj/MemAllocGuard.s \
@@ -357,6 +362,7 @@ ASM_LIST = \
 .obj/RadixHeap.s \
 .obj/Random.s \
 .obj/RangeDel.s \
+.obj/ReadCon.s \
 .obj/RefArray.s \
 .obj/RefObjectBase.s \
 .obj/RefPtr.s \
@@ -499,6 +505,7 @@ DEP_LIST = \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
 .obj/Init.dep \
+.obj/InputUtils.dep \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
 .obj/IntScan.dep \
@@ -512,6 +519,7 @@ DEP_LIST = \
 .obj/LockObject.dep \
 .obj/LockUse.dep \
 .obj/Locked.dep \
+.obj/Log.dep \
 .obj/MSec.dep \
 .obj/MakeString.dep \
 .obj/MemAllocGuard.dep \
@@ -576,6 +584,7 @@ DEP_LIST = \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
 .obj/RangeDel.dep \
+.obj/ReadCon.dep \
 .obj/RefArray.dep \
 .obj/RefObjectBase.dep \
 .obj/RefPtr.dep \
@@ -853,6 +862,9 @@ include $(RULES_FILE)
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/InputUtils.o : ../../Applied/CCore/src/./InputUtils.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/InstanceLock.o : ../../Simple/CCore/src/./InstanceLock.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -890,6 +902,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Locked.o : ../../Simple/CCore/src/gadget/Locked.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Log.o : ../../Applied/CCore/src/./Log.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -1082,6 +1097,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RangeDel.o : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ReadCon.o : ../../HCore/CCore/src/./ReadCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RefArray.o : ../../Fundamental/CCore/src/array/RefArray.cpp
@@ -1503,6 +1521,9 @@ include $(RULES_FILE)
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/InputUtils.s : ../../Applied/CCore/src/./InputUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/InstanceLock.s : ../../Simple/CCore/src/./InstanceLock.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1540,6 +1561,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Locked.s : ../../Simple/CCore/src/gadget/Locked.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Log.s : ../../Applied/CCore/src/./Log.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -1732,6 +1756,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/RangeDel.s : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ReadCon.s : ../../HCore/CCore/src/./ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/RefArray.s : ../../Fundamental/CCore/src/array/RefArray.cpp
@@ -2153,6 +2180,9 @@ include $(RULES_FILE)
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
 
+.obj/InputUtils.dep : ../../Applied/CCore/src/./InputUtils.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/InputUtils.o $< -MF $@
+
 .obj/InstanceLock.dep : ../../Simple/CCore/src/./InstanceLock.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/InstanceLock.o $< -MF $@
 
@@ -2191,6 +2221,9 @@ include $(RULES_FILE)
 
 .obj/Locked.dep : ../../Simple/CCore/src/gadget/Locked.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Locked.o $< -MF $@
+
+.obj/Log.dep : ../../Applied/CCore/src/./Log.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Log.o $< -MF $@
 
 .obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
@@ -2383,6 +2416,9 @@ include $(RULES_FILE)
 
 .obj/RangeDel.dep : ../../Simple/CCore/src/./RangeDel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RangeDel.o $< -MF $@
+
+.obj/ReadCon.dep : ../../HCore/CCore/src/./ReadCon.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ReadCon.o $< -MF $@
 
 .obj/RefArray.dep : ../../Fundamental/CCore/src/array/RefArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefArray.o $< -MF $@

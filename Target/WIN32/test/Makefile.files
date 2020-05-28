@@ -30,6 +30,7 @@ OBJ_LIST = \
 ../.test-obj/test2039.Collector.o \
 ../.test-obj/test2040.ElementPool.o \
 ../.test-obj/test2042.ContainerList.o \
+../.test-obj/test2051.DeferCall.o \
 ../.test-obj/test2054.ApplyToRange.o \
 ../.test-obj/test2055.ArrayInsDel.o \
 ../.test-obj/test2058.ApplyToList.o \
@@ -72,6 +73,7 @@ ASM_LIST = \
 ../.test-obj/test2039.Collector.s \
 ../.test-obj/test2040.ElementPool.s \
 ../.test-obj/test2042.ContainerList.s \
+../.test-obj/test2051.DeferCall.s \
 ../.test-obj/test2054.ApplyToRange.s \
 ../.test-obj/test2055.ArrayInsDel.s \
 ../.test-obj/test2058.ApplyToList.s \
@@ -114,6 +116,7 @@ DEP_LIST = \
 ../.test-obj/test2039.Collector.dep \
 ../.test-obj/test2040.ElementPool.dep \
 ../.test-obj/test2042.ContainerList.dep \
+../.test-obj/test2051.DeferCall.dep \
 ../.test-obj/test2054.ApplyToRange.dep \
 ../.test-obj/test2055.ArrayInsDel.dep \
 ../.test-obj/test2058.ApplyToList.dep \
@@ -221,6 +224,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2042.ContainerList.o : ../../../Fundamental/CCore/test/./test2042.ContainerList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2051.DeferCall.o : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2054.ApplyToRange.o : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
@@ -342,6 +348,9 @@ include $(RULES_FILE)
 ../.test-obj/test2042.ContainerList.s : ../../../Fundamental/CCore/test/./test2042.ContainerList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2051.DeferCall.s : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2054.ApplyToRange.s : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -460,6 +469,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2042.ContainerList.dep : ../../../Fundamental/CCore/test/./test2042.ContainerList.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2042.ContainerList.o $< -MF $@
+
+../.test-obj/test2051.DeferCall.dep : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2051.DeferCall.o $< -MF $@
 
 ../.test-obj/test2054.ApplyToRange.dep : ../../../Fundamental/CCore/test/./test2054.ApplyToRange.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2054.ApplyToRange.o $< -MF $@
