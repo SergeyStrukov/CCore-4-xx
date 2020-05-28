@@ -16,7 +16,7 @@
 #ifndef CCore_inc_ReadCon_h
 #define CCore_inc_ReadCon_h
 
-#include <CCore/inc/InputUtils.h>
+#include <CCore/inc/ReadConBase.h>
 
 #include <CCore/inc/sys/SysCon.h>
 
