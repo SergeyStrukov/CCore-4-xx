@@ -37,6 +37,7 @@ OBJ_LIST = \
 ../.test-obj/test2059.BestSearch.o \
 ../.test-obj/test2060.CharUtils.o \
 ../.test-obj/test2999.Blank.o \
+../.test-obj/test4011.ReadCon.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
 
@@ -80,6 +81,7 @@ ASM_LIST = \
 ../.test-obj/test2059.BestSearch.s \
 ../.test-obj/test2060.CharUtils.s \
 ../.test-obj/test2999.Blank.s \
+../.test-obj/test4011.ReadCon.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
 
@@ -123,6 +125,7 @@ DEP_LIST = \
 ../.test-obj/test2059.BestSearch.dep \
 ../.test-obj/test2060.CharUtils.dep \
 ../.test-obj/test2999.Blank.dep \
+../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
 
@@ -247,6 +250,9 @@ include $(RULES_FILE)
 ../.test-obj/test2999.Blank.o : ../../../Fundamental/CCore/test/./test2999.Blank.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -367,6 +373,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2999.Blank.s : ../../../Fundamental/CCore/test/./test2999.Blank.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -490,6 +499,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2999.Blank.dep : ../../../Fundamental/CCore/test/./test2999.Blank.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2999.Blank.o $< -MF $@
+
+../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@

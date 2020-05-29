@@ -141,6 +141,7 @@ OBJ_LIST = \
 .obj/Random.o \
 .obj/RangeDel.o \
 .obj/ReadCon.o \
+.obj/ReadConBase.o \
 .obj/RefArray.o \
 .obj/RefObjectBase.o \
 .obj/RefPtr.o \
@@ -363,6 +364,7 @@ ASM_LIST = \
 .obj/Random.s \
 .obj/RangeDel.s \
 .obj/ReadCon.s \
+.obj/ReadConBase.s \
 .obj/RefArray.s \
 .obj/RefObjectBase.s \
 .obj/RefPtr.s \
@@ -585,6 +587,7 @@ DEP_LIST = \
 .obj/Random.dep \
 .obj/RangeDel.dep \
 .obj/ReadCon.dep \
+.obj/ReadConBase.dep \
 .obj/RefArray.dep \
 .obj/RefObjectBase.dep \
 .obj/RefPtr.dep \
@@ -1100,6 +1103,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ReadCon.o : ../../HCore/CCore/src/./ReadCon.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ReadConBase.o : ../../Applied/CCore/src/./ReadConBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RefArray.o : ../../Fundamental/CCore/src/array/RefArray.cpp
@@ -1761,6 +1767,9 @@ include $(RULES_FILE)
 .obj/ReadCon.s : ../../HCore/CCore/src/./ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ReadConBase.s : ../../Applied/CCore/src/./ReadConBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RefArray.s : ../../Fundamental/CCore/src/array/RefArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2419,6 +2428,9 @@ include $(RULES_FILE)
 
 .obj/ReadCon.dep : ../../HCore/CCore/src/./ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ReadCon.o $< -MF $@
+
+.obj/ReadConBase.dep : ../../Applied/CCore/src/./ReadConBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ReadConBase.o $< -MF $@
 
 .obj/RefArray.dep : ../../Fundamental/CCore/src/array/RefArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefArray.o $< -MF $@
