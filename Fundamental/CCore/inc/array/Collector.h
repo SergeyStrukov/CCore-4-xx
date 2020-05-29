@@ -271,11 +271,13 @@ class Collector : NoCopy
      return list_len+cur->len;
     }
 
-   void erase()
+   Collector<T,Algo> & erase()
     {
      Collector<T,Algo> temp;
 
      Swap(*this,temp);
+
+     return *this;
     }
 
    template <class Container>

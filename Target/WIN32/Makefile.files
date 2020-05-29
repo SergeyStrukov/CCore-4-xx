@@ -105,6 +105,7 @@ OBJ_LIST = \
 .obj/Nothing.o \
 .obj/NullMovePtr.o \
 .obj/ObjHost.o \
+.obj/ObjectDomain.o \
 .obj/ObjectPtr.o \
 .obj/OpAddHelper.o \
 .obj/OptMember.o \
@@ -173,6 +174,7 @@ OBJ_LIST = \
 .obj/Space.o \
 .obj/StartStop.o \
 .obj/Starter.o \
+.obj/StepEval.o \
 .obj/StrKey.o \
 .obj/StrMap.o \
 .obj/StrParse.o \
@@ -223,6 +225,7 @@ OBJ_LIST = \
 .obj/Unid.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
+.obj/Volume.o \
 
 
 ASM_LIST = \
@@ -332,6 +335,7 @@ ASM_LIST = \
 .obj/Nothing.s \
 .obj/NullMovePtr.s \
 .obj/ObjHost.s \
+.obj/ObjectDomain.s \
 .obj/ObjectPtr.s \
 .obj/OpAddHelper.s \
 .obj/OptMember.s \
@@ -400,6 +404,7 @@ ASM_LIST = \
 .obj/Space.s \
 .obj/StartStop.s \
 .obj/Starter.s \
+.obj/StepEval.s \
 .obj/StrKey.s \
 .obj/StrMap.s \
 .obj/StrParse.s \
@@ -450,6 +455,7 @@ ASM_LIST = \
 .obj/Unid.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
+.obj/Volume.s \
 
 
 DEP_LIST = \
@@ -559,6 +565,7 @@ DEP_LIST = \
 .obj/Nothing.dep \
 .obj/NullMovePtr.dep \
 .obj/ObjHost.dep \
+.obj/ObjectDomain.dep \
 .obj/ObjectPtr.dep \
 .obj/OpAddHelper.dep \
 .obj/OptMember.dep \
@@ -627,6 +634,7 @@ DEP_LIST = \
 .obj/Space.dep \
 .obj/StartStop.dep \
 .obj/Starter.dep \
+.obj/StepEval.dep \
 .obj/StrKey.dep \
 .obj/StrMap.dep \
 .obj/StrParse.dep \
@@ -677,6 +685,7 @@ DEP_LIST = \
 .obj/Unid.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
+.obj/Volume.dep \
 
 
 ASM_OBJ_LIST = \
@@ -1009,6 +1018,9 @@ include $(RULES_FILE)
 .obj/ObjHost.o : ../../Fundamental/CCore/src/./ObjHost.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ObjectDomain.o : ../../Fundamental/CCore/src/./ObjectDomain.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ObjectPtr.o : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1213,6 +1225,9 @@ include $(RULES_FILE)
 .obj/Starter.o : ../../Fundamental/CCore/src/./Starter.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/StepEval.o : ../../Fundamental/CCore/src/./StepEval.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/StrKey.o : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1361,6 +1376,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UtilFunc.o : ../../Simple/CCore/src/gadget/UtilFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Volume.o : ../../Applied/CCore/src/./Volume.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
@@ -1683,6 +1701,9 @@ include $(RULES_FILE)
 .obj/ObjHost.s : ../../Fundamental/CCore/src/./ObjHost.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ObjectDomain.s : ../../Fundamental/CCore/src/./ObjectDomain.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ObjectPtr.s : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1887,6 +1908,9 @@ include $(RULES_FILE)
 .obj/Starter.s : ../../Fundamental/CCore/src/./Starter.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/StepEval.s : ../../Fundamental/CCore/src/./StepEval.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/StrKey.s : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2035,6 +2059,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UtilFunc.s : ../../Simple/CCore/src/gadget/UtilFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Volume.s : ../../Applied/CCore/src/./Volume.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -2357,6 +2384,9 @@ include $(RULES_FILE)
 .obj/ObjHost.dep : ../../Fundamental/CCore/src/./ObjHost.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ObjHost.o $< -MF $@
 
+.obj/ObjectDomain.dep : ../../Fundamental/CCore/src/./ObjectDomain.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ObjectDomain.o $< -MF $@
+
 .obj/ObjectPtr.dep : ../../Simple/CCore/src/gadget/ObjectPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ObjectPtr.o $< -MF $@
 
@@ -2561,6 +2591,9 @@ include $(RULES_FILE)
 .obj/Starter.dep : ../../Fundamental/CCore/src/./Starter.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Starter.o $< -MF $@
 
+.obj/StepEval.dep : ../../Fundamental/CCore/src/./StepEval.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StepEval.o $< -MF $@
+
 .obj/StrKey.dep : ../../Simple/CCore/src/./StrKey.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrKey.o $< -MF $@
 
@@ -2710,6 +2743,9 @@ include $(RULES_FILE)
 
 .obj/UtilFunc.dep : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UtilFunc.o $< -MF $@
+
+.obj/Volume.dep : ../../Applied/CCore/src/./Volume.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Volume.o $< -MF $@
 
 
 

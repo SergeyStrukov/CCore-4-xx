@@ -100,12 +100,14 @@ class TempArray : NoCopy
 
    bool notEmpty() const { return getLen()!=0; }
 
-   void provide(ulen len_)
+   TempArray<T,StackLen> & provide(ulen len_)
     {
      if( len_ > len )
        {
         recreate(len_);
        }
+
+     return *this;
     }
 
    void reset(ulen len_)
@@ -143,10 +145,12 @@ class TempArray : NoCopy
      return true;
     }
 
-   void erase()
+   TempArray<T,StackLen> & erase()
     {
      free();
      init(0);
+
+     return *this;
     }
 
    // range access

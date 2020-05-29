@@ -318,16 +318,20 @@ class RefArray : RefArrayBase<T,Algo>
      Swap(ret,temp);
     }
 
-   void reserve(ulen extra_len)
+   RefArray<T,Algo> & reserve(ulen extra_len)
     {
      provide(extra_len);
+
+     return *this;
     }
 
-   void erase()
+   RefArray<T,Algo> & erase()
     {
      RefArray<T,Algo> temp;
 
      Swap(*this,temp);
+
+     return *this;
     }
 
    // shrink

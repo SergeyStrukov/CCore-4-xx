@@ -272,16 +272,20 @@ class DynArray : DynArrayBase<T,Algo>
      Swap(ret,temp);
     }
 
-   void reserve(ulen extra_len)
+   DynArray<T,Algo> & reserve(ulen extra_len)
     {
      provide(extra_len);
+
+     return *this;
     }
 
-   void erase()
+   DynArray<T,Algo> & erase()
     {
      DynArray<T,Algo> temp;
 
      Swap(*this,temp);
+
+     return *this;
     }
 
    // shrink
