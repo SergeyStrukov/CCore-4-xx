@@ -16,6 +16,7 @@ OBJ_LIST = \
 .obj/AutoGlobal.o \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
+.obj/BinFileToRead.o \
 .obj/BinarySearch.o \
 .obj/BlockFifo.o \
 .obj/CapString.o \
@@ -77,6 +78,7 @@ OBJ_LIST = \
 .obj/Locked.o \
 .obj/Log.o \
 .obj/MSec.o \
+.obj/MakeFileName.o \
 .obj/MakeString.o \
 .obj/MemAllocGuard.o \
 .obj/MemBase.o \
@@ -111,6 +113,7 @@ OBJ_LIST = \
 .obj/OwnPtr.o \
 .obj/ParaQuickSort.o \
 .obj/Partition.o \
+.obj/Path.o \
 .obj/PerTask.o \
 .obj/Place.o \
 .obj/PlanInit.o \
@@ -203,6 +206,7 @@ OBJ_LIST = \
 .obj/TimeScope.o \
 .obj/Timer.o \
 .obj/TlsSlot.o \
+.obj/ToMemBase.o \
 .obj/ToMoveCtor.o \
 .obj/Tree.o \
 .obj/TreeBase.o \
@@ -239,6 +243,7 @@ ASM_LIST = \
 .obj/AutoGlobal.s \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
+.obj/BinFileToRead.s \
 .obj/BinarySearch.s \
 .obj/BlockFifo.s \
 .obj/CapString.s \
@@ -300,6 +305,7 @@ ASM_LIST = \
 .obj/Locked.s \
 .obj/Log.s \
 .obj/MSec.s \
+.obj/MakeFileName.s \
 .obj/MakeString.s \
 .obj/MemAllocGuard.s \
 .obj/MemBase.s \
@@ -334,6 +340,7 @@ ASM_LIST = \
 .obj/OwnPtr.s \
 .obj/ParaQuickSort.s \
 .obj/Partition.s \
+.obj/Path.s \
 .obj/PerTask.s \
 .obj/Place.s \
 .obj/PlanInit.s \
@@ -426,6 +433,7 @@ ASM_LIST = \
 .obj/TimeScope.s \
 .obj/Timer.s \
 .obj/TlsSlot.s \
+.obj/ToMemBase.s \
 .obj/ToMoveCtor.s \
 .obj/Tree.s \
 .obj/TreeBase.s \
@@ -462,6 +470,7 @@ DEP_LIST = \
 .obj/AutoGlobal.dep \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
+.obj/BinFileToRead.dep \
 .obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
@@ -523,6 +532,7 @@ DEP_LIST = \
 .obj/Locked.dep \
 .obj/Log.dep \
 .obj/MSec.dep \
+.obj/MakeFileName.dep \
 .obj/MakeString.dep \
 .obj/MemAllocGuard.dep \
 .obj/MemBase.dep \
@@ -557,6 +567,7 @@ DEP_LIST = \
 .obj/OwnPtr.dep \
 .obj/ParaQuickSort.dep \
 .obj/Partition.dep \
+.obj/Path.dep \
 .obj/PerTask.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
@@ -649,6 +660,7 @@ DEP_LIST = \
 .obj/TimeScope.dep \
 .obj/Timer.dep \
 .obj/TlsSlot.dep \
+.obj/ToMemBase.dep \
 .obj/ToMoveCtor.dep \
 .obj/Tree.dep \
 .obj/TreeBase.dep \
@@ -728,6 +740,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BestSearch.o : ../../Fundamental/CCore/src/algon/BestSearch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BinFileToRead.o : ../../Applied/CCore/src/./BinFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
@@ -913,6 +928,9 @@ include $(RULES_FILE)
 .obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MakeFileName.o : ../../Fundamental/CCore/src/./MakeFileName.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/MakeString.o : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1013,6 +1031,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Partition.o : ../../Fundamental/CCore/src/algon/Partition.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Path.o : ../../Fundamental/CCore/src/./Path.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PerTask.o : ../../Applied/CCore/src/./PerTask.cpp
@@ -1291,6 +1312,9 @@ include $(RULES_FILE)
 .obj/TlsSlot.o : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ToMemBase.o : ../../Applied/CCore/src/./ToMemBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ToMoveCtor.o : ../../Simple/CCore/src/./ToMoveCtor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1390,6 +1414,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BestSearch.s : ../../Fundamental/CCore/src/algon/BestSearch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BinFileToRead.s : ../../Applied/CCore/src/./BinFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
@@ -1575,6 +1602,9 @@ include $(RULES_FILE)
 .obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MakeFileName.s : ../../Fundamental/CCore/src/./MakeFileName.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/MakeString.s : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1675,6 +1705,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Partition.s : ../../Fundamental/CCore/src/algon/Partition.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Path.s : ../../Fundamental/CCore/src/./Path.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PerTask.s : ../../Applied/CCore/src/./PerTask.cpp
@@ -1953,6 +1986,9 @@ include $(RULES_FILE)
 .obj/TlsSlot.s : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ToMemBase.s : ../../Applied/CCore/src/./ToMemBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ToMoveCtor.s : ../../Simple/CCore/src/./ToMoveCtor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2053,6 +2089,9 @@ include $(RULES_FILE)
 
 .obj/BestSearch.dep : ../../Fundamental/CCore/src/algon/BestSearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BestSearch.o $< -MF $@
+
+.obj/BinFileToRead.dep : ../../Applied/CCore/src/./BinFileToRead.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BinFileToRead.o $< -MF $@
 
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
@@ -2237,6 +2276,9 @@ include $(RULES_FILE)
 .obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
 
+.obj/MakeFileName.dep : ../../Fundamental/CCore/src/./MakeFileName.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MakeFileName.o $< -MF $@
+
 .obj/MakeString.dep : ../../Simple/CCore/src/./MakeString.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MakeString.o $< -MF $@
 
@@ -2338,6 +2380,9 @@ include $(RULES_FILE)
 
 .obj/Partition.dep : ../../Fundamental/CCore/src/algon/Partition.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Partition.o $< -MF $@
+
+.obj/Path.dep : ../../Fundamental/CCore/src/./Path.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Path.o $< -MF $@
 
 .obj/PerTask.dep : ../../Applied/CCore/src/./PerTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PerTask.o $< -MF $@
@@ -2614,6 +2659,9 @@ include $(RULES_FILE)
 
 .obj/TlsSlot.dep : ../../Fundamental/CCore/src/./TlsSlot.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TlsSlot.o $< -MF $@
+
+.obj/ToMemBase.dep : ../../Applied/CCore/src/./ToMemBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ToMemBase.o $< -MF $@
 
 .obj/ToMoveCtor.dep : ../../Simple/CCore/src/./ToMoveCtor.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ToMoveCtor.o $< -MF $@
