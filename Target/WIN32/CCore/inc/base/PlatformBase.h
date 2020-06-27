@@ -16,6 +16,8 @@
 #ifndef CCore_inc_base_PlatformBase_h
 #define CCore_inc_base_PlatformBase_h
 
+#define CCORE_MINI // TODO remove
+
 /* target label */
 
 #define CCORE_TARGET WIN32
