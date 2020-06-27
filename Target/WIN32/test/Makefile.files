@@ -14,6 +14,7 @@ OBJ_LIST = \
 ../.test-obj/test2005.Sort.o \
 ../.test-obj/test2006.Sort-speed.o \
 ../.test-obj/test2010.MersenneTwister.o \
+../.test-obj/test2016.SaveLoad.o \
 ../.test-obj/test2017.String.o \
 ../.test-obj/test2020.BinarySearch.o \
 ../.test-obj/test2021.GCD.o \
@@ -31,6 +32,7 @@ OBJ_LIST = \
 ../.test-obj/test2040.ElementPool.o \
 ../.test-obj/test2042.ContainerList.o \
 ../.test-obj/test2051.DeferCall.o \
+../.test-obj/test2052.ObjectDomain.o \
 ../.test-obj/test2053.StepEval.o \
 ../.test-obj/test2054.ApplyToRange.o \
 ../.test-obj/test2055.ArrayInsDel.o \
@@ -59,6 +61,7 @@ ASM_LIST = \
 ../.test-obj/test2005.Sort.s \
 ../.test-obj/test2006.Sort-speed.s \
 ../.test-obj/test2010.MersenneTwister.s \
+../.test-obj/test2016.SaveLoad.s \
 ../.test-obj/test2017.String.s \
 ../.test-obj/test2020.BinarySearch.s \
 ../.test-obj/test2021.GCD.s \
@@ -76,6 +79,7 @@ ASM_LIST = \
 ../.test-obj/test2040.ElementPool.s \
 ../.test-obj/test2042.ContainerList.s \
 ../.test-obj/test2051.DeferCall.s \
+../.test-obj/test2052.ObjectDomain.s \
 ../.test-obj/test2053.StepEval.s \
 ../.test-obj/test2054.ApplyToRange.s \
 ../.test-obj/test2055.ArrayInsDel.s \
@@ -104,6 +108,7 @@ DEP_LIST = \
 ../.test-obj/test2005.Sort.dep \
 ../.test-obj/test2006.Sort-speed.dep \
 ../.test-obj/test2010.MersenneTwister.dep \
+../.test-obj/test2016.SaveLoad.dep \
 ../.test-obj/test2017.String.dep \
 ../.test-obj/test2020.BinarySearch.dep \
 ../.test-obj/test2021.GCD.dep \
@@ -121,6 +126,7 @@ DEP_LIST = \
 ../.test-obj/test2040.ElementPool.dep \
 ../.test-obj/test2042.ContainerList.dep \
 ../.test-obj/test2051.DeferCall.dep \
+../.test-obj/test2052.ObjectDomain.dep \
 ../.test-obj/test2053.StepEval.dep \
 ../.test-obj/test2054.ApplyToRange.dep \
 ../.test-obj/test2055.ArrayInsDel.dep \
@@ -184,6 +190,9 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.o : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2016.SaveLoad.o : ../../../Fundamental/CCore/test/./test2016.SaveLoad.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2017.String.o : ../../../Fundamental/CCore/test/./test2017.String.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -233,6 +242,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2051.DeferCall.o : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2052.ObjectDomain.o : ../../../Fundamental/CCore/test/./test2052.ObjectDomain.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2053.StepEval.o : ../../../Fundamental/CCore/test/./test2053.StepEval.cpp
@@ -312,6 +324,9 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.s : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2016.SaveLoad.s : ../../../Fundamental/CCore/test/./test2016.SaveLoad.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2017.String.s : ../../../Fundamental/CCore/test/./test2017.String.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -361,6 +376,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2051.DeferCall.s : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2052.ObjectDomain.s : ../../../Fundamental/CCore/test/./test2052.ObjectDomain.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2053.StepEval.s : ../../../Fundamental/CCore/test/./test2053.StepEval.cpp
@@ -440,6 +458,9 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.dep : ../../../Fundamental/CCore/test/./test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2010.MersenneTwister.o $< -MF $@
 
+../.test-obj/test2016.SaveLoad.dep : ../../../Fundamental/CCore/test/./test2016.SaveLoad.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2016.SaveLoad.o $< -MF $@
+
 ../.test-obj/test2017.String.dep : ../../../Fundamental/CCore/test/./test2017.String.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2017.String.o $< -MF $@
 
@@ -490,6 +511,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2051.DeferCall.dep : ../../../Fundamental/CCore/test/./test2051.DeferCall.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2051.DeferCall.o $< -MF $@
+
+../.test-obj/test2052.ObjectDomain.dep : ../../../Fundamental/CCore/test/./test2052.ObjectDomain.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2052.ObjectDomain.o $< -MF $@
 
 ../.test-obj/test2053.StepEval.dep : ../../../Fundamental/CCore/test/./test2053.StepEval.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2053.StepEval.o $< -MF $@
