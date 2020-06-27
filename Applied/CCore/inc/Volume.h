@@ -77,12 +77,12 @@ class VolumeDir : NoCopy
 
      // save/load object
 
-     enum { SaveLoadLen = SaveLenCounter<uint32,uint32,uint32>::SaveLoadLen };
+     using SaveLoadOrder = BeOrder ;
 
-     template <LoadDevType Dev>
-     void load(Dev &dev)
+     template <template <class ...> class Ret,class T>
+     static constexpr auto Fold()
       {
-       dev.template use<BeOrder>(count,names_off,names_len);
+       return Ret(&T::count,&T::names_off,&T::names_len);
       }
     };
 
@@ -95,21 +95,23 @@ class VolumeDir : NoCopy
 
      // save/load object
 
-     enum { SaveLoadLen = SaveLenCounter<uint32,uint32,FilePosType,FilePosType>::SaveLoadLen };
+     using SaveLoadOrder = BeOrder ;
 
-     template <LoadDevType Dev>
-     void load(Dev &dev)
+     template <template <class ...> class Ret,class T>
+     static constexpr auto Fold()
       {
-       dev.template use<BeOrder>(name_off,name_len,body_off,body_len);
+       return Ret(&T::name_off,&T::name_len,&T::body_off,&T::body_len);
       }
     };
 
    template <class AltFile>
    static Header ReadHeader(AltFile &file)
     {
-     uint8 temp[Header::SaveLoadLen];
+     constexpr ulen HeaderSaveLoadLen = SaveLenCounter<Header>::SaveLoadLen ;
 
-     file.read_all(0,temp,Header::SaveLoadLen);
+     uint8 temp[HeaderSaveLoadLen];
+
+     file.read_all(0,temp,HeaderSaveLoadLen);
 
      BufGetDev dev(temp);
 
@@ -128,15 +130,18 @@ class VolumeDir : NoCopy
    template <class AltFile>
    void fill(AltFile &file)
     {
+     constexpr ulen HeaderSaveLoadLen = SaveLenCounter<Header>::SaveLoadLen ;
+     constexpr ulen EntrySaveLoadLen = SaveLenCounter<Entry>::SaveLoadLen ;
+
      Header header=ReadHeader(file);
 
      list.erase().extend_default(header.count);
 
      names.erase().extend_raw(header.names_len);
 
-     DynArray<uint8> dir(DoRaw(LenOf(header.count,Entry::SaveLoadLen)));
+     DynArray<uint8> dir(DoRaw(LenOf(header.count,EntrySaveLoadLen)));
 
-     file.read_all(Header::SaveLoadLen,dir.getPtr(),dir.getLen());
+     file.read_all(HeaderSaveLoadLen,dir.getPtr(),dir.getLen());
 
      file.read_all(header.names_off,MutatePtr<uint8>(names.getPtr()),names.getLen());
 
