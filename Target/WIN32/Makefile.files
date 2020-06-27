@@ -126,6 +126,7 @@ OBJ_LIST = \
 .obj/PrintBits.o \
 .obj/PrintCon.o \
 .obj/PrintError.o \
+.obj/PrintFile.o \
 .obj/PrintProxy.o \
 .obj/PrintRatio.o \
 .obj/PrintSet.o \
@@ -189,6 +190,8 @@ OBJ_LIST = \
 .obj/SysAtomic.o \
 .obj/SysCon.o \
 .obj/SysError.o \
+.obj/SysFile.o \
+.obj/SysFileInternal.o \
 .obj/SysMemPage.o \
 .obj/SysPlanInit.o \
 .obj/SysProp.o \
@@ -198,6 +201,8 @@ OBJ_LIST = \
 .obj/SysTlsSlot.o \
 .obj/SysTypes.o \
 .obj/SysUtf8.o \
+.obj/SysWait.o \
+.obj/SysWaitInternal.o \
 .obj/Task.o \
 .obj/TaskCore.o \
 .obj/TaskEvent.o \
@@ -356,6 +361,7 @@ ASM_LIST = \
 .obj/PrintBits.s \
 .obj/PrintCon.s \
 .obj/PrintError.s \
+.obj/PrintFile.s \
 .obj/PrintProxy.s \
 .obj/PrintRatio.s \
 .obj/PrintSet.s \
@@ -419,6 +425,8 @@ ASM_LIST = \
 .obj/SysAtomic.s \
 .obj/SysCon.s \
 .obj/SysError.s \
+.obj/SysFile.s \
+.obj/SysFileInternal.s \
 .obj/SysMemPage.s \
 .obj/SysPlanInit.s \
 .obj/SysProp.s \
@@ -428,6 +436,8 @@ ASM_LIST = \
 .obj/SysTlsSlot.s \
 .obj/SysTypes.s \
 .obj/SysUtf8.s \
+.obj/SysWait.s \
+.obj/SysWaitInternal.s \
 .obj/Task.s \
 .obj/TaskCore.s \
 .obj/TaskEvent.s \
@@ -586,6 +596,7 @@ DEP_LIST = \
 .obj/PrintBits.dep \
 .obj/PrintCon.dep \
 .obj/PrintError.dep \
+.obj/PrintFile.dep \
 .obj/PrintProxy.dep \
 .obj/PrintRatio.dep \
 .obj/PrintSet.dep \
@@ -649,6 +660,8 @@ DEP_LIST = \
 .obj/SysAtomic.dep \
 .obj/SysCon.dep \
 .obj/SysError.dep \
+.obj/SysFile.dep \
+.obj/SysFileInternal.dep \
 .obj/SysMemPage.dep \
 .obj/SysPlanInit.dep \
 .obj/SysProp.dep \
@@ -658,6 +671,8 @@ DEP_LIST = \
 .obj/SysTlsSlot.dep \
 .obj/SysTypes.dep \
 .obj/SysUtf8.dep \
+.obj/SysWait.dep \
+.obj/SysWaitInternal.dep \
 .obj/Task.dep \
 .obj/TaskCore.dep \
 .obj/TaskEvent.dep \
@@ -1081,6 +1096,9 @@ include $(RULES_FILE)
 .obj/PrintError.o : ../../Simple/CCore/src/./PrintError.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintFile.o : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintProxy.o : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1270,6 +1288,12 @@ include $(RULES_FILE)
 .obj/SysError.o : ../../Target/WIN32/CCore/src/sys/SysError.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SysFile.o : ../../Target/WIN32/CCore/src/sys/SysFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysFileInternal.o : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SysMemPage.o : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1295,6 +1319,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysUtf8.o : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysWait.o : ../../Target/WIN32/CCore/src/sys/SysWait.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysWaitInternal.o : ../../Target/WIN32/CCore/src/sys/SysWaitInternal.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Task.o : ../../HCore/CCore/src/./Task.cpp
@@ -1764,6 +1794,9 @@ include $(RULES_FILE)
 .obj/PrintError.s : ../../Simple/CCore/src/./PrintError.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintFile.s : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintProxy.s : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1953,6 +1986,12 @@ include $(RULES_FILE)
 .obj/SysError.s : ../../Target/WIN32/CCore/src/sys/SysError.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SysFile.s : ../../Target/WIN32/CCore/src/sys/SysFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysFileInternal.s : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SysMemPage.s : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1978,6 +2017,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SysUtf8.s : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysWait.s : ../../Target/WIN32/CCore/src/sys/SysWait.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysWaitInternal.s : ../../Target/WIN32/CCore/src/sys/SysWaitInternal.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Task.s : ../../HCore/CCore/src/./Task.cpp
@@ -2447,6 +2492,9 @@ include $(RULES_FILE)
 .obj/PrintError.dep : ../../Simple/CCore/src/./PrintError.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintError.o $< -MF $@
 
+.obj/PrintFile.dep : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintFile.o $< -MF $@
+
 .obj/PrintProxy.dep : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintProxy.o $< -MF $@
 
@@ -2636,6 +2684,12 @@ include $(RULES_FILE)
 .obj/SysError.dep : ../../Target/WIN32/CCore/src/sys/SysError.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysError.o $< -MF $@
 
+.obj/SysFile.dep : ../../Target/WIN32/CCore/src/sys/SysFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysFile.o $< -MF $@
+
+.obj/SysFileInternal.dep : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysFileInternal.o $< -MF $@
+
 .obj/SysMemPage.dep : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysMemPage.o $< -MF $@
 
@@ -2662,6 +2716,12 @@ include $(RULES_FILE)
 
 .obj/SysUtf8.dep : ../../Target/WIN32/CCore/src/sys/SysUtf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysUtf8.o $< -MF $@
+
+.obj/SysWait.dep : ../../Target/WIN32/CCore/src/sys/SysWait.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysWait.o $< -MF $@
+
+.obj/SysWaitInternal.dep : ../../Target/WIN32/CCore/src/sys/SysWaitInternal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysWaitInternal.o $< -MF $@
 
 .obj/Task.dep : ../../HCore/CCore/src/./Task.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Task.o $< -MF $@
