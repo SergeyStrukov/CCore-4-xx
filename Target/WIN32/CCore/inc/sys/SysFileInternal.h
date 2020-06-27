@@ -14,6 +14,7 @@
 //----------------------------------------------------------------------------------------
 
 #include <CCore/inc/sys/SysTypes.h>
+#include <CCore/inc/sys/SysUtf8.h>
 
 #include <CCore/inc/GenFile.h>
 #include <CCore/inc/MemBase.h>
@@ -131,6 +132,10 @@ struct MakeZStr
   ulen len;
 
   void setError(FileError error_) { error=error_; len=0; }
+
+  void setLen(ulen len_) { error=FileError_Ok; len=len_; }
+
+  void set(ToWChar result);
 
   MakeZStr(StrLen str,PtrLen<WChar> out);
 

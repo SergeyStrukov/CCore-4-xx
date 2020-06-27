@@ -255,6 +255,10 @@ ToWChar::ToWChar(PtrLen<WChar> out,StrLen text) noexcept
   len=start-out.len;
  }
 
+ToWChar::ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2) noexcept // TODO
+ {
+ }
+
 } // namespace Sys
 } // namespace CCore
 

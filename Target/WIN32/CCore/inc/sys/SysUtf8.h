@@ -250,6 +250,8 @@ struct ToWChar
   bool broken = false ;
 
   ToWChar(PtrLen<WChar> out,StrLen text) noexcept;
+
+  ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2) noexcept;
  };
 
 /* class WCharString<MaxLen> */
