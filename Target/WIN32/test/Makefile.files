@@ -41,8 +41,10 @@ OBJ_LIST = \
 ../.test-obj/test2060.CharUtils.o \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test4011.ReadCon.o \
+../.test-obj/test4013.DirTreeRun.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
+../.test-obj/testRun.o \
 
 
 ASM_LIST = \
@@ -88,8 +90,10 @@ ASM_LIST = \
 ../.test-obj/test2060.CharUtils.s \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test4011.ReadCon.s \
+../.test-obj/test4013.DirTreeRun.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
+../.test-obj/testRun.s \
 
 
 DEP_LIST = \
@@ -135,8 +139,10 @@ DEP_LIST = \
 ../.test-obj/test2060.CharUtils.dep \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test4011.ReadCon.dep \
+../.test-obj/test4013.DirTreeRun.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
+../.test-obj/testRun.dep \
 
 
 ASM_OBJ_LIST = \
@@ -271,10 +277,16 @@ include $(RULES_FILE)
 ../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test4013.DirTreeRun.o : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testPrint.o : ../../../HCore/CCore/test/./testPrint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testRun.o : ../../../Fundamental/CCore/test/./testRun.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
@@ -405,10 +417,16 @@ include $(RULES_FILE)
 ../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4013.DirTreeRun.s : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testPrint.s : ../../../HCore/CCore/test/./testPrint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testRun.s : ../../../Fundamental/CCore/test/./testRun.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -539,11 +557,17 @@ include $(RULES_FILE)
 ../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/./test4011.ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@
 
+../.test-obj/test4013.DirTreeRun.dep : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4013.DirTreeRun.o $< -MF $@
+
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
 
 ../.test-obj/testPrint.dep : ../../../HCore/CCore/test/./testPrint.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testPrint.o $< -MF $@
+
+../.test-obj/testRun.dep : ../../../Fundamental/CCore/test/./testRun.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testRun.o $< -MF $@
 
 
 
