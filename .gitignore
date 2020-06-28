@@ -11,6 +11,10 @@ PTPSecureServerLog.txt
 
 CCore.book.vol
 
+tools/Volume/test/*
+tools/Volume/test1/*
+tools/Volume/test.vol
+
 # Prerequisites
 *.dep
 
