@@ -204,10 +204,8 @@ WCharToUtf8Full::~WCharToUtf8Full()
 
 /* struct ToWChar */
 
-ToWChar::ToWChar(PtrLen<WChar> out,StrLen text,bool zero) noexcept
+PtrLen<WChar> ToWChar::feed(PtrLen<WChar> out,StrLen text)
  {
-  ulen start=out.len;
-
   while( +text )
     {
      Unicode ch=CutUtf8_unicode(text);
@@ -252,6 +250,11 @@ ToWChar::ToWChar(PtrLen<WChar> out,StrLen text,bool zero) noexcept
        }
     }
 
+  return out;
+ }
+
+void ToWChar::finish(PtrLen<WChar> out,bool zero)
+ {
   if( zero )
     {
      if( !out )
@@ -263,12 +266,30 @@ ToWChar::ToWChar(PtrLen<WChar> out,StrLen text,bool zero) noexcept
         *out=0;
        }
     }
+ }
+
+ToWChar::ToWChar(PtrLen<WChar> out,StrLen text,bool zero) noexcept
+ {
+  ulen start=out.len;
+
+  out=feed(out,text);
+
+  finish(out,zero);
 
   len=start-out.len;
  }
 
-ToWChar::ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2,bool zero) noexcept // TODO
+ToWChar::ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2,bool zero) noexcept
  {
+  ulen start=out.len;
+
+  out=feed(out,text1);
+
+  if( !overflow && !broken ) out=feed(out,text2);
+
+  finish(out,zero);
+
+  len=start-out.len;
  }
 
 } // namespace Sys

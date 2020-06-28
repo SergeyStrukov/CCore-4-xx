@@ -249,6 +249,10 @@ struct ToWChar
   bool overflow = false ;
   bool broken = false ;
 
+  PtrLen<WChar> feed(PtrLen<WChar> out,StrLen text);
+
+  void finish(PtrLen<WChar> out,bool zero);
+
   ToWChar(PtrLen<WChar> out,StrLen text,bool zero=false) noexcept;
 
   ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2,bool zero=false) noexcept;
