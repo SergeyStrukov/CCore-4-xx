@@ -3,9 +3,8 @@
 *.s
 
 .eclipse/*
-.eclipse-2019/*
 
-.eclipse-2019.7z
+.eclipse.7z
 
 PTPServerLog.txt
 PTPSecureServerLog.txt

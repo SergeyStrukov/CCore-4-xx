@@ -17,6 +17,7 @@ OBJ_LIST = \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinFileToRead.o \
+.obj/BinaryFile.o \
 .obj/BinarySearch.o \
 .obj/BlockFifo.o \
 .obj/CapString.o \
@@ -39,6 +40,7 @@ OBJ_LIST = \
 .obj/DeferCall.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/DirTreeRun.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
 .obj/ElementPool.o \
@@ -51,6 +53,7 @@ OBJ_LIST = \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
+.obj/FileSystem.o \
 .obj/ForLoop.o \
 .obj/FuncTask.o \
 .obj/Function.o \
@@ -121,6 +124,7 @@ OBJ_LIST = \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
 .obj/Pow.o \
+.obj/Print.o \
 .obj/PrintAbort.o \
 .obj/PrintBase.o \
 .obj/PrintBits.o \
@@ -145,6 +149,7 @@ OBJ_LIST = \
 .obj/RadixHeap.o \
 .obj/Random.o \
 .obj/RangeDel.o \
+.obj/RawFileToRead.o \
 .obj/ReadCon.o \
 .obj/ReadConBase.o \
 .obj/RefArray.o \
@@ -192,6 +197,7 @@ OBJ_LIST = \
 .obj/SysError.o \
 .obj/SysFile.o \
 .obj/SysFileInternal.o \
+.obj/SysFileSystem.o \
 .obj/SysMemPage.o \
 .obj/SysPlanInit.o \
 .obj/SysProp.o \
@@ -252,6 +258,7 @@ ASM_LIST = \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinFileToRead.s \
+.obj/BinaryFile.s \
 .obj/BinarySearch.s \
 .obj/BlockFifo.s \
 .obj/CapString.s \
@@ -274,6 +281,7 @@ ASM_LIST = \
 .obj/DeferCall.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/DirTreeRun.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
 .obj/ElementPool.s \
@@ -286,6 +294,7 @@ ASM_LIST = \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
+.obj/FileSystem.s \
 .obj/ForLoop.s \
 .obj/FuncTask.s \
 .obj/Function.s \
@@ -356,6 +365,7 @@ ASM_LIST = \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
 .obj/Pow.s \
+.obj/Print.s \
 .obj/PrintAbort.s \
 .obj/PrintBase.s \
 .obj/PrintBits.s \
@@ -380,6 +390,7 @@ ASM_LIST = \
 .obj/RadixHeap.s \
 .obj/Random.s \
 .obj/RangeDel.s \
+.obj/RawFileToRead.s \
 .obj/ReadCon.s \
 .obj/ReadConBase.s \
 .obj/RefArray.s \
@@ -427,6 +438,7 @@ ASM_LIST = \
 .obj/SysError.s \
 .obj/SysFile.s \
 .obj/SysFileInternal.s \
+.obj/SysFileSystem.s \
 .obj/SysMemPage.s \
 .obj/SysPlanInit.s \
 .obj/SysProp.s \
@@ -487,6 +499,7 @@ DEP_LIST = \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinFileToRead.dep \
+.obj/BinaryFile.dep \
 .obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
@@ -509,6 +522,7 @@ DEP_LIST = \
 .obj/DeferCall.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/DirTreeRun.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/ElementPool.dep \
@@ -521,6 +535,7 @@ DEP_LIST = \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
+.obj/FileSystem.dep \
 .obj/ForLoop.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
@@ -591,6 +606,7 @@ DEP_LIST = \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
 .obj/Pow.dep \
+.obj/Print.dep \
 .obj/PrintAbort.dep \
 .obj/PrintBase.dep \
 .obj/PrintBits.dep \
@@ -615,6 +631,7 @@ DEP_LIST = \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
 .obj/RangeDel.dep \
+.obj/RawFileToRead.dep \
 .obj/ReadCon.dep \
 .obj/ReadConBase.dep \
 .obj/RefArray.dep \
@@ -662,6 +679,7 @@ DEP_LIST = \
 .obj/SysError.dep \
 .obj/SysFile.dep \
 .obj/SysFileInternal.dep \
+.obj/SysFileSystem.dep \
 .obj/SysMemPage.dep \
 .obj/SysPlanInit.dep \
 .obj/SysProp.dep \
@@ -769,6 +787,9 @@ include $(RULES_FILE)
 .obj/BinFileToRead.o : ../../Applied/CCore/src/./BinFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/BinaryFile.o : ../../HCore/CCore/src/./BinaryFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -835,6 +856,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DirTreeRun.o : ../../HCore/CCore/src/./DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -869,6 +893,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Fifo.o : ../../Simple/CCore/src/./Fifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileSystem.o : ../../HCore/CCore/src/./FileSystem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ForLoop.o : ../../Simple/CCore/src/./ForLoop.cpp
@@ -1081,6 +1108,9 @@ include $(RULES_FILE)
 .obj/Pow.o : ../../Simple/CCore/src/./Pow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Print.o : ../../HCore/CCore/src/./Print.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintAbort.o : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1151,6 +1181,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RangeDel.o : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/RawFileToRead.o : ../../HCore/CCore/src/./RawFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ReadCon.o : ../../HCore/CCore/src/./ReadCon.cpp
@@ -1292,6 +1325,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysFileInternal.o : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysFileSystem.o : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysMemPage.o : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
@@ -1467,6 +1503,9 @@ include $(RULES_FILE)
 .obj/BinFileToRead.s : ../../Applied/CCore/src/./BinFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/BinaryFile.s : ../../HCore/CCore/src/./BinaryFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1533,6 +1572,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DirTreeRun.s : ../../HCore/CCore/src/./DirTreeRun.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1567,6 +1609,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Fifo.s : ../../Simple/CCore/src/./Fifo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FileSystem.s : ../../HCore/CCore/src/./FileSystem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ForLoop.s : ../../Simple/CCore/src/./ForLoop.cpp
@@ -1779,6 +1824,9 @@ include $(RULES_FILE)
 .obj/Pow.s : ../../Simple/CCore/src/./Pow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Print.s : ../../HCore/CCore/src/./Print.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintAbort.s : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1849,6 +1897,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/RangeDel.s : ../../Simple/CCore/src/./RangeDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/RawFileToRead.s : ../../HCore/CCore/src/./RawFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ReadCon.s : ../../HCore/CCore/src/./ReadCon.cpp
@@ -1990,6 +2041,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SysFileInternal.s : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysFileSystem.s : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SysMemPage.s : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
@@ -2165,6 +2219,9 @@ include $(RULES_FILE)
 .obj/BinFileToRead.dep : ../../Applied/CCore/src/./BinFileToRead.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinFileToRead.o $< -MF $@
 
+.obj/BinaryFile.dep : ../../HCore/CCore/src/./BinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BinaryFile.o $< -MF $@
+
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
 
@@ -2231,6 +2288,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/./DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
 
+.obj/DirTreeRun.dep : ../../HCore/CCore/src/./DirTreeRun.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DirTreeRun.o $< -MF $@
+
 .obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
 
@@ -2266,6 +2326,9 @@ include $(RULES_FILE)
 
 .obj/Fifo.dep : ../../Simple/CCore/src/./Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
+
+.obj/FileSystem.dep : ../../HCore/CCore/src/./FileSystem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileSystem.o $< -MF $@
 
 .obj/ForLoop.dep : ../../Simple/CCore/src/./ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
@@ -2477,6 +2540,9 @@ include $(RULES_FILE)
 .obj/Pow.dep : ../../Simple/CCore/src/./Pow.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Pow.o $< -MF $@
 
+.obj/Print.dep : ../../HCore/CCore/src/./Print.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Print.o $< -MF $@
+
 .obj/PrintAbort.dep : ../../Simple/CCore/src/./PrintAbort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintAbort.o $< -MF $@
 
@@ -2548,6 +2614,9 @@ include $(RULES_FILE)
 
 .obj/RangeDel.dep : ../../Simple/CCore/src/./RangeDel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RangeDel.o $< -MF $@
+
+.obj/RawFileToRead.dep : ../../HCore/CCore/src/./RawFileToRead.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RawFileToRead.o $< -MF $@
 
 .obj/ReadCon.dep : ../../HCore/CCore/src/./ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ReadCon.o $< -MF $@
@@ -2689,6 +2758,9 @@ include $(RULES_FILE)
 
 .obj/SysFileInternal.dep : ../../Target/WIN32/CCore/src/sys/SysFileInternal.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysFileInternal.o $< -MF $@
+
+.obj/SysFileSystem.dep : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysFileSystem.o $< -MF $@
 
 .obj/SysMemPage.dep : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysMemPage.o $< -MF $@
