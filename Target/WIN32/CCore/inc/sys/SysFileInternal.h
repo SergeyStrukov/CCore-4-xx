@@ -147,7 +147,7 @@ struct MakeZStr
 struct FileName : NoCopy
  {
   WChar wbuf[MaxPathLen+1];
-  ulen len;
+  ulen len; // without zero
 
   operator const WChar * () const { return wbuf; }
 

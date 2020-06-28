@@ -204,7 +204,7 @@ WCharToUtf8Full::~WCharToUtf8Full()
 
 /* struct ToWChar */
 
-ToWChar::ToWChar(PtrLen<WChar> out,StrLen text) noexcept
+ToWChar::ToWChar(PtrLen<WChar> out,StrLen text,bool zero) noexcept
  {
   ulen start=out.len;
 
@@ -252,10 +252,22 @@ ToWChar::ToWChar(PtrLen<WChar> out,StrLen text) noexcept
        }
     }
 
+  if( zero )
+    {
+     if( !out )
+       {
+        overflow=true;
+       }
+     else
+       {
+        *out=0;
+       }
+    }
+
   len=start-out.len;
  }
 
-ToWChar::ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2) noexcept // TODO
+ToWChar::ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2,bool zero) noexcept // TODO
  {
  }
 

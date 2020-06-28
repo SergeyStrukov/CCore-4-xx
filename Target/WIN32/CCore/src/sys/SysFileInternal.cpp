@@ -38,12 +38,12 @@ void MakeZStr::set(ToWChar result)
 
 MakeZStr::MakeZStr(StrLen str,PtrLen<WChar> out)
  {
-  set(ToWChar(out,str));
+  set(ToWChar(out,str,true));
  }
 
 MakeZStr::MakeZStr(StrLen str1,StrLen str2,PtrLen<WChar> out)
  {
-  set(ToWChar(out,str1,str2));
+  set(ToWChar(out,str1,str2,true));
  }
 
 } // namespace Sys

@@ -245,13 +245,13 @@ struct WCharToUtf8 : NoCopy
 
 struct ToWChar
  {
-  ulen len;
+  ulen len; // without zero
   bool overflow = false ;
   bool broken = false ;
 
-  ToWChar(PtrLen<WChar> out,StrLen text) noexcept;
+  ToWChar(PtrLen<WChar> out,StrLen text,bool zero=false) noexcept;
 
-  ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2) noexcept;
+  ToWChar(PtrLen<WChar> out,StrLen text1,StrLen text2,bool zero=false) noexcept;
  };
 
 /* class WCharString<MaxLen> */
