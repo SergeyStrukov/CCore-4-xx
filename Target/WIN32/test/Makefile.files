@@ -42,6 +42,7 @@ OBJ_LIST = \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
+../.test-obj/test6008.DirCursor.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
 ../.test-obj/testRun.o \
@@ -91,6 +92,7 @@ ASM_LIST = \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
+../.test-obj/test6008.DirCursor.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
 ../.test-obj/testRun.s \
@@ -140,6 +142,7 @@ DEP_LIST = \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
+../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
 ../.test-obj/testRun.dep \
@@ -278,6 +281,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.o : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6008.DirCursor.o : ../../../Target/WIN32/CCore/test/./test6008.DirCursor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/./testArray.cpp
@@ -420,6 +426,9 @@ include $(RULES_FILE)
 ../.test-obj/test4013.DirTreeRun.s : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6008.DirCursor.s : ../../../Target/WIN32/CCore/test/./test6008.DirCursor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -559,6 +568,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test4013.DirTreeRun.dep : ../../../HCore/CCore/test/./test4013.DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4013.DirTreeRun.o $< -MF $@
+
+../.test-obj/test6008.DirCursor.dep : ../../../Target/WIN32/CCore/test/./test6008.DirCursor.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6008.DirCursor.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/./testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
