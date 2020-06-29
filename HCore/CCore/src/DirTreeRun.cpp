@@ -21,6 +21,20 @@ namespace CCore {
 
 /* class DirTreeRun::Path */
 
+DirTreeRun::Path::Path(StrLen dir)
+ {
+  if( dir.len>MaxPathLen )
+    {
+     Printf(Exception,"CCore::DirTreeRun::Path::Path(...) : too long path");
+    }
+
+  dir.copyTo(buf);
+
+  baselen=dir.len;
+  off=dir.len;
+  len=dir.len;
+ }
+
 DirTreeRun::Path::Path(StrLen base,StrLen dir)
  {
   if( PathIsBase(base) )
@@ -59,6 +73,14 @@ DirTreeRun::Path::Path(StrLen base,StrLen dir)
 
 /* class DirTreeRun::Node */
 
+DirTreeRun::Node::Node(Node *next_,FileSystem &fs,StrLen dir,void *data_)
+ : next(next_),
+   path(dir),
+   cur(fs,path.getPath()),
+   data(data_)
+ {
+ }
+
 DirTreeRun::Node::Node(Node *next_,FileSystem &fs,StrLen base,StrLen dir,void *data_)
  : next(next_),
    path(base,dir),
@@ -81,6 +103,11 @@ DirTreeRun::Node * DirTreeRun::Node::destroy()
  }
 
 /* class DirTreeRun */
+
+void DirTreeRun::push(StrLen dir,void *data)
+ {
+  top=new Node(top,fs,dir,data);
+ }
 
 void DirTreeRun::push(StrLen base,StrLen dir,void *data)
  {

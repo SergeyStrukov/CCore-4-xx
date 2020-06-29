@@ -78,7 +78,7 @@ class DirTreeRun : NoCopyBase<PathBase>
 
   private:
 
-   static bool HasDotExt(StrLen path) { return path.len>=2 && IsDot(path.back(1)) && IsSlash(path.back(2)) ; }
+   void push(StrLen dir,void *data);
 
    void push(StrLen base,StrLen dir,void *data);
 
@@ -104,13 +104,15 @@ class DirTreeRun::Path : NoCopy
 
   public:
 
+   explicit Path(StrLen dir);
+
    Path(StrLen base,StrLen dir);
 
    StrLen getPath() const { return StrLen(buf,len); }
 
    StrLen getBase() const { return StrLen(buf,baselen); }
 
-   StrLen getDir() const { return StrLen(buf+off,len-off); }
+   StrLen getDir() const { return (off<len)? StrLen(buf+off,len-off) : "."_c ; }
  };
 
 class DirTreeRun::Node : public MemBase_nocopy
@@ -121,6 +123,8 @@ class DirTreeRun::Node : public MemBase_nocopy
    void *data;
 
   public:
+
+   Node(Node *next,FileSystem &fs,StrLen dir,void *data);
 
    Node(Node *next,FileSystem &fs,StrLen base,StrLen dir,void *data);
 
@@ -149,7 +153,7 @@ void DirTreeRun::apply(Proc &proc)
  {
   using DataType = typename Proc::DataType ;
 
-  push(root,".",proc.dir(root));
+  push(root,proc.dir(root));
 
   while( top )
     {
@@ -166,8 +170,6 @@ void DirTreeRun::apply(Proc &proc)
         else
           {
            if( IsSpecial(name) ) continue;
-
-           if( HasDotExt(path) ) path.len-=2;
 
            push(path,name, proc.dir(path,name,parent_data) );
           }
