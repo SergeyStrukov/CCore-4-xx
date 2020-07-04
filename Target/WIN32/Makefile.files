@@ -54,6 +54,7 @@ OBJ_LIST = \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
 .obj/FileSystem.o \
+.obj/FileToMem.o \
 .obj/ForLoop.o \
 .obj/FuncTask.o \
 .obj/Function.o \
@@ -295,6 +296,7 @@ ASM_LIST = \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
 .obj/FileSystem.s \
+.obj/FileToMem.s \
 .obj/ForLoop.s \
 .obj/FuncTask.s \
 .obj/Function.s \
@@ -536,6 +538,7 @@ DEP_LIST = \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
 .obj/FileSystem.dep \
+.obj/FileToMem.dep \
 .obj/ForLoop.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
@@ -896,6 +899,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FileSystem.o : ../../HCore/CCore/src/./FileSystem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileToMem.o : ../../HCore/CCore/src/./FileToMem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ForLoop.o : ../../Simple/CCore/src/./ForLoop.cpp
@@ -1614,6 +1620,9 @@ include $(RULES_FILE)
 .obj/FileSystem.s : ../../HCore/CCore/src/./FileSystem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FileToMem.s : ../../HCore/CCore/src/./FileToMem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ForLoop.s : ../../Simple/CCore/src/./ForLoop.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2329,6 +2338,9 @@ include $(RULES_FILE)
 
 .obj/FileSystem.dep : ../../HCore/CCore/src/./FileSystem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileSystem.o $< -MF $@
+
+.obj/FileToMem.dep : ../../HCore/CCore/src/./FileToMem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileToMem.o $< -MF $@
 
 .obj/ForLoop.dep : ../../Simple/CCore/src/./ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
