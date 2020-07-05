@@ -83,47 +83,23 @@ const char * GetTextDesc(EventMetaInfo::Kind kind)
   return Table[kind];
  }
 
-String * EventMetaInfo::EnumDesc::findValueName(uint32 value) const
+const String * EventMetaInfo::EnumDesc::findValueName(uint32 value) const
  {
-  if( auto *ptr=root.find(value) ) return &ptr->name;
+  if( auto *ptr=map.find(value) ) return &ptr->name;
 
   return 0;
  }
 
 auto EventMetaInfo::EnumDesc::addValueName(uint32 value,const String &name,EventMarker marker) -> EnumDesc &
  {
-  uint32 max_value=MaxValue(kind);
+  auto result=map.find_or_add(value,name,marker);
 
-  if( value>max_value )
-    {
-     Printf(Exception,"CCore::EventMetaInfo::EnumDesc::addValueName(#;,...) : out of bound, enum #;",value,name);
-    }
-
-  Algo::PrepareIns prepare(root,value,0,max_value);
-
-  if( prepare.found )
+  if( !result.new_flag )
     {
      Printf(Exception,"CCore::EventMetaInfo::EnumDesc::addValueName(#;,...) : duplication, enum #;",value,name);
     }
-  else
-    {
-     prepare.complete(new ValueDesc(name,marker));
-
-     count++;
-    }
 
   return *this;
- }
-
-void EventMetaInfo::EnumDesc::Destroy(ValueDesc *ptr)
- {
-  if( ptr )
-    {
-     Destroy(Algo::Link(ptr).lo);
-     Destroy(Algo::Link(ptr).hi);
-
-     delete ptr;
-    }
  }
 
 EventIdType EventMetaInfo::IndexToId(ulen index)
@@ -285,17 +261,17 @@ void EventTypeIdNode::Register(EventMetaInfo &info)
 
 void EventControl::Register(EventMetaInfo &info,EventMetaInfo::EventDesc &desc)
  {
-  auto id_Type=info.addEnum_uint8("EventControlType")
-                   .addValueName(Type_Start,"Start",EventMarker_Push)
-                   .addValueName(Type_Tick,"Tick",EventMarker_Tick)
-                   .addValueName(Type_Stop,"Stop",EventMarker_Stop)
-                   .addValueName(Type_End,"End")
+  auto id_Type=info.addEnum_uint8("EventControlType"_c)
+                   .addValueName(Type_Start,"Start"_c,EventMarker_Push)
+                   .addValueName(Type_Tick,"Tick"_c,EventMarker_Tick)
+                   .addValueName(Type_Stop,"Stop"_c,EventMarker_Stop)
+                   .addValueName(Type_End,"End"_c)
                    .getId();
 
-  auto id=info.addStruct("EventControl")
-              .addField_uint32<&EventControl::time>("time")
-              .addField_uint16<&EventControl::id>("id")
-              .addField_enum_uint8<&EventControl::type>(id_Type,"type")
+  auto id=info.addStruct("EventControl"_c)
+              .addField_uint32<&EventControl::time>("time"_c)
+              .addField_uint16<&EventControl::id>("id"_c)
+              .addField_enum_uint8<&EventControl::type>(id_Type,"type"_c)
               .getId();
 
   desc.setStructId(info,id);

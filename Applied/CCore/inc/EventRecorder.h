@@ -21,7 +21,7 @@
 #include <CCore/inc/Array.h>
 #include <CCore/inc/String.h>
 #include <CCore/inc/FunctorType.h>
-#include <CCore/inc/Tree.h>
+#include <CCore/inc/TreeMap.h>
 #include <CCore/inc/SaveLoad.h>
 #include <CCore/inc/TextLabel.h>
 #include <CCore/inc/algon/ApplyToRange.h>
@@ -279,9 +279,8 @@ class EventMetaInfo : NoCopy
      SaveRange_use<BeOrder>(Range(array),dev);
     }
 
-   struct ValueDesc : MemBase_nocopy
+   struct ValueDesc
     {
-     TreeLink<ValueDesc,uint32> link;
      String name;
      EventMarker marker;
 
@@ -293,8 +292,6 @@ class EventMetaInfo : NoCopy
 
      void save(SaveDevType auto &dev) const
       {
-       dev.template use<BeOrder>(link.key);
-
        Save(name,dev);
 
        dev.template use<BeOrder>((uint8)marker);
@@ -302,12 +299,12 @@ class EventMetaInfo : NoCopy
 
      // print object
 
-     void print(PrinterType auto &out) const
+     void print(PrinterType auto &out,uint32 value) const
       {
        if( marker!=EventMarker_None )
-         Printf(out,"  #; = #; [#;]\n",name,link.key,marker);
+         Printf(out,"  #; = #; [#;]\n",name,value,marker);
        else
-         Printf(out,"  #; = #;\n",name,link.key);
+         Printf(out,"  #; = #;\n",name,value);
       }
     };
 
@@ -320,22 +317,16 @@ class EventMetaInfo : NoCopy
       Kind kind;
       AppendFunc append_func;
 
-      using Algo = TreeLink<ValueDesc,uint32>::RadixAlgo<&ValueDesc::link> ;
-
-      Algo::Root root;
-      ulen count;
-
-     private:
-
-      static void Destroy(ValueDesc *ptr);
+      RadixTreeMap<uint32,ValueDesc> map;
 
      public:
 
       // constructors
 
-      EnumDesc(EventIdType id_,const String &name_,Kind kind_) : id(id_),name(name_),kind(kind_),append_func(0),count(0) {}
+      EnumDesc(EventIdType id_,const String &name_,Kind kind_)
+       : id(id_),name(name_),kind(kind_),append_func(0),map(KeyRange<uint32>(MaxValue(kind_))) {}
 
-      ~EnumDesc() { Destroy(root.root); }
+      ~EnumDesc() {}
 
       // props
 
@@ -345,11 +336,9 @@ class EventMetaInfo : NoCopy
 
       Kind getKind() const { return kind; }
 
-      String * findValueName(uint32 value) const;
+      const String * findValueName(uint32 value) const;
 
       EnumDesc & addValueName(uint32 value,const String &name,EventMarker marker=EventMarker_None);
-
-      EnumDesc & addValueName(uint32 value,const char *name,EventMarker marker=EventMarker_None) { return addValueName(value,String(name),marker); }
 
       EnumDesc & setAppendFunc(AppendFunc append_func_) { append_func=append_func_; return *this; }
 
@@ -371,9 +360,9 @@ class EventMetaInfo : NoCopy
 
         Save(name,dev);
 
-        dev.template use<BeOrder>((uint32)count);
+        dev.template use<BeOrder>((uint32)map.getCount());
 
-        Algon::ApplyToRange(root.start(), [&dev] (const ValueDesc &desc) { dev(desc); } );
+        map.applyIncr( [&dev] (uint32 value,const ValueDesc &desc) { dev.template use<BeOrder>(value,desc); } );
        }
 
       // swap/move objects
@@ -384,8 +373,7 @@ class EventMetaInfo : NoCopy
         Swap(name,obj.name);
         Swap(kind,obj.kind);
         Swap(append_func,obj.append_func);
-        Swap(root,obj.root);
-        Swap(count,obj.count);
+        Swap(map,obj.map);
        }
 
       explicit EnumDesc(ToMoveCtor<EnumDesc> obj)
@@ -393,8 +381,7 @@ class EventMetaInfo : NoCopy
          name(ToMoveCtor(obj->name)),
          kind(obj->kind),
          append_func(obj->append_func),
-         root(Replace_null(obj->root)),
-         count(obj->count)
+         map(ToMoveCtor(obj->map))
        {
        }
 
@@ -404,14 +391,14 @@ class EventMetaInfo : NoCopy
        {
         Printf(out,"#; #;\n {\n",kind,name);
 
-        Algon::ApplyToRange(root.start(), [&out] (const ValueDesc &desc) { Putobj(out,desc); } );
+        map.applyIncr( [&out] (uint32 value,const ValueDesc &desc) { desc.print(out,value); } );
 
         Printf(out," }\n\n");
        }
 
       void print(PrinterType auto &out,uint32 value) const
        {
-        if( String *name=findValueName(value) )
+        if( const String *name=findValueName(value) )
           {
            Putobj(out,*name);
           }
@@ -490,27 +477,21 @@ class EventMetaInfo : NoCopy
            case Kind_uint8 :
            case Kind_enum_uint8 :
             {
-             uint8 temp;
-
-             return (uint32)SaveLen(temp).value;
+             return (uint32)SaveLenCounter<uint8>::SaveLoadLen;
             }
            break;
 
            case Kind_uint16 :
            case Kind_enum_uint16 :
             {
-             uint16 temp;
-
-             return (uint32)SaveLen(temp).value;
+             return (uint32)SaveLenCounter<uint16>::SaveLoadLen;
             }
            break;
 
            case Kind_uint32 :
            case Kind_enum_uint32 :
             {
-             uint32 temp;
-
-             return (uint32)SaveLen(temp).value;
+             return (uint32)SaveLenCounter<uint32>::SaveLoadLen;
             }
            break;
 
@@ -665,8 +646,6 @@ class EventMetaInfo : NoCopy
 
       StructDesc & addField(Kind kind,EventIdType id,const String &name,OffsetFunc offset) { field_list.append_fill(kind,id,name,offset); return *this; }
 
-      StructDesc & addField(Kind kind,EventIdType id,const char *name,OffsetFunc offset) { field_list.append_fill(kind,id,String(name),offset); return *this; }
-
       StructDesc & addField_uint8(const String &name,OffsetFunc offset) { return addField(Kind_uint8,0,name,offset); }
 
       StructDesc & addField_uint16(const String &name,OffsetFunc offset) { return addField(Kind_uint16,0,name,offset); }
@@ -681,27 +660,10 @@ class EventMetaInfo : NoCopy
 
       StructDesc & addField_struct(EventIdType id,const String &name,OffsetFunc offset) { return addField(Kind_struct,id,name,offset); }
 
-      StructDesc & addField_uint8(const char *name,OffsetFunc offset) { return addField(Kind_uint8,0,name,offset); }
-
-      StructDesc & addField_uint16(const char *name,OffsetFunc offset) { return addField(Kind_uint16,0,name,offset); }
-
-      StructDesc & addField_uint32(const char *name,OffsetFunc offset) { return addField(Kind_uint32,0,name,offset); }
-
-      StructDesc & addField_enum_uint8(EventIdType id,const char *name,OffsetFunc offset) { return addField(Kind_enum_uint8,id,name,offset); }
-
-      StructDesc & addField_enum_uint16(EventIdType id,const char *name,OffsetFunc offset) { return addField(Kind_enum_uint16,id,name,offset); }
-
-      StructDesc & addField_enum_uint32(EventIdType id,const char *name,OffsetFunc offset) { return addField(Kind_enum_uint32,id,name,offset); }
-
-      StructDesc & addField_struct(EventIdType id,const char *name,OffsetFunc offset) { return addField(Kind_struct,id,name,offset); }
-
       // add field by address
 
       template <auto Field>
       StructDesc & addField(Kind kind,EventIdType id,const String &name) { return addField(kind,id,name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField(Kind kind,EventIdType id,const char *name) { return addField(kind,id,name,OffsetFuncFor<Field>); }
 
       template <auto Field>
       StructDesc & addField_uint8(const String &name) { return addField_uint8(name,OffsetFuncFor<Field>); }
@@ -723,27 +685,6 @@ class EventMetaInfo : NoCopy
 
       template <auto Field>
       StructDesc & addField_struct(EventIdType id,const String &name) { return addField_struct(id,name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_uint8(const char *name) { return addField_uint8(name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_uint16(const char *name) { return addField_uint16(name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_uint32(const char *name) { return addField_uint32(name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_enum_uint8(EventIdType id,const char *name) { return addField_enum_uint8(id,name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_enum_uint16(EventIdType id,const char *name) { return addField_enum_uint16(id,name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_enum_uint32(EventIdType id,const char *name) { return addField_enum_uint32(id,name,OffsetFuncFor<Field>); }
-
-      template <auto Field>
-      StructDesc & addField_struct(EventIdType id,const char *name) { return addField_struct(id,name,OffsetFuncFor<Field>); }
 
       // save/load object
 
@@ -879,23 +820,13 @@ class EventMetaInfo : NoCopy
 
    EnumDesc & addEnum(Kind kind,const String &name);
 
-   EnumDesc & addEnum(Kind kind,const char *name) { return addEnum(kind,String(name)); }
-
    EnumDesc & addEnum_uint8(const String &name) { return addEnum(Kind_enum_uint8,name); }
 
    EnumDesc & addEnum_uint16(const String &name) { return addEnum(Kind_enum_uint16,name); }
 
    EnumDesc & addEnum_uint32(const String &name) { return addEnum(Kind_enum_uint32,name); }
 
-   EnumDesc & addEnum_uint8(const char *name) { return addEnum(Kind_enum_uint8,String(name)); }
-
-   EnumDesc & addEnum_uint16(const char *name) { return addEnum(Kind_enum_uint16,String(name)); }
-
-   EnumDesc & addEnum_uint32(const char *name) { return addEnum(Kind_enum_uint32,String(name)); }
-
    StructDesc & addStruct(const String &name);
-
-   StructDesc & addStruct(const char *name) { return addStruct(String(name)); }
 
    EventDesc & addEvent(ulen alloc_len);
 
