@@ -34,7 +34,7 @@ inline constexpr bool TaskEventEnableDev   = true ;
 
 struct TaskEventAlgo;
 
-template <bool Enable=TaskEventEnable> class TaskEventHostType;
+template <bool Enable> class TaskEventHostTypeVariant;
 
 class TickTask;
 
@@ -85,10 +85,10 @@ struct TaskEventAlgo
 
 using TaskEventRecorder = EventRecorder<TaskEventAlgo> ;
 
-/* class TaskEventHostType<bool Enable> */
+/* class TaskEventHostTypeVariant<bool Enable> */
 
 template <>
-class TaskEventHostType<true> : public EventRecorderHost<TaskEventRecorder>
+class TaskEventHostTypeVariant<true> : public EventRecorderHost<TaskEventRecorder>
  {
   public:
 
@@ -130,7 +130,7 @@ class TaskEventHostType<true> : public EventRecorderHost<TaskEventRecorder>
  };
 
 template <>
-class TaskEventHostType<false>
+class TaskEventHostTypeVariant<false>
  {
   public:
 
@@ -138,7 +138,7 @@ class TaskEventHostType<false>
     {
      public:
 
-      StartStop(TaskEventHostType &,TaskEventRecorder *obj)
+      StartStop(TaskEventHostTypeVariant &,TaskEventRecorder *obj)
        {
         EventTypeIdNode::Register(*obj);
 
@@ -178,7 +178,9 @@ class TaskEventHostType<false>
 
 /* global TaskEventHost */
 
-extern TaskEventHostType<> TaskEventHost;
+using TaskEventHostType = TaskEventHostTypeVariant<TaskEventEnable> ;
+
+extern TaskEventHostType TaskEventHost;
 
 /* class TickTask */
 
