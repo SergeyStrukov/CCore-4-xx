@@ -44,6 +44,7 @@ OBJ_LIST = \
 ../.test-obj/test3002.EventRecorder.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
+../.test-obj/test4036.LaunchPath.o \
 ../.test-obj/test6008.DirCursor.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
@@ -96,6 +97,7 @@ ASM_LIST = \
 ../.test-obj/test3002.EventRecorder.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
+../.test-obj/test4036.LaunchPath.s \
 ../.test-obj/test6008.DirCursor.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
@@ -148,6 +150,7 @@ DEP_LIST = \
 ../.test-obj/test3002.EventRecorder.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
+../.test-obj/test4036.LaunchPath.dep \
 ../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
@@ -293,6 +296,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.o : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4036.LaunchPath.o : ../../../HCore/CCore/test/test4036.LaunchPath.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6008.DirCursor.o : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
@@ -444,6 +450,9 @@ include $(RULES_FILE)
 ../.test-obj/test4013.DirTreeRun.s : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4036.LaunchPath.s : ../../../HCore/CCore/test/test4036.LaunchPath.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test6008.DirCursor.s : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -592,6 +601,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test4013.DirTreeRun.dep : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4013.DirTreeRun.o $< -MF $@
+
+../.test-obj/test4036.LaunchPath.dep : ../../../HCore/CCore/test/test4036.LaunchPath.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4036.LaunchPath.o $< -MF $@
 
 ../.test-obj/test6008.DirCursor.dep : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6008.DirCursor.o $< -MF $@

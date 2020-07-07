@@ -76,6 +76,7 @@ OBJ_LIST = \
 .obj/IntelRandom.o \
 .obj/InterfaceHost.o \
 .obj/Job.o \
+.obj/LaunchPath.o \
 .obj/Len.o \
 .obj/List.o \
 .obj/ListCursor.o \
@@ -203,6 +204,7 @@ OBJ_LIST = \
 .obj/SysFile.o \
 .obj/SysFileInternal.o \
 .obj/SysFileSystem.o \
+.obj/SysLaunchPath.o \
 .obj/SysMemPage.o \
 .obj/SysPlanInit.o \
 .obj/SysProp.o \
@@ -322,6 +324,7 @@ ASM_LIST = \
 .obj/IntelRandom.s \
 .obj/InterfaceHost.s \
 .obj/Job.s \
+.obj/LaunchPath.s \
 .obj/Len.s \
 .obj/List.s \
 .obj/ListCursor.s \
@@ -449,6 +452,7 @@ ASM_LIST = \
 .obj/SysFile.s \
 .obj/SysFileInternal.s \
 .obj/SysFileSystem.s \
+.obj/SysLaunchPath.s \
 .obj/SysMemPage.s \
 .obj/SysPlanInit.s \
 .obj/SysProp.s \
@@ -568,6 +572,7 @@ DEP_LIST = \
 .obj/IntelRandom.dep \
 .obj/InterfaceHost.dep \
 .obj/Job.dep \
+.obj/LaunchPath.dep \
 .obj/Len.dep \
 .obj/List.dep \
 .obj/ListCursor.dep \
@@ -695,6 +700,7 @@ DEP_LIST = \
 .obj/SysFile.dep \
 .obj/SysFileInternal.dep \
 .obj/SysFileSystem.dep \
+.obj/SysLaunchPath.dep \
 .obj/SysMemPage.dep \
 .obj/SysPlanInit.dep \
 .obj/SysProp.dep \
@@ -977,6 +983,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Job.o : ../../Fundamental/CCore/src/Job.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/LaunchPath.o : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
@@ -1360,6 +1369,9 @@ include $(RULES_FILE)
 .obj/SysFileSystem.o : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SysLaunchPath.o : ../../Target/WIN32/CCore/src/sys/SysLaunchPath.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SysMemPage.o : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1708,6 +1720,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Job.s : ../../Fundamental/CCore/src/Job.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/LaunchPath.s : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
@@ -2091,6 +2106,9 @@ include $(RULES_FILE)
 .obj/SysFileSystem.s : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SysLaunchPath.s : ../../Target/WIN32/CCore/src/sys/SysLaunchPath.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SysMemPage.s : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2440,6 +2458,9 @@ include $(RULES_FILE)
 
 .obj/Job.dep : ../../Fundamental/CCore/src/Job.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Job.o $< -MF $@
+
+.obj/LaunchPath.dep : ../../HCore/CCore/src/LaunchPath.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LaunchPath.o $< -MF $@
 
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
@@ -2821,6 +2842,9 @@ include $(RULES_FILE)
 
 .obj/SysFileSystem.dep : ../../Target/WIN32/CCore/src/sys/SysFileSystem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysFileSystem.o $< -MF $@
+
+.obj/SysLaunchPath.dep : ../../Target/WIN32/CCore/src/sys/SysLaunchPath.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysLaunchPath.o $< -MF $@
 
 .obj/SysMemPage.dep : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysMemPage.o $< -MF $@
