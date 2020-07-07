@@ -104,6 +104,7 @@ OBJ_LIST = \
 .obj/Mutex.o \
 .obj/MutexSpinCount.o \
 .obj/NegBool.o \
+.obj/NetBase.o \
 .obj/NewDelete.o \
 .obj/NoCopy.o \
 .obj/NoMutex.o \
@@ -236,6 +237,7 @@ OBJ_LIST = \
 .obj/Tuple.o \
 .obj/TypeNumber.o \
 .obj/TypeSwitch.o \
+.obj/UDPoint.o \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
 .obj/UIntSlowMulAlgo.o \
@@ -244,6 +246,7 @@ OBJ_LIST = \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 .obj/Volume.o \
+.obj/XPoint.o \
 
 
 ASM_LIST = \
@@ -352,6 +355,7 @@ ASM_LIST = \
 .obj/Mutex.s \
 .obj/MutexSpinCount.s \
 .obj/NegBool.s \
+.obj/NetBase.s \
 .obj/NewDelete.s \
 .obj/NoCopy.s \
 .obj/NoMutex.s \
@@ -484,6 +488,7 @@ ASM_LIST = \
 .obj/Tuple.s \
 .obj/TypeNumber.s \
 .obj/TypeSwitch.s \
+.obj/UDPoint.s \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
 .obj/UIntSlowMulAlgo.s \
@@ -492,6 +497,7 @@ ASM_LIST = \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 .obj/Volume.s \
+.obj/XPoint.s \
 
 
 DEP_LIST = \
@@ -600,6 +606,7 @@ DEP_LIST = \
 .obj/Mutex.dep \
 .obj/MutexSpinCount.dep \
 .obj/NegBool.dep \
+.obj/NetBase.dep \
 .obj/NewDelete.dep \
 .obj/NoCopy.dep \
 .obj/NoMutex.dep \
@@ -732,6 +739,7 @@ DEP_LIST = \
 .obj/Tuple.dep \
 .obj/TypeNumber.dep \
 .obj/TypeSwitch.dep \
+.obj/UDPoint.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
 .obj/UIntSlowMulAlgo.dep \
@@ -740,6 +748,7 @@ DEP_LIST = \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 .obj/Volume.dep \
+.obj/XPoint.dep \
 
 
 ASM_OBJ_LIST = \
@@ -1067,6 +1076,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NetBase.o : ../../Applied/CCore/src/net/NetBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NewDelete.o : ../../Simple/CCore/src/NewDelete.cpp
@@ -1465,6 +1477,9 @@ include $(RULES_FILE)
 .obj/TypeSwitch.o : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/UDPoint.o : ../../Applied/CCore/src/net/UDPoint.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/UIntFunc.o : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1487,6 +1502,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Volume.o : ../../Applied/CCore/src/Volume.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/XPoint.o : ../../Applied/CCore/src/net/XPoint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
@@ -1804,6 +1822,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NetBase.s : ../../Applied/CCore/src/net/NetBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NewDelete.s : ../../Simple/CCore/src/NewDelete.cpp
@@ -2202,6 +2223,9 @@ include $(RULES_FILE)
 .obj/TypeSwitch.s : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/UDPoint.s : ../../Applied/CCore/src/net/UDPoint.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/UIntFunc.s : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2224,6 +2248,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Volume.s : ../../Applied/CCore/src/Volume.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/XPoint.s : ../../Applied/CCore/src/net/XPoint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
@@ -2542,6 +2569,9 @@ include $(RULES_FILE)
 
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
+
+.obj/NetBase.dep : ../../Applied/CCore/src/net/NetBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NetBase.o $< -MF $@
 
 .obj/NewDelete.dep : ../../Simple/CCore/src/NewDelete.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NewDelete.o $< -MF $@
@@ -2939,6 +2969,9 @@ include $(RULES_FILE)
 .obj/TypeSwitch.dep : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TypeSwitch.o $< -MF $@
 
+.obj/UDPoint.dep : ../../Applied/CCore/src/net/UDPoint.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UDPoint.o $< -MF $@
+
 .obj/UIntFunc.dep : ../../Simple/CCore/src/gadget/UIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UIntFunc.o $< -MF $@
 
@@ -2962,6 +2995,9 @@ include $(RULES_FILE)
 
 .obj/Volume.dep : ../../Applied/CCore/src/Volume.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Volume.o $< -MF $@
+
+.obj/XPoint.dep : ../../Applied/CCore/src/net/XPoint.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/XPoint.o $< -MF $@
 
 
 
