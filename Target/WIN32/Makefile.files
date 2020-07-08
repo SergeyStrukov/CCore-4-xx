@@ -207,6 +207,7 @@ OBJ_LIST = \
 .obj/SysFileSystem.o \
 .obj/SysLaunchPath.o \
 .obj/SysMemPage.o \
+.obj/SysNet.o \
 .obj/SysPlanInit.o \
 .obj/SysProp.o \
 .obj/SysSem.o \
@@ -458,6 +459,7 @@ ASM_LIST = \
 .obj/SysFileSystem.s \
 .obj/SysLaunchPath.s \
 .obj/SysMemPage.s \
+.obj/SysNet.s \
 .obj/SysPlanInit.s \
 .obj/SysProp.s \
 .obj/SysSem.s \
@@ -709,6 +711,7 @@ DEP_LIST = \
 .obj/SysFileSystem.dep \
 .obj/SysLaunchPath.dep \
 .obj/SysMemPage.dep \
+.obj/SysNet.dep \
 .obj/SysPlanInit.dep \
 .obj/SysProp.dep \
 .obj/SysSem.dep \
@@ -1385,6 +1388,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysMemPage.o : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysNet.o : ../../Target/WIN32/CCore/src/sys/SysNet.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysPlanInit.o : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
@@ -2133,6 +2139,9 @@ include $(RULES_FILE)
 .obj/SysMemPage.s : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SysNet.s : ../../Target/WIN32/CCore/src/sys/SysNet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SysPlanInit.s : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2878,6 +2887,9 @@ include $(RULES_FILE)
 
 .obj/SysMemPage.dep : ../../Target/WIN32/CCore/src/sys/SysMemPage.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysMemPage.o $< -MF $@
+
+.obj/SysNet.dep : ../../Target/WIN32/CCore/src/sys/SysNet.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysNet.o $< -MF $@
 
 .obj/SysPlanInit.dep : ../../Target/WIN32/CCore/src/sys/SysPlanInit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysPlanInit.o $< -MF $@
