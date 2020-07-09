@@ -1,5 +1,9 @@
 OBJ_LIST = \
 ../.test-obj/main.o \
+../.test-obj/test1001.NoCopy.o \
+../.test-obj/test1002.CreateAt.o \
+../.test-obj/test1004.Function.o \
+../.test-obj/test1005.NoThrowFlags.o \
 ../.test-obj/test1006.Cmp.o \
 ../.test-obj/test1022.ScanBit.o \
 ../.test-obj/test1027.Timer.o \
@@ -53,6 +57,10 @@ OBJ_LIST = \
 
 ASM_LIST = \
 ../.test-obj/main.s \
+../.test-obj/test1001.NoCopy.s \
+../.test-obj/test1002.CreateAt.s \
+../.test-obj/test1004.Function.s \
+../.test-obj/test1005.NoThrowFlags.s \
 ../.test-obj/test1006.Cmp.s \
 ../.test-obj/test1022.ScanBit.s \
 ../.test-obj/test1027.Timer.s \
@@ -106,6 +114,10 @@ ASM_LIST = \
 
 DEP_LIST = \
 ../.test-obj/main.dep \
+../.test-obj/test1001.NoCopy.dep \
+../.test-obj/test1002.CreateAt.dep \
+../.test-obj/test1004.Function.dep \
+../.test-obj/test1005.NoThrowFlags.dep \
 ../.test-obj/test1006.Cmp.dep \
 ../.test-obj/test1022.ScanBit.dep \
 ../.test-obj/test1027.Timer.dep \
@@ -164,6 +176,18 @@ include $(RULES_FILE)
 
 
 ../.test-obj/main.o : ./main.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1001.NoCopy.o : ../../../Simple/CCore/test/test1001.NoCopy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1002.CreateAt.o : ../../../Simple/CCore/test/test1002.CreateAt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1004.Function.o : ../../../Simple/CCore/test/test1004.Function.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1005.NoThrowFlags.o : ../../../Simple/CCore/test/test1005.NoThrowFlags.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1006.Cmp.o : ../../../Simple/CCore/test/test1006.Cmp.cpp
@@ -318,6 +342,18 @@ include $(RULES_FILE)
 ../.test-obj/main.s : ./main.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1001.NoCopy.s : ../../../Simple/CCore/test/test1001.NoCopy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1002.CreateAt.s : ../../../Simple/CCore/test/test1002.CreateAt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1004.Function.s : ../../../Simple/CCore/test/test1004.Function.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1005.NoThrowFlags.s : ../../../Simple/CCore/test/test1005.NoThrowFlags.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1006.Cmp.s : ../../../Simple/CCore/test/test1006.Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -469,6 +505,18 @@ include $(RULES_FILE)
 
 ../.test-obj/main.dep : ./main.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/main.o $< -MF $@
+
+../.test-obj/test1001.NoCopy.dep : ../../../Simple/CCore/test/test1001.NoCopy.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1001.NoCopy.o $< -MF $@
+
+../.test-obj/test1002.CreateAt.dep : ../../../Simple/CCore/test/test1002.CreateAt.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1002.CreateAt.o $< -MF $@
+
+../.test-obj/test1004.Function.dep : ../../../Simple/CCore/test/test1004.Function.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1004.Function.o $< -MF $@
+
+../.test-obj/test1005.NoThrowFlags.dep : ../../../Simple/CCore/test/test1005.NoThrowFlags.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1005.NoThrowFlags.o $< -MF $@
 
 ../.test-obj/test1006.Cmp.dep : ../../../Simple/CCore/test/test1006.Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1006.Cmp.o $< -MF $@
