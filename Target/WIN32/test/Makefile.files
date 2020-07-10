@@ -13,6 +13,13 @@ OBJ_LIST = \
 ../.test-obj/test1012.Move.o \
 ../.test-obj/test1013.for.o \
 ../.test-obj/test1014.UIntSplit.o \
+../.test-obj/test1015.OwnPtr.o \
+../.test-obj/test1016.RefPtr.o \
+../.test-obj/test1017.Counters.o \
+../.test-obj/test1018.PrintSet.o \
+../.test-obj/test1019.PrintTime.o \
+../.test-obj/test1020.Fifo.o \
+../.test-obj/test1021.Replace.o \
 ../.test-obj/test1022.ScanBit.o \
 ../.test-obj/test1027.Timer.o \
 ../.test-obj/test1031.NewDelete.o \
@@ -78,6 +85,13 @@ ASM_LIST = \
 ../.test-obj/test1012.Move.s \
 ../.test-obj/test1013.for.s \
 ../.test-obj/test1014.UIntSplit.s \
+../.test-obj/test1015.OwnPtr.s \
+../.test-obj/test1016.RefPtr.s \
+../.test-obj/test1017.Counters.s \
+../.test-obj/test1018.PrintSet.s \
+../.test-obj/test1019.PrintTime.s \
+../.test-obj/test1020.Fifo.s \
+../.test-obj/test1021.Replace.s \
 ../.test-obj/test1022.ScanBit.s \
 ../.test-obj/test1027.Timer.s \
 ../.test-obj/test1031.NewDelete.s \
@@ -143,6 +157,13 @@ DEP_LIST = \
 ../.test-obj/test1012.Move.dep \
 ../.test-obj/test1013.for.dep \
 ../.test-obj/test1014.UIntSplit.dep \
+../.test-obj/test1015.OwnPtr.dep \
+../.test-obj/test1016.RefPtr.dep \
+../.test-obj/test1017.Counters.dep \
+../.test-obj/test1018.PrintSet.dep \
+../.test-obj/test1019.PrintTime.dep \
+../.test-obj/test1020.Fifo.dep \
+../.test-obj/test1021.Replace.dep \
 ../.test-obj/test1022.ScanBit.dep \
 ../.test-obj/test1027.Timer.dep \
 ../.test-obj/test1031.NewDelete.dep \
@@ -239,6 +260,27 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1014.UIntSplit.o : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1015.OwnPtr.o : ../../../Simple/CCore/test/test1015.OwnPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1016.RefPtr.o : ../../../Simple/CCore/test/test1016.RefPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1017.Counters.o : ../../../Simple/CCore/test/test1017.Counters.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1018.PrintSet.o : ../../../Simple/CCore/test/test1018.PrintSet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1019.PrintTime.o : ../../../Simple/CCore/test/test1019.PrintTime.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1020.Fifo.o : ../../../Simple/CCore/test/test1020.Fifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1021.Replace.o : ../../../Simple/CCore/test/test1021.Replace.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1022.ScanBit.o : ../../../Simple/CCore/test/test1022.ScanBit.cpp
@@ -429,6 +471,27 @@ include $(RULES_FILE)
 ../.test-obj/test1014.UIntSplit.s : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1015.OwnPtr.s : ../../../Simple/CCore/test/test1015.OwnPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1016.RefPtr.s : ../../../Simple/CCore/test/test1016.RefPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1017.Counters.s : ../../../Simple/CCore/test/test1017.Counters.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1018.PrintSet.s : ../../../Simple/CCore/test/test1018.PrintSet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1019.PrintTime.s : ../../../Simple/CCore/test/test1019.PrintTime.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1020.Fifo.s : ../../../Simple/CCore/test/test1020.Fifo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1021.Replace.s : ../../../Simple/CCore/test/test1021.Replace.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1022.ScanBit.s : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -616,6 +679,27 @@ include $(RULES_FILE)
 
 ../.test-obj/test1014.UIntSplit.dep : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1014.UIntSplit.o $< -MF $@
+
+../.test-obj/test1015.OwnPtr.dep : ../../../Simple/CCore/test/test1015.OwnPtr.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1015.OwnPtr.o $< -MF $@
+
+../.test-obj/test1016.RefPtr.dep : ../../../Simple/CCore/test/test1016.RefPtr.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1016.RefPtr.o $< -MF $@
+
+../.test-obj/test1017.Counters.dep : ../../../Simple/CCore/test/test1017.Counters.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1017.Counters.o $< -MF $@
+
+../.test-obj/test1018.PrintSet.dep : ../../../Simple/CCore/test/test1018.PrintSet.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1018.PrintSet.o $< -MF $@
+
+../.test-obj/test1019.PrintTime.dep : ../../../Simple/CCore/test/test1019.PrintTime.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1019.PrintTime.o $< -MF $@
+
+../.test-obj/test1020.Fifo.dep : ../../../Simple/CCore/test/test1020.Fifo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1020.Fifo.o $< -MF $@
+
+../.test-obj/test1021.Replace.dep : ../../../Simple/CCore/test/test1021.Replace.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1021.Replace.o $< -MF $@
 
 ../.test-obj/test1022.ScanBit.dep : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1022.ScanBit.o $< -MF $@

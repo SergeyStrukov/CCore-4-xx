@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test1019.PrintTime.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Simple Mini
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,26 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/PrintTime.h>
 
 namespace App {
 
-/* Testit<0> */
+/* Testit<1019> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<1019>::Name="Test1019 PrintTime";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<1019>::Main()
  {
-  MemScope mem_scope;
+  Printf(Con,"#;\n",PrintTime(1u));
+  Printf(Con,"#;\n",PrintTime(100u));
+  Printf(Con,"#;\n",PrintTime(3661u));
+  Printf(Con,"#;\n",PrintTime(10000u));
+  Printf(Con,"#;\n",PrintTime(1000000u));
 
-  //Testit<2999>().run();
-
-  Testit<1021>().run();
-
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
-
-  //DetachPacketBufs(); TODO
-
-  return 0;
+  return true;
  }
 
+} // namespace App
 

@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test1021.Replace.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Simple Mini
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,24 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
-
 namespace App {
 
-/* Testit<0> */
+/* Testit<1021> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<1021>::Name="Test1021 Replace";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<1021>::Main()
  {
-  MemScope mem_scope;
+  int x=2;
 
-  //Testit<2999>().run();
+  int y=Replace_gen( [] (int x) -> int { return x*5; } ,x);
 
-  Testit<1021>().run();
+  Printf(Con,"x = #; y = #;\n",x,y);
 
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
-
-  //DetachPacketBufs(); TODO
-
-  return 0;
+  return true;
  }
 
+} // namespace App
 
