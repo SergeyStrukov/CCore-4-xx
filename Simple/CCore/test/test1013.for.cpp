@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test1013.for.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Simple Mini
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,33 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/Array.h>
+#include <CCore/inc/PrintSet.h>
 
 namespace App {
 
-/* Testit<0> */
+/* Testit<1013> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<1013>::Name="Test1013 for";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<1013>::Main()
  {
-  MemScope mem_scope;
+  DynArray<int> buf(10);
 
-  //Testit<2999>().run();
+  int i=1;
 
-  Testit<1014>().run();
+  for(int &x : buf) x=i++;
 
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
+  Printf(Con,"buf = #;\n",PrintSet(Range(buf)));
 
-  //DetachPacketBufs(); TODO
+  for(int &x : Range(buf).part(3,5) ) x=i++;
 
-  return 0;
+  Printf(Con,"buf = #;\n",PrintSet(Range(buf)));
+
+  return true;
  }
 
+} // namespace App
 

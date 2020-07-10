@@ -5,6 +5,14 @@ OBJ_LIST = \
 ../.test-obj/test1004.Function.o \
 ../.test-obj/test1005.NoThrowFlags.o \
 ../.test-obj/test1006.Cmp.o \
+../.test-obj/test1007.FunctorType.o \
+../.test-obj/test1008.TextLabel.o \
+../.test-obj/test1009.Quick.o \
+../.test-obj/test1010.UIntFunc.o \
+../.test-obj/test1011.Swap.o \
+../.test-obj/test1012.Move.o \
+../.test-obj/test1013.for.o \
+../.test-obj/test1014.UIntSplit.o \
 ../.test-obj/test1022.ScanBit.o \
 ../.test-obj/test1027.Timer.o \
 ../.test-obj/test1031.NewDelete.o \
@@ -62,6 +70,14 @@ ASM_LIST = \
 ../.test-obj/test1004.Function.s \
 ../.test-obj/test1005.NoThrowFlags.s \
 ../.test-obj/test1006.Cmp.s \
+../.test-obj/test1007.FunctorType.s \
+../.test-obj/test1008.TextLabel.s \
+../.test-obj/test1009.Quick.s \
+../.test-obj/test1010.UIntFunc.s \
+../.test-obj/test1011.Swap.s \
+../.test-obj/test1012.Move.s \
+../.test-obj/test1013.for.s \
+../.test-obj/test1014.UIntSplit.s \
 ../.test-obj/test1022.ScanBit.s \
 ../.test-obj/test1027.Timer.s \
 ../.test-obj/test1031.NewDelete.s \
@@ -119,6 +135,14 @@ DEP_LIST = \
 ../.test-obj/test1004.Function.dep \
 ../.test-obj/test1005.NoThrowFlags.dep \
 ../.test-obj/test1006.Cmp.dep \
+../.test-obj/test1007.FunctorType.dep \
+../.test-obj/test1008.TextLabel.dep \
+../.test-obj/test1009.Quick.dep \
+../.test-obj/test1010.UIntFunc.dep \
+../.test-obj/test1011.Swap.dep \
+../.test-obj/test1012.Move.dep \
+../.test-obj/test1013.for.dep \
+../.test-obj/test1014.UIntSplit.dep \
 ../.test-obj/test1022.ScanBit.dep \
 ../.test-obj/test1027.Timer.dep \
 ../.test-obj/test1031.NewDelete.dep \
@@ -191,6 +215,30 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1006.Cmp.o : ../../../Simple/CCore/test/test1006.Cmp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1007.FunctorType.o : ../../../Simple/CCore/test/test1007.FunctorType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1008.TextLabel.o : ../../../Simple/CCore/test/test1008.TextLabel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1009.Quick.o : ../../../Simple/CCore/test/test1009.Quick.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1010.UIntFunc.o : ../../../Simple/CCore/test/test1010.UIntFunc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1011.Swap.o : ../../../Simple/CCore/test/test1011.Swap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1012.Move.o : ../../../Simple/CCore/test/test1012.Move.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1013.for.o : ../../../Simple/CCore/test/test1013.for.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1014.UIntSplit.o : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1022.ScanBit.o : ../../../Simple/CCore/test/test1022.ScanBit.cpp
@@ -357,6 +405,30 @@ include $(RULES_FILE)
 ../.test-obj/test1006.Cmp.s : ../../../Simple/CCore/test/test1006.Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1007.FunctorType.s : ../../../Simple/CCore/test/test1007.FunctorType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1008.TextLabel.s : ../../../Simple/CCore/test/test1008.TextLabel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1009.Quick.s : ../../../Simple/CCore/test/test1009.Quick.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1010.UIntFunc.s : ../../../Simple/CCore/test/test1010.UIntFunc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1011.Swap.s : ../../../Simple/CCore/test/test1011.Swap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1012.Move.s : ../../../Simple/CCore/test/test1012.Move.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1013.for.s : ../../../Simple/CCore/test/test1013.for.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1014.UIntSplit.s : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1022.ScanBit.s : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -520,6 +592,30 @@ include $(RULES_FILE)
 
 ../.test-obj/test1006.Cmp.dep : ../../../Simple/CCore/test/test1006.Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1006.Cmp.o $< -MF $@
+
+../.test-obj/test1007.FunctorType.dep : ../../../Simple/CCore/test/test1007.FunctorType.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1007.FunctorType.o $< -MF $@
+
+../.test-obj/test1008.TextLabel.dep : ../../../Simple/CCore/test/test1008.TextLabel.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1008.TextLabel.o $< -MF $@
+
+../.test-obj/test1009.Quick.dep : ../../../Simple/CCore/test/test1009.Quick.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1009.Quick.o $< -MF $@
+
+../.test-obj/test1010.UIntFunc.dep : ../../../Simple/CCore/test/test1010.UIntFunc.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1010.UIntFunc.o $< -MF $@
+
+../.test-obj/test1011.Swap.dep : ../../../Simple/CCore/test/test1011.Swap.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1011.Swap.o $< -MF $@
+
+../.test-obj/test1012.Move.dep : ../../../Simple/CCore/test/test1012.Move.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1012.Move.o $< -MF $@
+
+../.test-obj/test1013.for.dep : ../../../Simple/CCore/test/test1013.for.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1013.for.o $< -MF $@
+
+../.test-obj/test1014.UIntSplit.dep : ../../../Simple/CCore/test/test1014.UIntSplit.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1014.UIntSplit.o $< -MF $@
 
 ../.test-obj/test1022.ScanBit.dep : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1022.ScanBit.o $< -MF $@
