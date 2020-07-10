@@ -21,7 +21,13 @@ OBJ_LIST = \
 ../.test-obj/test1020.Fifo.o \
 ../.test-obj/test1021.Replace.o \
 ../.test-obj/test1022.ScanBit.o \
+../.test-obj/test1023.Tuple.o \
+../.test-obj/test1024.PtrLen.o \
+../.test-obj/test1025.PtrLenReverse.o \
+../.test-obj/test1026.PtrStepLen.o \
 ../.test-obj/test1027.Timer.o \
+../.test-obj/test1028.Crc.o \
+../.test-obj/test1029.BlockFifo.o \
 ../.test-obj/test1031.NewDelete.o \
 ../.test-obj/test1033.AnyPtr.o \
 ../.test-obj/test1034.PrintStem.o \
@@ -93,7 +99,13 @@ ASM_LIST = \
 ../.test-obj/test1020.Fifo.s \
 ../.test-obj/test1021.Replace.s \
 ../.test-obj/test1022.ScanBit.s \
+../.test-obj/test1023.Tuple.s \
+../.test-obj/test1024.PtrLen.s \
+../.test-obj/test1025.PtrLenReverse.s \
+../.test-obj/test1026.PtrStepLen.s \
 ../.test-obj/test1027.Timer.s \
+../.test-obj/test1028.Crc.s \
+../.test-obj/test1029.BlockFifo.s \
 ../.test-obj/test1031.NewDelete.s \
 ../.test-obj/test1033.AnyPtr.s \
 ../.test-obj/test1034.PrintStem.s \
@@ -165,7 +177,13 @@ DEP_LIST = \
 ../.test-obj/test1020.Fifo.dep \
 ../.test-obj/test1021.Replace.dep \
 ../.test-obj/test1022.ScanBit.dep \
+../.test-obj/test1023.Tuple.dep \
+../.test-obj/test1024.PtrLen.dep \
+../.test-obj/test1025.PtrLenReverse.dep \
+../.test-obj/test1026.PtrStepLen.dep \
 ../.test-obj/test1027.Timer.dep \
+../.test-obj/test1028.Crc.dep \
+../.test-obj/test1029.BlockFifo.dep \
 ../.test-obj/test1031.NewDelete.dep \
 ../.test-obj/test1033.AnyPtr.dep \
 ../.test-obj/test1034.PrintStem.dep \
@@ -286,7 +304,25 @@ include $(RULES_FILE)
 ../.test-obj/test1022.ScanBit.o : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test1023.Tuple.o : ../../../Simple/CCore/test/test1023.Tuple.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1024.PtrLen.o : ../../../Simple/CCore/test/test1024.PtrLen.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1025.PtrLenReverse.o : ../../../Simple/CCore/test/test1025.PtrLenReverse.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1026.PtrStepLen.o : ../../../Simple/CCore/test/test1026.PtrStepLen.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test1027.Timer.o : ../../../Simple/CCore/test/test1027.Timer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1028.Crc.o : ../../../Simple/CCore/test/test1028.Crc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1029.BlockFifo.o : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1031.NewDelete.o : ../../../Simple/CCore/test/test1031.NewDelete.cpp
@@ -495,7 +531,25 @@ include $(RULES_FILE)
 ../.test-obj/test1022.ScanBit.s : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1023.Tuple.s : ../../../Simple/CCore/test/test1023.Tuple.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1024.PtrLen.s : ../../../Simple/CCore/test/test1024.PtrLen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1025.PtrLenReverse.s : ../../../Simple/CCore/test/test1025.PtrLenReverse.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1026.PtrStepLen.s : ../../../Simple/CCore/test/test1026.PtrStepLen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1027.Timer.s : ../../../Simple/CCore/test/test1027.Timer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1028.Crc.s : ../../../Simple/CCore/test/test1028.Crc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1029.BlockFifo.s : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test1031.NewDelete.s : ../../../Simple/CCore/test/test1031.NewDelete.cpp
@@ -704,8 +758,26 @@ include $(RULES_FILE)
 ../.test-obj/test1022.ScanBit.dep : ../../../Simple/CCore/test/test1022.ScanBit.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1022.ScanBit.o $< -MF $@
 
+../.test-obj/test1023.Tuple.dep : ../../../Simple/CCore/test/test1023.Tuple.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1023.Tuple.o $< -MF $@
+
+../.test-obj/test1024.PtrLen.dep : ../../../Simple/CCore/test/test1024.PtrLen.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1024.PtrLen.o $< -MF $@
+
+../.test-obj/test1025.PtrLenReverse.dep : ../../../Simple/CCore/test/test1025.PtrLenReverse.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1025.PtrLenReverse.o $< -MF $@
+
+../.test-obj/test1026.PtrStepLen.dep : ../../../Simple/CCore/test/test1026.PtrStepLen.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1026.PtrStepLen.o $< -MF $@
+
 ../.test-obj/test1027.Timer.dep : ../../../Simple/CCore/test/test1027.Timer.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1027.Timer.o $< -MF $@
+
+../.test-obj/test1028.Crc.dep : ../../../Simple/CCore/test/test1028.Crc.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1028.Crc.o $< -MF $@
+
+../.test-obj/test1029.BlockFifo.dep : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1029.BlockFifo.o $< -MF $@
 
 ../.test-obj/test1031.NewDelete.dep : ../../../Simple/CCore/test/test1031.NewDelete.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1031.NewDelete.o $< -MF $@
