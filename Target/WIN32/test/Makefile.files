@@ -49,8 +49,15 @@ OBJ_LIST = \
 ../.test-obj/test2008.Exception.o \
 ../.test-obj/test2009.GenFile.o \
 ../.test-obj/test2010.MersenneTwister.o \
+../.test-obj/test2011.Path.o \
+../.test-obj/test2012.PlanInitBuild.o \
+../.test-obj/test2013.RandomFill.o \
+../.test-obj/test2014.Random-speed.o \
+../.test-obj/test2015.RandomSelect.o \
 ../.test-obj/test2016.SaveLoad.o \
 ../.test-obj/test2017.String.o \
+../.test-obj/test2018.StrParse.o \
+../.test-obj/test2019.TextTools.o \
 ../.test-obj/test2020.BinarySearch.o \
 ../.test-obj/test2021.GCD.o \
 ../.test-obj/test2022.EuclidRotate.o \
@@ -137,8 +144,15 @@ ASM_LIST = \
 ../.test-obj/test2008.Exception.s \
 ../.test-obj/test2009.GenFile.s \
 ../.test-obj/test2010.MersenneTwister.s \
+../.test-obj/test2011.Path.s \
+../.test-obj/test2012.PlanInitBuild.s \
+../.test-obj/test2013.RandomFill.s \
+../.test-obj/test2014.Random-speed.s \
+../.test-obj/test2015.RandomSelect.s \
 ../.test-obj/test2016.SaveLoad.s \
 ../.test-obj/test2017.String.s \
+../.test-obj/test2018.StrParse.s \
+../.test-obj/test2019.TextTools.s \
 ../.test-obj/test2020.BinarySearch.s \
 ../.test-obj/test2021.GCD.s \
 ../.test-obj/test2022.EuclidRotate.s \
@@ -225,8 +239,15 @@ DEP_LIST = \
 ../.test-obj/test2008.Exception.dep \
 ../.test-obj/test2009.GenFile.dep \
 ../.test-obj/test2010.MersenneTwister.dep \
+../.test-obj/test2011.Path.dep \
+../.test-obj/test2012.PlanInitBuild.dep \
+../.test-obj/test2013.RandomFill.dep \
+../.test-obj/test2014.Random-speed.dep \
+../.test-obj/test2015.RandomSelect.dep \
 ../.test-obj/test2016.SaveLoad.dep \
 ../.test-obj/test2017.String.dep \
+../.test-obj/test2018.StrParse.dep \
+../.test-obj/test2019.TextTools.dep \
 ../.test-obj/test2020.BinarySearch.dep \
 ../.test-obj/test2021.GCD.dep \
 ../.test-obj/test2022.EuclidRotate.dep \
@@ -418,10 +439,31 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.o : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2011.Path.o : ../../../Fundamental/CCore/test/test2011.Path.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2012.PlanInitBuild.o : ../../../Fundamental/CCore/test/test2012.PlanInitBuild.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2013.RandomFill.o : ../../../Fundamental/CCore/test/test2013.RandomFill.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2014.Random-speed.o : ../../../Fundamental/CCore/test/test2014.Random-speed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2015.RandomSelect.o : ../../../Fundamental/CCore/test/test2015.RandomSelect.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2016.SaveLoad.o : ../../../Fundamental/CCore/test/test2016.SaveLoad.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2017.String.o : ../../../Fundamental/CCore/test/test2017.String.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2018.StrParse.o : ../../../Fundamental/CCore/test/test2018.StrParse.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2019.TextTools.o : ../../../Fundamental/CCore/test/test2019.TextTools.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2020.BinarySearch.o : ../../../Fundamental/CCore/test/test2020.BinarySearch.cpp
@@ -675,10 +717,31 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.s : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2011.Path.s : ../../../Fundamental/CCore/test/test2011.Path.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2012.PlanInitBuild.s : ../../../Fundamental/CCore/test/test2012.PlanInitBuild.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2013.RandomFill.s : ../../../Fundamental/CCore/test/test2013.RandomFill.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2014.Random-speed.s : ../../../Fundamental/CCore/test/test2014.Random-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2015.RandomSelect.s : ../../../Fundamental/CCore/test/test2015.RandomSelect.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2016.SaveLoad.s : ../../../Fundamental/CCore/test/test2016.SaveLoad.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2017.String.s : ../../../Fundamental/CCore/test/test2017.String.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2018.StrParse.s : ../../../Fundamental/CCore/test/test2018.StrParse.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2019.TextTools.s : ../../../Fundamental/CCore/test/test2019.TextTools.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2020.BinarySearch.s : ../../../Fundamental/CCore/test/test2020.BinarySearch.cpp
@@ -932,11 +995,32 @@ include $(RULES_FILE)
 ../.test-obj/test2010.MersenneTwister.dep : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2010.MersenneTwister.o $< -MF $@
 
+../.test-obj/test2011.Path.dep : ../../../Fundamental/CCore/test/test2011.Path.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2011.Path.o $< -MF $@
+
+../.test-obj/test2012.PlanInitBuild.dep : ../../../Fundamental/CCore/test/test2012.PlanInitBuild.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2012.PlanInitBuild.o $< -MF $@
+
+../.test-obj/test2013.RandomFill.dep : ../../../Fundamental/CCore/test/test2013.RandomFill.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2013.RandomFill.o $< -MF $@
+
+../.test-obj/test2014.Random-speed.dep : ../../../Fundamental/CCore/test/test2014.Random-speed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2014.Random-speed.o $< -MF $@
+
+../.test-obj/test2015.RandomSelect.dep : ../../../Fundamental/CCore/test/test2015.RandomSelect.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2015.RandomSelect.o $< -MF $@
+
 ../.test-obj/test2016.SaveLoad.dep : ../../../Fundamental/CCore/test/test2016.SaveLoad.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2016.SaveLoad.o $< -MF $@
 
 ../.test-obj/test2017.String.dep : ../../../Fundamental/CCore/test/test2017.String.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2017.String.o $< -MF $@
+
+../.test-obj/test2018.StrParse.dep : ../../../Fundamental/CCore/test/test2018.StrParse.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2018.StrParse.o $< -MF $@
+
+../.test-obj/test2019.TextTools.dep : ../../../Fundamental/CCore/test/test2019.TextTools.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2019.TextTools.o $< -MF $@
 
 ../.test-obj/test2020.BinarySearch.dep : ../../../Fundamental/CCore/test/test2020.BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2020.BinarySearch.o $< -MF $@
