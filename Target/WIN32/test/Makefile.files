@@ -28,10 +28,15 @@ OBJ_LIST = \
 ../.test-obj/test1027.Timer.o \
 ../.test-obj/test1028.Crc.o \
 ../.test-obj/test1029.BlockFifo.o \
+../.test-obj/test1030.TypeSwitch.o \
 ../.test-obj/test1031.NewDelete.o \
+../.test-obj/test1032.DynObject.o \
 ../.test-obj/test1033.AnyPtr.o \
 ../.test-obj/test1034.PrintStem.o \
+../.test-obj/test1035.Utf8.o \
 ../.test-obj/test1036.PrintRatio.o \
+../.test-obj/test1037.MemberFold.o \
+../.test-obj/test1038.TypeList.o \
 ../.test-obj/test1039.ScanRange.o \
 ../.test-obj/test1040.Cmp.o \
 ../.test-obj/test2003.SpaceHeap.o \
@@ -106,10 +111,15 @@ ASM_LIST = \
 ../.test-obj/test1027.Timer.s \
 ../.test-obj/test1028.Crc.s \
 ../.test-obj/test1029.BlockFifo.s \
+../.test-obj/test1030.TypeSwitch.s \
 ../.test-obj/test1031.NewDelete.s \
+../.test-obj/test1032.DynObject.s \
 ../.test-obj/test1033.AnyPtr.s \
 ../.test-obj/test1034.PrintStem.s \
+../.test-obj/test1035.Utf8.s \
 ../.test-obj/test1036.PrintRatio.s \
+../.test-obj/test1037.MemberFold.s \
+../.test-obj/test1038.TypeList.s \
 ../.test-obj/test1039.ScanRange.s \
 ../.test-obj/test1040.Cmp.s \
 ../.test-obj/test2003.SpaceHeap.s \
@@ -184,10 +194,15 @@ DEP_LIST = \
 ../.test-obj/test1027.Timer.dep \
 ../.test-obj/test1028.Crc.dep \
 ../.test-obj/test1029.BlockFifo.dep \
+../.test-obj/test1030.TypeSwitch.dep \
 ../.test-obj/test1031.NewDelete.dep \
+../.test-obj/test1032.DynObject.dep \
 ../.test-obj/test1033.AnyPtr.dep \
 ../.test-obj/test1034.PrintStem.dep \
+../.test-obj/test1035.Utf8.dep \
 ../.test-obj/test1036.PrintRatio.dep \
+../.test-obj/test1037.MemberFold.dep \
+../.test-obj/test1038.TypeList.dep \
 ../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/test1040.Cmp.dep \
 ../.test-obj/test2003.SpaceHeap.dep \
@@ -325,7 +340,13 @@ include $(RULES_FILE)
 ../.test-obj/test1029.BlockFifo.o : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test1030.TypeSwitch.o : ../../../Simple/CCore/test/test1030.TypeSwitch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test1031.NewDelete.o : ../../../Simple/CCore/test/test1031.NewDelete.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1032.DynObject.o : ../../../Simple/CCore/test/test1032.DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1033.AnyPtr.o : ../../../Simple/CCore/test/test1033.AnyPtr.cpp
@@ -334,7 +355,16 @@ include $(RULES_FILE)
 ../.test-obj/test1034.PrintStem.o : ../../../Simple/CCore/test/test1034.PrintStem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test1035.Utf8.o : ../../../Simple/CCore/test/test1035.Utf8.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test1036.PrintRatio.o : ../../../Simple/CCore/test/test1036.PrintRatio.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1037.MemberFold.o : ../../../Simple/CCore/test/test1037.MemberFold.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test1038.TypeList.o : ../../../Simple/CCore/test/test1038.TypeList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test1039.ScanRange.o : ../../../Simple/CCore/test/test1039.ScanRange.cpp
@@ -552,7 +582,13 @@ include $(RULES_FILE)
 ../.test-obj/test1029.BlockFifo.s : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1030.TypeSwitch.s : ../../../Simple/CCore/test/test1030.TypeSwitch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1031.NewDelete.s : ../../../Simple/CCore/test/test1031.NewDelete.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1032.DynObject.s : ../../../Simple/CCore/test/test1032.DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test1033.AnyPtr.s : ../../../Simple/CCore/test/test1033.AnyPtr.cpp
@@ -561,7 +597,16 @@ include $(RULES_FILE)
 ../.test-obj/test1034.PrintStem.s : ../../../Simple/CCore/test/test1034.PrintStem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test1035.Utf8.s : ../../../Simple/CCore/test/test1035.Utf8.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test1036.PrintRatio.s : ../../../Simple/CCore/test/test1036.PrintRatio.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1037.MemberFold.s : ../../../Simple/CCore/test/test1037.MemberFold.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test1038.TypeList.s : ../../../Simple/CCore/test/test1038.TypeList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test1039.ScanRange.s : ../../../Simple/CCore/test/test1039.ScanRange.cpp
@@ -779,8 +824,14 @@ include $(RULES_FILE)
 ../.test-obj/test1029.BlockFifo.dep : ../../../Simple/CCore/test/test1029.BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1029.BlockFifo.o $< -MF $@
 
+../.test-obj/test1030.TypeSwitch.dep : ../../../Simple/CCore/test/test1030.TypeSwitch.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1030.TypeSwitch.o $< -MF $@
+
 ../.test-obj/test1031.NewDelete.dep : ../../../Simple/CCore/test/test1031.NewDelete.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1031.NewDelete.o $< -MF $@
+
+../.test-obj/test1032.DynObject.dep : ../../../Simple/CCore/test/test1032.DynObject.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1032.DynObject.o $< -MF $@
 
 ../.test-obj/test1033.AnyPtr.dep : ../../../Simple/CCore/test/test1033.AnyPtr.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1033.AnyPtr.o $< -MF $@
@@ -788,8 +839,17 @@ include $(RULES_FILE)
 ../.test-obj/test1034.PrintStem.dep : ../../../Simple/CCore/test/test1034.PrintStem.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1034.PrintStem.o $< -MF $@
 
+../.test-obj/test1035.Utf8.dep : ../../../Simple/CCore/test/test1035.Utf8.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1035.Utf8.o $< -MF $@
+
 ../.test-obj/test1036.PrintRatio.dep : ../../../Simple/CCore/test/test1036.PrintRatio.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1036.PrintRatio.o $< -MF $@
+
+../.test-obj/test1037.MemberFold.dep : ../../../Simple/CCore/test/test1037.MemberFold.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1037.MemberFold.o $< -MF $@
+
+../.test-obj/test1038.TypeList.dep : ../../../Simple/CCore/test/test1038.TypeList.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1038.TypeList.o $< -MF $@
 
 ../.test-obj/test1039.ScanRange.dep : ../../../Simple/CCore/test/test1039.ScanRange.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1039.ScanRange.o $< -MF $@
