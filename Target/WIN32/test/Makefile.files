@@ -39,10 +39,15 @@ OBJ_LIST = \
 ../.test-obj/test1038.TypeList.o \
 ../.test-obj/test1039.ScanRange.o \
 ../.test-obj/test1040.Cmp.o \
+../.test-obj/test2001.UIntSlowMulAlgo.o \
+../.test-obj/test2002.Exception.o \
 ../.test-obj/test2003.SpaceHeap.o \
 ../.test-obj/test2004.ShortSort.o \
 ../.test-obj/test2005.Sort.o \
 ../.test-obj/test2006.Sort-speed.o \
+../.test-obj/test2007.CharProp.o \
+../.test-obj/test2008.Exception.o \
+../.test-obj/test2009.GenFile.o \
 ../.test-obj/test2010.MersenneTwister.o \
 ../.test-obj/test2016.SaveLoad.o \
 ../.test-obj/test2017.String.o \
@@ -122,10 +127,15 @@ ASM_LIST = \
 ../.test-obj/test1038.TypeList.s \
 ../.test-obj/test1039.ScanRange.s \
 ../.test-obj/test1040.Cmp.s \
+../.test-obj/test2001.UIntSlowMulAlgo.s \
+../.test-obj/test2002.Exception.s \
 ../.test-obj/test2003.SpaceHeap.s \
 ../.test-obj/test2004.ShortSort.s \
 ../.test-obj/test2005.Sort.s \
 ../.test-obj/test2006.Sort-speed.s \
+../.test-obj/test2007.CharProp.s \
+../.test-obj/test2008.Exception.s \
+../.test-obj/test2009.GenFile.s \
 ../.test-obj/test2010.MersenneTwister.s \
 ../.test-obj/test2016.SaveLoad.s \
 ../.test-obj/test2017.String.s \
@@ -205,10 +215,15 @@ DEP_LIST = \
 ../.test-obj/test1038.TypeList.dep \
 ../.test-obj/test1039.ScanRange.dep \
 ../.test-obj/test1040.Cmp.dep \
+../.test-obj/test2001.UIntSlowMulAlgo.dep \
+../.test-obj/test2002.Exception.dep \
 ../.test-obj/test2003.SpaceHeap.dep \
 ../.test-obj/test2004.ShortSort.dep \
 ../.test-obj/test2005.Sort.dep \
 ../.test-obj/test2006.Sort-speed.dep \
+../.test-obj/test2007.CharProp.dep \
+../.test-obj/test2008.Exception.dep \
+../.test-obj/test2009.GenFile.dep \
 ../.test-obj/test2010.MersenneTwister.dep \
 ../.test-obj/test2016.SaveLoad.dep \
 ../.test-obj/test2017.String.dep \
@@ -373,6 +388,12 @@ include $(RULES_FILE)
 ../.test-obj/test1040.Cmp.o : ../../../Simple/CCore/test/test1040.Cmp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2001.UIntSlowMulAlgo.o : ../../../Fundamental/CCore/test/test2001.UIntSlowMulAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2002.Exception.o : ../../../Fundamental/CCore/test/test2002.Exception.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2003.SpaceHeap.o : ../../../Fundamental/CCore/test/test2003.SpaceHeap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -383,6 +404,15 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2006.Sort-speed.o : ../../../Fundamental/CCore/test/test2006.Sort-speed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2007.CharProp.o : ../../../Fundamental/CCore/test/test2007.CharProp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2008.Exception.o : ../../../Fundamental/CCore/test/test2008.Exception.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2009.GenFile.o : ../../../Fundamental/CCore/test/test2009.GenFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2010.MersenneTwister.o : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
@@ -615,6 +645,12 @@ include $(RULES_FILE)
 ../.test-obj/test1040.Cmp.s : ../../../Simple/CCore/test/test1040.Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2001.UIntSlowMulAlgo.s : ../../../Fundamental/CCore/test/test2001.UIntSlowMulAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2002.Exception.s : ../../../Fundamental/CCore/test/test2002.Exception.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2003.SpaceHeap.s : ../../../Fundamental/CCore/test/test2003.SpaceHeap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -625,6 +661,15 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2006.Sort-speed.s : ../../../Fundamental/CCore/test/test2006.Sort-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2007.CharProp.s : ../../../Fundamental/CCore/test/test2007.CharProp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2008.Exception.s : ../../../Fundamental/CCore/test/test2008.Exception.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2009.GenFile.s : ../../../Fundamental/CCore/test/test2009.GenFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2010.MersenneTwister.s : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
@@ -857,6 +902,12 @@ include $(RULES_FILE)
 ../.test-obj/test1040.Cmp.dep : ../../../Simple/CCore/test/test1040.Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test1040.Cmp.o $< -MF $@
 
+../.test-obj/test2001.UIntSlowMulAlgo.dep : ../../../Fundamental/CCore/test/test2001.UIntSlowMulAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2001.UIntSlowMulAlgo.o $< -MF $@
+
+../.test-obj/test2002.Exception.dep : ../../../Fundamental/CCore/test/test2002.Exception.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2002.Exception.o $< -MF $@
+
 ../.test-obj/test2003.SpaceHeap.dep : ../../../Fundamental/CCore/test/test2003.SpaceHeap.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2003.SpaceHeap.o $< -MF $@
 
@@ -868,6 +919,15 @@ include $(RULES_FILE)
 
 ../.test-obj/test2006.Sort-speed.dep : ../../../Fundamental/CCore/test/test2006.Sort-speed.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2006.Sort-speed.o $< -MF $@
+
+../.test-obj/test2007.CharProp.dep : ../../../Fundamental/CCore/test/test2007.CharProp.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2007.CharProp.o $< -MF $@
+
+../.test-obj/test2008.Exception.dep : ../../../Fundamental/CCore/test/test2008.Exception.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2008.Exception.o $< -MF $@
+
+../.test-obj/test2009.GenFile.dep : ../../../Fundamental/CCore/test/test2009.GenFile.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2009.GenFile.o $< -MF $@
 
 ../.test-obj/test2010.MersenneTwister.dep : ../../../Fundamental/CCore/test/test2010.MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2010.MersenneTwister.o $< -MF $@
