@@ -62,8 +62,14 @@ OBJ_LIST = \
 ../.test-obj/test2021.GCD.o \
 ../.test-obj/test2022.EuclidRotate.o \
 ../.test-obj/test2023.GCDConst.o \
+../.test-obj/test2024.SortUnique.o \
 ../.test-obj/test2025.SimpleRotate.o \
 ../.test-obj/test2026.Partition.o \
+../.test-obj/test2027.List.o \
+../.test-obj/test2028.Tree.o \
+../.test-obj/test2029.TreeUp.o \
+../.test-obj/test2030.TreeUpIns.o \
+../.test-obj/test2031.Printf.o \
 ../.test-obj/test2032.Scanf.o \
 ../.test-obj/test2033.DynArray.o \
 ../.test-obj/test2034.DynArray.o \
@@ -157,8 +163,14 @@ ASM_LIST = \
 ../.test-obj/test2021.GCD.s \
 ../.test-obj/test2022.EuclidRotate.s \
 ../.test-obj/test2023.GCDConst.s \
+../.test-obj/test2024.SortUnique.s \
 ../.test-obj/test2025.SimpleRotate.s \
 ../.test-obj/test2026.Partition.s \
+../.test-obj/test2027.List.s \
+../.test-obj/test2028.Tree.s \
+../.test-obj/test2029.TreeUp.s \
+../.test-obj/test2030.TreeUpIns.s \
+../.test-obj/test2031.Printf.s \
 ../.test-obj/test2032.Scanf.s \
 ../.test-obj/test2033.DynArray.s \
 ../.test-obj/test2034.DynArray.s \
@@ -252,8 +264,14 @@ DEP_LIST = \
 ../.test-obj/test2021.GCD.dep \
 ../.test-obj/test2022.EuclidRotate.dep \
 ../.test-obj/test2023.GCDConst.dep \
+../.test-obj/test2024.SortUnique.dep \
 ../.test-obj/test2025.SimpleRotate.dep \
 ../.test-obj/test2026.Partition.dep \
+../.test-obj/test2027.List.dep \
+../.test-obj/test2028.Tree.dep \
+../.test-obj/test2029.TreeUp.dep \
+../.test-obj/test2030.TreeUpIns.dep \
+../.test-obj/test2031.Printf.dep \
 ../.test-obj/test2032.Scanf.dep \
 ../.test-obj/test2033.DynArray.dep \
 ../.test-obj/test2034.DynArray.dep \
@@ -478,10 +496,28 @@ include $(RULES_FILE)
 ../.test-obj/test2023.GCDConst.o : ../../../Fundamental/CCore/test/test2023.GCDConst.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2024.SortUnique.o : ../../../Fundamental/CCore/test/test2024.SortUnique.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2025.SimpleRotate.o : ../../../Fundamental/CCore/test/test2025.SimpleRotate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2026.Partition.o : ../../../Fundamental/CCore/test/test2026.Partition.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2027.List.o : ../../../Fundamental/CCore/test/test2027.List.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2028.Tree.o : ../../../Fundamental/CCore/test/test2028.Tree.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2029.TreeUp.o : ../../../Fundamental/CCore/test/test2029.TreeUp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2030.TreeUpIns.o : ../../../Fundamental/CCore/test/test2030.TreeUpIns.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2031.Printf.o : ../../../Fundamental/CCore/test/test2031.Printf.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2032.Scanf.o : ../../../Fundamental/CCore/test/test2032.Scanf.cpp
@@ -756,10 +792,28 @@ include $(RULES_FILE)
 ../.test-obj/test2023.GCDConst.s : ../../../Fundamental/CCore/test/test2023.GCDConst.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2024.SortUnique.s : ../../../Fundamental/CCore/test/test2024.SortUnique.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2025.SimpleRotate.s : ../../../Fundamental/CCore/test/test2025.SimpleRotate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2026.Partition.s : ../../../Fundamental/CCore/test/test2026.Partition.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2027.List.s : ../../../Fundamental/CCore/test/test2027.List.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2028.Tree.s : ../../../Fundamental/CCore/test/test2028.Tree.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2029.TreeUp.s : ../../../Fundamental/CCore/test/test2029.TreeUp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2030.TreeUpIns.s : ../../../Fundamental/CCore/test/test2030.TreeUpIns.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2031.Printf.s : ../../../Fundamental/CCore/test/test2031.Printf.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2032.Scanf.s : ../../../Fundamental/CCore/test/test2032.Scanf.cpp
@@ -1034,11 +1088,29 @@ include $(RULES_FILE)
 ../.test-obj/test2023.GCDConst.dep : ../../../Fundamental/CCore/test/test2023.GCDConst.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2023.GCDConst.o $< -MF $@
 
+../.test-obj/test2024.SortUnique.dep : ../../../Fundamental/CCore/test/test2024.SortUnique.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2024.SortUnique.o $< -MF $@
+
 ../.test-obj/test2025.SimpleRotate.dep : ../../../Fundamental/CCore/test/test2025.SimpleRotate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2025.SimpleRotate.o $< -MF $@
 
 ../.test-obj/test2026.Partition.dep : ../../../Fundamental/CCore/test/test2026.Partition.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2026.Partition.o $< -MF $@
+
+../.test-obj/test2027.List.dep : ../../../Fundamental/CCore/test/test2027.List.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2027.List.o $< -MF $@
+
+../.test-obj/test2028.Tree.dep : ../../../Fundamental/CCore/test/test2028.Tree.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2028.Tree.o $< -MF $@
+
+../.test-obj/test2029.TreeUp.dep : ../../../Fundamental/CCore/test/test2029.TreeUp.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2029.TreeUp.o $< -MF $@
+
+../.test-obj/test2030.TreeUpIns.dep : ../../../Fundamental/CCore/test/test2030.TreeUpIns.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2030.TreeUpIns.o $< -MF $@
+
+../.test-obj/test2031.Printf.dep : ../../../Fundamental/CCore/test/test2031.Printf.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2031.Printf.o $< -MF $@
 
 ../.test-obj/test2032.Scanf.dep : ../../../Fundamental/CCore/test/test2032.Scanf.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2032.Scanf.o $< -MF $@
