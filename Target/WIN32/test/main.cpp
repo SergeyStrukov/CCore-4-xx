@@ -40,7 +40,10 @@ int main()
 
   //Testit<2999>().run();
 
-  Testit<2045>().run();
+  Testit<2046>().run();
+  Testit<2047>().run();
+  Testit<2048>().run();
+  Testit<2049>().run();
 
   Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
 
