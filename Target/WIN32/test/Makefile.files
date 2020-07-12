@@ -76,14 +76,26 @@ OBJ_LIST = \
 ../.test-obj/test2035.RefArray.o \
 ../.test-obj/test2036.RefArray.o \
 ../.test-obj/test2037.AtomicRefArray.o \
+../.test-obj/test2038.AtomicRefArray.o \
 ../.test-obj/test2039.Collector.o \
 ../.test-obj/test2040.ElementPool.o \
+../.test-obj/test2041.ObjHost.o \
 ../.test-obj/test2042.ContainerList.o \
+../.test-obj/test2043.RBTreeMap.o \
+../.test-obj/test2044.CompactMap.o \
+../.test-obj/test2045.Unid.o \
+../.test-obj/test2046.TypeNumber.o \
+../.test-obj/test2047.InterfaceHost.o \
+../.test-obj/test2048.Signal.o \
+../.test-obj/test2049.Optional.o \
+../.test-obj/test2050.MultiSignal.o \
 ../.test-obj/test2051.DeferCall.o \
 ../.test-obj/test2052.ObjectDomain.o \
 ../.test-obj/test2053.StepEval.o \
 ../.test-obj/test2054.ApplyToRange.o \
 ../.test-obj/test2055.ArrayInsDel.o \
+../.test-obj/test2056.StrMap.o \
+../.test-obj/test2057.Scope.o \
 ../.test-obj/test2058.ApplyToList.o \
 ../.test-obj/test2059.BestSearch.o \
 ../.test-obj/test2060.CharUtils.o \
@@ -177,14 +189,26 @@ ASM_LIST = \
 ../.test-obj/test2035.RefArray.s \
 ../.test-obj/test2036.RefArray.s \
 ../.test-obj/test2037.AtomicRefArray.s \
+../.test-obj/test2038.AtomicRefArray.s \
 ../.test-obj/test2039.Collector.s \
 ../.test-obj/test2040.ElementPool.s \
+../.test-obj/test2041.ObjHost.s \
 ../.test-obj/test2042.ContainerList.s \
+../.test-obj/test2043.RBTreeMap.s \
+../.test-obj/test2044.CompactMap.s \
+../.test-obj/test2045.Unid.s \
+../.test-obj/test2046.TypeNumber.s \
+../.test-obj/test2047.InterfaceHost.s \
+../.test-obj/test2048.Signal.s \
+../.test-obj/test2049.Optional.s \
+../.test-obj/test2050.MultiSignal.s \
 ../.test-obj/test2051.DeferCall.s \
 ../.test-obj/test2052.ObjectDomain.s \
 ../.test-obj/test2053.StepEval.s \
 ../.test-obj/test2054.ApplyToRange.s \
 ../.test-obj/test2055.ArrayInsDel.s \
+../.test-obj/test2056.StrMap.s \
+../.test-obj/test2057.Scope.s \
 ../.test-obj/test2058.ApplyToList.s \
 ../.test-obj/test2059.BestSearch.s \
 ../.test-obj/test2060.CharUtils.s \
@@ -278,14 +302,26 @@ DEP_LIST = \
 ../.test-obj/test2035.RefArray.dep \
 ../.test-obj/test2036.RefArray.dep \
 ../.test-obj/test2037.AtomicRefArray.dep \
+../.test-obj/test2038.AtomicRefArray.dep \
 ../.test-obj/test2039.Collector.dep \
 ../.test-obj/test2040.ElementPool.dep \
+../.test-obj/test2041.ObjHost.dep \
 ../.test-obj/test2042.ContainerList.dep \
+../.test-obj/test2043.RBTreeMap.dep \
+../.test-obj/test2044.CompactMap.dep \
+../.test-obj/test2045.Unid.dep \
+../.test-obj/test2046.TypeNumber.dep \
+../.test-obj/test2047.InterfaceHost.dep \
+../.test-obj/test2048.Signal.dep \
+../.test-obj/test2049.Optional.dep \
+../.test-obj/test2050.MultiSignal.dep \
 ../.test-obj/test2051.DeferCall.dep \
 ../.test-obj/test2052.ObjectDomain.dep \
 ../.test-obj/test2053.StepEval.dep \
 ../.test-obj/test2054.ApplyToRange.dep \
 ../.test-obj/test2055.ArrayInsDel.dep \
+../.test-obj/test2056.StrMap.dep \
+../.test-obj/test2057.Scope.dep \
 ../.test-obj/test2058.ApplyToList.dep \
 ../.test-obj/test2059.BestSearch.dep \
 ../.test-obj/test2060.CharUtils.dep \
@@ -538,13 +574,43 @@ include $(RULES_FILE)
 ../.test-obj/test2037.AtomicRefArray.o : ../../../Fundamental/CCore/test/test2037.AtomicRefArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2038.AtomicRefArray.o : ../../../Fundamental/CCore/test/test2038.AtomicRefArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2039.Collector.o : ../../../Fundamental/CCore/test/test2039.Collector.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2040.ElementPool.o : ../../../Fundamental/CCore/test/test2040.ElementPool.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test2041.ObjHost.o : ../../../Fundamental/CCore/test/test2041.ObjHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test2042.ContainerList.o : ../../../Fundamental/CCore/test/test2042.ContainerList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2043.RBTreeMap.o : ../../../Fundamental/CCore/test/test2043.RBTreeMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2044.CompactMap.o : ../../../Fundamental/CCore/test/test2044.CompactMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2045.Unid.o : ../../../Fundamental/CCore/test/test2045.Unid.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2046.TypeNumber.o : ../../../Fundamental/CCore/test/test2046.TypeNumber.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2047.InterfaceHost.o : ../../../Fundamental/CCore/test/test2047.InterfaceHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2048.Signal.o : ../../../Fundamental/CCore/test/test2048.Signal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2049.Optional.o : ../../../Fundamental/CCore/test/test2049.Optional.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2050.MultiSignal.o : ../../../Fundamental/CCore/test/test2050.MultiSignal.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2051.DeferCall.o : ../../../Fundamental/CCore/test/test2051.DeferCall.cpp
@@ -560,6 +626,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2055.ArrayInsDel.o : ../../../Fundamental/CCore/test/test2055.ArrayInsDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2056.StrMap.o : ../../../Fundamental/CCore/test/test2056.StrMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2057.Scope.o : ../../../Fundamental/CCore/test/test2057.Scope.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2058.ApplyToList.o : ../../../Fundamental/CCore/test/test2058.ApplyToList.cpp
@@ -834,13 +906,43 @@ include $(RULES_FILE)
 ../.test-obj/test2037.AtomicRefArray.s : ../../../Fundamental/CCore/test/test2037.AtomicRefArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2038.AtomicRefArray.s : ../../../Fundamental/CCore/test/test2038.AtomicRefArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2039.Collector.s : ../../../Fundamental/CCore/test/test2039.Collector.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2040.ElementPool.s : ../../../Fundamental/CCore/test/test2040.ElementPool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2041.ObjHost.s : ../../../Fundamental/CCore/test/test2041.ObjHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2042.ContainerList.s : ../../../Fundamental/CCore/test/test2042.ContainerList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2043.RBTreeMap.s : ../../../Fundamental/CCore/test/test2043.RBTreeMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2044.CompactMap.s : ../../../Fundamental/CCore/test/test2044.CompactMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2045.Unid.s : ../../../Fundamental/CCore/test/test2045.Unid.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2046.TypeNumber.s : ../../../Fundamental/CCore/test/test2046.TypeNumber.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2047.InterfaceHost.s : ../../../Fundamental/CCore/test/test2047.InterfaceHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2048.Signal.s : ../../../Fundamental/CCore/test/test2048.Signal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2049.Optional.s : ../../../Fundamental/CCore/test/test2049.Optional.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2050.MultiSignal.s : ../../../Fundamental/CCore/test/test2050.MultiSignal.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2051.DeferCall.s : ../../../Fundamental/CCore/test/test2051.DeferCall.cpp
@@ -856,6 +958,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2055.ArrayInsDel.s : ../../../Fundamental/CCore/test/test2055.ArrayInsDel.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2056.StrMap.s : ../../../Fundamental/CCore/test/test2056.StrMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test2057.Scope.s : ../../../Fundamental/CCore/test/test2057.Scope.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test2058.ApplyToList.s : ../../../Fundamental/CCore/test/test2058.ApplyToList.cpp
@@ -1130,14 +1238,44 @@ include $(RULES_FILE)
 ../.test-obj/test2037.AtomicRefArray.dep : ../../../Fundamental/CCore/test/test2037.AtomicRefArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2037.AtomicRefArray.o $< -MF $@
 
+../.test-obj/test2038.AtomicRefArray.dep : ../../../Fundamental/CCore/test/test2038.AtomicRefArray.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2038.AtomicRefArray.o $< -MF $@
+
 ../.test-obj/test2039.Collector.dep : ../../../Fundamental/CCore/test/test2039.Collector.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2039.Collector.o $< -MF $@
 
 ../.test-obj/test2040.ElementPool.dep : ../../../Fundamental/CCore/test/test2040.ElementPool.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2040.ElementPool.o $< -MF $@
 
+../.test-obj/test2041.ObjHost.dep : ../../../Fundamental/CCore/test/test2041.ObjHost.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2041.ObjHost.o $< -MF $@
+
 ../.test-obj/test2042.ContainerList.dep : ../../../Fundamental/CCore/test/test2042.ContainerList.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2042.ContainerList.o $< -MF $@
+
+../.test-obj/test2043.RBTreeMap.dep : ../../../Fundamental/CCore/test/test2043.RBTreeMap.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2043.RBTreeMap.o $< -MF $@
+
+../.test-obj/test2044.CompactMap.dep : ../../../Fundamental/CCore/test/test2044.CompactMap.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2044.CompactMap.o $< -MF $@
+
+../.test-obj/test2045.Unid.dep : ../../../Fundamental/CCore/test/test2045.Unid.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2045.Unid.o $< -MF $@
+
+../.test-obj/test2046.TypeNumber.dep : ../../../Fundamental/CCore/test/test2046.TypeNumber.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2046.TypeNumber.o $< -MF $@
+
+../.test-obj/test2047.InterfaceHost.dep : ../../../Fundamental/CCore/test/test2047.InterfaceHost.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2047.InterfaceHost.o $< -MF $@
+
+../.test-obj/test2048.Signal.dep : ../../../Fundamental/CCore/test/test2048.Signal.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2048.Signal.o $< -MF $@
+
+../.test-obj/test2049.Optional.dep : ../../../Fundamental/CCore/test/test2049.Optional.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2049.Optional.o $< -MF $@
+
+../.test-obj/test2050.MultiSignal.dep : ../../../Fundamental/CCore/test/test2050.MultiSignal.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2050.MultiSignal.o $< -MF $@
 
 ../.test-obj/test2051.DeferCall.dep : ../../../Fundamental/CCore/test/test2051.DeferCall.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2051.DeferCall.o $< -MF $@
@@ -1153,6 +1291,12 @@ include $(RULES_FILE)
 
 ../.test-obj/test2055.ArrayInsDel.dep : ../../../Fundamental/CCore/test/test2055.ArrayInsDel.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2055.ArrayInsDel.o $< -MF $@
+
+../.test-obj/test2056.StrMap.dep : ../../../Fundamental/CCore/test/test2056.StrMap.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2056.StrMap.o $< -MF $@
+
+../.test-obj/test2057.Scope.dep : ../../../Fundamental/CCore/test/test2057.Scope.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2057.Scope.o $< -MF $@
 
 ../.test-obj/test2058.ApplyToList.dep : ../../../Fundamental/CCore/test/test2058.ApplyToList.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2058.ApplyToList.o $< -MF $@
