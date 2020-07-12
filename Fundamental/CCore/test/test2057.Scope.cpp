@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test2057.Scope.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Fundamental Mini
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,32 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/Scope.h>
 
 namespace App {
 
-/* Testit<0> */
+/* Testit<2057> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<2057>::Name="Test2057 Scope";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<2057>::Main()
  {
-  MemScope mem_scope;
+  Scope a("outer"_c);
+  Scope b("medium"_c);
+  Scope c("inner"_c);
 
-  //Testit<2999>().run();
+  try
+    {
+     Printf(Exception,"test exception");
+    }
+  catch(CatchType) {}
 
-  Testit<2500>().run();
+  ReportException::Clear();
 
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
-
-  //DetachPacketBufs(); TODO
-
-  return 0;
+  return true;
  }
 
+} // namespace App
 
