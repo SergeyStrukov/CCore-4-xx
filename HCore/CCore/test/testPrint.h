@@ -19,7 +19,7 @@
 #include <CCore/inc/print/PrintCon.h>
 
 #include <CCore/inc/Print.h>
-#include <CCore/inc/BinaryFile.h>
+#include <CCore/inc/PutBinaryFile.h>
 
 namespace App {
 

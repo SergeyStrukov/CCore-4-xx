@@ -1,4 +1,4 @@
-/* DecodeFile.h */
+/* GetBinaryFile.h */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
@@ -13,31 +13,28 @@
 //
 //----------------------------------------------------------------------------------------
 
-#ifndef CCore_inc_DecodeFile_h
-#define CCore_inc_DecodeFile_h
-
-#include <CCore/inc/scan/ScanFile.h>
-
-#include <CCore/inc/BinFileToRead.h>
+#ifndef CCore_inc_GetBinaryFile_h
+#define CCore_inc_GetBinaryFile_h
 
 #include <CCore/inc/SaveLoad.h>
+#include <CCore/inc/Array.h>
+
+#include <CCore/inc/scan/ScanFile.h>
 
 namespace CCore {
 
 /* classes */
 
-class DecodeFile;
+class GetBinaryFile;
 
-class DecodeBinFile;
+/* class GetBinaryFile */
 
-/* class DecodeFile */
-
-class DecodeFile : public NoCopyBase< GetDevBase<DecodeFile> >
+class GetBinaryFile : public NoCopyBase< GetDevBase<GetBinaryFile> >
  {
    static constexpr ulen BufLen = 64_KByte ;
 
    RawFileToScan file;
-   SafeBuf buf;
+   SimpleArray<uint8> buf;
 
    PtrLen<const uint8> cur;
 
@@ -55,11 +52,11 @@ class DecodeFile : public NoCopyBase< GetDevBase<DecodeFile> >
 
    // constructors
 
-   DecodeFile() noexcept;
+   GetBinaryFile() noexcept;
 
-   explicit DecodeFile(StrLen file_name);
+   explicit GetBinaryFile(StrLen file_name);
 
-   ~DecodeFile();
+   ~GetBinaryFile();
 
    // methods
 
@@ -70,56 +67,6 @@ class DecodeFile : public NoCopyBase< GetDevBase<DecodeFile> >
    void close(FileMultiError &errout);
 
    void close();
-
-   // pump raw data
-
-   bool more() { return +cur || underflow_eof() ; }
-
-   PtrLen<const uint8> pump() { return Replace_null(cur); }
-
-   // get
-
-   uint8 do_get()
-    {
-     if( !cur ) underflow();
-
-     uint8 ret=*cur;
-
-     ++cur;
-
-     return ret;
-    }
-
-   void do_get(uint8 *ptr,ulen len);
- };
-
-/* class DecodeBinFile */
-
-class DecodeBinFile : public NoCopyBase< GetDevBase<DecodeBinFile> >
- {
-   static constexpr ulen BufLen = 64_KByte ;
-
-   BinFileToRead file;
-   SafeBuf buf;
-   FilePosType off = 0 ;
-
-   PtrLen<const uint8> cur;
-
-  private:
-
-   uint8 * getBase() { return MutatePtr<uint8>(buf.getPtr()); }
-
-   void underflow();
-
-   bool underflow_eof();
-
-  public:
-
-   // constructors
-
-   DecodeBinFile(const BinFileToRead &file,StrLen file_name);
-
-   ~DecodeBinFile();
 
    // pump raw data
 

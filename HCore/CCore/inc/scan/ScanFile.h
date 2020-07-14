@@ -42,17 +42,17 @@ class RawFileToScan : NoCopy
 
    RawFileToScan() {}
 
-   // No destructor !
+    // No destructor !
 
-  // methods
+   // methods
 
-  bool isOpened() const { return opened; }
+   bool isOpened() const { return opened; }
 
-  FileError open(StrLen file_name);
+   FileError open(StrLen file_name);
 
-  void close(FileMultiError &errout);
+   void close(FileMultiError &errout);
 
-  Sys::File::IOResult read(uint8 *buf,ulen len);
+   Sys::File::IOResult read(uint8 *buf,ulen len);
  };
 
 /* class ScanFile */

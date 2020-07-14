@@ -79,9 +79,11 @@ class PartFileToMem : NoCopy
 
    FilePosType getRestLen() const { return file_len-off; }
 
+   // pump raw data
+
    bool more() const { return off<file_len; }
 
-   PtrLen<const uint8> read();
+   PtrLen<const uint8> pump();
  };
 
 } // namespace CCore

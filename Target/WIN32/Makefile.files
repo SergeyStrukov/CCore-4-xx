@@ -17,7 +17,6 @@ OBJ_LIST = \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinFileToRead.o \
-.obj/BinaryFile.o \
 .obj/BinarySearch.o \
 .obj/BlockFifo.o \
 .obj/CapString.o \
@@ -36,7 +35,6 @@ OBJ_LIST = \
 .obj/Crc.o \
 .obj/CreateAt.o \
 .obj/Creator.o \
-.obj/DecodeFile.o \
 .obj/DefaultTimeout.o \
 .obj/DeferCall.o \
 .obj/DestroyGuard.o \
@@ -64,6 +62,7 @@ OBJ_LIST = \
 .obj/GCDConst.o \
 .obj/Gadget.o \
 .obj/GenFile.o \
+.obj/GetBinaryFile.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
@@ -146,6 +145,7 @@ OBJ_LIST = \
 .obj/PtrLen.o \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
+.obj/PutBinaryFile.o \
 .obj/Quick.o \
 .obj/QuickSort.o \
 .obj/RBTreeBase.o \
@@ -269,7 +269,6 @@ ASM_LIST = \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinFileToRead.s \
-.obj/BinaryFile.s \
 .obj/BinarySearch.s \
 .obj/BlockFifo.s \
 .obj/CapString.s \
@@ -288,7 +287,6 @@ ASM_LIST = \
 .obj/Crc.s \
 .obj/CreateAt.s \
 .obj/Creator.s \
-.obj/DecodeFile.s \
 .obj/DefaultTimeout.s \
 .obj/DeferCall.s \
 .obj/DestroyGuard.s \
@@ -316,6 +314,7 @@ ASM_LIST = \
 .obj/GCDConst.s \
 .obj/Gadget.s \
 .obj/GenFile.s \
+.obj/GetBinaryFile.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
@@ -398,6 +397,7 @@ ASM_LIST = \
 .obj/PtrLen.s \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
+.obj/PutBinaryFile.s \
 .obj/Quick.s \
 .obj/QuickSort.s \
 .obj/RBTreeBase.s \
@@ -521,7 +521,6 @@ DEP_LIST = \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinFileToRead.dep \
-.obj/BinaryFile.dep \
 .obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
@@ -540,7 +539,6 @@ DEP_LIST = \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
 .obj/Creator.dep \
-.obj/DecodeFile.dep \
 .obj/DefaultTimeout.dep \
 .obj/DeferCall.dep \
 .obj/DestroyGuard.dep \
@@ -568,6 +566,7 @@ DEP_LIST = \
 .obj/GCDConst.dep \
 .obj/Gadget.dep \
 .obj/GenFile.dep \
+.obj/GetBinaryFile.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
@@ -650,6 +649,7 @@ DEP_LIST = \
 .obj/PtrLen.dep \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
+.obj/PutBinaryFile.dep \
 .obj/Quick.dep \
 .obj/QuickSort.dep \
 .obj/RBTreeBase.dep \
@@ -820,9 +820,6 @@ include $(RULES_FILE)
 .obj/BinFileToRead.o : ../../Applied/CCore/src/BinFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
-.obj/BinaryFile.o : ../../HCore/CCore/src/BinaryFile.cpp
-	$(CC) $(CCOPT) $< -o $@
-
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -875,9 +872,6 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Creator.o : ../../Fundamental/CCore/src/array/Creator.cpp
-	$(CC) $(CCOPT) $< -o $@
-
-.obj/DecodeFile.o : ../../HCore/CCore/src/DecodeFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
@@ -959,6 +953,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GenFile.o : ../../Fundamental/CCore/src/GenFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/GetBinaryFile.o : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
@@ -1205,6 +1202,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PtrStepLen.o : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PutBinaryFile.o : ../../HCore/CCore/src/PutBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Quick.o : ../../Target/WIN32/CCore/src/base/Quick.cpp
@@ -1569,9 +1569,6 @@ include $(RULES_FILE)
 .obj/BinFileToRead.s : ../../Applied/CCore/src/BinFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
-.obj/BinaryFile.s : ../../HCore/CCore/src/BinaryFile.cpp
-	$(CC) -S $(CCOPT) $< -o $@
-
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1624,9 +1621,6 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Creator.s : ../../Fundamental/CCore/src/array/Creator.cpp
-	$(CC) -S $(CCOPT) $< -o $@
-
-.obj/DecodeFile.s : ../../HCore/CCore/src/DecodeFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
@@ -1708,6 +1702,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GenFile.s : ../../Fundamental/CCore/src/GenFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/GetBinaryFile.s : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
@@ -1954,6 +1951,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PtrStepLen.s : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PutBinaryFile.s : ../../HCore/CCore/src/PutBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Quick.s : ../../Target/WIN32/CCore/src/base/Quick.cpp
@@ -2318,9 +2318,6 @@ include $(RULES_FILE)
 .obj/BinFileToRead.dep : ../../Applied/CCore/src/BinFileToRead.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinFileToRead.o $< -MF $@
 
-.obj/BinaryFile.dep : ../../HCore/CCore/src/BinaryFile.cpp
-	$(CC) $(CCOPT) -MM -MT .obj/BinaryFile.o $< -MF $@
-
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
 
@@ -2374,9 +2371,6 @@ include $(RULES_FILE)
 
 .obj/Creator.dep : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Creator.o $< -MF $@
-
-.obj/DecodeFile.dep : ../../HCore/CCore/src/DecodeFile.cpp
-	$(CC) $(CCOPT) -MM -MT .obj/DecodeFile.o $< -MF $@
 
 .obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
@@ -2458,6 +2452,9 @@ include $(RULES_FILE)
 
 .obj/GenFile.dep : ../../Fundamental/CCore/src/GenFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GenFile.o $< -MF $@
+
+.obj/GetBinaryFile.dep : ../../HCore/CCore/src/GetBinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GetBinaryFile.o $< -MF $@
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
@@ -2704,6 +2701,9 @@ include $(RULES_FILE)
 
 .obj/PtrStepLen.dep : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PtrStepLen.o $< -MF $@
+
+.obj/PutBinaryFile.dep : ../../HCore/CCore/src/PutBinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PutBinaryFile.o $< -MF $@
 
 .obj/Quick.dep : ../../Target/WIN32/CCore/src/base/Quick.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Quick.o $< -MF $@

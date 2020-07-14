@@ -1,4 +1,4 @@
-/* BinaryFile.h */
+/* PutBinaryFile.h */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
@@ -13,8 +13,8 @@
 //
 //----------------------------------------------------------------------------------------
 
-#ifndef CCore_inc_BinaryFile_h
-#define CCore_inc_BinaryFile_h
+#ifndef CCore_inc_PutBinaryFile_h
+#define CCore_inc_PutBinaryFile_h
 
 #include <CCore/inc/SaveLoad.h>
 #include <CCore/inc/Array.h>
@@ -25,11 +25,11 @@ namespace CCore {
 
 /* classes */
 
-class BinaryFile;
+class PutBinaryFile;
 
 /* class BinaryFile */
 
-class BinaryFile : public NoCopyBase< PutDevBase<BinaryFile> >
+class PutBinaryFile : public NoCopyBase< PutDevBase<PutBinaryFile> >
  {
    static constexpr ulen BufLen = 64_KByte ;
 
@@ -49,11 +49,11 @@ class BinaryFile : public NoCopyBase< PutDevBase<BinaryFile> >
 
    // constructors
 
-   BinaryFile() noexcept;
+   PutBinaryFile() noexcept;
 
-   explicit BinaryFile(StrLen file_name,FileOpenFlags oflags=Open_ToWrite);
+   explicit PutBinaryFile(StrLen file_name,FileOpenFlags oflags=Open_ToWrite);
 
-   ~BinaryFile();
+   ~PutBinaryFile();
 
    // methods
 

@@ -34,14 +34,14 @@ class PrintFile;
 class RawFileToPrint : NoCopy
  {
    Sys::File file;
-   bool opened;
+   bool opened = false ;
    bool preserve_file;
 
   public:
 
    // constructors
 
-   RawFileToPrint() : opened(false) {}
+   RawFileToPrint() {}
 
     // No destructor !
 

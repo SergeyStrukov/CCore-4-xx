@@ -19,6 +19,8 @@
 #include <CCore/inc/GenFile.h>
 #include <CCore/inc/RefObjectBase.h>
 #include <CCore/inc/ToMemBase.h>
+#include <CCore/inc/SaveLoad.h>
+#include <CCore/inc/SafeBuf.h>
 
 namespace CCore {
 
@@ -31,6 +33,8 @@ void GuardBinFileTooLong(StrLen file_name,ulen max_len,FilePosType file_len);
 class AbstractBinFileToRead;
 
 class BinFileToMem;
+
+class DecodeBinFile;
 
 /* class AbstractBinFileToRead */
 
@@ -104,6 +108,56 @@ class BinFileToMem : public ToMemBase
    explicit BinFileToMem(ToMoveCtor<BinFileToMem> obj) noexcept
     : ToMemBase(obj.template cast<ToMemBase>())
     {}
+ };
+
+/* class DecodeBinFile */
+
+class DecodeBinFile : public NoCopyBase< GetDevBase<DecodeBinFile> >
+ {
+   static constexpr ulen BufLen = 64_KByte ;
+
+   BinFileToRead file;
+   SafeBuf buf;
+   FilePosType off = 0 ;
+
+   PtrLen<const uint8> cur;
+
+  private:
+
+   uint8 * getBase() { return MutatePtr<uint8>(buf.getPtr()); }
+
+   void underflow();
+
+   bool underflow_eof();
+
+  public:
+
+   // constructors
+
+   DecodeBinFile(const BinFileToRead &file,StrLen file_name);
+
+   ~DecodeBinFile();
+
+   // pump raw data
+
+   bool more() { return +cur || underflow_eof() ; }
+
+   PtrLen<const uint8> pump() { return Replace_null(cur); }
+
+   // get
+
+   uint8 do_get()
+    {
+     if( !cur ) underflow();
+
+     uint8 ret=*cur;
+
+     ++cur;
+
+     return ret;
+    }
+
+   void do_get(uint8 *ptr,ulen len);
  };
 
 } // namespace CCore

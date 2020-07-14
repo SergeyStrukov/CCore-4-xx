@@ -1,4 +1,4 @@
-/* BinaryFile.cpp */
+/* PutBinaryFile.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
@@ -13,7 +13,7 @@
 //
 //----------------------------------------------------------------------------------------
 
-#include <CCore/inc/BinaryFile.h>
+#include <CCore/inc/PutBinaryFile.h>
 
 #include <CCore/inc/FeedBuf.h>
 
@@ -21,13 +21,13 @@
 
 namespace CCore {
 
-/* class BinaryFile */
+/* class PutBinaryFile */
 
-void BinaryFile::provide()
+void PutBinaryFile::provide()
  {
   if( !isOpened() )
     {
-     Printf(Exception,"CCore::BinaryFile::provide() : file is not opened");
+     Printf(Exception,"CCore::PutBinaryFile::provide() : file is not opened");
     }
 
   flush();
@@ -36,17 +36,17 @@ void BinaryFile::provide()
   has_data=true;
  }
 
-BinaryFile::BinaryFile() noexcept
+PutBinaryFile::PutBinaryFile() noexcept
  {
  }
 
-BinaryFile::BinaryFile(StrLen file_name,FileOpenFlags oflags)
- : BinaryFile()
+PutBinaryFile::PutBinaryFile(StrLen file_name,FileOpenFlags oflags)
+ : PutBinaryFile()
  {
   open(file_name,oflags);
  }
 
-BinaryFile::~BinaryFile()
+PutBinaryFile::~PutBinaryFile()
  {
   if( isOpened() )
     {
@@ -56,12 +56,12 @@ BinaryFile::~BinaryFile()
 
      if( +errout )
        {
-        Printf(NoException,"CCore::BinaryFile::~BinaryFile() : #;",errout);
+        Printf(NoException,"CCore::PutBinaryFile::~PutBinaryFile() : #;",errout);
        }
     }
  }
 
-void BinaryFile::open(StrLen file_name,FileOpenFlags oflags)
+void PutBinaryFile::open(StrLen file_name,FileOpenFlags oflags)
  {
   if( buf.isEmpty() )
     {
@@ -70,7 +70,7 @@ void BinaryFile::open(StrLen file_name,FileOpenFlags oflags)
 
   if( FileError error=file.open(file_name,oflags) )
     {
-     Printf(Exception,"CCore::BinaryFile::open(#.q;,#;) : #;",file_name,oflags,error);
+     Printf(Exception,"CCore::PutBinaryFile::open(#.q;,#;) : #;",file_name,oflags,error);
     }
 
   no_flush_exception=false;
@@ -78,7 +78,7 @@ void BinaryFile::open(StrLen file_name,FileOpenFlags oflags)
   has_data=false;
  }
 
-void BinaryFile::disableExceptions()
+void PutBinaryFile::disableExceptions()
  {
   if( !no_flush_exception )
     {
@@ -88,7 +88,7 @@ void BinaryFile::disableExceptions()
     }
  }
 
-void BinaryFile::close(FileMultiError &errout)
+void PutBinaryFile::close(FileMultiError &errout)
  {
   if( isOpened() )
     {
@@ -106,7 +106,7 @@ void BinaryFile::close(FileMultiError &errout)
     }
  }
 
-void BinaryFile::close()
+void PutBinaryFile::close()
  {
   FileMultiError errout;
 
@@ -114,11 +114,11 @@ void BinaryFile::close()
 
   if( +errout )
     {
-     Printf(Exception,"CCore::BinaryFile::close() : #;",errout);
+     Printf(Exception,"CCore::PutBinaryFile::close() : #;",errout);
     }
  }
 
-void BinaryFile::do_put(const uint8 *ptr,ulen len)
+void PutBinaryFile::do_put(const uint8 *ptr,ulen len)
  {
   auto src=Range(ptr,len);
 
@@ -130,7 +130,7 @@ void BinaryFile::do_put(const uint8 *ptr,ulen len)
     }
  }
 
-void BinaryFile::flush()
+void PutBinaryFile::flush()
  {
   if( !has_data ) return;
 
@@ -149,7 +149,7 @@ void BinaryFile::flush()
        }
      else
        {
-        Printf(Exception,"CCore::BinaryFile::flush(...) : #;",error);
+        Printf(Exception,"CCore::PutBinaryFile::flush(...) : #;",error);
        }
     }
  }

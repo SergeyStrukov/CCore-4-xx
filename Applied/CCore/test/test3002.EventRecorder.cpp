@@ -119,7 +119,7 @@ bool Testit<3002>::Main()
 
   Putobj(out,recorder);
 
-  BinaryFile dev("test3002.bin");
+  PutBinaryFile dev("test3002.bin");
 
   dev(recorder);
 

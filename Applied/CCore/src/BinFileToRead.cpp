@@ -15,6 +15,8 @@
 
 #include <CCore/inc/BinFileToRead.h>
 
+#include <CCore/inc/FeedBuf.h>
+
 #include <CCore/inc/Exception.h>
 
 namespace CCore {
@@ -93,6 +95,74 @@ BinFileToMem::BinFileToMem(BinFileToRead file,StrLen file_name,ulen max_len)
     }
 
   file->close();
+ }
+
+/* class DecodeBinFile */
+
+void DecodeBinFile::underflow()
+ {
+  uint8 *ptr=getBase();
+
+  ulen len=file->read(off,ptr,buf.getLen());
+
+  if( !len )
+    {
+     Printf(Exception,"CCore::DecodeBinFile::underflow() : EOF");
+    }
+  else
+    {
+     cur=Range_const(ptr,len);
+
+     off+=len;
+    }
+ }
+
+bool DecodeBinFile::underflow_eof()
+ {
+  uint8 *ptr=getBase();
+
+  ulen len=file->read(off,ptr,buf.getLen());
+
+  if( !len )
+    {
+     return false;
+    }
+  else
+    {
+     cur=Range_const(ptr,len);
+
+     off+=len;
+
+     return true;
+    }
+ }
+
+ // constructors
+
+DecodeBinFile::DecodeBinFile(const BinFileToRead &file_,StrLen file_name)
+ : file(file_),
+   buf(BufLen)
+ {
+  file->open(file_name);
+ }
+
+DecodeBinFile::~DecodeBinFile()
+ {
+  file->close();
+ }
+
+ // get
+
+void DecodeBinFile::do_get(uint8 *ptr,ulen len)
+ {
+  auto dst=Range(ptr,len);
+
+  while( +dst )
+    {
+     if( !cur ) underflow();
+
+     Pumpup(dst,cur);
+    }
  }
 
 } // namespace CCore

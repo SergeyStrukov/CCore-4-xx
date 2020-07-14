@@ -55,7 +55,7 @@ bool Testit<2500>::Main()
    TestPrint(out);
   }
 
-  BinaryFile dev("test2500.bin");
+  PutBinaryFile dev("test2500.bin");
 
   dev(recorder);
 

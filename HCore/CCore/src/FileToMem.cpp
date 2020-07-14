@@ -55,7 +55,7 @@ PartFileToMem::~PartFileToMem()
  {
  }
 
-PtrLen<const uint8> PartFileToMem::read()
+PtrLen<const uint8> PartFileToMem::pump()
  {
   uint8 *ptr=buf.getPtr();
   ulen len=buf.getLen();
