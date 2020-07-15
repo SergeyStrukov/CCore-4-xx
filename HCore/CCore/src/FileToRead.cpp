@@ -22,9 +22,9 @@
 
 namespace CCore {
 
-/* class DefBinFileToRead::Base */
+/* class DefAbstFileToRead::Base */
 
-class DefBinFileToRead::Base : public BinFileToReadBase
+class DefAbstFileToRead::Base : public AbstFileToReadBase
  {
    OptMember<AltFileToRead> file;
 
@@ -38,7 +38,7 @@ class DefBinFileToRead::Base : public BinFileToReadBase
     {
      if( is_opened )
        {
-        Printf(Exception,"CCore::DefBinFileToRead::Base::open(#.q;,#;) : file is already opened",file_name,oflags);
+        Printf(Exception,"CCore::DefAbstFileToRead::Base::open(#.q;,#;) : file is already opened",file_name,oflags);
        }
      else
        {
@@ -60,7 +60,7 @@ class DefBinFileToRead::Base : public BinFileToReadBase
        }
      else
        {
-        Printf(NoException,"CCore::DefBinFileToRead::Base::close(...) : file is not opened");
+        Printf(NoException,"CCore::DefAbstFileToRead::Base::close(...) : file is not opened");
        }
     }
 
@@ -68,7 +68,7 @@ class DefBinFileToRead::Base : public BinFileToReadBase
     {
      if( !is_opened )
        {
-        Printf(Exception,"CCore::DefBinFileToRead::Base::read(...) : file is not opened");
+        Printf(Exception,"CCore::DefAbstFileToRead::Base::read(...) : file is not opened");
        }
 
      return file.getPtr_unsafe()->read(off,buf,len);
@@ -78,27 +78,27 @@ class DefBinFileToRead::Base : public BinFileToReadBase
     {
      if( !is_opened )
        {
-        Printf(Exception,"CCore::DefBinFileToRead::Base::read_all(...) : file is not opened");
+        Printf(Exception,"CCore::DefAbstFileToRead::Base::read_all(...) : file is not opened");
        }
 
      file.getPtr_unsafe()->read_all(off,buf,len);
     }
  };
 
-/* class DefBinFileToRead */
+/* class DefAbstFileToRead */
 
-DefBinFileToRead::DefBinFileToRead()
- : BinFileToRead(new Base())
+DefAbstFileToRead::DefAbstFileToRead()
+ : AbstFileToRead(new Base())
  {
  }
 
-DefBinFileToRead::~DefBinFileToRead()
+DefAbstFileToRead::~DefAbstFileToRead()
  {
  }
 
-/* class VolumeBinFileToRead::Base */
+/* class VolumeAbstFileToRead::Base */
 
-class VolumeBinFileToRead::Base : public BinFileToReadBase
+class VolumeAbstFileToRead::Base : public AbstFileToReadBase
  {
    Volume<AltFileToRead> vol;
 
@@ -114,7 +114,7 @@ class VolumeBinFileToRead::Base : public BinFileToReadBase
     {
      if( is_opened )
        {
-        Printf(Exception,"CCore::VolumeBinFileToRead::Base::open(#.q;,#;) : file is already opened",file_name,oflags);
+        Printf(Exception,"CCore::VolumeAbstFileToRead::Base::open(#.q;,#;) : file is already opened",file_name,oflags);
        }
      else
        {
@@ -136,7 +136,7 @@ class VolumeBinFileToRead::Base : public BinFileToReadBase
        }
      else
        {
-        Printf(NoException,"CCore::VolumeBinFileToRead::Base::close(...) : file is not opened");
+        Printf(NoException,"CCore::VolumeAbstFileToRead::Base::close(...) : file is not opened");
        }
     }
 
@@ -144,7 +144,7 @@ class VolumeBinFileToRead::Base : public BinFileToReadBase
     {
      if( !is_opened )
        {
-        Printf(Exception,"CCore::VolumeBinFileToRead::Base::read(...) : file is not opened");
+        Printf(Exception,"CCore::VolumeAbstFileToRead::Base::read(...) : file is not opened");
        }
 
      return file.getPtr_unsafe()->read(off,buf,len);
@@ -154,21 +154,21 @@ class VolumeBinFileToRead::Base : public BinFileToReadBase
     {
      if( !is_opened )
        {
-        Printf(Exception,"CCore::VolumeBinFileToRead::Base::read_all(...) : file is not opened");
+        Printf(Exception,"CCore::VolumeAbstFileToRead::Base::read_all(...) : file is not opened");
        }
 
      file.getPtr_unsafe()->read_all(off,buf,len);
     }
  };
 
-/* class VolumeBinFileToRead */
+/* class VolumeAbstFileToRead */
 
-VolumeBinFileToRead::VolumeBinFileToRead(StrLen file_name,FileOpenFlags oflags)
- : BinFileToRead(new Base(file_name,oflags))
+VolumeAbstFileToRead::VolumeAbstFileToRead(StrLen file_name,FileOpenFlags oflags)
+ : AbstFileToRead(new Base(file_name,oflags))
  {
  }
 
-VolumeBinFileToRead::~VolumeBinFileToRead()
+VolumeAbstFileToRead::~VolumeAbstFileToRead()
  {
  }
 

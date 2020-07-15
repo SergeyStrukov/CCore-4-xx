@@ -25,7 +25,7 @@ namespace CCore {
 
 void GetBinaryFile::underflow()
  {
-  uint8 *ptr=getBase();
+  uint8 *ptr=buf.getPtr();
 
   auto result=file.read(ptr,buf.getLen());
 
@@ -45,7 +45,7 @@ void GetBinaryFile::underflow()
 
 bool GetBinaryFile::underflow_eof()
  {
-  uint8 *ptr=getBase();
+  uint8 *ptr=buf.getPtr();
 
   auto result=file.read(ptr,buf.getLen());
 

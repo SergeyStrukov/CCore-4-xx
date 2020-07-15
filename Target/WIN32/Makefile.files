@@ -1,6 +1,8 @@
 OBJ_LIST = \
 .obj/Abort.o \
 .obj/AbortMsgFunc.o \
+.obj/AbstFileToMem.o \
+.obj/AbstFileToRead.o \
 .obj/AntiSem.o \
 .obj/AnyPtr.o \
 .obj/ApplyToList.o \
@@ -16,7 +18,6 @@ OBJ_LIST = \
 .obj/AutoGlobal.o \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
-.obj/BinFileToRead.o \
 .obj/BinarySearch.o \
 .obj/BlockFifo.o \
 .obj/CapString.o \
@@ -62,6 +63,7 @@ OBJ_LIST = \
 .obj/GCDConst.o \
 .obj/Gadget.o \
 .obj/GenFile.o \
+.obj/GetAbstFile.o \
 .obj/GetBinaryFile.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
@@ -253,6 +255,8 @@ OBJ_LIST = \
 ASM_LIST = \
 .obj/Abort.s \
 .obj/AbortMsgFunc.s \
+.obj/AbstFileToMem.s \
+.obj/AbstFileToRead.s \
 .obj/AntiSem.s \
 .obj/AnyPtr.s \
 .obj/ApplyToList.s \
@@ -268,7 +272,6 @@ ASM_LIST = \
 .obj/AutoGlobal.s \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
-.obj/BinFileToRead.s \
 .obj/BinarySearch.s \
 .obj/BlockFifo.s \
 .obj/CapString.s \
@@ -314,6 +317,7 @@ ASM_LIST = \
 .obj/GCDConst.s \
 .obj/Gadget.s \
 .obj/GenFile.s \
+.obj/GetAbstFile.s \
 .obj/GetBinaryFile.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
@@ -505,6 +509,8 @@ ASM_LIST = \
 DEP_LIST = \
 .obj/Abort.dep \
 .obj/AbortMsgFunc.dep \
+.obj/AbstFileToMem.dep \
+.obj/AbstFileToRead.dep \
 .obj/AntiSem.dep \
 .obj/AnyPtr.dep \
 .obj/ApplyToList.dep \
@@ -520,7 +526,6 @@ DEP_LIST = \
 .obj/AutoGlobal.dep \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
-.obj/BinFileToRead.dep \
 .obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
 .obj/CapString.dep \
@@ -566,6 +571,7 @@ DEP_LIST = \
 .obj/GCDConst.dep \
 .obj/Gadget.dep \
 .obj/GenFile.dep \
+.obj/GetAbstFile.dep \
 .obj/GetBinaryFile.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
@@ -772,6 +778,12 @@ include $(RULES_FILE)
 .obj/AbortMsgFunc.o : ../../Simple/CCore/src/AbortMsgFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AbstFileToMem.o : ../../Applied/CCore/src/AbstFileToMem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AbstFileToRead.o : ../../Applied/CCore/src/AbstFileToRead.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AntiSem.o : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -815,9 +827,6 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BestSearch.o : ../../Fundamental/CCore/src/algon/BestSearch.cpp
-	$(CC) $(CCOPT) $< -o $@
-
-.obj/BinFileToRead.o : ../../Applied/CCore/src/BinFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
@@ -953,6 +962,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GenFile.o : ../../Fundamental/CCore/src/GenFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/GetAbstFile.o : ../../Applied/CCore/src/GetAbstFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GetBinaryFile.o : ../../HCore/CCore/src/GetBinaryFile.cpp
@@ -1521,6 +1533,12 @@ include $(RULES_FILE)
 .obj/AbortMsgFunc.s : ../../Simple/CCore/src/AbortMsgFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AbstFileToMem.s : ../../Applied/CCore/src/AbstFileToMem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AbstFileToRead.s : ../../Applied/CCore/src/AbstFileToRead.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AntiSem.s : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1564,9 +1582,6 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BestSearch.s : ../../Fundamental/CCore/src/algon/BestSearch.cpp
-	$(CC) -S $(CCOPT) $< -o $@
-
-.obj/BinFileToRead.s : ../../Applied/CCore/src/BinFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
@@ -1702,6 +1717,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GenFile.s : ../../Fundamental/CCore/src/GenFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/GetAbstFile.s : ../../Applied/CCore/src/GetAbstFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GetBinaryFile.s : ../../HCore/CCore/src/GetBinaryFile.cpp
@@ -2270,6 +2288,12 @@ include $(RULES_FILE)
 .obj/AbortMsgFunc.dep : ../../Simple/CCore/src/AbortMsgFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AbortMsgFunc.o $< -MF $@
 
+.obj/AbstFileToMem.dep : ../../Applied/CCore/src/AbstFileToMem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AbstFileToMem.o $< -MF $@
+
+.obj/AbstFileToRead.dep : ../../Applied/CCore/src/AbstFileToRead.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AbstFileToRead.o $< -MF $@
+
 .obj/AntiSem.dep : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AntiSem.o $< -MF $@
 
@@ -2314,9 +2338,6 @@ include $(RULES_FILE)
 
 .obj/BestSearch.dep : ../../Fundamental/CCore/src/algon/BestSearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BestSearch.o $< -MF $@
-
-.obj/BinFileToRead.dep : ../../Applied/CCore/src/BinFileToRead.cpp
-	$(CC) $(CCOPT) -MM -MT .obj/BinFileToRead.o $< -MF $@
 
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
@@ -2452,6 +2473,9 @@ include $(RULES_FILE)
 
 .obj/GenFile.dep : ../../Fundamental/CCore/src/GenFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GenFile.o $< -MF $@
+
+.obj/GetAbstFile.dep : ../../Applied/CCore/src/GetAbstFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GetAbstFile.o $< -MF $@
 
 .obj/GetBinaryFile.dep : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GetBinaryFile.o $< -MF $@

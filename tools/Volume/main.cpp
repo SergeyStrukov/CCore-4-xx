@@ -24,7 +24,7 @@
 #include <CCore/inc/DirTreeRun.h>
 #include <CCore/inc/ElementPool.h>
 
-#include <CCore/inc/BinaryFile.h>
+#include <CCore/inc/PutBinaryFile.h>
 #include <CCore/inc/FileSystem.h>
 
 namespace App {
@@ -212,7 +212,7 @@ void Pack(StrLen dir_name,StrLen file_name)
      names_len=Add(names_len,r.file_name.len);
     }
 
-  BinaryFile dev(file_name,Open_ToWrite|Open_AutoDelete);
+  PutBinaryFile dev(file_name,Open_ToWrite|Open_AutoDelete);
 
    // header
 
@@ -311,7 +311,7 @@ void Unpack(StrLen file_name,StrLen dir_name)
 
      CreatePath(fs,file_path);
 
-     BinaryFile dev(file_path,Open_ToWrite|Open_AutoDelete);
+     PutBinaryFile dev(file_path,Open_ToWrite|Open_AutoDelete);
 
      CopyFile(file,dev);
 

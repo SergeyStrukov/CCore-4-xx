@@ -16,41 +16,41 @@
 #ifndef CCore_inc_FileToRead_h
 #define CCore_inc_FileToRead_h
 
-#include <CCore/inc/BinFileToRead.h>
+#include <CCore/inc/AbstFileToRead.h>
 #include <CCore/inc/Volume.h>
 
 namespace CCore {
 
 /* classes */
 
-class DefBinFileToRead;
+class DefAbstFileToRead;
 
-class VolumeBinFileToRead;
+class VolumeAbstFileToRead;
 
-/* class DefBinFileToRead */
+/* class DefAbstFileToRead */
 
-class DefBinFileToRead : public BinFileToRead
+class DefAbstFileToRead : public AbstFileToRead
  {
    class Base;
 
   public:
 
-   DefBinFileToRead();
+   DefAbstFileToRead();
 
-   ~DefBinFileToRead();
+   ~DefAbstFileToRead();
  };
 
-/* class VolumeBinFileToRead */
+/* class VolumeAbstFileToRead */
 
-class VolumeBinFileToRead : public BinFileToRead
+class VolumeAbstFileToRead : public AbstFileToRead
  {
    class Base;
 
   public:
 
-   explicit VolumeBinFileToRead(StrLen file_name,FileOpenFlags oflags=Open_Read);
+   explicit VolumeAbstFileToRead(StrLen file_name,FileOpenFlags oflags=Open_Read);
 
-   ~VolumeBinFileToRead();
+   ~VolumeAbstFileToRead();
  };
 
 } // namespace CCore

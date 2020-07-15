@@ -1,9 +1,9 @@
-/* GetBinaryFile.h */
+﻿/* GetAbstFile.h */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: HCore
+//  Tag: Applied
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -13,34 +13,32 @@
 //
 //----------------------------------------------------------------------------------------
 
-#ifndef CCore_inc_GetBinaryFile_h
-#define CCore_inc_GetBinaryFile_h
+#ifndef CCore_inc_GetAbstFile_h
+#define CCore_inc_GetAbstFile_h
 
+#include <CCore/inc/AbstFileToRead.h>
 #include <CCore/inc/SaveLoad.h>
 #include <CCore/inc/Array.h>
-
-#include <CCore/inc/scan/ScanFile.h>
 
 namespace CCore {
 
 /* classes */
 
-class GetBinaryFile;
+class GetAbstFile;
 
-/* class GetBinaryFile */
+/* class GetAbstFile */
 
-class GetBinaryFile : public NoCopyBase< GetDevBase<GetBinaryFile> >
+class GetAbstFile : public NoCopyBase< GetDevBase<GetAbstFile> >
  {
    static constexpr ulen BufLen = 64_KByte ;
 
-   RawFileToScan file;
+   AbstFileToRead file;
    SimpleArray<uint8> buf;
+   FilePosType off = 0 ;
 
    PtrLen<const uint8> cur;
 
   private:
-
-   void reset() { cur=Null; }
 
    void underflow();
 
@@ -50,21 +48,9 @@ class GetBinaryFile : public NoCopyBase< GetDevBase<GetBinaryFile> >
 
    // constructors
 
-   GetBinaryFile() noexcept;
+   GetAbstFile(AbstFileToRead file,StrLen file_name);
 
-   explicit GetBinaryFile(StrLen file_name);
-
-   ~GetBinaryFile();
-
-   // methods
-
-   bool isOpened() const { return file.isOpened(); }
-
-   void open(StrLen file_name);
-
-   void close(FileMultiError &errout);
-
-   void close();
+   ~GetAbstFile();
 
    // pump raw data
 
@@ -91,4 +77,6 @@ class GetBinaryFile : public NoCopyBase< GetDevBase<GetBinaryFile> >
 } // namespace CCore
 
 #endif
+
+
 
