@@ -16,14 +16,17 @@
 #ifndef CCore_inc_AbstFileToMem_h
 #define CCore_inc_AbstFileToMem_h
 
-#include <CCore/inc/AbstFileToRead.h>
 #include <CCore/inc/ToMemBase.h>
+#include <CCore/inc/Array.h>
+#include <CCore/inc/AbstFileToRead.h>
 
 namespace CCore {
 
 /* classes */
 
 class AbstFileToMem;
+
+class PartAbstFileToMem;
 
 /* class AbstFileToMem */
 
@@ -53,6 +56,36 @@ class AbstFileToMem : public ToMemBase
    explicit AbstFileToMem(ToMoveCtor<AbstFileToMem> obj) noexcept
     : ToMemBase(obj.template cast<ToMemBase>())
     {}
+ };
+
+/* class PartAbstFileToMem */
+
+class PartAbstFileToMem : NoCopy
+ {
+   AbstFileToRead file;
+   SimpleArray<uint8> buf;
+   FilePosType off;
+   FilePosType file_len;
+
+  public:
+
+   static constexpr ulen DefaultBufLen = 64_KByte ;
+
+   explicit PartAbstFileToMem(AbstFileToRead file,StrLen file_name,ulen buf_len=DefaultBufLen);
+
+   ~PartAbstFileToMem();
+
+   FilePosType getFileLen() const { return file_len; }
+
+   FilePosType getCurPos() const { return off; }
+
+   FilePosType getRestLen() const { return file_len-off; }
+
+   // pump raw data
+
+   bool more() const { return off<file_len; }
+
+   PtrLen<const uint8> pump();
  };
 
 } // namespace CCore

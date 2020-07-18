@@ -39,5 +39,40 @@ AbstFileToMem::AbstFileToMem(AbstFileToRead file,StrLen file_name,ulen max_len)
   file->read_all(0,alloc(len),len);
  }
 
+/* class PartAbstFileToMem */
+
+PartAbstFileToMem::PartAbstFileToMem(AbstFileToRead file_,StrLen file_name,ulen buf_len)
+ : file(file_),
+   buf(buf_len),
+   off(0)
+ {
+  file->open(file_name);
+
+  file_len=file->getLen();
+ }
+
+PartAbstFileToMem::~PartAbstFileToMem()
+ {
+  file->close();
+ }
+
+PtrLen<const uint8> PartAbstFileToMem::pump()
+ {
+  uint8 *ptr=buf.getPtr();
+  ulen len=buf.getLen();
+
+  FilePosType delta=file_len-off;
+
+  if( !delta ) return Empty;
+
+  if( delta<len ) len=(ulen)delta;
+
+  file->read_all(off,ptr,len);
+
+  off+=len;
+
+  return Range(ptr,len);
+ }
+
 } // namespace CCore
 

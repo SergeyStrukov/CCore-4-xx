@@ -34,7 +34,7 @@ class NullAbstFileToRead : public AbstFileToReadBase
      Printf(Exception,"CCore::NullAbstFileToRead::open(...) : no such file");
     }
 
-   virtual void close()
+   virtual void close() noexcept
     {
      Printf(NoException,"CCore::NullAbstFileToRead::close() : file is not opened");
     }

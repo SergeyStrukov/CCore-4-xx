@@ -50,7 +50,7 @@ class DefAbstFileToRead::Base : public AbstFileToReadBase
        }
     }
 
-   virtual void close()
+   virtual void close() noexcept
     {
      if( is_opened )
        {
@@ -126,7 +126,7 @@ class VolumeAbstFileToRead::Base : public AbstFileToReadBase
        }
     }
 
-   virtual void close()
+   virtual void close() noexcept
     {
      if( is_opened )
        {

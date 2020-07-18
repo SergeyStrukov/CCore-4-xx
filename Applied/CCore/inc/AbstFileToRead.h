@@ -46,7 +46,7 @@ class AbstractFileToRead : NoCopy
 
    virtual void open(StrLen file_name,FileOpenFlags oflags=Open_Read)=0;
 
-   virtual void close()=0;
+   virtual void close() noexcept =0;
 
    bool isOpened() const { return is_opened; }
 

@@ -16,12 +16,12 @@
 #ifndef CCore_inc_Volume_h
 #define CCore_inc_Volume_h
 
-#include <CCore/inc/GenFile.h>
+#include <CCore/inc/ToMemBase.h>
 #include <CCore/inc/Array.h>
+#include <CCore/inc/GenFile.h>
 #include <CCore/inc/Sort.h>
 #include <CCore/inc/algon/BinarySearch.h>
 #include <CCore/inc/SaveLoad.h>
-#include <CCore/inc/ToMemBase.h>
 
 namespace CCore {
 
