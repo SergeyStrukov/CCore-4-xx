@@ -70,7 +70,6 @@ OBJ_LIST = \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
 .obj/Init.o \
-.obj/InputUtils.o \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
 .obj/IntScan.o \
@@ -326,7 +325,6 @@ ASM_LIST = \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
 .obj/Init.s \
-.obj/InputUtils.s \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
 .obj/IntScan.s \
@@ -582,7 +580,6 @@ DEP_LIST = \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
 .obj/Init.dep \
-.obj/InputUtils.dep \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
 .obj/IntScan.dep \
@@ -989,9 +986,6 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
-	$(CC) $(CCOPT) $< -o $@
-
-.obj/InputUtils.o : ../../Applied/CCore/src/InputUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/InstanceLock.o : ../../Simple/CCore/src/InstanceLock.cpp
@@ -1752,9 +1746,6 @@ include $(RULES_FILE)
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
-.obj/InputUtils.s : ../../Applied/CCore/src/InputUtils.cpp
-	$(CC) -S $(CCOPT) $< -o $@
-
 .obj/InstanceLock.s : ../../Simple/CCore/src/InstanceLock.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2512,9 +2503,6 @@ include $(RULES_FILE)
 
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
-
-.obj/InputUtils.dep : ../../Applied/CCore/src/InputUtils.cpp
-	$(CC) $(CCOPT) -MM -MT .obj/InputUtils.o $< -MF $@
 
 .obj/InstanceLock.dep : ../../Simple/CCore/src/InstanceLock.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/InstanceLock.o $< -MF $@
