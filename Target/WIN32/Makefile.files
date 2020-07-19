@@ -25,6 +25,7 @@ OBJ_LIST = \
 .obj/CharUtils.o \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
+.obj/CmdInput.o \
 .obj/Cmp.o \
 .obj/Collector.o \
 .obj/CommonIntAlgo.o \
@@ -79,6 +80,7 @@ OBJ_LIST = \
 .obj/Job.o \
 .obj/LaunchPath.o \
 .obj/Len.o \
+.obj/LineInput.o \
 .obj/List.o \
 .obj/ListCursor.o \
 .obj/LockObject.o \
@@ -279,6 +281,7 @@ ASM_LIST = \
 .obj/CharUtils.s \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
+.obj/CmdInput.s \
 .obj/Cmp.s \
 .obj/Collector.s \
 .obj/CommonIntAlgo.s \
@@ -333,6 +336,7 @@ ASM_LIST = \
 .obj/Job.s \
 .obj/LaunchPath.s \
 .obj/Len.s \
+.obj/LineInput.s \
 .obj/List.s \
 .obj/ListCursor.s \
 .obj/LockObject.s \
@@ -533,6 +537,7 @@ DEP_LIST = \
 .obj/CharUtils.dep \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
+.obj/CmdInput.dep \
 .obj/Cmp.dep \
 .obj/Collector.dep \
 .obj/CommonIntAlgo.dep \
@@ -587,6 +592,7 @@ DEP_LIST = \
 .obj/Job.dep \
 .obj/LaunchPath.dep \
 .obj/Len.dep \
+.obj/LineInput.dep \
 .obj/List.dep \
 .obj/ListCursor.dep \
 .obj/LockObject.dep \
@@ -850,6 +856,9 @@ include $(RULES_FILE)
 .obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/CmdInput.o : ../../Applied/CCore/src/CmdInput.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Cmp.o : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1010,6 +1019,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/LineInput.o : ../../Applied/CCore/src/LineInput.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/List.o : ../../Fundamental/CCore/src/List.cpp
@@ -1605,6 +1617,9 @@ include $(RULES_FILE)
 .obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CmdInput.s : ../../Applied/CCore/src/CmdInput.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Cmp.s : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1765,6 +1780,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/LineInput.s : ../../Applied/CCore/src/LineInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/List.s : ../../Fundamental/CCore/src/List.cpp
@@ -2360,6 +2378,9 @@ include $(RULES_FILE)
 .obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
 
+.obj/CmdInput.dep : ../../Applied/CCore/src/CmdInput.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CmdInput.o $< -MF $@
+
 .obj/Cmp.dep : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Cmp.o $< -MF $@
 
@@ -2521,6 +2542,9 @@ include $(RULES_FILE)
 
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
+
+.obj/LineInput.dep : ../../Applied/CCore/src/LineInput.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LineInput.o $< -MF $@
 
 .obj/List.dep : ../../Fundamental/CCore/src/List.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/List.o $< -MF $@

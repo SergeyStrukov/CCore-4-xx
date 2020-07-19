@@ -231,6 +231,15 @@ void TrimUtf8End(StrLen &text)
     }
  }
 
+ulen PopUtf8(const char *ptr,ulen len)
+ {
+  while( len && Utf8Ext(ptr[len-1]) ) len--;
+
+  if( len ) len--;
+
+  return len;
+ }
+
 ulen Utf8Len(StrLen text)
  {
   ulen ret=0;

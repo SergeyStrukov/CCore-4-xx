@@ -65,9 +65,11 @@ inline StrLen TrimText(StrLen text)
   return text;
  }
 
+inline ulen PopSymbol(const char *ptr,ulen len) { return PopUtf8(ptr,len); }
+
 /* functions */
 
-inline int ToChar(Symbol sym) { return (sym.getLen()==1)? sym[0] : (-1) ; }
+inline int ToBasicChar(Symbol sym) { return (sym.getLen()==1)? sym[0] : (-1) ; }
 
 inline ulen SymbolLen(Symbol sym) { return sym.getLen(); }
 
@@ -138,7 +140,7 @@ int CharBinValue(IsType<Char> auto ch)
 
 /* functions */
 
-int ToChar(IsType<Char> auto ch) { return (ch<128)? int(ch) : (-1) ; }
+int ToBasicChar(IsType<Char> auto ch) { return (ch<128)? int(ch) : (-1) ; }
 
 Symbol ToSymbol(IsType<Char> auto ch) { return ToUtf8(ch); }
 

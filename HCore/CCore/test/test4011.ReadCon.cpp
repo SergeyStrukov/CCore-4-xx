@@ -32,7 +32,7 @@ bool Testit<4011>::Main()
 
   con.put("Type 'x' to stop\n\n");
 
-  for(Symbol ch; ToChar(ch=con.get())!='x' ;)
+  for(Symbol ch; ToBasicChar(ch=con.get())!='x' ;)
     {
      Printf(Con,"#;\n",ExtCharCode(ch));
     }
@@ -48,7 +48,7 @@ bool Testit<4011>::Main()
         continue;
        }
 
-     if( ToChar(ch)=='x' ) break;
+     if( ToBasicChar(ch)=='x' ) break;
 
      Printf(Con,"#;\n",ExtCharCode(ch));
     }

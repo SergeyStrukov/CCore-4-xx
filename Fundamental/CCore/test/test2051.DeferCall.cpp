@@ -138,7 +138,7 @@ class Window : NoCopy
     {
      log(LogWork|LogEntry,"put('#;')",ExtCharCode(ch));
 
-     switch( ToChar(ch) )
+     switch( ToBasicChar(ch) )
        {
         case 'x' : case 'X' : DeferCallQueue::Stop(); break;
 

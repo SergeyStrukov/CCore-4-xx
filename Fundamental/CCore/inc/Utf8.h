@@ -227,6 +227,8 @@ Unicode CutUtf8_unicode_guarded(StrLen &text); // +text
 
 void TrimUtf8End(StrLen &text); // removes non-complete trailing sequence
 
+ulen PopUtf8(const char *ptr,ulen len);
+
 ulen Utf8Len(StrLen text);
 
 ulen Utf8Len_guarded(StrLen text);
