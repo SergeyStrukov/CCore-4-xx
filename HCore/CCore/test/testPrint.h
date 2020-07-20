@@ -16,8 +16,6 @@
 #ifndef CCore_test_testPrint_h
 #define CCore_test_testPrint_h
 
-#include <CCore/inc/print/PrintCon.h>
-
 #include <CCore/inc/Print.h>
 #include <CCore/inc/PutBinaryFile.h>
 
