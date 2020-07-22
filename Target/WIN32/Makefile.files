@@ -54,6 +54,7 @@ OBJ_LIST = \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
+.obj/FileNameMatch.o \
 .obj/FileSystem.o \
 .obj/FileToMem.o \
 .obj/FileToRead.o \
@@ -195,6 +196,7 @@ OBJ_LIST = \
 .obj/StrMap.o \
 .obj/StrParse.o \
 .obj/StrPrint.o \
+.obj/StrToChar.o \
 .obj/String.o \
 .obj/StringScan.o \
 .obj/Swap.o \
@@ -225,6 +227,7 @@ OBJ_LIST = \
 .obj/TaskCore.o \
 .obj/TaskEvent.o \
 .obj/TaskHeap.o \
+.obj/TaskMemStack.o \
 .obj/TempArray.o \
 .obj/TextLabel.o \
 .obj/TextTools.o \
@@ -309,6 +312,7 @@ ASM_LIST = \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
+.obj/FileNameMatch.s \
 .obj/FileSystem.s \
 .obj/FileToMem.s \
 .obj/FileToRead.s \
@@ -450,6 +454,7 @@ ASM_LIST = \
 .obj/StrMap.s \
 .obj/StrParse.s \
 .obj/StrPrint.s \
+.obj/StrToChar.s \
 .obj/String.s \
 .obj/StringScan.s \
 .obj/Swap.s \
@@ -480,6 +485,7 @@ ASM_LIST = \
 .obj/TaskCore.s \
 .obj/TaskEvent.s \
 .obj/TaskHeap.s \
+.obj/TaskMemStack.s \
 .obj/TempArray.s \
 .obj/TextLabel.s \
 .obj/TextTools.s \
@@ -564,6 +570,7 @@ DEP_LIST = \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
+.obj/FileNameMatch.dep \
 .obj/FileSystem.dep \
 .obj/FileToMem.dep \
 .obj/FileToRead.dep \
@@ -705,6 +712,7 @@ DEP_LIST = \
 .obj/StrMap.dep \
 .obj/StrParse.dep \
 .obj/StrPrint.dep \
+.obj/StrToChar.dep \
 .obj/String.dep \
 .obj/StringScan.dep \
 .obj/Swap.dep \
@@ -735,6 +743,7 @@ DEP_LIST = \
 .obj/TaskCore.dep \
 .obj/TaskEvent.dep \
 .obj/TaskHeap.dep \
+.obj/TaskMemStack.dep \
 .obj/TempArray.dep \
 .obj/TextLabel.dep \
 .obj/TextTools.dep \
@@ -938,6 +947,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Fifo.o : ../../Simple/CCore/src/Fifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileNameMatch.o : ../../Applied/CCore/src/FileNameMatch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FileSystem.o : ../../HCore/CCore/src/FileSystem.cpp
@@ -1363,6 +1375,9 @@ include $(RULES_FILE)
 .obj/StrPrint.o : ../../Fundamental/CCore/src/printf/StrPrint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/StrToChar.o : ../../Applied/CCore/src/StrToChar.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/String.o : ../../Fundamental/CCore/src/String.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1451,6 +1466,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TaskHeap.o : ../../HCore/CCore/src/TaskHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/TaskMemStack.o : ../../Applied/CCore/src/TaskMemStack.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/TempArray.o : ../../Fundamental/CCore/src/array/TempArray.cpp
@@ -1696,6 +1714,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Fifo.s : ../../Simple/CCore/src/Fifo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FileNameMatch.s : ../../Applied/CCore/src/FileNameMatch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FileSystem.s : ../../HCore/CCore/src/FileSystem.cpp
@@ -2121,6 +2142,9 @@ include $(RULES_FILE)
 .obj/StrPrint.s : ../../Fundamental/CCore/src/printf/StrPrint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/StrToChar.s : ../../Applied/CCore/src/StrToChar.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/String.s : ../../Fundamental/CCore/src/String.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2209,6 +2233,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/TaskHeap.s : ../../HCore/CCore/src/TaskHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/TaskMemStack.s : ../../Applied/CCore/src/TaskMemStack.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/TempArray.s : ../../Fundamental/CCore/src/array/TempArray.cpp
@@ -2455,6 +2482,9 @@ include $(RULES_FILE)
 
 .obj/Fifo.dep : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
+
+.obj/FileNameMatch.dep : ../../Applied/CCore/src/FileNameMatch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileNameMatch.o $< -MF $@
 
 .obj/FileSystem.dep : ../../HCore/CCore/src/FileSystem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileSystem.o $< -MF $@
@@ -2879,6 +2909,9 @@ include $(RULES_FILE)
 .obj/StrPrint.dep : ../../Fundamental/CCore/src/printf/StrPrint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StrPrint.o $< -MF $@
 
+.obj/StrToChar.dep : ../../Applied/CCore/src/StrToChar.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/StrToChar.o $< -MF $@
+
 .obj/String.dep : ../../Fundamental/CCore/src/String.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/String.o $< -MF $@
 
@@ -2968,6 +3001,9 @@ include $(RULES_FILE)
 
 .obj/TaskHeap.dep : ../../HCore/CCore/src/TaskHeap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TaskHeap.o $< -MF $@
+
+.obj/TaskMemStack.dep : ../../Applied/CCore/src/TaskMemStack.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/TaskMemStack.o $< -MF $@
 
 .obj/TempArray.dep : ../../Fundamental/CCore/src/array/TempArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TempArray.o $< -MF $@

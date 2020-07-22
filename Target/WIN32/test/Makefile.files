@@ -103,8 +103,10 @@ OBJ_LIST = \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test3001.Atomic.o \
 ../.test-obj/test3002.EventRecorder.o \
+../.test-obj/test3006.TaskMemStack.o \
 ../.test-obj/test3011.LineInput.o \
 ../.test-obj/test3012.CmdInput.o \
+../.test-obj/test3032.FileNameMatch.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
 ../.test-obj/test4036.LaunchPath.o \
@@ -219,8 +221,10 @@ ASM_LIST = \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test3001.Atomic.s \
 ../.test-obj/test3002.EventRecorder.s \
+../.test-obj/test3006.TaskMemStack.s \
 ../.test-obj/test3011.LineInput.s \
 ../.test-obj/test3012.CmdInput.s \
+../.test-obj/test3032.FileNameMatch.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
 ../.test-obj/test4036.LaunchPath.s \
@@ -335,8 +339,10 @@ DEP_LIST = \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test3001.Atomic.dep \
 ../.test-obj/test3002.EventRecorder.dep \
+../.test-obj/test3006.TaskMemStack.dep \
 ../.test-obj/test3011.LineInput.dep \
 ../.test-obj/test3012.CmdInput.dep \
+../.test-obj/test3032.FileNameMatch.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
 ../.test-obj/test4036.LaunchPath.dep \
@@ -664,10 +670,16 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.o : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3006.TaskMemStack.o : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test3011.LineInput.o : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3012.CmdInput.o : ../../../Applied/CCore/test/test3012.CmdInput.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3032.FileNameMatch.o : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/test4011.ReadCon.cpp
@@ -1005,10 +1017,16 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.s : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3006.TaskMemStack.s : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3011.LineInput.s : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3012.CmdInput.s : ../../../Applied/CCore/test/test3012.CmdInput.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3032.FileNameMatch.s : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/test4011.ReadCon.cpp
@@ -1346,11 +1364,17 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.dep : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3002.EventRecorder.o $< -MF $@
 
+../.test-obj/test3006.TaskMemStack.dep : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3006.TaskMemStack.o $< -MF $@
+
 ../.test-obj/test3011.LineInput.dep : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3011.LineInput.o $< -MF $@
 
 ../.test-obj/test3012.CmdInput.dep : ../../../Applied/CCore/test/test3012.CmdInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3012.CmdInput.o $< -MF $@
+
+../.test-obj/test3032.FileNameMatch.dep : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3032.FileNameMatch.o $< -MF $@
 
 ../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@
