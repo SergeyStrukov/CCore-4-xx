@@ -74,7 +74,7 @@ class FileNameFilter::State
      list.shrink_extra();
     }
 
-   void add(Filter s)
+   static void Add(Filter s,FuncArgType<ulen> auto func)
     {
      for(; +s ;++s)
        {
@@ -82,19 +82,24 @@ class FileNameFilter::State
           {
            case '*' :
             {
-             list.append_copy(s.len);
+             func(s.len);
             }
            break;
 
            case '?' :
             {
-             list.append_copy(s.len-1);
+             func(s.len-1);
             }
            return;
 
            default: return;
           }
        }
+    }
+
+   void add(Filter s)
+    {
+     Add(s, [this] (ulen len) { list.append_copy(len); } );
     }
 
    explicit State(const State *obj)
@@ -106,7 +111,7 @@ class FileNameFilter::State
      complete();
     }
 
-   void add(Filter s,Char ch_)
+   static void Add(Filter s,Char ch_,FuncArgType<ulen> auto func)
     {
      for(; +s ;++s)
        {
@@ -114,23 +119,28 @@ class FileNameFilter::State
           {
            case '*' :
             {
-             list.append_copy(s.len);
+             func(s.len);
             }
            break;
 
            case '?' :
             {
-             list.append_copy(s.len-1);
+             func(s.len-1);
             }
            return;
 
            default:
             {
-             if( ch==ch_ ) list.append_copy(s.len-1);
+             if( ch==ch_ ) func(s.len-1);
             }
            return;
           }
        }
+    }
+
+   void add(Filter s,Char ch)
+    {
+     Add(s,ch, [this] (ulen len) { list.append_copy(len); } );
     }
 
    State(const State *obj,Char ch)
