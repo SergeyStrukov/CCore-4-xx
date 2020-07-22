@@ -87,11 +87,17 @@ void IncrSort(PtrLen<T> range,Func less) { IncrSort(range.ptr,range.len,less); }
 template <class T,ObjLessFuncType<T> Func>
 void DecrSort(PtrLen<T> range,Func less) { DecrSort(range.ptr,range.len,less); }
 
+template <OpLessType T>
+void DecrSort(PtrLen<T> range) { IncrSort(range.ptr,range.len, [] (const T &a,const T &b) { return b<a; } ); }
+
 template <class T,ObjLessFuncType<T> Func>
 void IncrSort(PtrLenReverse<T> range,Func less) { DecrSort(range.ptr-range.len,range.len,less); }
 
 template <class T,ObjLessFuncType<T> Func>
 void DecrSort(PtrLenReverse<T> range,Func less) { IncrSort(range.ptr-range.len,range.len,less); }
+
+template <OpLessType T>
+void DecrSort(PtrLenReverse<T> range) { IncrSort(range.ptr,range.len, [] (const T &a,const T &b) { return b<a; } ); }
 
 template <OpLessType T>
 void Sort(PtrLenReverse<T> range) { IncrSort(range, [] (const T &a,const T &b) -> bool { return a<b; } ); }
