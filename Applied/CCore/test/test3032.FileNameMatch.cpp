@@ -18,6 +18,9 @@
 #include <CCore/inc/FileNameMatch.h>
 #include <CCore/inc/PlatformRandom.h>
 
+#include <CCore/inc/Timer.h>
+#include <CCore/inc/PrintTime.h>
+
 namespace App {
 
 namespace Private_3032 {
@@ -155,11 +158,12 @@ class Engine : NoCopy
     {
     }
 
+   template <class T>
    void step(ulen rep)
     {
      genFilter();
 
-     FileNameFilter filter(getFilter());
+     T filter(getFilter());
 
      for(; rep ;rep--)
        {
@@ -179,13 +183,14 @@ class Engine : NoCopy
        }
     }
 
+   template <class T>
    void run(ulen count=10000,ulen rep=1000)
     {
      for(; count ;count--)
        {
         Printf(Con,"#;     \r",count);
 
-        step(rep);
+        step<T>(rep);
        }
 
      Printf(Con,"\ndone\n");
@@ -206,7 +211,17 @@ bool Testit<3032>::Main()
  {
   Engine engine;
 
-  engine.run(1000);
+  SecTimer timer;
+
+  engine.run<FileNameFilter>(1000);
+
+  Printf(Con,"time = #;\n\n",PrintTime(timer.get()));
+
+  timer.reset();
+
+  engine.run<SlowFileNameFilter>(1000);
+
+  Printf(Con,"time = #;\n\n",PrintTime(timer.get()));
 
   return true;
  }

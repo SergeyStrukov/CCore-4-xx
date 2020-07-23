@@ -25,31 +25,130 @@
 
 namespace CCore {
 
+using namespace FileNameMatch;
+
+/* class SlowFileNameFilter */
+
+void SlowFileNameFilter::prepare(StrLen text)
+ {
+  filter.reserve(text.len);
+
+  while( +text )
+    {
+     Char ch=CutChar_guarded(text);
+
+     filter.append_copy(ch);
+    }
+
+  filter.shrink_extra();
+
+  ulen len=LenAdd(filter.getLen(),1);
+
+  flags.extend_default(len);
+  list.extend_default(len);
+
+  ok=true;
+ }
+
+void SlowFileNameFilter::suffixes(ulen count,FuncInitArgType<Filter> auto func_init) const
+ {
+  Suffixes(Range(list.getPtr(),count),Range(filter),func_init);
+ }
+
+void SlowFileNameFilter::add(Filter s,Char ch) const
+ {
+  Add(s,ch, [this] (ulen len) { flags[len]=true; } );
+ }
+
+ulen SlowFileNameFilter::complete() const
+ {
+  auto base=list.getPtr();
+
+  ulen count=0;
+
+  for(ulen i=0,lim=list.getLen(); i<lim ;i++) if( flags[i] ) base[count++]=i;
+
+  return count;
+ }
+
+SlowFileNameFilter::SlowFileNameFilter() noexcept
+ {
+ }
+
+SlowFileNameFilter::SlowFileNameFilter(StrLen filter)
+ {
+  prepare(filter);
+ }
+
+SlowFileNameFilter::~SlowFileNameFilter() {}
+
+ // methods
+
+void SlowFileNameFilter::reset()
+ {
+  filter.erase();
+  flags.erase();
+  list.erase();
+
+  ok=false;
+ }
+
+void SlowFileNameFilter::reset(StrLen filter)
+ {
+  reset();
+  prepare(filter);
+ }
+
+bool SlowFileNameFilter::operator () (StrLen file) const
+ {
+  if( !ok ) return false;
+
+  ulen len=filter.getLen();
+
+  // initial state
+
+  list[0]=len;
+
+  ulen count=1;
+
+  // state machine
+
+  while( +file )
+    {
+     Char ch=CutChar_guarded(file);
+
+     for(bool &flag : flags ) flag=false;
+
+     suffixes(count, [ch,this] (Filter s) { add(s,ch); } );
+
+     count=complete();
+
+     if( !count ) return false;
+    }
+
+  // final
+
+  TestFinal test;
+
+  suffixes(count,FunctorRef(test));
+
+  return test;
+ }
+
 /* class FileNameFilter::State */
 
 class FileNameFilter::State
  {
-   using Filter = PtrLen<const Char> ;
-
    Filter filter;
    DynArray<ulen> list;
 
   private:
 
-   static bool IsFinal(Filter s)
-    {
-     for(Char ch : s ) if( ch!='*' ) return false;
-
-     return true;
-    }
-
    // all suffixes
 
-   void suffixes(FuncArgType<Filter> auto func) const
+   void suffixes(FuncInitArgType<Filter> auto func_init) const
     {
-     Filter f=filter;
-
-     list.apply( [f,func] (ulen len) { return func(f.suffix(len)); } );
+     Suffixes(Range(list),filter,func_init);
     }
 
    // follow states
@@ -74,29 +173,6 @@ class FileNameFilter::State
      list.shrink_extra();
     }
 
-   static void Add(Filter s,FuncArgType<ulen> auto func)
-    {
-     for(; +s ;++s)
-       {
-        switch( *s )
-          {
-           case '*' :
-            {
-             func(s.len);
-            }
-           break;
-
-           case '?' :
-            {
-             func(s.len-1);
-            }
-           return;
-
-           default: return;
-          }
-       }
-    }
-
    void add(Filter s)
     {
      Add(s, [this] (ulen len) { list.append_copy(len); } );
@@ -109,33 +185,6 @@ class FileNameFilter::State
      obj->suffixes( [this] (Filter s) { add(s); } );
 
      complete();
-    }
-
-   static void Add(Filter s,Char ch_,FuncArgType<ulen> auto func)
-    {
-     for(; +s ;++s)
-       {
-        switch( Char ch=*s )
-          {
-           case '*' :
-            {
-             func(s.len);
-            }
-           break;
-
-           case '?' :
-            {
-             func(s.len-1);
-            }
-           return;
-
-           default:
-            {
-             if( ch==ch_ ) func(s.len-1);
-            }
-           return;
-          }
-       }
     }
 
    void add(Filter s,Char ch)
@@ -175,22 +224,11 @@ class FileNameFilter::State
 
    bool isFinal() const
     {
-     bool ret=false;
+     TestFinal test;
 
-     suffixes( [&ret] (Filter s) -> bool
-                      {
-                       if( IsFinal(s) )
-                         {
-                          ret=true;
+     suffixes(FunctorRef(test));
 
-                          return false;
-                         }
-
-                       return true;
-
-                      } );
-
-     return ret;
+     return test;
     }
 
    void follow(Char buf[],FuncArgType<Char,State &&> auto char_func,FuncArgType<State &&> auto other_func) const // buf.len == filter.len

@@ -18,12 +18,160 @@
 
 #include <CCore/inc/Array.h>
 #include <CCore/inc/Symbol.h>
+#include <CCore/inc/FunctorType.h>
+#include <CCore/inc/algon/ApplyToRange.h>
 
 namespace CCore {
 
+/* namespace FileNameMatch */
+
+namespace FileNameMatch {
+
+/* type Filter */
+
+using Filter = PtrLen<const Char> ;
+
+/* functions */
+
+inline bool IsFinal(Filter s)
+ {
+  for(Char ch : s ) if( ch!='*' ) return false;
+
+  return true;
+ }
+
+void Add(Filter s,FuncArgType<ulen> auto func)
+ {
+  for(; +s ;++s)
+    {
+     switch( *s )
+       {
+        case '*' :
+         {
+          func(s.len);
+         }
+        break;
+
+        case '?' :
+         {
+          func(s.len-1);
+         }
+        return;
+
+        default: return;
+       }
+    }
+ }
+
+void Add(Filter s,Char ch_,FuncArgType<ulen> auto func)
+ {
+  for(; +s ;++s)
+    {
+     switch( Char ch=*s )
+       {
+        case '*' :
+         {
+          func(s.len);
+         }
+        break;
+
+        case '?' :
+         {
+          func(s.len-1);
+         }
+        return;
+
+        default:
+         {
+          if( ch==ch_ ) func(s.len-1);
+         }
+        return;
+       }
+    }
+ }
+
+template <FuncInitArgType<Filter> FuncInit>
+void Suffixes(PtrLen<const ulen> len_list,Filter filter,FuncInit func_init)
+ {
+  FunctorTypeOf<FuncInit> func(func_init);
+
+  Algon::ApplyToRange(len_list, [filter,&func] (ulen slen) { return func(filter.suffix(slen)); } );
+ }
+
+/* struct TestFinal */
+
+struct TestFinal
+ {
+  bool ret=false;
+
+  operator bool() const { return ret; }
+
+  bool operator () (Filter filter)
+   {
+    if( IsFinal(filter) )
+      {
+       ret=true;
+
+       return false;
+      }
+
+    return true;
+   }
+ };
+
+} // namespace FileNameMatch
+
 /* classes */
 
+class SlowFileNameFilter;
+
 class FileNameFilter;
+
+/* class SlowFileNameFilter */
+
+class SlowFileNameFilter : NoCopy
+ {
+   DynArray<Char> filter;
+
+   mutable DynArray<bool> flags;
+   mutable DynArray<ulen> list;
+
+   bool ok = false ;
+
+  private:
+
+   using Filter = PtrLen<const Char> ;
+
+   void prepare(StrLen filter);
+
+   void suffixes(ulen count,FuncInitArgType<Filter> auto func_init) const;
+
+   void add(Filter s,Char ch) const;
+
+   ulen complete() const;
+
+  public:
+
+   SlowFileNameFilter() noexcept;
+
+   explicit SlowFileNameFilter(StrLen filter);
+
+   ~SlowFileNameFilter();
+
+   // props
+
+   bool operator + () const { return ok; }
+
+   bool operator ! () const { return !ok; }
+
+   // methods
+
+   void reset();
+
+   void reset(StrLen filter);
+
+   bool operator () (StrLen file) const;
+ };
 
 /* class FileNameFilter */
 
