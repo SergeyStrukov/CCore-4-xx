@@ -127,6 +127,8 @@ class SlowFileNameFilter;
 
 class FileNameFilter;
 
+class ComboFileNameFilter; // TODO
+
 /* class SlowFileNameFilter */
 
 class SlowFileNameFilter : NoCopy
@@ -177,11 +179,15 @@ class SlowFileNameFilter : NoCopy
 
 class FileNameFilter : NoCopy
  {
+   struct StatePtr;
+
    class State;
 
    struct StateArrow;
 
    class FullState;
+
+   struct StateCouple;
 
    class StateMap;
 
@@ -195,6 +201,8 @@ class FileNameFilter : NoCopy
         ulen index;
 
         explicit Arrow(const StateArrow &obj);
+
+        operator Char() const { return ch; }
        };
 
       DynArray<Arrow> arrows;
@@ -203,7 +211,7 @@ class FileNameFilter : NoCopy
 
      public:
 
-      explicit IndState(const FullState *state);
+      explicit IndState(StateCouple couple);
 
       // std move
 

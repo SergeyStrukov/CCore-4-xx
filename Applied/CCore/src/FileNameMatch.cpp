@@ -16,9 +16,9 @@
 #include <CCore/inc/FileNameMatch.h>
 
 #include <CCore/inc/Cmp.h>
-#include <CCore/inc/Tree.h>
-#include <CCore/inc/NodeAllocator.h>
+#include <CCore/inc/TreeMap.h>
 #include <CCore/inc/algon/SortUnique.h>
+#include <CCore/inc/algon/BinarySearch.h>
 #include <CCore/inc/StrToChar.h>
 
 #include <CCore/inc/Exception.h>
@@ -135,6 +135,13 @@ bool SlowFileNameFilter::operator () (StrLen file) const
   return test;
  }
 
+/* struct FileNameFilter::StatePtr */
+
+struct FileNameFilter::StatePtr
+ {
+  State *state;
+ };
+
 /* class FileNameFilter::State */
 
 class FileNameFilter::State
@@ -153,9 +160,9 @@ class FileNameFilter::State
 
    // follow states
 
-   static ulen Normalize(PtrLen<ulen> list)
+   static ulen Normalize(PtrLen<ulen> list) // TODO UniqueToFront
     {
-     DecrSort(list);
+     Sort(list);
 
      ulen *out=list.ptr;
 
@@ -179,12 +186,16 @@ class FileNameFilter::State
     }
 
    explicit State(const State *obj)
-    : filter(obj->filter),
-      list(DoReserve,2*filter.len)
+    : filter(obj->filter)
     {
-     obj->suffixes( [this] (Filter s) { add(s); } );
+     if( obj->list.notEmpty() )
+       {
+        list.reserve(2*filter.len);
 
-     complete();
+        obj->suffixes( [this] (Filter s) { add(s); } );
+
+        complete();
+       }
     }
 
    void add(Filter s,Char ch)
@@ -193,9 +204,10 @@ class FileNameFilter::State
     }
 
    State(const State *obj,Char ch)
-    : filter(obj->filter),
-      list(DoReserve,2*filter.len)
+    : filter(obj->filter)
     {
+     list.reserve(2*filter.len);
+
      obj->suffixes( [this,ch] (Filter s) { add(s,ch); } );
 
      complete();
@@ -209,6 +221,8 @@ class FileNameFilter::State
     {
      list.append_copy(filter_.len);
     }
+
+   explicit State(StatePtr sptr) : State(std::move(*sptr.state)) {}
 
    ~State()
     {
@@ -279,6 +293,13 @@ class FileNameFilter::State
        }
     }
 
+   // Cmp()
+
+   friend CmpResult Cmp(StatePtr a,const State &b)
+    {
+     return *a.state <=> b ;
+    }
+
    // cmp objects
 
    CmpResult operator <=> (const State &obj) const
@@ -303,23 +324,17 @@ class FileNameFilter::FullState : NoCopy
  {
   private:
 
-   State state;
-
-   // ext
-
    ulen index = 0 ;
    DynArray<StateArrow> arrows;
    FullState *other = 0 ;
 
   public:
 
-   explicit FullState(State &&state_) : state(std::move(state_)) {}
+   FullState() {}
 
    ~FullState() {}
 
    // get
-
-   const State & getState() const { return state; }
 
    ulen getIndex() const { return index; }
 
@@ -334,49 +349,23 @@ class FileNameFilter::FullState : NoCopy
    void setOther(FullState *other_) { other=other_; }
 
    void addArrow(Char ch,FullState *state) { arrows.append_fill(ch,state); }
+ };
 
-   // Cmp()
+/* struct StateCouple */
 
-   friend CmpResult Cmp(const State *a,const FullState &b) { return Cmp(*a,b.getState()); }
-
-   friend CmpResult Cmp(const FullState &a,const FullState &b) { return Cmp(a.getState(),b.getState()); }
-
-   // cmp objects
-
-   CmpResult operator <=> (const FullState &obj) const { return Cmp(*this,obj); }
+struct FileNameFilter::StateCouple
+ {
+  const State *state;
+  FullState *full;
  };
 
 /* class FileNameFilter::StateMap */
 
 class FileNameFilter::StateMap : NoCopy
  {
-   struct Node : MemBase_nocopy
-    {
-     RBTreeLink<Node,FullState> link;
-
-     explicit Node(State &&state) : link(std::move(state)) {}
-    };
-
-   using Algo = RBTreeLink<Node,FullState>::Algo<&Node::link,const State *,NoCopyKey> ;
+   RBTreeMap<State,FullState,StatePtr,NodePoolAllocator> map;
 
    ulen max_states;
-
-   Algo::Root root;
-
-   NodePoolAllocator<Node> allocator;
-
-  private:
-
-   void destroy(Node *node)
-    {
-     if( node )
-       {
-        destroy(Algo::Link(node).lo);
-        destroy(Algo::Link(node).hi);
-
-        allocator.free_nonnull(node);
-       }
-    }
 
   public:
 
@@ -387,35 +376,26 @@ class FileNameFilter::StateMap : NoCopy
 
    ~StateMap()
     {
-     destroy(root.root);
     }
 
    struct Result
     {
-     FullState *obj;
+     StateCouple couple;
      bool new_flag;
 
-     Result(FullState *obj_,bool new_flag_) : obj(obj_),new_flag(new_flag_) {}
-
-     operator FullState * () const { return obj; }
+     operator StateCouple() const { return couple; }
     };
 
-   Result find_or_add(State &&obj)
+   Result find_or_add(State &&state)
     {
-     typename Algo::PrepareIns prepare(root,&obj);
-
-     if( Node *node=prepare.found ) return Result(&Algo::Link(node).key,false);
-
-     if( allocator.getCount()>=max_states )
+     if( map.getCount()>=max_states )
        {
         Printf(Exception,"CCore::FileNameFilter::StateMap::find_or_add(...) : too many states");
        }
 
-     Node *node=allocator.alloc(std::move(obj));
+     auto result=map.find_or_add(StatePtr{&state});
 
-     prepare.complete(node);
-
-     return Result(&Algo::Link(node).key,true);
+     return {{result.key,result.obj},result.new_flag};
     }
  };
 
@@ -429,20 +409,26 @@ FileNameFilter::IndState::Arrow::Arrow(const StateArrow &obj)
 
 /* class FileNameFilter::IndState */
 
-FileNameFilter::IndState::IndState(const FullState *state)
+FileNameFilter::IndState::IndState(StateCouple couple)
  {
-  if( const FullState *other=state->getOther() ) other_index=other->getIndex();
+  if( const FullState *other=couple.full->getOther() ) other_index=other->getIndex();
 
-  arrows.extend_cast(state->getArrows());
+  arrows.extend_cast(couple.full->getArrows());
 
-  is_final=state->getState().isFinal();
+  is_final=couple.state->isFinal();
+
+  Sort(Range(arrows));
  }
 
  // methods
 
 ulen FileNameFilter::IndState::next(Char ch) const
  {
-  for(Arrow arr : arrows ) if( arr.ch==ch ) return arr.index;
+  auto r=Range(arrows);
+
+  Algon::BinarySearch_greater_or_equal(r,ch);
+
+  if( +r && (*r).ch==ch ) return (*r).index;
 
   return other_index;
  }
@@ -452,7 +438,7 @@ ulen FileNameFilter::IndState::next(Char ch) const
 void FileNameFilter::build(StrLen filter_,ulen max_states)
  {
   StateMap map(max_states);
-  DynArray<FullState *> list;
+  DynArray<StateCouple> list;
 
   StrToChar filter(filter_);
 
@@ -466,29 +452,29 @@ void FileNameFilter::build(StrLen filter_,ulen max_states)
 
   for(ulen index=0; index<list.getLen() ;index++)
     {
-     FullState *state=list[index];
+     StateCouple couple=list[index];
 
-     state->setIndex(index);
+     couple.full->setIndex(index);
 
-     auto char_func = [&map,&list,state] (Char ch,State &&next_state)
-                                         {
-                                          auto result=map.find_or_add(std::move(next_state));
-
-                                          if( result.new_flag ) list.append_copy(result);
-
-                                          state->addArrow(ch,result);
-                                         } ;
-
-     auto other_func = [&map,&list,state] (State &&next_state)
+     auto char_func = [&map,&list,couple] (Char ch,State &&next_state)
                                           {
                                            auto result=map.find_or_add(std::move(next_state));
 
                                            if( result.new_flag ) list.append_copy(result);
 
-                                           state->setOther(result);
+                                           couple.full->addArrow(ch,result.couple.full);
                                           } ;
 
-     state->getState().follow(temp.getPtr(),char_func,other_func);
+     auto other_func = [&map,&list,couple] (State &&next_state)
+                                           {
+                                            auto result=map.find_or_add(std::move(next_state));
+
+                                            if( result.new_flag ) list.append_copy(result);
+
+                                            couple.full->setOther(result.couple.full);
+                                           } ;
+
+     couple.state->follow(temp.getPtr(),char_func,other_func);
     }
 
   states.extend_cast(Range_const(list));
