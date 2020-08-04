@@ -527,5 +527,68 @@ bool FileNameFilter::operator () (StrLen file) const
   return ptr[index].isFinal();
  }
 
+/* class ComboFileNameFilter */
+
+void ComboFileNameFilter::prepare(StrLen filter,ulen max_states)
+ {
+  try
+    {
+     SilentReportException report;
+
+     fast.create(filter,max_states);
+    }
+  catch(CatchType)
+    {
+     slow.create(filter);
+    }
+
+  ok=true;
+ }
+
+ComboFileNameFilter::ComboFileNameFilter() noexcept
+ {
+ }
+
+ComboFileNameFilter::ComboFileNameFilter(StrLen filter,ulen max_states)
+ {
+  prepare(filter,max_states);
+ }
+
+ComboFileNameFilter::~ComboFileNameFilter()
+ {
+ }
+
+ // methods
+
+void ComboFileNameFilter::reset()
+ {
+  if( ok )
+    {
+     fast.destroy();
+     slow.destroy();
+
+     ok=false;
+    }
+ }
+
+void ComboFileNameFilter::reset(StrLen filter,ulen max_states)
+ {
+  reset();
+
+  prepare(filter,max_states);
+ }
+
+bool ComboFileNameFilter::operator () (StrLen file) const
+ {
+  if( ok )
+    {
+     if( +fast ) return (*fast)(file);
+
+     return (*slow)(file);
+    }
+
+  return false;
+ }
+
 } // namespace CCore
 

@@ -213,15 +213,17 @@ bool Testit<3032>::Main()
 
   SecTimer timer;
 
-  engine.run<FileNameFilter>(100);
+  engine.run<FileNameFilter>(1000);
 
   Printf(Con,"time = #;\n\n",PrintTime(timer.get()));
 
   timer.reset();
 
-  engine.run<SlowFileNameFilter>(100);
+  engine.run<SlowFileNameFilter>(1000);
 
   Printf(Con,"time = #;\n\n",PrintTime(timer.get()));
+
+  engine.run<ComboFileNameFilter>(100);
 
   return true;
  }

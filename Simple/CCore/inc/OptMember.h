@@ -37,7 +37,7 @@ class OptMember : NoCopy
 
   public:
 
-   OptMember()
+   OptMember() noexcept
     : obj{0}
     {
     }

@@ -20,6 +20,7 @@
 #include <CCore/inc/Symbol.h>
 #include <CCore/inc/FunctorType.h>
 #include <CCore/inc/algon/ApplyToRange.h>
+#include <CCore/inc/OptMember.h>
 
 namespace CCore {
 
@@ -127,7 +128,7 @@ class SlowFileNameFilter;
 
 class FileNameFilter;
 
-class ComboFileNameFilter; // TODO
+class ComboFileNameFilter;
 
 /* class SlowFileNameFilter */
 
@@ -251,6 +252,43 @@ class FileNameFilter : NoCopy
    void reset();
 
    void reset(StrLen filter,ulen max_states=MaxULen);
+
+   bool operator () (StrLen file) const;
+ };
+
+/* class ComboFileNameFilter */
+
+class ComboFileNameFilter : NoCopy
+ {
+   OptMember<FileNameFilter> fast;
+   OptMember<SlowFileNameFilter> slow;
+   bool ok = false ;
+
+  private:
+
+   void prepare(StrLen filter,ulen max_states);
+
+  public:
+
+   static constexpr ulen DefaultMaxStates = 100'000 ;
+
+   ComboFileNameFilter() noexcept;
+
+   explicit ComboFileNameFilter(StrLen filter,ulen max_states=DefaultMaxStates);
+
+   ~ComboFileNameFilter();
+
+   // props
+
+   bool operator + () const { return ok; }
+
+   bool operator ! () const { return !ok; }
+
+   // methods
+
+   void reset();
+
+   void reset(StrLen filter,ulen max_states=DefaultMaxStates);
 
    bool operator () (StrLen file) const;
  };
