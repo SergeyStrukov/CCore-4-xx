@@ -18,6 +18,7 @@
 #include <CCore/inc/Cmp.h>
 #include <CCore/inc/TreeMap.h>
 #include <CCore/inc/algon/SortUnique.h>
+#include <CCore/inc/algon/UniqueToFront.h>
 #include <CCore/inc/algon/BinarySearch.h>
 #include <CCore/inc/StrToChar.h>
 
@@ -160,15 +161,13 @@ class FileNameFilter::State
 
    // follow states
 
-   static ulen Normalize(PtrLen<ulen> list) // TODO UniqueToFront
+   static ulen Normalize(PtrLen<ulen> list)
     {
      Sort(list);
 
-     ulen *out=list.ptr;
+     auto tail=Algon::CopyUniqueToFront(list);
 
-     Algon::ApplyUniqueRange(list, [&out] (PtrLen<ulen> r) { *(out++)=(*r); } );
-
-     return list.len-Dist(list.ptr,out);
+     return tail.len;
     }
 
    void complete()
