@@ -99,6 +99,7 @@ OBJ_LIST = \
 ../.test-obj/test2058.ApplyToList.o \
 ../.test-obj/test2059.BestSearch.o \
 ../.test-obj/test2060.CharUtils.o \
+../.test-obj/test2061.UniqueToFront.o \
 ../.test-obj/test2500.PrintFile.o \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test3001.Atomic.o \
@@ -217,6 +218,7 @@ ASM_LIST = \
 ../.test-obj/test2058.ApplyToList.s \
 ../.test-obj/test2059.BestSearch.s \
 ../.test-obj/test2060.CharUtils.s \
+../.test-obj/test2061.UniqueToFront.s \
 ../.test-obj/test2500.PrintFile.s \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test3001.Atomic.s \
@@ -335,6 +337,7 @@ DEP_LIST = \
 ../.test-obj/test2058.ApplyToList.dep \
 ../.test-obj/test2059.BestSearch.dep \
 ../.test-obj/test2060.CharUtils.dep \
+../.test-obj/test2061.UniqueToFront.dep \
 ../.test-obj/test2500.PrintFile.dep \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test3001.Atomic.dep \
@@ -656,6 +659,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2060.CharUtils.o : ../../../Fundamental/CCore/test/test2060.CharUtils.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2061.UniqueToFront.o : ../../../Fundamental/CCore/test/test2061.UniqueToFront.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2500.PrintFile.o : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
@@ -1005,6 +1011,9 @@ include $(RULES_FILE)
 ../.test-obj/test2060.CharUtils.s : ../../../Fundamental/CCore/test/test2060.CharUtils.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2061.UniqueToFront.s : ../../../Fundamental/CCore/test/test2061.UniqueToFront.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2500.PrintFile.s : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1351,6 +1360,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2060.CharUtils.dep : ../../../Fundamental/CCore/test/test2060.CharUtils.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2060.CharUtils.o $< -MF $@
+
+../.test-obj/test2061.UniqueToFront.dep : ../../../Fundamental/CCore/test/test2061.UniqueToFront.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2061.UniqueToFront.o $< -MF $@
 
 ../.test-obj/test2500.PrintFile.dep : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2500.PrintFile.o $< -MF $@

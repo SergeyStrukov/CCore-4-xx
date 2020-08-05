@@ -250,6 +250,7 @@ OBJ_LIST = \
 .obj/UIntSlowMulAlgo.o \
 .obj/UIntSplit.o \
 .obj/Unid.o \
+.obj/UniqueToFront.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 .obj/Volume.o \
@@ -508,6 +509,7 @@ ASM_LIST = \
 .obj/UIntSlowMulAlgo.s \
 .obj/UIntSplit.s \
 .obj/Unid.s \
+.obj/UniqueToFront.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 .obj/Volume.s \
@@ -766,6 +768,7 @@ DEP_LIST = \
 .obj/UIntSlowMulAlgo.dep \
 .obj/UIntSplit.dep \
 .obj/Unid.dep \
+.obj/UniqueToFront.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 .obj/Volume.dep \
@@ -1537,6 +1540,9 @@ include $(RULES_FILE)
 .obj/Unid.o : ../../Fundamental/CCore/src/Unid.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/UniqueToFront.o : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Utf8.o : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2302,6 +2308,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Unid.s : ../../Fundamental/CCore/src/Unid.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UniqueToFront.s : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Utf8.s : ../../Fundamental/CCore/src/Utf8.cpp
@@ -3070,6 +3079,9 @@ include $(RULES_FILE)
 
 .obj/Unid.dep : ../../Fundamental/CCore/src/Unid.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Unid.o $< -MF $@
+
+.obj/UniqueToFront.dep : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UniqueToFront.o $< -MF $@
 
 .obj/Utf8.dep : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
