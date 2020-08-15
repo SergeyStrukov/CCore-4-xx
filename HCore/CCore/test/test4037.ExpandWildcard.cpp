@@ -1,9 +1,9 @@
-/* main.cpp */
+/* test4037.ExpandWildcard.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: HCore
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,38 +15,31 @@
 
 #include <CCore/test/test.h>
 
-//#include <CCore/inc/PacketPool.h>
-#include <CCore/inc/MemBase.h>
+#include <CCore/inc/ExpandWildcard.h>
 
 namespace App {
 
-/* Testit<0> */
+namespace Private_4037 {
+
+
+} // namespace Private_4037
+
+using namespace Private_4037;
+
+/* Testit<4037> */
 
 template<>
-const char *const Testit<0>::Name="Test0 empty";
+const char *const Testit<4037>::Name="Test4037 ExpandWildcard";
 
 template<>
-bool Testit<0>::Main() { return false; }
-
-} // namespace App
-
-/* main() */
-
-using namespace App;
-
-int main()
+bool Testit<4037>::Main()
  {
-  MemScope mem_scope;
+  FileSystem fs;
 
-  //Testit<2999>().run();
+  ExpandWildcard(fs,"../../../Simple/CCore/inc/P??.h"_c, [] (StrLen path) { Printf(Con,"#;\n",path); } );
 
-  Testit<4037>().run();
-
-  Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
-
-  //DetachPacketBufs(); TODO
-
-  return 0;
+  return true;
  }
 
+} // namespace App
 

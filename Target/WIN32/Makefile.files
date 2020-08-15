@@ -51,6 +51,7 @@ OBJ_LIST = \
 .obj/EventRecorder.o \
 .obj/Exception.o \
 .obj/ExceptionType.o \
+.obj/ExpandWildcard.o \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
@@ -310,6 +311,7 @@ ASM_LIST = \
 .obj/EventRecorder.s \
 .obj/Exception.s \
 .obj/ExceptionType.s \
+.obj/ExpandWildcard.s \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
@@ -569,6 +571,7 @@ DEP_LIST = \
 .obj/EventRecorder.dep \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
+.obj/ExpandWildcard.dep \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
@@ -941,6 +944,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ExpandWildcard.o : ../../HCore/CCore/src/ExpandWildcard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FastMutex.o : ../../HCore/CCore/src/task/FastMutex.cpp
@@ -1713,6 +1719,9 @@ include $(RULES_FILE)
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ExpandWildcard.s : ../../HCore/CCore/src/ExpandWildcard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FastMutex.s : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2482,6 +2491,9 @@ include $(RULES_FILE)
 
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
+
+.obj/ExpandWildcard.dep : ../../HCore/CCore/src/ExpandWildcard.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ExpandWildcard.o $< -MF $@
 
 .obj/FastMutex.dep : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FastMutex.o $< -MF $@
