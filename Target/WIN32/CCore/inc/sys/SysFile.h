@@ -55,7 +55,7 @@ struct File
 
   // private data
 
-  using Type = WinNN::handle_t ;
+  using Type = handle_t ;
 
   Type handle;
   FileOpenFlags oflags;
