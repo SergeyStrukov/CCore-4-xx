@@ -55,6 +55,7 @@ OBJ_LIST = \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
+.obj/FileName.o \
 .obj/FileNameMatch.o \
 .obj/FileSystem.o \
 .obj/FileToMem.o \
@@ -319,6 +320,7 @@ ASM_LIST = \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
+.obj/FileName.s \
 .obj/FileNameMatch.s \
 .obj/FileSystem.s \
 .obj/FileToMem.s \
@@ -583,6 +585,7 @@ DEP_LIST = \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
+.obj/FileName.dep \
 .obj/FileNameMatch.dep \
 .obj/FileSystem.dep \
 .obj/FileToMem.dep \
@@ -968,6 +971,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Fifo.o : ../../Simple/CCore/src/Fifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileName.o : ../../Applied/CCore/src/FileName.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FileNameMatch.o : ../../Applied/CCore/src/FileNameMatch.cpp
@@ -1755,6 +1761,9 @@ include $(RULES_FILE)
 .obj/Fifo.s : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FileName.s : ../../Applied/CCore/src/FileName.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FileNameMatch.s : ../../Applied/CCore/src/FileNameMatch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2539,6 +2548,9 @@ include $(RULES_FILE)
 
 .obj/Fifo.dep : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
+
+.obj/FileName.dep : ../../Applied/CCore/src/FileName.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileName.o $< -MF $@
 
 .obj/FileNameMatch.dep : ../../Applied/CCore/src/FileNameMatch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileNameMatch.o $< -MF $@

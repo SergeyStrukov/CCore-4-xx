@@ -24,6 +24,8 @@ namespace CCore {
 
 template <class T> class OutBuf;
 
+template <class Counter,class T> class OutCount;
+
 /* class OutBuf<T> */
 
 template <class T>
@@ -40,6 +42,32 @@ class OutBuf
    void operator () (const T &obj) { *(ptr++)=obj; }
 
    void operator () (PtrLen<const T> r) { r.copyTo(ptr); ptr+=r.len; }
+
+   template <class ... TT> requires ( sizeof ... (TT) > 1 )
+   void operator () (TT ... tt)
+    {
+     ( (*this)(tt) , ... );
+    }
+ };
+
+/* class OutCount<Counter,T> */
+
+template <class Counter,class T>
+class OutCount
+ {
+   Counter counter;
+
+  public:
+
+   OutCount() : counter() {}
+
+   explicit OutCount(Counter counter_) : counter(counter_) {}
+
+   operator Counter() const { return counter; }
+
+   void operator () (const T &) { counter+=1u; }
+
+   void operator () (PtrLen<const T> r) { counter+=r.len; }
 
    template <class ... TT> requires ( sizeof ... (TT) > 1 )
    void operator () (TT ... tt)
