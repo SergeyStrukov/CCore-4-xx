@@ -26,6 +26,7 @@ OBJ_LIST = \
 .obj/CheckPlatformBase.o \
 .obj/Classification.o \
 .obj/CmdInput.o \
+.obj/CmdlineParser.o \
 .obj/Cmp.o \
 .obj/Collector.o \
 .obj/CommonIntAlgo.o \
@@ -291,6 +292,7 @@ ASM_LIST = \
 .obj/CheckPlatformBase.s \
 .obj/Classification.s \
 .obj/CmdInput.s \
+.obj/CmdlineParser.s \
 .obj/Cmp.s \
 .obj/Collector.s \
 .obj/CommonIntAlgo.s \
@@ -556,6 +558,7 @@ DEP_LIST = \
 .obj/CheckPlatformBase.dep \
 .obj/Classification.dep \
 .obj/CmdInput.dep \
+.obj/CmdlineParser.dep \
 .obj/Cmp.dep \
 .obj/Collector.dep \
 .obj/CommonIntAlgo.dep \
@@ -884,6 +887,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CmdInput.o : ../../Applied/CCore/src/CmdInput.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CmdlineParser.o : ../../Applied/CCore/src/CmdlineParser.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Cmp.o : ../../Simple/CCore/src/Cmp.cpp
@@ -1674,6 +1680,9 @@ include $(RULES_FILE)
 .obj/CmdInput.s : ../../Applied/CCore/src/CmdInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CmdlineParser.s : ../../Applied/CCore/src/CmdlineParser.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Cmp.s : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2461,6 +2470,9 @@ include $(RULES_FILE)
 
 .obj/CmdInput.dep : ../../Applied/CCore/src/CmdInput.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CmdInput.o $< -MF $@
+
+.obj/CmdlineParser.dep : ../../Applied/CCore/src/CmdlineParser.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CmdlineParser.o $< -MF $@
 
 .obj/Cmp.dep : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Cmp.o $< -MF $@
