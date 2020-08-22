@@ -110,6 +110,7 @@ OBJ_LIST = \
 ../.test-obj/test3012.CmdInput.o \
 ../.test-obj/test3032.FileNameMatch.o \
 ../.test-obj/test3038.CmdlineParser.o \
+../.test-obj/test3039.IntervalTree.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
 ../.test-obj/test4035.SysSpawn.o \
@@ -233,6 +234,7 @@ ASM_LIST = \
 ../.test-obj/test3012.CmdInput.s \
 ../.test-obj/test3032.FileNameMatch.s \
 ../.test-obj/test3038.CmdlineParser.s \
+../.test-obj/test3039.IntervalTree.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
 ../.test-obj/test4035.SysSpawn.s \
@@ -356,6 +358,7 @@ DEP_LIST = \
 ../.test-obj/test3012.CmdInput.dep \
 ../.test-obj/test3032.FileNameMatch.dep \
 ../.test-obj/test3038.CmdlineParser.dep \
+../.test-obj/test3039.IntervalTree.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
 ../.test-obj/test4035.SysSpawn.dep \
@@ -704,6 +707,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3038.CmdlineParser.o : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3039.IntervalTree.o : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/test4011.ReadCon.cpp
@@ -1068,6 +1074,9 @@ include $(RULES_FILE)
 ../.test-obj/test3038.CmdlineParser.s : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3039.IntervalTree.s : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1429,6 +1438,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test3038.CmdlineParser.dep : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3038.CmdlineParser.o $< -MF $@
+
+../.test-obj/test3039.IntervalTree.dep : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3039.IntervalTree.o $< -MF $@
 
 ../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@

@@ -40,6 +40,7 @@ OBJ_LIST = \
 .obj/Creator.o \
 .obj/DefaultTimeout.o \
 .obj/DeferCall.o \
+.obj/Deflate.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
 .obj/DirTreeRun.o \
@@ -80,6 +81,7 @@ OBJ_LIST = \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
 .obj/InterfaceHost.o \
+.obj/IntervalTree.o \
 .obj/Job.o \
 .obj/LaunchPath.o \
 .obj/Len.o \
@@ -135,6 +137,7 @@ OBJ_LIST = \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
 .obj/Pow.o \
+.obj/PretextFileToMem.o \
 .obj/Print.o \
 .obj/PrintAbort.o \
 .obj/PrintBase.o \
@@ -306,6 +309,7 @@ ASM_LIST = \
 .obj/Creator.s \
 .obj/DefaultTimeout.s \
 .obj/DeferCall.s \
+.obj/Deflate.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
 .obj/DirTreeRun.s \
@@ -346,6 +350,7 @@ ASM_LIST = \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
 .obj/InterfaceHost.s \
+.obj/IntervalTree.s \
 .obj/Job.s \
 .obj/LaunchPath.s \
 .obj/Len.s \
@@ -401,6 +406,7 @@ ASM_LIST = \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
 .obj/Pow.s \
+.obj/PretextFileToMem.s \
 .obj/Print.s \
 .obj/PrintAbort.s \
 .obj/PrintBase.s \
@@ -572,6 +578,7 @@ DEP_LIST = \
 .obj/Creator.dep \
 .obj/DefaultTimeout.dep \
 .obj/DeferCall.dep \
+.obj/Deflate.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
 .obj/DirTreeRun.dep \
@@ -612,6 +619,7 @@ DEP_LIST = \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
 .obj/InterfaceHost.dep \
+.obj/IntervalTree.dep \
 .obj/Job.dep \
 .obj/LaunchPath.dep \
 .obj/Len.dep \
@@ -667,6 +675,7 @@ DEP_LIST = \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
 .obj/Pow.dep \
+.obj/PretextFileToMem.dep \
 .obj/Print.dep \
 .obj/PrintAbort.dep \
 .obj/PrintBase.dep \
@@ -931,6 +940,9 @@ include $(RULES_FILE)
 .obj/DeferCall.o : ../../Fundamental/CCore/src/DeferCall.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Deflate.o : ../../Applied/CCore/src/Deflate.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.o : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1049,6 +1061,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/InterfaceHost.o : ../../Fundamental/CCore/src/InterfaceHost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntervalTree.o : ../../Applied/CCore/src/IntervalTree.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Job.o : ../../Fundamental/CCore/src/Job.cpp
@@ -1214,6 +1229,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Pow.o : ../../Simple/CCore/src/Pow.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PretextFileToMem.o : ../../Applied/CCore/src/PretextFileToMem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Print.o : ../../HCore/CCore/src/Print.cpp
@@ -1722,6 +1740,9 @@ include $(RULES_FILE)
 .obj/DeferCall.s : ../../Fundamental/CCore/src/DeferCall.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Deflate.s : ../../Applied/CCore/src/Deflate.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.s : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1840,6 +1861,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/InterfaceHost.s : ../../Fundamental/CCore/src/InterfaceHost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntervalTree.s : ../../Applied/CCore/src/IntervalTree.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Job.s : ../../Fundamental/CCore/src/Job.cpp
@@ -2005,6 +2029,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Pow.s : ../../Simple/CCore/src/Pow.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PretextFileToMem.s : ../../Applied/CCore/src/PretextFileToMem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Print.s : ../../HCore/CCore/src/Print.cpp
@@ -2513,6 +2540,9 @@ include $(RULES_FILE)
 .obj/DeferCall.dep : ../../Fundamental/CCore/src/DeferCall.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DeferCall.o $< -MF $@
 
+.obj/Deflate.dep : ../../Applied/CCore/src/Deflate.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Deflate.o $< -MF $@
+
 .obj/DestroyGuard.dep : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DestroyGuard.o $< -MF $@
 
@@ -2632,6 +2662,9 @@ include $(RULES_FILE)
 
 .obj/InterfaceHost.dep : ../../Fundamental/CCore/src/InterfaceHost.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/InterfaceHost.o $< -MF $@
+
+.obj/IntervalTree.dep : ../../Applied/CCore/src/IntervalTree.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntervalTree.o $< -MF $@
 
 .obj/Job.dep : ../../Fundamental/CCore/src/Job.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Job.o $< -MF $@
@@ -2797,6 +2830,9 @@ include $(RULES_FILE)
 
 .obj/Pow.dep : ../../Simple/CCore/src/Pow.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Pow.o $< -MF $@
+
+.obj/PretextFileToMem.dep : ../../Applied/CCore/src/PretextFileToMem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PretextFileToMem.o $< -MF $@
 
 .obj/Print.dep : ../../HCore/CCore/src/Print.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Print.o $< -MF $@
