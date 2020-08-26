@@ -111,8 +111,10 @@ OBJ_LIST = \
 ../.test-obj/test3032.FileNameMatch.o \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
+../.test-obj/test3040.Delate.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
+../.test-obj/test4034.Deflate.o \
 ../.test-obj/test4035.SysSpawn.o \
 ../.test-obj/test4036.LaunchPath.o \
 ../.test-obj/test4037.ExpandWildcard.o \
@@ -235,8 +237,10 @@ ASM_LIST = \
 ../.test-obj/test3032.FileNameMatch.s \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
+../.test-obj/test3040.Delate.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
+../.test-obj/test4034.Deflate.s \
 ../.test-obj/test4035.SysSpawn.s \
 ../.test-obj/test4036.LaunchPath.s \
 ../.test-obj/test4037.ExpandWildcard.s \
@@ -359,8 +363,10 @@ DEP_LIST = \
 ../.test-obj/test3032.FileNameMatch.dep \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
+../.test-obj/test3040.Delate.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
+../.test-obj/test4034.Deflate.dep \
 ../.test-obj/test4035.SysSpawn.dep \
 ../.test-obj/test4036.LaunchPath.dep \
 ../.test-obj/test4037.ExpandWildcard.dep \
@@ -712,10 +718,16 @@ include $(RULES_FILE)
 ../.test-obj/test3039.IntervalTree.o : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3040.Delate.o : ../../../Applied/CCore/test/test3040.Delate.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.o : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4034.Deflate.o : ../../../HCore/CCore/test/test4034.Deflate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4035.SysSpawn.o : ../../../HCore/CCore/test/test4035.SysSpawn.cpp
@@ -1077,10 +1089,16 @@ include $(RULES_FILE)
 ../.test-obj/test3039.IntervalTree.s : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3040.Delate.s : ../../../Applied/CCore/test/test3040.Delate.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.s : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4034.Deflate.s : ../../../HCore/CCore/test/test4034.Deflate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test4035.SysSpawn.s : ../../../HCore/CCore/test/test4035.SysSpawn.cpp
@@ -1442,11 +1460,17 @@ include $(RULES_FILE)
 ../.test-obj/test3039.IntervalTree.dep : ../../../Applied/CCore/test/test3039.IntervalTree.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3039.IntervalTree.o $< -MF $@
 
+../.test-obj/test3040.Delate.dep : ../../../Applied/CCore/test/test3040.Delate.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3040.Delate.o $< -MF $@
+
 ../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@
 
 ../.test-obj/test4013.DirTreeRun.dep : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4013.DirTreeRun.o $< -MF $@
+
+../.test-obj/test4034.Deflate.dep : ../../../HCore/CCore/test/test4034.Deflate.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4034.Deflate.o $< -MF $@
 
 ../.test-obj/test4035.SysSpawn.dep : ../../../HCore/CCore/test/test4035.SysSpawn.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4035.SysSpawn.o $< -MF $@
