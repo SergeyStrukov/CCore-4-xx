@@ -15,6 +15,7 @@
 
 #include <CCore/inc/Deflate.h>
 
+#include <CCore/inc/FeedBuf.h>
 #include <CCore/inc/Sort.h>
 #include <CCore/inc/algon/BestSearch.h>
 #include <CCore/inc/algon/BinarySearch.h>
@@ -1129,12 +1130,12 @@ void WindowOut::put(PtrLen<const uint8> data)
  {
   while( +data )
     {
-     ulen delta=Min<ulen>(data.len,WindowLen-addpos);
+     PtrLen<uint8> dst(buf.getPtr()+addpos,WindowLen-addpos);
 
-     Range(buf.getPtr()+addpos,delta).copy(data.ptr);
+     FeedBuf feed(dst,data);
 
-     addpos+=delta;
-     data+=delta;
+     addpos+=feed.delta;
+     data+=feed.delta;
 
      commit();
     }
@@ -1289,6 +1290,8 @@ void BitReader::pumpTo(WindowOut &out,ulen &cap)
 
   for(; bits>=8 && cap ;cap--) out.put((uint8)getBits(8));
 
+  if( !cap ) return;
+
   // 2
 
   unsigned len=addpos-getpos;
@@ -1312,6 +1315,8 @@ void BitReader::pumpTo(WindowOut &out,ulen &cap)
      getpos=0;
      addpos=0;
     }
+
+  if( !cap ) return;
 
   // 3
 
@@ -1339,7 +1344,7 @@ bool BitReader::fillBuffer(unsigned bitlen)
 
      if( !next(octet) ) return false;
 
-     buffer|=uint32(octet)<<bits;
+     buffer|=UCode(octet)<<bits;
 
      bits+=8;
     }
@@ -1411,7 +1416,7 @@ void HuffmanDecoder::init(PtrLen<BitLen> bitlens)
      Printf(Exception,"CCore::Deflate::HuffmanDecoder::init() : null code");
     }
 
-  if( max_code_bits>MaxCodeBits )
+  if( max_code_bits>MaxCodeBits-7 )
     {
      Printf(Exception,"CCore::Deflate::HuffmanDecoder::init() : code length exceeds maximum");
     }
@@ -1849,7 +1854,7 @@ void Inflator::processInput(bool eof)
          {
           if( eof )
             {
-             if( !reader.canRead(1) )
+             if( reader.isEmpty() )
                {
                 state=AfterEnd;
 

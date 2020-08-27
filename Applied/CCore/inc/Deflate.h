@@ -451,7 +451,7 @@ class Inflator;
 
 class WindowOut : NoCopy
  {
-   static constexpr unsigned WindowLen = 1u<<15 ;
+   static constexpr unsigned WindowLen = 1u<<MaxLog2WindowLen ;
 
    OutFunc out;
 
@@ -503,7 +503,7 @@ class BitReader : NoCopy
    unsigned getpos = 0 ;
    unsigned addpos = 0 ;
 
-   uint32 buffer = 0 ;
+   UCode buffer = 0 ;
    unsigned bits = 0 ;
 
   private:
@@ -531,9 +531,9 @@ class BitReader : NoCopy
 
    void bufferize(ExceptionType ex);
 
-   void pumpTo(WindowOut &out);
+   void pumpTo(WindowOut &out); // aligned
 
-   void pumpTo(WindowOut &out,ulen &cap);
+   void pumpTo(WindowOut &out,ulen &cap); // aligned
 
    // bit buffer
 
@@ -541,17 +541,17 @@ class BitReader : NoCopy
 
    unsigned bitsBuffered() const { return bits; }
 
-   bool fillBuffer(unsigned bitlen);
+   bool fillBuffer(unsigned bitlen); // bitlen <= MaxCodeBits-7 || aligned && bitlen <= MaxCodeBits
 
-   void reqBuffer(unsigned bitlen);
+   void reqBuffer(unsigned bitlen);  // bitlen <= MaxCodeBits-7 || aligned && bitlen <= MaxCodeBits
 
-   void skipBits(unsigned bitlen) // bitlen <= bitsBuffered()
+   void skipBits(unsigned bitlen) // bitlen <= bitsBuffered() && bitlen < MaxCodeBits
     {
      buffer>>=bitlen;
      bits-=bitlen;
     }
 
-   UCode getBits(unsigned bitlen) // bitlen <= bitsBuffered()
+   UCode getBits(unsigned bitlen) // bitlen <= bitsBuffered() && bitlen < MaxCodeBits
     {
      UCode ret=peekBits(bitlen);
 
