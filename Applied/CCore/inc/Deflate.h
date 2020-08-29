@@ -497,7 +497,7 @@ class BitReader : NoCopy
  {
    static constexpr unsigned BufLen = RoundUpCount(MaxHeaderBitlen,8u) ;
 
-   PtrLen<const uint8> inp;
+   PtrLen<const uint8> input;
 
    uint8 inpbuf[BufLen];
    unsigned getpos = 0 ;
@@ -521,19 +521,19 @@ class BitReader : NoCopy
 
    BitReader() {}
 
-   bool isEmpty() const { return bits==0 && getpos==addpos && !inp ; }
+   bool isEmpty() const { return bits==0 && getpos==addpos && !input ; }
 
    bool canRead(unsigned bitlen) const;
 
    void align8() { skipBits(bits%8); }
 
-   void extend(PtrLen<const uint8> data);
+   void extend(PtrLen<const uint8> data); // input is empty
 
-   void bufferize(ExceptionType ex);
+   bool bufferize(); // move input to buffer and make it empty
 
    void pumpTo(WindowOut &out); // aligned
 
-   void pumpTo(WindowOut &out,ulen &cap); // aligned
+   ulen pumpToCap(WindowOut &out,ulen cap); // aligned
 
    // bit buffer
 
@@ -667,7 +667,7 @@ class Inflator : NoCopy
    bool repeat;
    Function<void (void)> trigger;
 
-   // data
+   // state
 
    enum State
     {
@@ -680,10 +680,14 @@ class Inflator : NoCopy
 
    State state;
 
+   // block
+
    bool last_block;
    UCode block_type;
 
    ulen stored_len;
+
+   // body
 
    enum DecodeState
     {
@@ -697,6 +701,8 @@ class Inflator : NoCopy
 
    USym literal;
    USym distance;
+
+   // decoders
 
    HuffmanDecoder dynamic_literal_decoder;
    HuffmanDecoder dynamic_distance_decoder;

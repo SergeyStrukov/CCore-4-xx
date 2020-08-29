@@ -1190,11 +1190,11 @@ bool BitReader::next(uint8 &octet)
      return true;
     }
 
-  if( !inp ) return false;
+  if( !input ) return false;
 
-  octet=*inp;
+  octet=*input;
 
-  ++inp;
+  ++input;
 
   return true;
  }
@@ -1228,44 +1228,46 @@ bool BitReader::canRead(unsigned bitlen) const
   unsigned len=RoundUpCount(bitlen-bits,8u);
   unsigned count=addpos-getpos;
 
-  return len<=count || len-count<=inp.len ;
+  return len<=count || len-count<=input.len ;
  }
 
 void BitReader::extend(PtrLen<const uint8> data)
  {
-  if( +inp )
+  if( +input )
     {
      Printf(Exception,"CCore::Deflate::BitReader::extend(...) : dirty");
     }
 
-  inp=data;
+  input=data;
  }
 
-void BitReader::bufferize(ExceptionType ex)
+bool BitReader::bufferize()
  {
-  if( !inp ) return;
+  if( !input ) return true;
 
-  if( inp.len>BufLen-addpos )
+  if( input.len>BufLen-addpos )
     {
-     if( inp.len>BufLen-addpos+getpos )
-       {
-        Printf(ex,"CCore::Deflate::BitReader::bufferize(...) : overflow");
-
-        return;
-       }
+     if( input.len>BufLen-addpos+getpos ) return false;
 
      copyDown();
     }
 
-  inp.copyTo(inpbuf+addpos);
+  input.copyTo(inpbuf+addpos);
 
-  addpos+=(unsigned)inp.len;
+  addpos+=(unsigned)input.len;
 
-  inp=Null;
+  input=Empty;
+
+  return true;
  }
 
 void BitReader::pumpTo(WindowOut &out)
  {
+  if( bits%8 )
+    {
+     Printf(Exception,"CCore::Deflate::BitReader::pumpTo(...) : not aligned");
+    }
+
   // 1
 
   while( bits>=8 ) out.put((uint8)getBits(8));
@@ -1279,18 +1281,23 @@ void BitReader::pumpTo(WindowOut &out)
 
   // 3
 
-  out.put(inp);
+  out.put(input);
 
-  inp=Null;
+  input=Empty;
  }
 
-void BitReader::pumpTo(WindowOut &out,ulen &cap)
+ulen BitReader::pumpToCap(WindowOut &out,ulen cap)
  {
+  if( bits%8 )
+    {
+     Printf(Exception,"CCore::Deflate::BitReader::pumpTo(...) : not aligned");
+    }
+
   // 1
 
   for(; bits>=8 && cap ;cap--) out.put((uint8)getBits(8));
 
-  if( !cap ) return;
+  if( !cap ) return 0;
 
   // 2
 
@@ -1302,9 +1309,7 @@ void BitReader::pumpTo(WindowOut &out,ulen &cap)
 
      getpos+=(unsigned)cap;
 
-     cap=0;
-
-     return;
+     return 0;
     }
   else
     {
@@ -1314,25 +1319,27 @@ void BitReader::pumpTo(WindowOut &out,ulen &cap)
 
      getpos=0;
      addpos=0;
-    }
 
-  if( !cap ) return;
+     if( !cap ) return 0;
+    }
 
   // 3
 
-  if( cap<inp.len )
+  if( cap<input.len )
     {
-     out.put(inp+=cap);
+     out.put(input+=cap);
 
-     cap=0;
+     return 0;
     }
   else
     {
-     out.put(inp);
+     out.put(input);
 
-     cap-=inp.len;
+     cap-=input.len;
 
-     inp=Null;
+     input=Empty;
+
+     return cap;
     }
  }
 
@@ -1740,14 +1747,12 @@ bool Inflator::decodeBody()
  {
   if( block_type==Stored )
     {
-     reader.pumpTo(out,stored_len);
+     stored_len=reader.pumpToCap(out,stored_len);
 
      return !stored_len;
     }
   else
     {
-     bool end_of_block=false;
-
      const HuffmanDecoder &literal_decoder = (block_type==Static)? StaticCoder<HuffmanDecoder,StaticLiteralBitlens>::Get()
                                                                  : dynamic_literal_decoder ;
 
@@ -1764,7 +1769,7 @@ bool Inflator::decodeBody()
              {
               decode_state=Literal;
 
-              break;
+              return false;
              }
 
            if( literal<256 )
@@ -1773,9 +1778,7 @@ bool Inflator::decodeBody()
              }
            else if( literal==256 )
              {
-              end_of_block=true;
-
-              break;
+              return true;
              }
            else
              {
@@ -1792,7 +1795,7 @@ bool Inflator::decodeBody()
                   {
                    decode_state=LengthBits;
 
-                   break;
+                   return false;
                   }
 
                 literal=reader.getBits(bits)+LengthBases[literal-257];
@@ -1804,7 +1807,7 @@ bool Inflator::decodeBody()
                   {
                    decode_state=Distance;
 
-                   break;
+                   return false;
                   }
                }
 
@@ -1821,7 +1824,7 @@ bool Inflator::decodeBody()
                   {
                    decode_state=DistanceBits;
 
-                   break;
+                   return false;
                   }
 
                 distance=reader.getBits(bits)+DistanceBases[distance];
@@ -1832,7 +1835,7 @@ bool Inflator::decodeBody()
           }
        }
 
-     return end_of_block;
+     return false;
     }
  }
 
@@ -1865,6 +1868,8 @@ void Inflator::processInput(bool eof)
             {
              if( !reader.canRead(MaxHeaderBitlen) ) return;
             }
+
+          // can read MaxHeaderBitlen OR eof and reader is not empty
 
           decodeHeader();
 
@@ -1926,18 +1931,9 @@ void Inflator::put(PtrLen<const uint8> data)
 
   reader.extend(data);
 
-  try
-    {
-     processInput(false);
-    }
-  catch(...)
-    {
-     reader.bufferize(NoException);
+  processInput(false);
 
-     throw;
-    }
-
-  reader.bufferize(Exception);
+  reader.bufferize();
  }
 
 void Inflator::complete()
