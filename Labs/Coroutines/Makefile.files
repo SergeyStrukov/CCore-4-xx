@@ -1,12 +1,15 @@
 OBJ_LIST = \
+.obj/Trace.o \
 .obj/main.o \
 
 
 ASM_LIST = \
+.obj/Trace.s \
 .obj/main.s \
 
 
 DEP_LIST = \
+.obj/Trace.dep \
 .obj/main.dep \
 
 
@@ -16,15 +19,24 @@ ASM_OBJ_LIST = \
 include $(RULES_FILE)
 
 
+.obj/Trace.o : ./Trace.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/main.o : ./main.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 
 
+.obj/Trace.s : ./Trace.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/main.s : ./main.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 
+
+.obj/Trace.dep : ./Trace.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Trace.o $< -MF $@
 
 .obj/main.dep : ./main.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/main.o $< -MF $@

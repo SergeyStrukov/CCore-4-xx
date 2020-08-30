@@ -14,118 +14,11 @@
 #include <CCore/inc/Print.h>
 #include <CCore/inc/Exception.h>
 
-#include <coroutine>
-#include <exception>
+#include "Generator.h"
+#include "Task.h"
+#include "Trace.h"
 
 namespace App {
-
-/* using */
-
-using namespace CCore;
-
-template <class T> class GeneratorPromise;
-
-template <class T> class Generator;
-
-/* class GeneratorPromise<T> */
-
-template <class T>
-class GeneratorPromise
- {
-   T value;
-   std::exception_ptr exception;
-
-  public:
-
-   GeneratorPromise() noexcept : value{},exception{} {}
-
-   static Generator<T> get_return_object_on_allocation_failure();
-
-   Generator<T> get_return_object() noexcept;
-
-   std::suspend_always initial_suspend() const noexcept { return {}; }
-
-   std::suspend_always final_suspend() const noexcept { return {}; }
-
-   std::suspend_always yield_value(const T &value_) noexcept
-    {
-     value=value_;
-
-     return {};
-    }
-
-   void unhandled_exception() { exception=std::current_exception(); }
-
-   void return_void() {}
-
-   // methods
-
-   T getValue() const { return value; }
-
-   void rethrowException() { if( exception ) std::rethrow_exception(exception); }
- };
-
-/* class Generator<T> */
-
-template <class T>
-class Generator : NoCopy
- {
-  public:
-
-   using promise_type = GeneratorPromise<T> ;
-
-   using HandleType = std::coroutine_handle<promise_type> ;
-
-  private:
-
-   HandleType handle;
-
-  private:
-
-   static void Destroy(HandleType handle) { if( handle ) handle.destroy(); }
-
-  public:
-
-   // constructors
-
-   Generator(HandleType handle_={}) noexcept : handle(handle_) {}
-
-   ~Generator() { Destroy(handle); }
-
-   // std move
-
-   Generator(Generator &&obj) : handle(Replace_null(obj.handle)) {}
-
-   Generator & operator = (Generator &&obj)
-    {
-     if( this!=&obj )
-       {
-        Destroy(Replace(handle,Replace_null(obj.handle)));
-       }
-
-     return *this;
-    }
-
-   // methods
-
-   bool next() { return handle? (handle.resume(), !handle.done()) : false ; }
-
-   T getValue() const { return handle.promise().getValue(); }
-
-   void rethrowException() { if( handle ) handle.promise().rethrowException(); }
- };
-
-template <class T>
-Generator<T> GeneratorPromise<T>::get_return_object_on_allocation_failure()
- {
-  return {};
- }
-
-template <class T>
-Generator<T> GeneratorPromise<T>::get_return_object() noexcept
- {
-  return {std::coroutine_handle<GeneratorPromise>::from_promise(*this)};
- }
 
 /* coGenData() */
 
@@ -136,15 +29,15 @@ Generator<int> coGenData()
   throw 12345;
  }
 
-/* Main() */
+/* Main1() */
 
-void Main()
+void Main1()
  {
   Generator<int> gen=coGenData();
 
-  Printf(Con,"beg\n");
+  TraceBeg();
 
-  while( gen.next() ) Printf(Con,"#;\n",gen.getValue());
+  while( gen.next() ) TraceValue(gen.getValue());
 
   try
     {
@@ -152,10 +45,110 @@ void Main()
     }
   catch(int ex)
     {
-     Printf(Con,"exception #;\n",ex);
+     TraceException(ex);
     }
 
-  Printf(Con,"end\n");
+  TraceEnd();
+ }
+
+/* class Buffer */
+
+class Buffer : NoCopy
+ {
+   static constexpr ulen Len = 30 ;
+
+   int buf[Len];
+   ulen len = 0 ;
+
+   Task<void> cofill;
+   Task<void> cosum;
+
+   // fill
+
+   static constexpr int Last = 10'000 ;
+
+   int next = 0 ;
+
+   Task<void> coFillBuffer()
+    {
+     while( next<=Last )
+       {
+        while( len>=Len )
+          {
+           co_await cosum.getResumer();
+          }
+
+        buf[len++]=next++;
+       }
+
+     next=0;
+
+     co_return;
+    }
+
+   // sum
+
+   int sum = 0 ;
+
+   Task<void> coSumBuffer()
+    {
+     for(;;)
+       {
+        while( len==0 )
+          {
+           if( cofill.done() ) co_return;
+
+           co_await cofill.getResumer();
+          }
+
+        for(int val : Range(buf,len) ) sum+=val;
+
+        len=0;
+       }
+    }
+
+  public:
+
+   Buffer() {}
+
+   int process()
+    {
+     cofill=coFillBuffer();
+     cosum=coSumBuffer();
+
+     cosum.push();
+
+     if( !cosum.push() )
+       {
+        Printf(Exception,"App::Buffer::process() : push failed");
+       }
+
+     if( !cosum.done() || !cofill.done() )
+       {
+        Printf(Exception,"App::Buffer::process() : not finished");
+       }
+
+     return sum;
+    }
+ };
+
+/* Main2() */
+
+void Main2()
+ {
+  Buffer buf;
+
+  TraceBeg();
+
+  TraceValue(buf.process());
+
+  TraceEnd();
+
+  TraceBeg();
+
+  TraceValue(buf.process());
+
+  TraceEnd();
  }
 
 } // namespace App
@@ -170,7 +163,8 @@ int main()
     {
      ReportException report;
 
-     Main();
+     Main1();
+     Main2();
 
      report.guard();
 
