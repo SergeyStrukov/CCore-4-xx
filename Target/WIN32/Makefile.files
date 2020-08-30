@@ -28,6 +28,7 @@ OBJ_LIST = \
 .obj/CmdInput.o \
 .obj/CmdlineParser.o \
 .obj/Cmp.o \
+.obj/CoTask.o \
 .obj/Collector.o \
 .obj/CommonIntAlgo.o \
 .obj/CompactList.o \
@@ -297,6 +298,7 @@ ASM_LIST = \
 .obj/CmdInput.s \
 .obj/CmdlineParser.s \
 .obj/Cmp.s \
+.obj/CoTask.s \
 .obj/Collector.s \
 .obj/CommonIntAlgo.s \
 .obj/CompactList.s \
@@ -566,6 +568,7 @@ DEP_LIST = \
 .obj/CmdInput.dep \
 .obj/CmdlineParser.dep \
 .obj/Cmp.dep \
+.obj/CoTask.dep \
 .obj/Collector.dep \
 .obj/CommonIntAlgo.dep \
 .obj/CompactList.dep \
@@ -902,6 +905,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Cmp.o : ../../Simple/CCore/src/Cmp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CoTask.o : ../../Fundamental/CCore/src/CoTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Collector.o : ../../Fundamental/CCore/src/array/Collector.cpp
@@ -1704,6 +1710,9 @@ include $(RULES_FILE)
 .obj/Cmp.s : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/CoTask.s : ../../Fundamental/CCore/src/CoTask.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Collector.s : ../../Fundamental/CCore/src/array/Collector.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2503,6 +2512,9 @@ include $(RULES_FILE)
 
 .obj/Cmp.dep : ../../Simple/CCore/src/Cmp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Cmp.o $< -MF $@
+
+.obj/CoTask.dep : ../../Fundamental/CCore/src/CoTask.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CoTask.o $< -MF $@
 
 .obj/Collector.dep : ../../Fundamental/CCore/src/array/Collector.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Collector.o $< -MF $@

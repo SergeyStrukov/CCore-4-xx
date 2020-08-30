@@ -17,8 +17,6 @@ include $(CCORE_ROOT)/Makefile.host
 
 TARGET = ./main.exe
 
-CCOPT_EXTRA = -fcoroutines
-
 include $(CCORE_ROOT)/Target/Makefile.app
 
 .PHONY : run
