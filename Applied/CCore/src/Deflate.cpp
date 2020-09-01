@@ -1567,6 +1567,13 @@ bool HuffmanDecoder::decode(BitReader &reader,USym &sym) const
   return true;
  }
 
+void HuffmanDecoder::decodePrepared(BitReader &reader,USym &sym) const
+ {
+  BitLen bits=decode(reader.peekBuffer(),sym);
+
+  reader.skipBits(bits);
+ }
+
 void HuffmanDecoder::reqDecode(BitReader &reader,USym &sym) const
  {
   reader.reqBuffer(max_code_bits);

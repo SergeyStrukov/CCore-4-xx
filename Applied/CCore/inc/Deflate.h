@@ -647,9 +647,13 @@ class HuffmanDecoder : NoCopy
 
    void init(PtrLen<BitLen> bitlens);
 
+   BitLen getMaxCodeBits() const { return max_code_bits; }
+
    BitLen decode(UCode code,USym &sym) const;
 
    bool decode(BitReader &reader,USym &sym) const;
+
+   void decodePrepared(BitReader &reader,USym &sym) const;
 
    void reqDecode(BitReader &reader,USym &sym) const;
  };
@@ -659,7 +663,6 @@ class HuffmanDecoder : NoCopy
 class Inflator : NoCopy
  {
    WindowOut out;
-
    BitReader reader;
 
    // params

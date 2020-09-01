@@ -197,6 +197,8 @@ class CoTask
 
    bool operator ! () const { return !handle; }
 
+   cotask getHandle() const { return handle; }
+
    CoTaskResume getResumer() const { return handle; }
 
    bool done() const { return handle.done(); }
