@@ -29,11 +29,20 @@ using cotask = std::coroutine_handle<> ;
 
 /* guard functions */
 
+void GuardCoTaskNone();
+
+inline void GuardCoTaskExist(cotask handle)
+ {
+  if( !handle ) GuardCoTaskNone();
+ }
+
 void GuardCoTaskFinished();
 
 inline void GuardCoTaskActive(cotask handle)
  {
-  if( !handle || handle.done() ) GuardCoTaskFinished();
+  if( !handle ) GuardCoTaskNone();
+
+  if( handle.done() ) GuardCoTaskFinished();
  }
 
 /* classes */
@@ -45,6 +54,8 @@ template <class T> struct CoTaskResult;
 template <class T> class CoTaskPromise;
 
 template <class T,template <class> class Promise=CoTaskPromise> class CoTask;
+
+template <ulen Len> class CoTaskStack;
 
 /* struct CoTaskResume */
 
@@ -207,9 +218,9 @@ class CoTask
 
    CoTaskResult<T> push() const
     {
-     if( !handle || handle.done() ) return {};
+     GuardCoTaskExist(handle);
 
-     handle.resume();
+     if( !handle.done() ) handle.resume();
 
      if( handle.done() )
        {
@@ -229,14 +240,74 @@ class CoTask
 template <class T>
 CoTask<T,CoTaskPromise> CoTaskPromise<T>::get_return_object() noexcept
  {
-  return {std::coroutine_handle<CoTaskPromise<T> >::from_promise(*this)};
+  return {std::coroutine_handle< CoTaskPromise<T> >::from_promise(*this)};
  }
 
 inline
 CoTask<void,CoTaskPromise> CoTaskPromise<void>::get_return_object() noexcept
  {
-  return {std::coroutine_handle<CoTaskPromise<void> >::from_promise(*this)};
+  return {std::coroutine_handle< CoTaskPromise<void> >::from_promise(*this)};
  }
+
+/* class CoTaskStack<ulen Len> */
+
+template <ulen Len>
+class CoTaskStack : NoCopy
+ {
+   CoTask<void> * stack[Len];
+   ulen len = 0 ;
+
+  private:
+
+   CoTask<void> & top()
+    {
+     GuardNotEmpty(len);
+
+     return *(stack[len-1]);
+    }
+
+   void push(CoTask<void> &task)
+    {
+     GuardIndex(len,Len);
+
+     stack[len++]=&task;
+    }
+
+   void pop()
+    {
+     GuardNotEmpty(len);
+
+     --len;
+    }
+
+  public:
+
+   CoTaskStack() {}
+
+   void prepare(CoTask<void> &task)
+    {
+     push(task);
+    }
+
+   CoTaskResume cocall(CoTask<void> &task)
+    {
+     push(task);
+
+     return task.getResumer();
+    }
+
+   CoTaskResume coret()
+    {
+     pop();
+
+     return top().getResumer();
+    }
+
+   bool push()
+    {
+     return top().push().ok;
+    }
+ };
 
 } // namespace CCore
 

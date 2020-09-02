@@ -252,6 +252,127 @@ void test3()
   test.process();
  }
 
+/* test4() */
+
+class Test4 : CoTaskStack<10>
+ {
+  private:
+
+   int count = 0 ;
+
+   CoTask<void> process3()
+    {
+     for(;;)
+       {
+        while( !count ) co_await std::suspend_always{};
+
+        Printf(Con,"Got #;\n",count);
+
+        if( count<0 )
+          {
+           Printf(Exception,"Negative #;",count);
+          }
+
+        count--;
+
+        co_await coret();
+       }
+    }
+
+   CoTask<void> coproc3;
+
+  private:
+
+   CoTask<void> process2()
+    {
+     for(;;)
+       {
+        co_await cocall(coproc3);
+
+        Printf(Con,"Stage 1\n");
+
+        co_await cocall(coproc3);
+
+        Printf(Con,"Stage 2\n");
+
+        co_await cocall(coproc3);
+
+        Printf(Con,"Stage 3\n");
+
+        co_await coret();
+       }
+    }
+
+   CoTask<void> coproc2;
+
+  private:
+
+   CoTask<void> process1()
+    {
+     co_await cocall(coproc2);
+
+     Printf(Con,"Step 1\n");
+
+     co_await cocall(coproc2);
+
+     Printf(Con,"Step 2\n\n");
+    }
+
+   CoTask<void> coproc1;
+
+  public:
+
+   Test4()
+    {
+     coproc1=process1();
+     coproc2=process2();
+     coproc3=process3();
+
+     prepare(coproc1);
+    }
+
+   ~Test4() {}
+
+   void run1()
+    {
+     while( !push() )
+       {
+        count = 2 ;
+       }
+    }
+
+   void run2()
+    {
+     push();
+
+     count = -1 ;
+
+     Printf(Con,"finish\n");
+
+     push();
+    }
+ };
+
+void test4()
+ {
+  {
+   Test4 test;
+
+   test.run1();
+  }
+
+  try
+    {
+     Test4 test;
+
+     test.run2();
+    }
+  catch(CatchType)
+    {
+     Printf(Con,"exception\n\n");
+    }
+ }
+
 } // namespace Private_2062
 
 using namespace Private_2062;
@@ -264,9 +385,10 @@ const char *const Testit<2062>::Name="Test2062 CoTask";
 template<>
 bool Testit<2062>::Main()
  {
-  test1();
-  test2();
-  test3();
+  //test1();
+  //test2();
+  //test3();
+  test4();
 
   return true;
  }

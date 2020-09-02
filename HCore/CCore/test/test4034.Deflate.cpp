@@ -37,7 +37,7 @@ using namespace Deflate;
 
 /* class Inflator */
 
-class Inflator : NoCopy
+class Inflator : CoTaskStack<10>
  {
    WindowOut out;
    BitReader reader;
@@ -53,44 +53,15 @@ class Inflator : NoCopy
    HuffmanDecoder dynamic_literal_decoder;
    HuffmanDecoder dynamic_distance_decoder;
 
-  private: // move -> CoTask.h
+  private:
 
-   CoTask<void> * stack[32];
-   ulen stack_len = 0 ;
+   bool noeof = false ;
 
-   CoTask<void> & top()
-    {
-     return *(stack[stack_len-1]);
-    }
+   CoTask<void> waitBits();
 
-   void push(CoTask<void> &task)
-    {
-     stack[stack_len++]=&task;
-    }
+   CoTask<void> cowaitbits;
 
-   void pop()
-    {
-     --stack_len;
-    }
-
-   CoTaskResume cocall(CoTask<void> &task)
-    {
-     push(task);
-
-     return task.getResumer();
-    }
-
-   CoTaskResume coret()
-    {
-     pop();
-
-     return top().getResumer();
-    }
-
-   bool push()
-    {
-     return top().push().ok;
-    }
+   auto wait(bool noeof_) { noeof=noeof_; return cocall(cowaitbits); }
 
   private:
 
@@ -101,6 +72,8 @@ class Inflator : NoCopy
    CoTask<void> cobits;
 
    auto decodeBits(unsigned bitlen_) { bitlen=bitlen_; return cocall(cobits); }
+
+   auto waitMoreBits() { return decodeBits(reader.bitsBuffered()+1); }
 
   private:
 
@@ -145,105 +118,23 @@ class Inflator : NoCopy
    void complete();
  };
 
-#if 0
-
-bool Inflator::decodeBody()
+CoTask<void> Inflator::waitBits()
  {
-  if( block_type==Stored )
+  for(;;)
     {
-     stored_len=reader.pumpToCap(out,stored_len);
-
-     return !stored_len;
-    }
-  else
-    {
-     const HuffmanDecoder &literal_decoder = (block_type==Static)? StaticCoder<HuffmanDecoder,StaticLiteralBitlens>::Get()
-                                                                 : dynamic_literal_decoder ;
-
-     const HuffmanDecoder &distance_decoder = (block_type==Static)? StaticCoder<HuffmanDecoder,StaticDistanceBitlens>::Get()
-                                                                  : dynamic_distance_decoder ;
-
-     switch( decode_state )
+     while( !eof && reader.isEmpty() )
        {
-        case Literal:
-
-        for(;;)
-          {
-           if( !literal_decoder.decode(reader,literal) )
-             {
-              decode_state=Literal;
-
-              return false;
-             }
-
-           if( literal<256 )
-             {
-              out.put((uint8)literal);
-             }
-           else if( literal==256 )
-             {
-              return true;
-             }
-           else
-             {
-              if( literal>=286 )
-                {
-                 Printf(Exception,"CCore::Deflate::Inflator::decodeBody() : incorrect literal");
-                }
-
-              case LengthBits :
-               {
-                unsigned bits=LengthExtraBits[literal-257];
-
-                if( !reader.fillBuffer(bits) )
-                  {
-                   decode_state=LengthBits;
-
-                   return false;
-                  }
-
-                literal=reader.getBits(bits)+LengthBases[literal-257];
-               }
-
-              case Distance :
-               {
-                if( !distance_decoder.decode(reader,distance) )
-                  {
-                   decode_state=Distance;
-
-                   return false;
-                  }
-               }
-
-              if( distance>=30 )
-                {
-                 Printf(Exception,"CCore::Deflate::Inflator::decodeBody() : incorrect distance");
-                }
-
-              case DistanceBits :
-               {
-                unsigned bits=DistanceExtraBits[distance];
-
-                if( !reader.fillBuffer(bits) )
-                  {
-                   decode_state=DistanceBits;
-
-                   return false;
-                  }
-
-                distance=reader.getBits(bits)+DistanceBases[distance];
-
-                out.put(distance,literal);
-               }
-             }
-          }
+        co_await std::suspend_always{};
        }
 
-     return false;
+     if( eof && noeof )
+       {
+        Printf(Exception,"CCore::Deflate::Inflator::processBody() : unexpected EOF");
+       }
+
+     co_await coret();
     }
  }
-
-#endif
 
 CoTask<void> Inflator::processBits()
  {
@@ -436,7 +327,73 @@ CoTask<void> Inflator::processBody()
  {
   for(;;)
     {
-     // TODO
+     if( block_type==Stored )
+       {
+        while( stored_len )
+          {
+           co_await wait(true);
+
+           stored_len=reader.pumpToCap(out,stored_len);
+          }
+       }
+     else
+       {
+        const HuffmanDecoder &literal_decoder = (block_type==Static)? StaticCoder<HuffmanDecoder,StaticLiteralBitlens>::Get()
+                                                                    : dynamic_literal_decoder ;
+
+        const HuffmanDecoder &distance_decoder = (block_type==Static)? StaticCoder<HuffmanDecoder,StaticDistanceBitlens>::Get()
+                                                                     : dynamic_distance_decoder ;
+
+        for(;;)
+          {
+           USym literal;
+
+           while( !literal_decoder.decode(reader,literal) ) co_await waitMoreBits();
+
+           if( literal<256 )
+             {
+              out.put((uint8)literal);
+             }
+           else if( literal==256 )
+             {
+              break;
+             }
+           else
+             {
+              if( literal>=286 )
+                {
+                 Printf(Exception,"CCore::Deflate::Inflator::processBody() : incorrect literal");
+                }
+
+              {
+               unsigned bits=LengthExtraBits[literal-257];
+
+               co_await decodeBits(bits);
+
+               literal=reader.getBits(bits)+LengthBases[literal-257];
+              }
+
+              USym distance;
+
+              while( !distance_decoder.decode(reader,distance) ) co_await waitMoreBits();
+
+              if( distance>=30 )
+                {
+                 Printf(Exception,"CCore::Deflate::Inflator::processBody() : incorrect distance");
+                }
+
+              {
+               unsigned bits=DistanceExtraBits[distance];
+
+               co_await decodeBits(bits);
+
+               distance=reader.getBits(bits)+DistanceBases[distance];
+              }
+
+             out.put(distance,literal);
+            }
+         }
+      }
 
      co_await coret();
     }
@@ -446,10 +403,9 @@ CoTask<void> Inflator::process()
  {
   for(;;)
     {
-     if( eof )
-       {
-        if( reader.isEmpty() ) co_return;
-       }
+     co_await wait(false);
+
+     if( eof && reader.isEmpty() ) co_return;
 
      co_await cocall(coheader);
 
@@ -481,12 +437,14 @@ Inflator::Inflator(OutFunc out_,bool repeat_)
  : out(out_),
    repeat(repeat_)
  {
+  cowaitbits=waitBits();
   cobits=processBits();
+  cocode=processCode();
   coheader=processHeader();
   cobody=processBody();
   coproc=process();
 
-  push(coproc);
+  prepare(coproc);
  }
 
 Inflator::~Inflator()
@@ -497,11 +455,16 @@ void Inflator::put(PtrLen<const uint8> data)
  {
   out.flush();
 
+  if( !data ) return;
+
   reader.extend(data);
 
   push();
 
-  reader.bufferize();
+  if( !reader.bufferize() )
+    {
+     Printf(Exception,"CCore::Deflate::Inflator::put() : extra data");
+    }
  }
 
 void Inflator::complete()
@@ -600,7 +563,7 @@ class Engine : NoCopy
 
      // 2
 
-     Transform<Deflate::Inflator> unzip(zipped);
+     Transform<Alt::Inflator> unzip(zipped);
 
      unzip.run(random);
 

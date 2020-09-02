@@ -42,6 +42,8 @@ void GuardLenOfOverflow(ulen count,ulen size_of,ulen extra);
 
 void GuardIndexOutOfRange(ulen index,ulen len);
 
+void GuardIsEmpty();
+
 /* functions */
 
 inline ulen CheckedLenAdd(ulen len,ulen extra_len)
@@ -78,6 +80,11 @@ inline ulen LenOf(ulen count,ulen size_of,ulen extra=0)
 inline void GuardIndex(ulen index,ulen len)
  {
   if( index>=len ) GuardIndexOutOfRange(index,len);
+ }
+
+inline void GuardNotEmpty(ulen len)
+ {
+  if( !len ) GuardIsEmpty();
  }
 
 /* functions */

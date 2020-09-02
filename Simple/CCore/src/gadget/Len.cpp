@@ -41,6 +41,11 @@ void GuardIndexOutOfRange(ulen index,ulen len)
   Printf(Exception,"CCore::GuardIndex(index=#;,len=#;) : out of range",index,len);
  }
 
+void GuardIsEmpty()
+ {
+  Printf(Exception,"CCore::GuardIsEmpty(...) : container is empty");
+ }
+
 } // namespace CCore
 
 

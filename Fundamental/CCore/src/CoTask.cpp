@@ -21,6 +21,11 @@ namespace CCore {
 
 /* guard functions */
 
+void GuardCoTaskNone()
+ {
+  Printf(Exception,"CCore::GuardCoTaskNone(...) : no coroutine");
+ }
+
 void GuardCoTaskFinished()
  {
   Printf(Exception,"CCore::GuardCoTaskActive(...) : coroutine is finished");
