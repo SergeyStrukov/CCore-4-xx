@@ -112,6 +112,7 @@ OBJ_LIST = \
 .obj/MultiSignal.o \
 .obj/Mutex.o \
 .obj/MutexSpinCount.o \
+.obj/NanoPacket.o \
 .obj/NegBool.o \
 .obj/NetBase.o \
 .obj/NewDelete.o \
@@ -382,6 +383,7 @@ ASM_LIST = \
 .obj/MultiSignal.s \
 .obj/Mutex.s \
 .obj/MutexSpinCount.s \
+.obj/NanoPacket.s \
 .obj/NegBool.s \
 .obj/NetBase.s \
 .obj/NewDelete.s \
@@ -652,6 +654,7 @@ DEP_LIST = \
 .obj/MultiSignal.dep \
 .obj/Mutex.dep \
 .obj/MutexSpinCount.dep \
+.obj/NanoPacket.dep \
 .obj/NegBool.dep \
 .obj/NetBase.dep \
 .obj/NewDelete.dep \
@@ -1157,6 +1160,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MutexSpinCount.o : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NanoPacket.o : ../../Applied/CCore/src/NanoPacket.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NegBool.o : ../../Simple/CCore/src/gadget/NegBool.cpp
@@ -1962,6 +1968,9 @@ include $(RULES_FILE)
 .obj/MutexSpinCount.s : ../../HCore/CCore/src/task/MutexSpinCount.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NanoPacket.s : ../../Applied/CCore/src/NanoPacket.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NegBool.s : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2764,6 +2773,9 @@ include $(RULES_FILE)
 
 .obj/MutexSpinCount.dep : ../../HCore/CCore/src/task/MutexSpinCount.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MutexSpinCount.o $< -MF $@
+
+.obj/NanoPacket.dep : ../../Applied/CCore/src/NanoPacket.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NanoPacket.o $< -MF $@
 
 .obj/NegBool.dep : ../../Simple/CCore/src/gadget/NegBool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NegBool.o $< -MF $@
