@@ -107,6 +107,8 @@ OBJ_LIST = \
 ../.test-obj/test3002.EventRecorder.o \
 ../.test-obj/test3006.TaskMemStack.o \
 ../.test-obj/test3007.FileName.o \
+../.test-obj/test3008.Packet.o \
+../.test-obj/test3009.PacketSet.o \
 ../.test-obj/test3011.LineInput.o \
 ../.test-obj/test3012.CmdInput.o \
 ../.test-obj/test3032.FileNameMatch.o \
@@ -234,6 +236,8 @@ ASM_LIST = \
 ../.test-obj/test3002.EventRecorder.s \
 ../.test-obj/test3006.TaskMemStack.s \
 ../.test-obj/test3007.FileName.s \
+../.test-obj/test3008.Packet.s \
+../.test-obj/test3009.PacketSet.s \
 ../.test-obj/test3011.LineInput.s \
 ../.test-obj/test3012.CmdInput.s \
 ../.test-obj/test3032.FileNameMatch.s \
@@ -361,6 +365,8 @@ DEP_LIST = \
 ../.test-obj/test3002.EventRecorder.dep \
 ../.test-obj/test3006.TaskMemStack.dep \
 ../.test-obj/test3007.FileName.dep \
+../.test-obj/test3008.Packet.dep \
+../.test-obj/test3009.PacketSet.dep \
 ../.test-obj/test3011.LineInput.dep \
 ../.test-obj/test3012.CmdInput.dep \
 ../.test-obj/test3032.FileNameMatch.dep \
@@ -707,6 +713,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3007.FileName.o : ../../../Applied/CCore/test/test3007.FileName.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3008.Packet.o : ../../../Applied/CCore/test/test3008.Packet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3009.PacketSet.o : ../../../Applied/CCore/test/test3009.PacketSet.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3011.LineInput.o : ../../../Applied/CCore/test/test3011.LineInput.cpp
@@ -1083,6 +1095,12 @@ include $(RULES_FILE)
 ../.test-obj/test3007.FileName.s : ../../../Applied/CCore/test/test3007.FileName.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3008.Packet.s : ../../../Applied/CCore/test/test3008.Packet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3009.PacketSet.s : ../../../Applied/CCore/test/test3009.PacketSet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3011.LineInput.s : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1456,6 +1474,12 @@ include $(RULES_FILE)
 
 ../.test-obj/test3007.FileName.dep : ../../../Applied/CCore/test/test3007.FileName.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3007.FileName.o $< -MF $@
+
+../.test-obj/test3008.Packet.dep : ../../../Applied/CCore/test/test3008.Packet.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3008.Packet.o $< -MF $@
+
+../.test-obj/test3009.PacketSet.dep : ../../../Applied/CCore/test/test3009.PacketSet.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3009.PacketSet.o $< -MF $@
 
 ../.test-obj/test3011.LineInput.dep : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3011.LineInput.o $< -MF $@
