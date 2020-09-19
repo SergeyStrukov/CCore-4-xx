@@ -143,6 +143,7 @@ OBJ_LIST = \
 ../.test-obj/test4035.SysSpawn.o \
 ../.test-obj/test4036.LaunchPath.o \
 ../.test-obj/test4037.ExpandWildcard.o \
+../.test-obj/test4038.AsyncBinaryFile.o \
 ../.test-obj/test6008.DirCursor.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testPrint.o \
@@ -294,6 +295,7 @@ ASM_LIST = \
 ../.test-obj/test4035.SysSpawn.s \
 ../.test-obj/test4036.LaunchPath.s \
 ../.test-obj/test4037.ExpandWildcard.s \
+../.test-obj/test4038.AsyncBinaryFile.s \
 ../.test-obj/test6008.DirCursor.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testPrint.s \
@@ -445,6 +447,7 @@ DEP_LIST = \
 ../.test-obj/test4035.SysSpawn.dep \
 ../.test-obj/test4036.LaunchPath.dep \
 ../.test-obj/test4037.ExpandWildcard.dep \
+../.test-obj/test4038.AsyncBinaryFile.dep \
 ../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testPrint.dep \
@@ -887,6 +890,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4037.ExpandWildcard.o : ../../../HCore/CCore/test/test4037.ExpandWildcard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4038.AsyncBinaryFile.o : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6008.DirCursor.o : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
@@ -1335,6 +1341,9 @@ include $(RULES_FILE)
 ../.test-obj/test4037.ExpandWildcard.s : ../../../HCore/CCore/test/test4037.ExpandWildcard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4038.AsyncBinaryFile.s : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test6008.DirCursor.s : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1780,6 +1789,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test4037.ExpandWildcard.dep : ../../../HCore/CCore/test/test4037.ExpandWildcard.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4037.ExpandWildcard.o $< -MF $@
+
+../.test-obj/test4038.AsyncBinaryFile.dep : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4038.AsyncBinaryFile.o $< -MF $@
 
 ../.test-obj/test6008.DirCursor.dep : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6008.DirCursor.o $< -MF $@

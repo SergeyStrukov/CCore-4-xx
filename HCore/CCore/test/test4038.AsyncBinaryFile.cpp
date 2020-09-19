@@ -1,9 +1,9 @@
-/* test4018.BinaryFile.cpp */
+/* test4038.AsyncBinaryFile.cpp */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: HCore Mini
+//  Tag: HCore
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -15,14 +15,15 @@
 
 #include <CCore/test/test.h>
 
-#include <CCore/inc/PutBinaryFile.h>
-#include <CCore/inc/GetBinaryFile.h>
-#include <CCore/inc/FileToMem.h>
+#include <CCore/inc/AsyncFileDevice.h>
+#include <CCore/inc/PutAsyncBinaryFile.h>
+#include <CCore/inc/GetAsyncBinaryFile.h>
+#include <CCore/inc/AsyncFileToMem.h>
 #include <CCore/inc/PlatformRandom.h>
 
 namespace App {
 
-namespace Private_4018 {
+namespace Private_4038 {
 
 struct Test
  {
@@ -62,23 +63,27 @@ struct Test
    }
  };
 
-} // namespace Private_4018
+} // namespace Private_4038
 
-using namespace Private_4018;
+using namespace Private_4038;
 
-/* Testit<4018> */
-
-template<>
-const char *const Testit<4018>::Name="Test4018 BinaryFile";
+/* Testit<4038> */
 
 template<>
-bool Testit<4018>::Main()
+const char *const Testit<4038>::Name="Test4038 AsyncBinaryFile";
+
+template<>
+bool Testit<4038>::Main()
  {
+  AsyncFileDevice host;
+
+  ObjMaster host_master(host,"host");
+
   constexpr ulen ObjCount = 1'000'000 ;
 
   {
    PlatformRandom random;
-   PutBinaryFile out("test.bin");
+   PutAsyncBinaryFile out("host:test.bin");
 
    Test test;
 
@@ -91,7 +96,7 @@ bool Testit<4018>::Main()
   }
 
   {
-   FileToMem file("test.bin");
+   AsyncFileToMem file("host:test.bin");
    RangeGetDev dev(Range(file));
 
    Test test;
@@ -110,7 +115,7 @@ bool Testit<4018>::Main()
   }
 
   {
-   GetBinaryFile dev("test.bin");
+   GetAsyncBinaryFile dev("host:test.bin");
 
    Test test;
 
