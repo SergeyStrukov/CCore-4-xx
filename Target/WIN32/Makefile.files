@@ -11,6 +11,9 @@ OBJ_LIST = \
 .obj/ArrayAlgo.o \
 .obj/ArrayBase.o \
 .obj/ArrayInsDel.o \
+.obj/AsyncFile.o \
+.obj/AsyncFileDevice.o \
+.obj/AsyncFileToMem.o \
 .obj/Atomic.o \
 .obj/AtomicRefArray.o \
 .obj/AttachmentHost.o \
@@ -72,6 +75,7 @@ OBJ_LIST = \
 .obj/Gadget.o \
 .obj/GenFile.o \
 .obj/GetAbstFile.o \
+.obj/GetAsyncBinaryFile.o \
 .obj/GetBinaryFile.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
@@ -148,6 +152,7 @@ OBJ_LIST = \
 .obj/PretextFileToMem.o \
 .obj/Print.o \
 .obj/PrintAbort.o \
+.obj/PrintAsyncFile.o \
 .obj/PrintBase.o \
 .obj/PrintBits.o \
 .obj/PrintCon.o \
@@ -163,6 +168,7 @@ OBJ_LIST = \
 .obj/PtrLen.o \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
+.obj/PutAsyncBinaryFile.o \
 .obj/PutBinaryFile.o \
 .obj/Quick.o \
 .obj/QuickSort.o \
@@ -184,6 +190,7 @@ OBJ_LIST = \
 .obj/SafeBuf.o \
 .obj/SaveLoad.o \
 .obj/Scan.o \
+.obj/ScanAsyncFile.o \
 .obj/ScanBase.o \
 .obj/ScanBit.o \
 .obj/ScanFile.o \
@@ -219,6 +226,8 @@ OBJ_LIST = \
 .obj/SymPart.o \
 .obj/Symbol.o \
 .obj/SysAbort.o \
+.obj/SysAsyncFile.o \
+.obj/SysAsyncFileSystem.o \
 .obj/SysAtomic.o \
 .obj/SysCon.o \
 .obj/SysEnv.o \
@@ -288,6 +297,9 @@ ASM_LIST = \
 .obj/ArrayAlgo.s \
 .obj/ArrayBase.s \
 .obj/ArrayInsDel.s \
+.obj/AsyncFile.s \
+.obj/AsyncFileDevice.s \
+.obj/AsyncFileToMem.s \
 .obj/Atomic.s \
 .obj/AtomicRefArray.s \
 .obj/AttachmentHost.s \
@@ -349,6 +361,7 @@ ASM_LIST = \
 .obj/Gadget.s \
 .obj/GenFile.s \
 .obj/GetAbstFile.s \
+.obj/GetAsyncBinaryFile.s \
 .obj/GetBinaryFile.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
@@ -425,6 +438,7 @@ ASM_LIST = \
 .obj/PretextFileToMem.s \
 .obj/Print.s \
 .obj/PrintAbort.s \
+.obj/PrintAsyncFile.s \
 .obj/PrintBase.s \
 .obj/PrintBits.s \
 .obj/PrintCon.s \
@@ -440,6 +454,7 @@ ASM_LIST = \
 .obj/PtrLen.s \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
+.obj/PutAsyncBinaryFile.s \
 .obj/PutBinaryFile.s \
 .obj/Quick.s \
 .obj/QuickSort.s \
@@ -461,6 +476,7 @@ ASM_LIST = \
 .obj/SafeBuf.s \
 .obj/SaveLoad.s \
 .obj/Scan.s \
+.obj/ScanAsyncFile.s \
 .obj/ScanBase.s \
 .obj/ScanBit.s \
 .obj/ScanFile.s \
@@ -496,6 +512,8 @@ ASM_LIST = \
 .obj/SymPart.s \
 .obj/Symbol.s \
 .obj/SysAbort.s \
+.obj/SysAsyncFile.s \
+.obj/SysAsyncFileSystem.s \
 .obj/SysAtomic.s \
 .obj/SysCon.s \
 .obj/SysEnv.s \
@@ -565,6 +583,9 @@ DEP_LIST = \
 .obj/ArrayAlgo.dep \
 .obj/ArrayBase.dep \
 .obj/ArrayInsDel.dep \
+.obj/AsyncFile.dep \
+.obj/AsyncFileDevice.dep \
+.obj/AsyncFileToMem.dep \
 .obj/Atomic.dep \
 .obj/AtomicRefArray.dep \
 .obj/AttachmentHost.dep \
@@ -626,6 +647,7 @@ DEP_LIST = \
 .obj/Gadget.dep \
 .obj/GenFile.dep \
 .obj/GetAbstFile.dep \
+.obj/GetAsyncBinaryFile.dep \
 .obj/GetBinaryFile.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
@@ -702,6 +724,7 @@ DEP_LIST = \
 .obj/PretextFileToMem.dep \
 .obj/Print.dep \
 .obj/PrintAbort.dep \
+.obj/PrintAsyncFile.dep \
 .obj/PrintBase.dep \
 .obj/PrintBits.dep \
 .obj/PrintCon.dep \
@@ -717,6 +740,7 @@ DEP_LIST = \
 .obj/PtrLen.dep \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
+.obj/PutAsyncBinaryFile.dep \
 .obj/PutBinaryFile.dep \
 .obj/Quick.dep \
 .obj/QuickSort.dep \
@@ -738,6 +762,7 @@ DEP_LIST = \
 .obj/SafeBuf.dep \
 .obj/SaveLoad.dep \
 .obj/Scan.dep \
+.obj/ScanAsyncFile.dep \
 .obj/ScanBase.dep \
 .obj/ScanBit.dep \
 .obj/ScanFile.dep \
@@ -773,6 +798,8 @@ DEP_LIST = \
 .obj/SymPart.dep \
 .obj/Symbol.dep \
 .obj/SysAbort.dep \
+.obj/SysAsyncFile.dep \
+.obj/SysAsyncFileSystem.dep \
 .obj/SysAtomic.dep \
 .obj/SysCon.dep \
 .obj/SysEnv.dep \
@@ -875,6 +902,15 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ArrayInsDel.o : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AsyncFile.o : ../../Applied/CCore/src/AsyncFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AsyncFileDevice.o : ../../HCore/CCore/src/AsyncFileDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AsyncFileToMem.o : ../../Applied/CCore/src/AsyncFileToMem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Atomic.o : ../../Fundamental/CCore/src/task/Atomic.cpp
@@ -1058,6 +1094,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GetAbstFile.o : ../../Applied/CCore/src/GetAbstFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/GetAsyncBinaryFile.o : ../../Applied/CCore/src/GetAsyncBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GetBinaryFile.o : ../../HCore/CCore/src/GetBinaryFile.cpp
@@ -1288,6 +1327,9 @@ include $(RULES_FILE)
 .obj/PrintAbort.o : ../../Simple/CCore/src/PrintAbort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintAsyncFile.o : ../../Applied/CCore/src/print/PrintAsyncFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintBase.o : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1331,6 +1373,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PtrStepLen.o : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PutAsyncBinaryFile.o : ../../Applied/CCore/src/PutAsyncBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PutBinaryFile.o : ../../HCore/CCore/src/PutBinaryFile.cpp
@@ -1394,6 +1439,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Scan.o : ../../HCore/CCore/src/Scan.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ScanAsyncFile.o : ../../Applied/CCore/src/scan/ScanAsyncFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ScanBase.o : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
@@ -1499,6 +1547,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysAbort.o : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysAsyncFile.o : ../../Applied/CCore/src/sys/SysAsyncFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SysAsyncFileSystem.o : ../../Applied/CCore/src/sys/SysAsyncFileSystem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SysAtomic.o : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
@@ -1701,6 +1755,15 @@ include $(RULES_FILE)
 .obj/ArrayInsDel.s : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AsyncFile.s : ../../Applied/CCore/src/AsyncFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AsyncFileDevice.s : ../../HCore/CCore/src/AsyncFileDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AsyncFileToMem.s : ../../Applied/CCore/src/AsyncFileToMem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Atomic.s : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1882,6 +1945,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GetAbstFile.s : ../../Applied/CCore/src/GetAbstFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/GetAsyncBinaryFile.s : ../../Applied/CCore/src/GetAsyncBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GetBinaryFile.s : ../../HCore/CCore/src/GetBinaryFile.cpp
@@ -2112,6 +2178,9 @@ include $(RULES_FILE)
 .obj/PrintAbort.s : ../../Simple/CCore/src/PrintAbort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintAsyncFile.s : ../../Applied/CCore/src/print/PrintAsyncFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintBase.s : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2155,6 +2224,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PtrStepLen.s : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PutAsyncBinaryFile.s : ../../Applied/CCore/src/PutAsyncBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PutBinaryFile.s : ../../HCore/CCore/src/PutBinaryFile.cpp
@@ -2218,6 +2290,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Scan.s : ../../HCore/CCore/src/Scan.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ScanAsyncFile.s : ../../Applied/CCore/src/scan/ScanAsyncFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ScanBase.s : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
@@ -2323,6 +2398,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SysAbort.s : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysAsyncFile.s : ../../Applied/CCore/src/sys/SysAsyncFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SysAsyncFileSystem.s : ../../Applied/CCore/src/sys/SysAsyncFileSystem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SysAtomic.s : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
@@ -2525,6 +2606,15 @@ include $(RULES_FILE)
 .obj/ArrayInsDel.dep : ../../Fundamental/CCore/src/array/ArrayInsDel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ArrayInsDel.o $< -MF $@
 
+.obj/AsyncFile.dep : ../../Applied/CCore/src/AsyncFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AsyncFile.o $< -MF $@
+
+.obj/AsyncFileDevice.dep : ../../HCore/CCore/src/AsyncFileDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AsyncFileDevice.o $< -MF $@
+
+.obj/AsyncFileToMem.dep : ../../Applied/CCore/src/AsyncFileToMem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AsyncFileToMem.o $< -MF $@
+
 .obj/Atomic.dep : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Atomic.o $< -MF $@
 
@@ -2707,6 +2797,9 @@ include $(RULES_FILE)
 
 .obj/GetAbstFile.dep : ../../Applied/CCore/src/GetAbstFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GetAbstFile.o $< -MF $@
+
+.obj/GetAsyncBinaryFile.dep : ../../Applied/CCore/src/GetAsyncBinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GetAsyncBinaryFile.o $< -MF $@
 
 .obj/GetBinaryFile.dep : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GetBinaryFile.o $< -MF $@
@@ -2936,6 +3029,9 @@ include $(RULES_FILE)
 .obj/PrintAbort.dep : ../../Simple/CCore/src/PrintAbort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintAbort.o $< -MF $@
 
+.obj/PrintAsyncFile.dep : ../../Applied/CCore/src/print/PrintAsyncFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintAsyncFile.o $< -MF $@
+
 .obj/PrintBase.dep : ../../Fundamental/CCore/src/printf/PrintBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintBase.o $< -MF $@
 
@@ -2980,6 +3076,9 @@ include $(RULES_FILE)
 
 .obj/PtrStepLen.dep : ../../Simple/CCore/src/gadget/PtrStepLen.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PtrStepLen.o $< -MF $@
+
+.obj/PutAsyncBinaryFile.dep : ../../Applied/CCore/src/PutAsyncBinaryFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PutAsyncBinaryFile.o $< -MF $@
 
 .obj/PutBinaryFile.dep : ../../HCore/CCore/src/PutBinaryFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PutBinaryFile.o $< -MF $@
@@ -3043,6 +3142,9 @@ include $(RULES_FILE)
 
 .obj/Scan.dep : ../../HCore/CCore/src/Scan.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Scan.o $< -MF $@
+
+.obj/ScanAsyncFile.dep : ../../Applied/CCore/src/scan/ScanAsyncFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ScanAsyncFile.o $< -MF $@
 
 .obj/ScanBase.dep : ../../Fundamental/CCore/src/scanf/ScanBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScanBase.o $< -MF $@
@@ -3148,6 +3250,12 @@ include $(RULES_FILE)
 
 .obj/SysAbort.dep : ../../Target/WIN32/CCore/src/sys/SysAbort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysAbort.o $< -MF $@
+
+.obj/SysAsyncFile.dep : ../../Applied/CCore/src/sys/SysAsyncFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysAsyncFile.o $< -MF $@
+
+.obj/SysAsyncFileSystem.dep : ../../Applied/CCore/src/sys/SysAsyncFileSystem.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SysAsyncFileSystem.o $< -MF $@
 
 .obj/SysAtomic.dep : ../../Target/WIN32/CCore/src/sys/SysAtomic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SysAtomic.o $< -MF $@

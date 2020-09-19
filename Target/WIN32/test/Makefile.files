@@ -115,8 +115,20 @@ OBJ_LIST = \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
 ../.test-obj/test3040.Deflate.o \
+../.test-obj/test4001.Mutex.o \
+../.test-obj/test4002.Sem.o \
+../.test-obj/test4003.Event.o \
+../.test-obj/test4004.AntiSem.o \
+../.test-obj/test4005.MultiSem.o \
+../.test-obj/test4006.MultiEvent.o \
+../.test-obj/test4007.Sem-speed.o \
+../.test-obj/test4008.PageHeap.o \
+../.test-obj/test4009.Task.o \
+../.test-obj/test4010.TaskSleep.o \
 ../.test-obj/test4011.ReadCon.o \
 ../.test-obj/test4013.DirTreeRun.o \
+../.test-obj/test4020.NamesCrc.o \
+../.test-obj/test4021.AsyncFile.o \
 ../.test-obj/test4034.Deflate.o \
 ../.test-obj/test4035.SysSpawn.o \
 ../.test-obj/test4036.LaunchPath.o \
@@ -244,8 +256,20 @@ ASM_LIST = \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
 ../.test-obj/test3040.Deflate.s \
+../.test-obj/test4001.Mutex.s \
+../.test-obj/test4002.Sem.s \
+../.test-obj/test4003.Event.s \
+../.test-obj/test4004.AntiSem.s \
+../.test-obj/test4005.MultiSem.s \
+../.test-obj/test4006.MultiEvent.s \
+../.test-obj/test4007.Sem-speed.s \
+../.test-obj/test4008.PageHeap.s \
+../.test-obj/test4009.Task.s \
+../.test-obj/test4010.TaskSleep.s \
 ../.test-obj/test4011.ReadCon.s \
 ../.test-obj/test4013.DirTreeRun.s \
+../.test-obj/test4020.NamesCrc.s \
+../.test-obj/test4021.AsyncFile.s \
 ../.test-obj/test4034.Deflate.s \
 ../.test-obj/test4035.SysSpawn.s \
 ../.test-obj/test4036.LaunchPath.s \
@@ -373,8 +397,20 @@ DEP_LIST = \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
 ../.test-obj/test3040.Deflate.dep \
+../.test-obj/test4001.Mutex.dep \
+../.test-obj/test4002.Sem.dep \
+../.test-obj/test4003.Event.dep \
+../.test-obj/test4004.AntiSem.dep \
+../.test-obj/test4005.MultiSem.dep \
+../.test-obj/test4006.MultiEvent.dep \
+../.test-obj/test4007.Sem-speed.dep \
+../.test-obj/test4008.PageHeap.dep \
+../.test-obj/test4009.Task.dep \
+../.test-obj/test4010.TaskSleep.dep \
 ../.test-obj/test4011.ReadCon.dep \
 ../.test-obj/test4013.DirTreeRun.dep \
+../.test-obj/test4020.NamesCrc.dep \
+../.test-obj/test4021.AsyncFile.dep \
 ../.test-obj/test4034.Deflate.dep \
 ../.test-obj/test4035.SysSpawn.dep \
 ../.test-obj/test4036.LaunchPath.dep \
@@ -739,10 +775,46 @@ include $(RULES_FILE)
 ../.test-obj/test3040.Deflate.o : ../../../Applied/CCore/test/test3040.Deflate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test4001.Mutex.o : ../../../HCore/CCore/test/test4001.Mutex.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4002.Sem.o : ../../../HCore/CCore/test/test4002.Sem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4003.Event.o : ../../../HCore/CCore/test/test4003.Event.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4004.AntiSem.o : ../../../HCore/CCore/test/test4004.AntiSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4005.MultiSem.o : ../../../HCore/CCore/test/test4005.MultiSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4006.MultiEvent.o : ../../../HCore/CCore/test/test4006.MultiEvent.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4007.Sem-speed.o : ../../../HCore/CCore/test/test4007.Sem-speed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4008.PageHeap.o : ../../../HCore/CCore/test/test4008.PageHeap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4009.Task.o : ../../../HCore/CCore/test/test4009.Task.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4010.TaskSleep.o : ../../../HCore/CCore/test/test4010.TaskSleep.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test4011.ReadCon.o : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.o : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4020.NamesCrc.o : ../../../HCore/CCore/test/test4020.NamesCrc.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4021.AsyncFile.o : ../../../HCore/CCore/test/test4021.AsyncFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4034.Deflate.o : ../../../HCore/CCore/test/test4034.Deflate.cpp
@@ -1119,10 +1191,46 @@ include $(RULES_FILE)
 ../.test-obj/test3040.Deflate.s : ../../../Applied/CCore/test/test3040.Deflate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4001.Mutex.s : ../../../HCore/CCore/test/test4001.Mutex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4002.Sem.s : ../../../HCore/CCore/test/test4002.Sem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4003.Event.s : ../../../HCore/CCore/test/test4003.Event.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4004.AntiSem.s : ../../../HCore/CCore/test/test4004.AntiSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4005.MultiSem.s : ../../../HCore/CCore/test/test4005.MultiSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4006.MultiEvent.s : ../../../HCore/CCore/test/test4006.MultiEvent.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4007.Sem-speed.s : ../../../HCore/CCore/test/test4007.Sem-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4008.PageHeap.s : ../../../HCore/CCore/test/test4008.PageHeap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4009.Task.s : ../../../HCore/CCore/test/test4009.Task.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4010.TaskSleep.s : ../../../HCore/CCore/test/test4010.TaskSleep.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4011.ReadCon.s : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test4013.DirTreeRun.s : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4020.NamesCrc.s : ../../../HCore/CCore/test/test4020.NamesCrc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4021.AsyncFile.s : ../../../HCore/CCore/test/test4021.AsyncFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test4034.Deflate.s : ../../../HCore/CCore/test/test4034.Deflate.cpp
@@ -1499,11 +1607,47 @@ include $(RULES_FILE)
 ../.test-obj/test3040.Deflate.dep : ../../../Applied/CCore/test/test3040.Deflate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3040.Deflate.o $< -MF $@
 
+../.test-obj/test4001.Mutex.dep : ../../../HCore/CCore/test/test4001.Mutex.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4001.Mutex.o $< -MF $@
+
+../.test-obj/test4002.Sem.dep : ../../../HCore/CCore/test/test4002.Sem.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4002.Sem.o $< -MF $@
+
+../.test-obj/test4003.Event.dep : ../../../HCore/CCore/test/test4003.Event.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4003.Event.o $< -MF $@
+
+../.test-obj/test4004.AntiSem.dep : ../../../HCore/CCore/test/test4004.AntiSem.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4004.AntiSem.o $< -MF $@
+
+../.test-obj/test4005.MultiSem.dep : ../../../HCore/CCore/test/test4005.MultiSem.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4005.MultiSem.o $< -MF $@
+
+../.test-obj/test4006.MultiEvent.dep : ../../../HCore/CCore/test/test4006.MultiEvent.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4006.MultiEvent.o $< -MF $@
+
+../.test-obj/test4007.Sem-speed.dep : ../../../HCore/CCore/test/test4007.Sem-speed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4007.Sem-speed.o $< -MF $@
+
+../.test-obj/test4008.PageHeap.dep : ../../../HCore/CCore/test/test4008.PageHeap.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4008.PageHeap.o $< -MF $@
+
+../.test-obj/test4009.Task.dep : ../../../HCore/CCore/test/test4009.Task.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4009.Task.o $< -MF $@
+
+../.test-obj/test4010.TaskSleep.dep : ../../../HCore/CCore/test/test4010.TaskSleep.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4010.TaskSleep.o $< -MF $@
+
 ../.test-obj/test4011.ReadCon.dep : ../../../HCore/CCore/test/test4011.ReadCon.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4011.ReadCon.o $< -MF $@
 
 ../.test-obj/test4013.DirTreeRun.dep : ../../../HCore/CCore/test/test4013.DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4013.DirTreeRun.o $< -MF $@
+
+../.test-obj/test4020.NamesCrc.dep : ../../../HCore/CCore/test/test4020.NamesCrc.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4020.NamesCrc.o $< -MF $@
+
+../.test-obj/test4021.AsyncFile.dep : ../../../HCore/CCore/test/test4021.AsyncFile.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4021.AsyncFile.o $< -MF $@
 
 ../.test-obj/test4034.Deflate.dep : ../../../HCore/CCore/test/test4034.Deflate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4034.Deflate.o $< -MF $@
