@@ -13,7 +13,7 @@
 
 OPT = -j8
 
-LIST = exectest Keywords MakeList MakeString Regen Volume EllipticPi \
+LIST = ExecTest Keywords MakeList MakeString Regen Volume EllipticPi \
        EchoServer PSecEchoServer PTPEchoServer PTPServerProc PTPServer PTPSecureServerProc PTPSecureServer PTPSecureClient \
        DDLShow DDLTypeSet \
        CondLangLR1/Main CondLangLR1/Gen \
