@@ -24,19 +24,19 @@ const char * GetTextDesc(EthEvent ev)
  {
   static const char *const Table[]=
    {
-    "Link up",       //  EthLink_Up
-    "Link down",     //  EthLink_Down
+    "Link up",       // EthLink_Up
+    "Link down",     // EthLink_Down
 
-    "Tx",            //  EthTx_Done
-    "Rx",            //  EthRx_Done
+    "Tx",            // EthTx_Done
+    "Rx",            // EthRx_Done
 
-    "Tx bad length", //  EthTx_BadPacketLen
-    "Tx error",      //  EthTx_Error
+    "Tx bad length", // EthTx_BadPacketLen
+    "Tx error",      // EthTx_Error
 
-    "Rx bad length", //  EthRx_BadPacketLen
-    "Rx drop",       //  EthRx_Drop
-    "Rx broadcast",  //  EthRx_Broadcast
-    "Rx error"       //  EthRx_Error
+    "Rx bad length", // EthRx_BadPacketLen
+    "Rx drop",       // EthRx_Drop
+    "Rx broadcast",  // EthRx_Broadcast
+    "Rx error"       // EthRx_Error
 
     ""
    };

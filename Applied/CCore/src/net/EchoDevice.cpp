@@ -26,14 +26,14 @@ const char * GetTextDesc(EchoDevice::Event ev)
  {
   static const char *const Table[]=
    {
-    "Rx",
+    "Rx",                // Event_inbound
 
-    "No packet",
-    "Bad packet format",
+    "No packet",         // Event_nopacket
+    "Bad packet format", // Event_badformat
 
-    "Connection open",
-    "Connection lost",
-    "Connection close",
+    "Connection open",   // Event_open
+    "Connection lost",   // Event_lost
+    "Connection close",  // Event_close
 
     ""
    };
