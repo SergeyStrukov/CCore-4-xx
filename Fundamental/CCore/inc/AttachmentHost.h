@@ -56,7 +56,7 @@ class AttachmentHost : NoCopy
 
    void detach();
 
-   class Hook : ObjectPtr<T,NoCopy>
+   class Hook : public ObjectPtr<T,NoCopy>
     {
       using ObjectPtr<T,NoCopy>::ptr;
 
