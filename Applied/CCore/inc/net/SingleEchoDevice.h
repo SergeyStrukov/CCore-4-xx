@@ -56,7 +56,7 @@ class SingleEchoDevice : public NoCopyBase<PacketEndpointDevice::InboundProc,Pac
 
    ObjHook hook;
 
-   Net::PacketEndpointDevice *ep;
+   PacketEndpointDevice *ep;
    PacketFormat format;
 
    PacketSet<uint8> pset;
