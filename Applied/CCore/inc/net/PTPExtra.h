@@ -111,13 +111,11 @@ struct Empty
 
   // save/load object
 
-  using SaveLoadOrder = BeOrder ;
+  static constexpr ulen SaveLoadLen = 0 ;
 
-  template <template <class ...> class Ret,class T>
-  static constexpr auto Fold()
-   {
-    return Ret();
-   }
+  void save(SaveDevType auto &) const {}
+
+  void load(LoadDevType auto &) {}
  };
 
 } // namespace PTP
