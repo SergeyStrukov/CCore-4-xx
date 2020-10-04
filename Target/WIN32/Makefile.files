@@ -14,6 +14,7 @@ OBJ_LIST = \
 .obj/AsyncFile.o \
 .obj/AsyncFileDevice.o \
 .obj/AsyncFileToMem.o \
+.obj/AsyncUDPDevice.o \
 .obj/Atomic.o \
 .obj/AtomicRefArray.o \
 .obj/AttachmentHost.o \
@@ -23,11 +24,13 @@ OBJ_LIST = \
 .obj/BestSearch.o \
 .obj/BinarySearch.o \
 .obj/BlockFifo.o \
+.obj/Bridge.o \
 .obj/CancelPacketList.o \
 .obj/CapString.o \
 .obj/CharProp.o \
 .obj/CharUtils.o \
 .obj/CheckPlatformBase.o \
+.obj/CheckedData.o \
 .obj/Classification.o \
 .obj/CmdInput.o \
 .obj/CmdlineParser.o \
@@ -51,8 +54,10 @@ OBJ_LIST = \
 .obj/DirTreeRun.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
+.obj/EchoDevice.o \
 .obj/ElementPool.o \
 .obj/ErrorText.o \
+.obj/EthDevice.o \
 .obj/EuclidRotate.o \
 .obj/Event.o \
 .obj/EventRecorder.o \
@@ -120,6 +125,7 @@ OBJ_LIST = \
 .obj/NanoPacket.o \
 .obj/NegBool.o \
 .obj/NetBase.o \
+.obj/NetFork.o \
 .obj/NewDelete.o \
 .obj/NoCopy.o \
 .obj/NoMutex.o \
@@ -135,7 +141,19 @@ OBJ_LIST = \
 .obj/Optional.o \
 .obj/OutBuf.o \
 .obj/OwnPtr.o \
+.obj/PTPBase.o \
+.obj/PTPBoot.o \
+.obj/PTPBootBase.o \
+.obj/PTPClientDevice.o \
+.obj/PTPConBase.o \
+.obj/PTPConDevice.o \
+.obj/PTPEchoTest.o \
+.obj/PTPExtra.o \
+.obj/PTPServerDevice.o \
+.obj/PTPSupport.o \
+.obj/PTPSupportBase.o \
 .obj/Packet.o \
+.obj/PacketEndpointDevice.o \
 .obj/PacketPool.o \
 .obj/PacketPool_PacketCount.o \
 .obj/PacketPool_PacketMaxDataLen.o \
@@ -205,6 +223,8 @@ OBJ_LIST = \
 .obj/Signal.o \
 .obj/SimpleArray.o \
 .obj/SimpleRotate.o \
+.obj/SingleBridge.o \
+.obj/SingleEchoDevice.o \
 .obj/SingleHost.o \
 .obj/SlowSem.o \
 .obj/Sort.o \
@@ -271,6 +291,7 @@ OBJ_LIST = \
 .obj/Tuple.o \
 .obj/TypeNumber.o \
 .obj/TypeSwitch.o \
+.obj/UDPDevice.o \
 .obj/UDPoint.o \
 .obj/UIntFunc.o \
 .obj/UIntSat.o \
@@ -300,6 +321,7 @@ ASM_LIST = \
 .obj/AsyncFile.s \
 .obj/AsyncFileDevice.s \
 .obj/AsyncFileToMem.s \
+.obj/AsyncUDPDevice.s \
 .obj/Atomic.s \
 .obj/AtomicRefArray.s \
 .obj/AttachmentHost.s \
@@ -309,11 +331,13 @@ ASM_LIST = \
 .obj/BestSearch.s \
 .obj/BinarySearch.s \
 .obj/BlockFifo.s \
+.obj/Bridge.s \
 .obj/CancelPacketList.s \
 .obj/CapString.s \
 .obj/CharProp.s \
 .obj/CharUtils.s \
 .obj/CheckPlatformBase.s \
+.obj/CheckedData.s \
 .obj/Classification.s \
 .obj/CmdInput.s \
 .obj/CmdlineParser.s \
@@ -337,8 +361,10 @@ ASM_LIST = \
 .obj/DirTreeRun.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
+.obj/EchoDevice.s \
 .obj/ElementPool.s \
 .obj/ErrorText.s \
+.obj/EthDevice.s \
 .obj/EuclidRotate.s \
 .obj/Event.s \
 .obj/EventRecorder.s \
@@ -406,6 +432,7 @@ ASM_LIST = \
 .obj/NanoPacket.s \
 .obj/NegBool.s \
 .obj/NetBase.s \
+.obj/NetFork.s \
 .obj/NewDelete.s \
 .obj/NoCopy.s \
 .obj/NoMutex.s \
@@ -421,7 +448,19 @@ ASM_LIST = \
 .obj/Optional.s \
 .obj/OutBuf.s \
 .obj/OwnPtr.s \
+.obj/PTPBase.s \
+.obj/PTPBoot.s \
+.obj/PTPBootBase.s \
+.obj/PTPClientDevice.s \
+.obj/PTPConBase.s \
+.obj/PTPConDevice.s \
+.obj/PTPEchoTest.s \
+.obj/PTPExtra.s \
+.obj/PTPServerDevice.s \
+.obj/PTPSupport.s \
+.obj/PTPSupportBase.s \
 .obj/Packet.s \
+.obj/PacketEndpointDevice.s \
 .obj/PacketPool.s \
 .obj/PacketPool_PacketCount.s \
 .obj/PacketPool_PacketMaxDataLen.s \
@@ -491,6 +530,8 @@ ASM_LIST = \
 .obj/Signal.s \
 .obj/SimpleArray.s \
 .obj/SimpleRotate.s \
+.obj/SingleBridge.s \
+.obj/SingleEchoDevice.s \
 .obj/SingleHost.s \
 .obj/SlowSem.s \
 .obj/Sort.s \
@@ -557,6 +598,7 @@ ASM_LIST = \
 .obj/Tuple.s \
 .obj/TypeNumber.s \
 .obj/TypeSwitch.s \
+.obj/UDPDevice.s \
 .obj/UDPoint.s \
 .obj/UIntFunc.s \
 .obj/UIntSat.s \
@@ -586,6 +628,7 @@ DEP_LIST = \
 .obj/AsyncFile.dep \
 .obj/AsyncFileDevice.dep \
 .obj/AsyncFileToMem.dep \
+.obj/AsyncUDPDevice.dep \
 .obj/Atomic.dep \
 .obj/AtomicRefArray.dep \
 .obj/AttachmentHost.dep \
@@ -595,11 +638,13 @@ DEP_LIST = \
 .obj/BestSearch.dep \
 .obj/BinarySearch.dep \
 .obj/BlockFifo.dep \
+.obj/Bridge.dep \
 .obj/CancelPacketList.dep \
 .obj/CapString.dep \
 .obj/CharProp.dep \
 .obj/CharUtils.dep \
 .obj/CheckPlatformBase.dep \
+.obj/CheckedData.dep \
 .obj/Classification.dep \
 .obj/CmdInput.dep \
 .obj/CmdlineParser.dep \
@@ -623,8 +668,10 @@ DEP_LIST = \
 .obj/DirTreeRun.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
+.obj/EchoDevice.dep \
 .obj/ElementPool.dep \
 .obj/ErrorText.dep \
+.obj/EthDevice.dep \
 .obj/EuclidRotate.dep \
 .obj/Event.dep \
 .obj/EventRecorder.dep \
@@ -692,6 +739,7 @@ DEP_LIST = \
 .obj/NanoPacket.dep \
 .obj/NegBool.dep \
 .obj/NetBase.dep \
+.obj/NetFork.dep \
 .obj/NewDelete.dep \
 .obj/NoCopy.dep \
 .obj/NoMutex.dep \
@@ -707,7 +755,19 @@ DEP_LIST = \
 .obj/Optional.dep \
 .obj/OutBuf.dep \
 .obj/OwnPtr.dep \
+.obj/PTPBase.dep \
+.obj/PTPBoot.dep \
+.obj/PTPBootBase.dep \
+.obj/PTPClientDevice.dep \
+.obj/PTPConBase.dep \
+.obj/PTPConDevice.dep \
+.obj/PTPEchoTest.dep \
+.obj/PTPExtra.dep \
+.obj/PTPServerDevice.dep \
+.obj/PTPSupport.dep \
+.obj/PTPSupportBase.dep \
 .obj/Packet.dep \
+.obj/PacketEndpointDevice.dep \
 .obj/PacketPool.dep \
 .obj/PacketPool_PacketCount.dep \
 .obj/PacketPool_PacketMaxDataLen.dep \
@@ -777,6 +837,8 @@ DEP_LIST = \
 .obj/Signal.dep \
 .obj/SimpleArray.dep \
 .obj/SimpleRotate.dep \
+.obj/SingleBridge.dep \
+.obj/SingleEchoDevice.dep \
 .obj/SingleHost.dep \
 .obj/SlowSem.dep \
 .obj/Sort.dep \
@@ -843,6 +905,7 @@ DEP_LIST = \
 .obj/Tuple.dep \
 .obj/TypeNumber.dep \
 .obj/TypeSwitch.dep \
+.obj/UDPDevice.dep \
 .obj/UDPoint.dep \
 .obj/UIntFunc.dep \
 .obj/UIntSat.dep \
@@ -913,6 +976,9 @@ include $(RULES_FILE)
 .obj/AsyncFileToMem.o : ../../Applied/CCore/src/AsyncFileToMem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/AsyncUDPDevice.o : ../../HCore/CCore/src/net/AsyncUDPDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Atomic.o : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -940,6 +1006,9 @@ include $(RULES_FILE)
 .obj/BlockFifo.o : ../../Simple/CCore/src/BlockFifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Bridge.o : ../../Applied/CCore/src/net/Bridge.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/CancelPacketList.o : ../../Applied/CCore/src/CancelPacketList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -953,6 +1022,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CheckedData.o : ../../Applied/CCore/src/net/CheckedData.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Classification.o : ../../Simple/CCore/src/gadget/Classification.cpp
@@ -1024,10 +1096,16 @@ include $(RULES_FILE)
 .obj/DynObject.o : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/EchoDevice.o : ../../Applied/CCore/src/net/EchoDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ElementPool.o : ../../Fundamental/CCore/src/ElementPool.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ErrorText.o : ../../Simple/CCore/src/ErrorText.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/EthDevice.o : ../../Applied/CCore/src/net/EthDevice.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/EuclidRotate.o : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
@@ -1231,6 +1309,9 @@ include $(RULES_FILE)
 .obj/NetBase.o : ../../Applied/CCore/src/net/NetBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/NetFork.o : ../../Applied/CCore/src/net/NetFork.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/NewDelete.o : ../../Simple/CCore/src/NewDelete.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1276,7 +1357,43 @@ include $(RULES_FILE)
 .obj/OwnPtr.o : ../../Simple/CCore/src/OwnPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PTPBase.o : ../../Applied/CCore/src/net/PTPBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPBoot.o : ../../Applied/CCore/src/net/PTPBoot.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPBootBase.o : ../../Applied/CCore/src/net/PTPBootBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPClientDevice.o : ../../Applied/CCore/src/net/PTPClientDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPConBase.o : ../../Applied/CCore/src/net/PTPConBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPConDevice.o : ../../Applied/CCore/src/net/PTPConDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPEchoTest.o : ../../Applied/CCore/src/net/PTPEchoTest.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPExtra.o : ../../Applied/CCore/src/net/PTPExtra.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPServerDevice.o : ../../Applied/CCore/src/net/PTPServerDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPSupport.o : ../../Applied/CCore/src/net/PTPSupport.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PTPSupportBase.o : ../../Applied/CCore/src/net/PTPSupportBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Packet.o : ../../Applied/CCore/src/Packet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PacketEndpointDevice.o : ../../Applied/CCore/src/net/PacketEndpointDevice.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PacketPool.o : ../../Applied/CCore/src/PacketPool.cpp
@@ -1486,6 +1603,12 @@ include $(RULES_FILE)
 .obj/SimpleRotate.o : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SingleBridge.o : ../../Applied/CCore/src/net/SingleBridge.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SingleEchoDevice.o : ../../Applied/CCore/src/net/SingleEchoDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SingleHost.o : ../../Fundamental/CCore/src/SingleHost.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1684,6 +1807,9 @@ include $(RULES_FILE)
 .obj/TypeSwitch.o : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/UDPDevice.o : ../../HCore/CCore/src/net/UDPDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/UDPoint.o : ../../Applied/CCore/src/net/UDPoint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1764,6 +1890,9 @@ include $(RULES_FILE)
 .obj/AsyncFileToMem.s : ../../Applied/CCore/src/AsyncFileToMem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/AsyncUDPDevice.s : ../../HCore/CCore/src/net/AsyncUDPDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Atomic.s : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1791,6 +1920,9 @@ include $(RULES_FILE)
 .obj/BlockFifo.s : ../../Simple/CCore/src/BlockFifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Bridge.s : ../../Applied/CCore/src/net/Bridge.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CancelPacketList.s : ../../Applied/CCore/src/CancelPacketList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1804,6 +1936,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CheckedData.s : ../../Applied/CCore/src/net/CheckedData.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Classification.s : ../../Simple/CCore/src/gadget/Classification.cpp
@@ -1875,10 +2010,16 @@ include $(RULES_FILE)
 .obj/DynObject.s : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/EchoDevice.s : ../../Applied/CCore/src/net/EchoDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ElementPool.s : ../../Fundamental/CCore/src/ElementPool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ErrorText.s : ../../Simple/CCore/src/ErrorText.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/EthDevice.s : ../../Applied/CCore/src/net/EthDevice.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/EuclidRotate.s : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
@@ -2082,6 +2223,9 @@ include $(RULES_FILE)
 .obj/NetBase.s : ../../Applied/CCore/src/net/NetBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/NetFork.s : ../../Applied/CCore/src/net/NetFork.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/NewDelete.s : ../../Simple/CCore/src/NewDelete.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2127,7 +2271,43 @@ include $(RULES_FILE)
 .obj/OwnPtr.s : ../../Simple/CCore/src/OwnPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PTPBase.s : ../../Applied/CCore/src/net/PTPBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPBoot.s : ../../Applied/CCore/src/net/PTPBoot.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPBootBase.s : ../../Applied/CCore/src/net/PTPBootBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPClientDevice.s : ../../Applied/CCore/src/net/PTPClientDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPConBase.s : ../../Applied/CCore/src/net/PTPConBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPConDevice.s : ../../Applied/CCore/src/net/PTPConDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPEchoTest.s : ../../Applied/CCore/src/net/PTPEchoTest.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPExtra.s : ../../Applied/CCore/src/net/PTPExtra.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPServerDevice.s : ../../Applied/CCore/src/net/PTPServerDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPSupport.s : ../../Applied/CCore/src/net/PTPSupport.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PTPSupportBase.s : ../../Applied/CCore/src/net/PTPSupportBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Packet.s : ../../Applied/CCore/src/Packet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PacketEndpointDevice.s : ../../Applied/CCore/src/net/PacketEndpointDevice.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PacketPool.s : ../../Applied/CCore/src/PacketPool.cpp
@@ -2337,6 +2517,12 @@ include $(RULES_FILE)
 .obj/SimpleRotate.s : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SingleBridge.s : ../../Applied/CCore/src/net/SingleBridge.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SingleEchoDevice.s : ../../Applied/CCore/src/net/SingleEchoDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SingleHost.s : ../../Fundamental/CCore/src/SingleHost.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2535,6 +2721,9 @@ include $(RULES_FILE)
 .obj/TypeSwitch.s : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/UDPDevice.s : ../../HCore/CCore/src/net/UDPDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/UDPoint.s : ../../Applied/CCore/src/net/UDPoint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2615,6 +2804,9 @@ include $(RULES_FILE)
 .obj/AsyncFileToMem.dep : ../../Applied/CCore/src/AsyncFileToMem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AsyncFileToMem.o $< -MF $@
 
+.obj/AsyncUDPDevice.dep : ../../HCore/CCore/src/net/AsyncUDPDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AsyncUDPDevice.o $< -MF $@
+
 .obj/Atomic.dep : ../../Fundamental/CCore/src/task/Atomic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Atomic.o $< -MF $@
 
@@ -2642,6 +2834,9 @@ include $(RULES_FILE)
 .obj/BlockFifo.dep : ../../Simple/CCore/src/BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
 
+.obj/Bridge.dep : ../../Applied/CCore/src/net/Bridge.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Bridge.o $< -MF $@
+
 .obj/CancelPacketList.dep : ../../Applied/CCore/src/CancelPacketList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CancelPacketList.o $< -MF $@
 
@@ -2656,6 +2851,9 @@ include $(RULES_FILE)
 
 .obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
+
+.obj/CheckedData.dep : ../../Applied/CCore/src/net/CheckedData.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CheckedData.o $< -MF $@
 
 .obj/Classification.dep : ../../Simple/CCore/src/gadget/Classification.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Classification.o $< -MF $@
@@ -2726,11 +2924,17 @@ include $(RULES_FILE)
 .obj/DynObject.dep : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynObject.o $< -MF $@
 
+.obj/EchoDevice.dep : ../../Applied/CCore/src/net/EchoDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/EchoDevice.o $< -MF $@
+
 .obj/ElementPool.dep : ../../Fundamental/CCore/src/ElementPool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ElementPool.o $< -MF $@
 
 .obj/ErrorText.dep : ../../Simple/CCore/src/ErrorText.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
+
+.obj/EthDevice.dep : ../../Applied/CCore/src/net/EthDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/EthDevice.o $< -MF $@
 
 .obj/EuclidRotate.dep : ../../Fundamental/CCore/src/algon/EuclidRotate.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/EuclidRotate.o $< -MF $@
@@ -2933,6 +3137,9 @@ include $(RULES_FILE)
 .obj/NetBase.dep : ../../Applied/CCore/src/net/NetBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NetBase.o $< -MF $@
 
+.obj/NetFork.dep : ../../Applied/CCore/src/net/NetFork.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NetFork.o $< -MF $@
+
 .obj/NewDelete.dep : ../../Simple/CCore/src/NewDelete.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NewDelete.o $< -MF $@
 
@@ -2978,8 +3185,44 @@ include $(RULES_FILE)
 .obj/OwnPtr.dep : ../../Simple/CCore/src/OwnPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
 
+.obj/PTPBase.dep : ../../Applied/CCore/src/net/PTPBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPBase.o $< -MF $@
+
+.obj/PTPBoot.dep : ../../Applied/CCore/src/net/PTPBoot.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPBoot.o $< -MF $@
+
+.obj/PTPBootBase.dep : ../../Applied/CCore/src/net/PTPBootBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPBootBase.o $< -MF $@
+
+.obj/PTPClientDevice.dep : ../../Applied/CCore/src/net/PTPClientDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPClientDevice.o $< -MF $@
+
+.obj/PTPConBase.dep : ../../Applied/CCore/src/net/PTPConBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPConBase.o $< -MF $@
+
+.obj/PTPConDevice.dep : ../../Applied/CCore/src/net/PTPConDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPConDevice.o $< -MF $@
+
+.obj/PTPEchoTest.dep : ../../Applied/CCore/src/net/PTPEchoTest.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPEchoTest.o $< -MF $@
+
+.obj/PTPExtra.dep : ../../Applied/CCore/src/net/PTPExtra.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPExtra.o $< -MF $@
+
+.obj/PTPServerDevice.dep : ../../Applied/CCore/src/net/PTPServerDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPServerDevice.o $< -MF $@
+
+.obj/PTPSupport.dep : ../../Applied/CCore/src/net/PTPSupport.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPSupport.o $< -MF $@
+
+.obj/PTPSupportBase.dep : ../../Applied/CCore/src/net/PTPSupportBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PTPSupportBase.o $< -MF $@
+
 .obj/Packet.dep : ../../Applied/CCore/src/Packet.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Packet.o $< -MF $@
+
+.obj/PacketEndpointDevice.dep : ../../Applied/CCore/src/net/PacketEndpointDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PacketEndpointDevice.o $< -MF $@
 
 .obj/PacketPool.dep : ../../Applied/CCore/src/PacketPool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PacketPool.o $< -MF $@
@@ -3188,6 +3431,12 @@ include $(RULES_FILE)
 .obj/SimpleRotate.dep : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleRotate.o $< -MF $@
 
+.obj/SingleBridge.dep : ../../Applied/CCore/src/net/SingleBridge.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SingleBridge.o $< -MF $@
+
+.obj/SingleEchoDevice.dep : ../../Applied/CCore/src/net/SingleEchoDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SingleEchoDevice.o $< -MF $@
+
 .obj/SingleHost.dep : ../../Fundamental/CCore/src/SingleHost.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SingleHost.o $< -MF $@
 
@@ -3385,6 +3634,9 @@ include $(RULES_FILE)
 
 .obj/TypeSwitch.dep : ../../Simple/CCore/src/TypeSwitch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/TypeSwitch.o $< -MF $@
+
+.obj/UDPDevice.dep : ../../HCore/CCore/src/net/UDPDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UDPDevice.o $< -MF $@
 
 .obj/UDPoint.dep : ../../Applied/CCore/src/net/UDPoint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UDPoint.o $< -MF $@
