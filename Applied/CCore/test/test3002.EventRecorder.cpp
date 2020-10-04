@@ -29,20 +29,20 @@ struct EventBody
 
   static EventIdType Register(EventMetaInfo &info)
    {
-    auto id=info.addEnum_uint8("TaskId"_c)
-                .addValueName(1,"Task1"_c)
-                .addValueName(2,"Task2"_c)
-                .addValueName(3,"Task3"_c)
-                .addValueName(4,"Task4"_c)
-                .addValueName(5,"Task5"_c)
-                .addValueName(6,"Task6"_c)
-                .addValueName(7,"Task7"_c)
-                .addValueName(8,"Task8"_c)
+    auto id=info.addEnum_uint8("TaskId"_str)
+                .addValueName(1,"Task1"_str)
+                .addValueName(2,"Task2"_str)
+                .addValueName(3,"Task3"_str)
+                .addValueName(4,"Task4"_str)
+                .addValueName(5,"Task5"_str)
+                .addValueName(6,"Task6"_str)
+                .addValueName(7,"Task7"_str)
+                .addValueName(8,"Task8"_str)
                 .getId();
 
-    return info.addStruct("EventBody"_c)
-               .addField_enum_uint8<&EventBody::task>(id,"task"_c)
-               .addField_uint32<&EventBody::number>("number"_c)
+    return info.addStruct("EventBody"_str)
+               .addField_enum_uint8<&EventBody::task>(id,"task"_str)
+               .addField_uint32<&EventBody::number>("number"_str)
                .getId();
    }
  };
@@ -68,10 +68,10 @@ struct Event
    {
     auto id_body=EventBody::Register(info);
 
-    auto id=info.addStruct("Event"_c)
-                .addField_uint32<&Event::time>("time"_c)
-                .addField_uint16<&Event::id>("id"_c)
-                .addField_struct<&Event::body>(id_body,"body"_c)
+    auto id=info.addStruct("Event"_str)
+                .addField_uint32<&Event::time>("time"_str)
+                .addField_uint16<&Event::id>("id"_str)
+                .addField_struct<&Event::body>(id_body,"body"_str)
                 .getId();
 
     desc.setStructId(info,id);

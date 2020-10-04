@@ -261,17 +261,17 @@ void EventTypeIdNode::Register(EventMetaInfo &info)
 
 void EventControl::Register(EventMetaInfo &info,EventMetaInfo::EventDesc &desc)
  {
-  auto id_Type=info.addEnum_uint8("EventControlType"_c)
-                   .addValueName(Type_Start,"Start"_c,EventMarker_Push)
-                   .addValueName(Type_Tick,"Tick"_c,EventMarker_Tick)
-                   .addValueName(Type_Stop,"Stop"_c,EventMarker_Stop)
-                   .addValueName(Type_End,"End"_c)
+  auto id_Type=info.addEnum_uint8("EventControlType"_str)
+                   .addValueName(Type_Start,"Start"_str,EventMarker_Push)
+                   .addValueName(Type_Tick,"Tick"_str,EventMarker_Tick)
+                   .addValueName(Type_Stop,"Stop"_str,EventMarker_Stop)
+                   .addValueName(Type_End,"End"_str)
                    .getId();
 
-  auto id=info.addStruct("EventControl"_c)
-              .addField_uint32<&EventControl::time>("time"_c)
-              .addField_uint16<&EventControl::id>("id"_c)
-              .addField_enum_uint8<&EventControl::type>(id_Type,"type"_c)
+  auto id=info.addStruct("EventControl"_str)
+              .addField_uint32<&EventControl::time>("time"_str)
+              .addField_uint16<&EventControl::id>("id"_str)
+              .addField_enum_uint8<&EventControl::type>(id_Type,"type"_str)
               .getId();
 
   desc.setStructId(info,id);
