@@ -53,6 +53,7 @@ struct Event
  {
   EventTimeType time;
   EventIdType id;
+
   EventBody body;
 
   void init(EventTimeType time_,EventIdType id_,uint8 task_,uint32 number_)
