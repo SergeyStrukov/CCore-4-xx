@@ -31,6 +31,8 @@ template <class FuncType> class Function;
 
 struct Funchor; // Fu(nction) (A)nchor
 
+template <class T> struct FunchorDock;
+
 template <class FuncType,class T> struct ToFunctionClass;
 
 /* class Function<R,AA> */
@@ -140,9 +142,23 @@ struct Funchor
  //  };
  //
 
+/* struct FunchorDock<T> */
+
+template <class T>
+struct FunchorDock : Funchor
+ {
+  template <auto method>
+  auto functionOf() { return FunctionOf(static_cast<T *>(this),method); }
+ };
+
 /* type Funchor_nocopy */
 
 using Funchor_nocopy = NoCopyBase<Funchor> ;
+
+/* type FunchorDock_nocopy<T> */
+
+template <class T>
+using FunchorDock_nocopy = NoCopyBase< FunchorDock<T> > ;
 
 /* struct ToFunctionClass<FuncType,T> */
 
