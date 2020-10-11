@@ -17,6 +17,7 @@
 #define CCore_inc_net_PTPBase_h
 
 #include <CCore/inc/SaveLoad.h>
+#include <CCore/inc/Cmp.h>
 
 namespace CCore {
 namespace Net {
@@ -82,7 +83,15 @@ struct TransId
 
   // methods
 
-  friend bool operator == (const TransId &a,const TransId &b) = default ;
+  friend CmpResult operator <=> (const TransId &a,const TransId &b) noexcept
+   {
+    return AlphaCmp( a.clock,b.clock, a.number,b.number );
+   }
+
+  friend bool operator == (const TransId &a,const TransId &b) noexcept
+   {
+    return a.clock==b.clock && a.number==b.number ;
+   }
 
   // save/load object
 
