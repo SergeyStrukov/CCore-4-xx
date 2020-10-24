@@ -143,7 +143,7 @@ struct TriggerMask
 
   // save/load object
 
-  enum { SaveLoadLen = 8*SaveLenCounter<uint32>::SaveLoadLen }; // TODO???
+  enum { SaveLoadLen = 8*SaveLenCounter<uint32>::SaveLoadLen };
 
   void save(SaveDevType auto &dev) const
    {
