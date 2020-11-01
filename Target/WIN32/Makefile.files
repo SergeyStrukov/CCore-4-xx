@@ -82,6 +82,9 @@ OBJ_LIST = \
 .obj/GetAbstFile.o \
 .obj/GetAsyncBinaryFile.o \
 .obj/GetBinaryFile.o \
+.obj/HFSBase.o \
+.obj/HFSClientDevice.o \
+.obj/HFSFileSystemDevice.o \
 .obj/Handle.o \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
@@ -164,6 +167,7 @@ OBJ_LIST = \
 .obj/PerTask.o \
 .obj/Place.o \
 .obj/PlanInit.o \
+.obj/PlanInit_CCore.o \
 .obj/PlatformBase.o \
 .obj/PosSub.o \
 .obj/Pow.o \
@@ -176,6 +180,7 @@ OBJ_LIST = \
 .obj/PrintCon.o \
 .obj/PrintError.o \
 .obj/PrintFile.o \
+.obj/PrintPTPCon.o \
 .obj/PrintProxy.o \
 .obj/PrintRatio.o \
 .obj/PrintSet.o \
@@ -389,6 +394,9 @@ ASM_LIST = \
 .obj/GetAbstFile.s \
 .obj/GetAsyncBinaryFile.s \
 .obj/GetBinaryFile.s \
+.obj/HFSBase.s \
+.obj/HFSClientDevice.s \
+.obj/HFSFileSystemDevice.s \
 .obj/Handle.s \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
@@ -471,6 +479,7 @@ ASM_LIST = \
 .obj/PerTask.s \
 .obj/Place.s \
 .obj/PlanInit.s \
+.obj/PlanInit_CCore.s \
 .obj/PlatformBase.s \
 .obj/PosSub.s \
 .obj/Pow.s \
@@ -483,6 +492,7 @@ ASM_LIST = \
 .obj/PrintCon.s \
 .obj/PrintError.s \
 .obj/PrintFile.s \
+.obj/PrintPTPCon.s \
 .obj/PrintProxy.s \
 .obj/PrintRatio.s \
 .obj/PrintSet.s \
@@ -696,6 +706,9 @@ DEP_LIST = \
 .obj/GetAbstFile.dep \
 .obj/GetAsyncBinaryFile.dep \
 .obj/GetBinaryFile.dep \
+.obj/HFSBase.dep \
+.obj/HFSClientDevice.dep \
+.obj/HFSFileSystemDevice.dep \
 .obj/Handle.dep \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
@@ -778,6 +791,7 @@ DEP_LIST = \
 .obj/PerTask.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
+.obj/PlanInit_CCore.dep \
 .obj/PlatformBase.dep \
 .obj/PosSub.dep \
 .obj/Pow.dep \
@@ -790,6 +804,7 @@ DEP_LIST = \
 .obj/PrintCon.dep \
 .obj/PrintError.dep \
 .obj/PrintFile.dep \
+.obj/PrintPTPCon.dep \
 .obj/PrintProxy.dep \
 .obj/PrintRatio.dep \
 .obj/PrintSet.dep \
@@ -1180,6 +1195,15 @@ include $(RULES_FILE)
 .obj/GetBinaryFile.o : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/HFSBase.o : ../../Applied/CCore/src/net/HFSBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/HFSClientDevice.o : ../../Applied/CCore/src/net/HFSClientDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/HFSFileSystemDevice.o : ../../Applied/CCore/src/net/HFSFileSystemDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1426,6 +1450,9 @@ include $(RULES_FILE)
 .obj/PlanInit.o : ../../Fundamental/CCore/src/PlanInit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PlanInit_CCore.o : ../../Target/WIN32/CCore/src/PlanInit_CCore.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1460,6 +1487,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PrintFile.o : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintPTPCon.o : ../../Applied/CCore/src/print/PrintPTPCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PrintProxy.o : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
@@ -2094,6 +2124,15 @@ include $(RULES_FILE)
 .obj/GetBinaryFile.s : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/HFSBase.s : ../../Applied/CCore/src/net/HFSBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/HFSClientDevice.s : ../../Applied/CCore/src/net/HFSClientDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/HFSFileSystemDevice.s : ../../Applied/CCore/src/net/HFSFileSystemDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2340,6 +2379,9 @@ include $(RULES_FILE)
 .obj/PlanInit.s : ../../Fundamental/CCore/src/PlanInit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PlanInit_CCore.s : ../../Target/WIN32/CCore/src/PlanInit_CCore.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2374,6 +2416,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PrintFile.s : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintPTPCon.s : ../../Applied/CCore/src/print/PrintPTPCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PrintProxy.s : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
@@ -3008,6 +3053,15 @@ include $(RULES_FILE)
 .obj/GetBinaryFile.dep : ../../HCore/CCore/src/GetBinaryFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GetBinaryFile.o $< -MF $@
 
+.obj/HFSBase.dep : ../../Applied/CCore/src/net/HFSBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HFSBase.o $< -MF $@
+
+.obj/HFSClientDevice.dep : ../../Applied/CCore/src/net/HFSClientDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HFSClientDevice.o $< -MF $@
+
+.obj/HFSFileSystemDevice.dep : ../../Applied/CCore/src/net/HFSFileSystemDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HFSFileSystemDevice.o $< -MF $@
+
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
 
@@ -3254,6 +3308,9 @@ include $(RULES_FILE)
 .obj/PlanInit.dep : ../../Fundamental/CCore/src/PlanInit.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlanInit.o $< -MF $@
 
+.obj/PlanInit_CCore.dep : ../../Target/WIN32/CCore/src/PlanInit_CCore.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PlanInit_CCore.o $< -MF $@
+
 .obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
 
@@ -3289,6 +3346,9 @@ include $(RULES_FILE)
 
 .obj/PrintFile.dep : ../../HCore/CCore/src/print/PrintFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintFile.o $< -MF $@
+
+.obj/PrintPTPCon.dep : ../../Applied/CCore/src/print/PrintPTPCon.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintPTPCon.o $< -MF $@
 
 .obj/PrintProxy.dep : ../../Fundamental/CCore/src/printf/PrintProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintProxy.o $< -MF $@

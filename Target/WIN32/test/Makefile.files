@@ -109,8 +109,12 @@ OBJ_LIST = \
 ../.test-obj/test3007.FileName.o \
 ../.test-obj/test3008.Packet.o \
 ../.test-obj/test3009.PacketSet.o \
+../.test-obj/test3010.CancelPacketList.o \
 ../.test-obj/test3011.LineInput.o \
 ../.test-obj/test3012.CmdInput.o \
+../.test-obj/test3026.Bridge.o \
+../.test-obj/test3027.SingleBridge.o \
+../.test-obj/test3029.NetFork.o \
 ../.test-obj/test3032.FileNameMatch.o \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
@@ -137,6 +141,12 @@ OBJ_LIST = \
 ../.test-obj/test4020.NamesCrc.o \
 ../.test-obj/test4021.AsyncFile.o \
 ../.test-obj/test4022.ScanAsyncFile.o \
+../.test-obj/test4023.UDP.o \
+../.test-obj/test4024.UDPEcho.o \
+../.test-obj/test4025.AsyncUDP.o \
+../.test-obj/test4026.PTPEcho.o \
+../.test-obj/test4027.PTPServer.o \
+../.test-obj/test4028.PTPServer.ConWrite.o \
 ../.test-obj/test4032.DelDirRecursive.o \
 ../.test-obj/test4033.exec.o \
 ../.test-obj/test4034.Deflate.o \
@@ -144,8 +154,13 @@ OBJ_LIST = \
 ../.test-obj/test4036.LaunchPath.o \
 ../.test-obj/test4037.ExpandWildcard.o \
 ../.test-obj/test4038.AsyncBinaryFile.o \
+../.test-obj/test6001.Quick.o \
+../.test-obj/test6002.SysError.o \
+../.test-obj/test6003.Char.o \
+../.test-obj/test6006.IntelRandom.o \
 ../.test-obj/test6008.DirCursor.o \
 ../.test-obj/testArray.o \
+../.test-obj/testNet.o \
 ../.test-obj/testPrint.o \
 ../.test-obj/testRun.o \
 
@@ -261,8 +276,12 @@ ASM_LIST = \
 ../.test-obj/test3007.FileName.s \
 ../.test-obj/test3008.Packet.s \
 ../.test-obj/test3009.PacketSet.s \
+../.test-obj/test3010.CancelPacketList.s \
 ../.test-obj/test3011.LineInput.s \
 ../.test-obj/test3012.CmdInput.s \
+../.test-obj/test3026.Bridge.s \
+../.test-obj/test3027.SingleBridge.s \
+../.test-obj/test3029.NetFork.s \
 ../.test-obj/test3032.FileNameMatch.s \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
@@ -289,6 +308,12 @@ ASM_LIST = \
 ../.test-obj/test4020.NamesCrc.s \
 ../.test-obj/test4021.AsyncFile.s \
 ../.test-obj/test4022.ScanAsyncFile.s \
+../.test-obj/test4023.UDP.s \
+../.test-obj/test4024.UDPEcho.s \
+../.test-obj/test4025.AsyncUDP.s \
+../.test-obj/test4026.PTPEcho.s \
+../.test-obj/test4027.PTPServer.s \
+../.test-obj/test4028.PTPServer.ConWrite.s \
 ../.test-obj/test4032.DelDirRecursive.s \
 ../.test-obj/test4033.exec.s \
 ../.test-obj/test4034.Deflate.s \
@@ -296,8 +321,13 @@ ASM_LIST = \
 ../.test-obj/test4036.LaunchPath.s \
 ../.test-obj/test4037.ExpandWildcard.s \
 ../.test-obj/test4038.AsyncBinaryFile.s \
+../.test-obj/test6001.Quick.s \
+../.test-obj/test6002.SysError.s \
+../.test-obj/test6003.Char.s \
+../.test-obj/test6006.IntelRandom.s \
 ../.test-obj/test6008.DirCursor.s \
 ../.test-obj/testArray.s \
+../.test-obj/testNet.s \
 ../.test-obj/testPrint.s \
 ../.test-obj/testRun.s \
 
@@ -413,8 +443,12 @@ DEP_LIST = \
 ../.test-obj/test3007.FileName.dep \
 ../.test-obj/test3008.Packet.dep \
 ../.test-obj/test3009.PacketSet.dep \
+../.test-obj/test3010.CancelPacketList.dep \
 ../.test-obj/test3011.LineInput.dep \
 ../.test-obj/test3012.CmdInput.dep \
+../.test-obj/test3026.Bridge.dep \
+../.test-obj/test3027.SingleBridge.dep \
+../.test-obj/test3029.NetFork.dep \
 ../.test-obj/test3032.FileNameMatch.dep \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
@@ -441,6 +475,12 @@ DEP_LIST = \
 ../.test-obj/test4020.NamesCrc.dep \
 ../.test-obj/test4021.AsyncFile.dep \
 ../.test-obj/test4022.ScanAsyncFile.dep \
+../.test-obj/test4023.UDP.dep \
+../.test-obj/test4024.UDPEcho.dep \
+../.test-obj/test4025.AsyncUDP.dep \
+../.test-obj/test4026.PTPEcho.dep \
+../.test-obj/test4027.PTPServer.dep \
+../.test-obj/test4028.PTPServer.ConWrite.dep \
 ../.test-obj/test4032.DelDirRecursive.dep \
 ../.test-obj/test4033.exec.dep \
 ../.test-obj/test4034.Deflate.dep \
@@ -448,8 +488,13 @@ DEP_LIST = \
 ../.test-obj/test4036.LaunchPath.dep \
 ../.test-obj/test4037.ExpandWildcard.dep \
 ../.test-obj/test4038.AsyncBinaryFile.dep \
+../.test-obj/test6001.Quick.dep \
+../.test-obj/test6002.SysError.dep \
+../.test-obj/test6003.Char.dep \
+../.test-obj/test6006.IntelRandom.dep \
 ../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/testArray.dep \
+../.test-obj/testNet.dep \
 ../.test-obj/testPrint.dep \
 ../.test-obj/testRun.dep \
 
@@ -790,10 +835,22 @@ include $(RULES_FILE)
 ../.test-obj/test3009.PacketSet.o : ../../../Applied/CCore/test/test3009.PacketSet.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3010.CancelPacketList.o : ../../../Applied/CCore/test/test3010.CancelPacketList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test3011.LineInput.o : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3012.CmdInput.o : ../../../Applied/CCore/test/test3012.CmdInput.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3026.Bridge.o : ../../../Applied/CCore/test/test3026.Bridge.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3027.SingleBridge.o : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3029.NetFork.o : ../../../Applied/CCore/test/test3029.NetFork.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3032.FileNameMatch.o : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
@@ -874,6 +931,24 @@ include $(RULES_FILE)
 ../.test-obj/test4022.ScanAsyncFile.o : ../../../HCore/CCore/test/test4022.ScanAsyncFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test4023.UDP.o : ../../../HCore/CCore/test/test4023.UDP.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4024.UDPEcho.o : ../../../HCore/CCore/test/test4024.UDPEcho.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4025.AsyncUDP.o : ../../../HCore/CCore/test/test4025.AsyncUDP.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4026.PTPEcho.o : ../../../HCore/CCore/test/test4026.PTPEcho.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4027.PTPServer.o : ../../../HCore/CCore/test/test4027.PTPServer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4028.PTPServer.ConWrite.o : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test4032.DelDirRecursive.o : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -895,10 +970,25 @@ include $(RULES_FILE)
 ../.test-obj/test4038.AsyncBinaryFile.o : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test6001.Quick.o : ../../../Target/WIN32/CCore/test/test6001.Quick.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6002.SysError.o : ../../../Target/WIN32/CCore/test/test6002.SysError.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6003.Char.o : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6006.IntelRandom.o : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test6008.DirCursor.o : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/testArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testNet.o : ../../../Applied/CCore/test/testNet.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testPrint.o : ../../../HCore/CCore/test/testPrint.cpp
@@ -1239,10 +1329,22 @@ include $(RULES_FILE)
 ../.test-obj/test3009.PacketSet.s : ../../../Applied/CCore/test/test3009.PacketSet.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3010.CancelPacketList.s : ../../../Applied/CCore/test/test3010.CancelPacketList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3011.LineInput.s : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3012.CmdInput.s : ../../../Applied/CCore/test/test3012.CmdInput.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3026.Bridge.s : ../../../Applied/CCore/test/test3026.Bridge.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3027.SingleBridge.s : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3029.NetFork.s : ../../../Applied/CCore/test/test3029.NetFork.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3032.FileNameMatch.s : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
@@ -1323,6 +1425,24 @@ include $(RULES_FILE)
 ../.test-obj/test4022.ScanAsyncFile.s : ../../../HCore/CCore/test/test4022.ScanAsyncFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4023.UDP.s : ../../../HCore/CCore/test/test4023.UDP.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4024.UDPEcho.s : ../../../HCore/CCore/test/test4024.UDPEcho.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4025.AsyncUDP.s : ../../../HCore/CCore/test/test4025.AsyncUDP.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4026.PTPEcho.s : ../../../HCore/CCore/test/test4026.PTPEcho.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4027.PTPServer.s : ../../../HCore/CCore/test/test4027.PTPServer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4028.PTPServer.ConWrite.s : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4032.DelDirRecursive.s : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1344,10 +1464,25 @@ include $(RULES_FILE)
 ../.test-obj/test4038.AsyncBinaryFile.s : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6001.Quick.s : ../../../Target/WIN32/CCore/test/test6001.Quick.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test6002.SysError.s : ../../../Target/WIN32/CCore/test/test6002.SysError.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test6003.Char.s : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test6006.IntelRandom.s : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test6008.DirCursor.s : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/testArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testNet.s : ../../../Applied/CCore/test/testNet.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/testPrint.s : ../../../HCore/CCore/test/testPrint.cpp
@@ -1688,11 +1823,23 @@ include $(RULES_FILE)
 ../.test-obj/test3009.PacketSet.dep : ../../../Applied/CCore/test/test3009.PacketSet.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3009.PacketSet.o $< -MF $@
 
+../.test-obj/test3010.CancelPacketList.dep : ../../../Applied/CCore/test/test3010.CancelPacketList.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3010.CancelPacketList.o $< -MF $@
+
 ../.test-obj/test3011.LineInput.dep : ../../../Applied/CCore/test/test3011.LineInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3011.LineInput.o $< -MF $@
 
 ../.test-obj/test3012.CmdInput.dep : ../../../Applied/CCore/test/test3012.CmdInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3012.CmdInput.o $< -MF $@
+
+../.test-obj/test3026.Bridge.dep : ../../../Applied/CCore/test/test3026.Bridge.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3026.Bridge.o $< -MF $@
+
+../.test-obj/test3027.SingleBridge.dep : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3027.SingleBridge.o $< -MF $@
+
+../.test-obj/test3029.NetFork.dep : ../../../Applied/CCore/test/test3029.NetFork.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3029.NetFork.o $< -MF $@
 
 ../.test-obj/test3032.FileNameMatch.dep : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3032.FileNameMatch.o $< -MF $@
@@ -1772,6 +1919,24 @@ include $(RULES_FILE)
 ../.test-obj/test4022.ScanAsyncFile.dep : ../../../HCore/CCore/test/test4022.ScanAsyncFile.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4022.ScanAsyncFile.o $< -MF $@
 
+../.test-obj/test4023.UDP.dep : ../../../HCore/CCore/test/test4023.UDP.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4023.UDP.o $< -MF $@
+
+../.test-obj/test4024.UDPEcho.dep : ../../../HCore/CCore/test/test4024.UDPEcho.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4024.UDPEcho.o $< -MF $@
+
+../.test-obj/test4025.AsyncUDP.dep : ../../../HCore/CCore/test/test4025.AsyncUDP.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4025.AsyncUDP.o $< -MF $@
+
+../.test-obj/test4026.PTPEcho.dep : ../../../HCore/CCore/test/test4026.PTPEcho.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4026.PTPEcho.o $< -MF $@
+
+../.test-obj/test4027.PTPServer.dep : ../../../HCore/CCore/test/test4027.PTPServer.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4027.PTPServer.o $< -MF $@
+
+../.test-obj/test4028.PTPServer.ConWrite.dep : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4028.PTPServer.ConWrite.o $< -MF $@
+
 ../.test-obj/test4032.DelDirRecursive.dep : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4032.DelDirRecursive.o $< -MF $@
 
@@ -1793,11 +1958,26 @@ include $(RULES_FILE)
 ../.test-obj/test4038.AsyncBinaryFile.dep : ../../../HCore/CCore/test/test4038.AsyncBinaryFile.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4038.AsyncBinaryFile.o $< -MF $@
 
+../.test-obj/test6001.Quick.dep : ../../../Target/WIN32/CCore/test/test6001.Quick.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6001.Quick.o $< -MF $@
+
+../.test-obj/test6002.SysError.dep : ../../../Target/WIN32/CCore/test/test6002.SysError.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6002.SysError.o $< -MF $@
+
+../.test-obj/test6003.Char.dep : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6003.Char.o $< -MF $@
+
+../.test-obj/test6006.IntelRandom.dep : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6006.IntelRandom.o $< -MF $@
+
 ../.test-obj/test6008.DirCursor.dep : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6008.DirCursor.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
+
+../.test-obj/testNet.dep : ../../../Applied/CCore/test/testNet.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testNet.o $< -MF $@
 
 ../.test-obj/testPrint.dep : ../../../HCore/CCore/test/testPrint.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testPrint.o $< -MF $@
