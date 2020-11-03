@@ -37,7 +37,7 @@ inline uint32 ToTicks(uint32 time_msec)
 
 class PTPConWrite : NoCopy
  {
-   static const ulen BufLen = 8 ; // power of 2
+   static constexpr ulen BufLen = 8 ; // power of 2
 
    uint32 next_number;
    uint32 write_ticks;

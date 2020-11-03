@@ -34,6 +34,8 @@ const char *const Testit<3040>::Name="Test3040 Deflate";
 template<>
 bool Testit<3040>::Main()
  {
+  // TODO
+
   return true;
  }
 
