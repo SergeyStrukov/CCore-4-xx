@@ -96,6 +96,7 @@ OBJ_LIST = \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
 .obj/IntScan.o \
+.obj/IntelAES.o \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
 .obj/InterfaceHost.o \
@@ -415,6 +416,7 @@ ASM_LIST = \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
 .obj/IntScan.s \
+.obj/IntelAES.s \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
 .obj/InterfaceHost.s \
@@ -734,6 +736,7 @@ DEP_LIST = \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
 .obj/IntScan.dep \
+.obj/IntelAES.dep \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
 .obj/InterfaceHost.dep \
@@ -956,6 +959,7 @@ DEP_LIST = \
 
 
 ASM_OBJ_LIST = \
+.obj/IntelAES.s.o \
 .obj/IntelCPUID.s.o \
 .obj/IntelRandom.s.o \
 .obj/PlatformBase.s.o \
@@ -1256,6 +1260,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/IntScan.o : ../../Fundamental/CCore/src/scanf/IntScan.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntelAES.o : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/IntelCPUID.o : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
@@ -2208,6 +2215,9 @@ include $(RULES_FILE)
 .obj/IntScan.s : ../../Fundamental/CCore/src/scanf/IntScan.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/IntelAES.s : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/IntelCPUID.s : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3158,6 +3168,9 @@ include $(RULES_FILE)
 .obj/IntScan.dep : ../../Fundamental/CCore/src/scanf/IntScan.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntScan.o $< -MF $@
 
+.obj/IntelAES.dep : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntelAES.o $< -MF $@
+
 .obj/IntelCPUID.dep : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntelCPUID.o $< -MF $@
 
@@ -3816,6 +3829,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) -MM -MT .obj/XPoint.o $< -MF $@
 
 
+
+.obj/IntelAES.s.o : ../../Target/WIN32/CCore/src/crypton/IntelAES.s
+	$(AS) $(ASOPT) $< -o $@
 
 .obj/IntelCPUID.s.o : ../../Target/WIN32/CCore/src/crypton/IntelCPUID.s
 	$(AS) $(ASOPT) $< -o $@
