@@ -1,4 +1,5 @@
 OBJ_LIST = \
+.obj/AES.o \
 .obj/Abort.o \
 .obj/AbortMsgFunc.o \
 .obj/AbstFileToMem.o \
@@ -23,6 +24,7 @@ OBJ_LIST = \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinarySearch.o \
+.obj/BlockCipher.o \
 .obj/BlockFifo.o \
 .obj/Bridge.o \
 .obj/CancelPacketList.o \
@@ -73,6 +75,7 @@ OBJ_LIST = \
 .obj/FileToMem.o \
 .obj/FileToRead.o \
 .obj/ForLoop.o \
+.obj/Forget.o \
 .obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
@@ -86,6 +89,7 @@ OBJ_LIST = \
 .obj/HFSClientDevice.o \
 .obj/HFSFileSystemDevice.o \
 .obj/Handle.o \
+.obj/HashFunction.o \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
 .obj/Init.o \
@@ -106,6 +110,7 @@ OBJ_LIST = \
 .obj/LockUse.o \
 .obj/Locked.o \
 .obj/Log.o \
+.obj/MD5.o \
 .obj/MSec.o \
 .obj/MakeFileName.o \
 .obj/MakeString.o \
@@ -209,6 +214,8 @@ OBJ_LIST = \
 .obj/RefPtr.o \
 .obj/Replace.o \
 .obj/ResSem.o \
+.obj/Rot.o \
+.obj/SHA.o \
 .obj/SIntFunc.o \
 .obj/SafeBuf.o \
 .obj/SaveLoad.o \
@@ -311,6 +318,7 @@ OBJ_LIST = \
 
 
 ASM_LIST = \
+.obj/AES.s \
 .obj/Abort.s \
 .obj/AbortMsgFunc.s \
 .obj/AbstFileToMem.s \
@@ -335,6 +343,7 @@ ASM_LIST = \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinarySearch.s \
+.obj/BlockCipher.s \
 .obj/BlockFifo.s \
 .obj/Bridge.s \
 .obj/CancelPacketList.s \
@@ -385,6 +394,7 @@ ASM_LIST = \
 .obj/FileToMem.s \
 .obj/FileToRead.s \
 .obj/ForLoop.s \
+.obj/Forget.s \
 .obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
@@ -398,6 +408,7 @@ ASM_LIST = \
 .obj/HFSClientDevice.s \
 .obj/HFSFileSystemDevice.s \
 .obj/Handle.s \
+.obj/HashFunction.s \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
 .obj/Init.s \
@@ -418,6 +429,7 @@ ASM_LIST = \
 .obj/LockUse.s \
 .obj/Locked.s \
 .obj/Log.s \
+.obj/MD5.s \
 .obj/MSec.s \
 .obj/MakeFileName.s \
 .obj/MakeString.s \
@@ -521,6 +533,8 @@ ASM_LIST = \
 .obj/RefPtr.s \
 .obj/Replace.s \
 .obj/ResSem.s \
+.obj/Rot.s \
+.obj/SHA.s \
 .obj/SIntFunc.s \
 .obj/SafeBuf.s \
 .obj/SaveLoad.s \
@@ -623,6 +637,7 @@ ASM_LIST = \
 
 
 DEP_LIST = \
+.obj/AES.dep \
 .obj/Abort.dep \
 .obj/AbortMsgFunc.dep \
 .obj/AbstFileToMem.dep \
@@ -647,6 +662,7 @@ DEP_LIST = \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinarySearch.dep \
+.obj/BlockCipher.dep \
 .obj/BlockFifo.dep \
 .obj/Bridge.dep \
 .obj/CancelPacketList.dep \
@@ -697,6 +713,7 @@ DEP_LIST = \
 .obj/FileToMem.dep \
 .obj/FileToRead.dep \
 .obj/ForLoop.dep \
+.obj/Forget.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
@@ -710,6 +727,7 @@ DEP_LIST = \
 .obj/HFSClientDevice.dep \
 .obj/HFSFileSystemDevice.dep \
 .obj/Handle.dep \
+.obj/HashFunction.dep \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
 .obj/Init.dep \
@@ -730,6 +748,7 @@ DEP_LIST = \
 .obj/LockUse.dep \
 .obj/Locked.dep \
 .obj/Log.dep \
+.obj/MD5.dep \
 .obj/MSec.dep \
 .obj/MakeFileName.dep \
 .obj/MakeString.dep \
@@ -833,6 +852,8 @@ DEP_LIST = \
 .obj/RefPtr.dep \
 .obj/Replace.dep \
 .obj/ResSem.dep \
+.obj/Rot.dep \
+.obj/SHA.dep \
 .obj/SIntFunc.dep \
 .obj/SafeBuf.dep \
 .obj/SaveLoad.dep \
@@ -946,6 +967,9 @@ ASM_OBJ_LIST = \
 include $(RULES_FILE)
 
 
+.obj/AES.o : ../../Applied/CCore/src/crypton/AES.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Abort.o : ../../HCore/CCore/src/Abort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1016,6 +1040,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BlockCipher.o : ../../Applied/CCore/src/crypton/BlockCipher.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BlockFifo.o : ../../Simple/CCore/src/BlockFifo.cpp
@@ -1168,6 +1195,9 @@ include $(RULES_FILE)
 .obj/ForLoop.o : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Forget.o : ../../Applied/CCore/src/crypton/Forget.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FuncTask.o : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1205,6 +1235,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Handle.o : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/HashFunction.o : ../../Applied/CCore/src/crypton/HashFunction.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/HeapEngine.o : ../../Fundamental/CCore/src/HeapEngine.cpp
@@ -1265,6 +1298,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Log.o : ../../Applied/CCore/src/Log.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MD5.o : ../../Applied/CCore/src/crypton/MD5.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -1576,6 +1612,12 @@ include $(RULES_FILE)
 .obj/ResSem.o : ../../HCore/CCore/src/task/ResSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Rot.o : ../../Applied/CCore/src/crypton/Rot.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SHA.o : ../../Applied/CCore/src/crypton/SHA.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/SIntFunc.o : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1875,6 +1917,9 @@ include $(RULES_FILE)
 
 
 
+.obj/AES.s : ../../Applied/CCore/src/crypton/AES.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Abort.s : ../../HCore/CCore/src/Abort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1945,6 +1990,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BlockCipher.s : ../../Applied/CCore/src/crypton/BlockCipher.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BlockFifo.s : ../../Simple/CCore/src/BlockFifo.cpp
@@ -2097,6 +2145,9 @@ include $(RULES_FILE)
 .obj/ForLoop.s : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Forget.s : ../../Applied/CCore/src/crypton/Forget.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FuncTask.s : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2134,6 +2185,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Handle.s : ../../Simple/CCore/src/gadget/Handle.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/HashFunction.s : ../../Applied/CCore/src/crypton/HashFunction.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/HeapEngine.s : ../../Fundamental/CCore/src/HeapEngine.cpp
@@ -2194,6 +2248,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Log.s : ../../Applied/CCore/src/Log.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MD5.s : ../../Applied/CCore/src/crypton/MD5.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -2505,6 +2562,12 @@ include $(RULES_FILE)
 .obj/ResSem.s : ../../HCore/CCore/src/task/ResSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Rot.s : ../../Applied/CCore/src/crypton/Rot.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SHA.s : ../../Applied/CCore/src/crypton/SHA.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/SIntFunc.s : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2804,6 +2867,9 @@ include $(RULES_FILE)
 
 
 
+.obj/AES.dep : ../../Applied/CCore/src/crypton/AES.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AES.o $< -MF $@
+
 .obj/Abort.dep : ../../HCore/CCore/src/Abort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Abort.o $< -MF $@
 
@@ -2875,6 +2941,9 @@ include $(RULES_FILE)
 
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
+
+.obj/BlockCipher.dep : ../../Applied/CCore/src/crypton/BlockCipher.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BlockCipher.o $< -MF $@
 
 .obj/BlockFifo.dep : ../../Simple/CCore/src/BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
@@ -3026,6 +3095,9 @@ include $(RULES_FILE)
 .obj/ForLoop.dep : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
 
+.obj/Forget.dep : ../../Applied/CCore/src/crypton/Forget.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Forget.o $< -MF $@
+
 .obj/FuncTask.dep : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FuncTask.o $< -MF $@
 
@@ -3064,6 +3136,9 @@ include $(RULES_FILE)
 
 .obj/Handle.dep : ../../Simple/CCore/src/gadget/Handle.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Handle.o $< -MF $@
+
+.obj/HashFunction.dep : ../../Applied/CCore/src/crypton/HashFunction.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HashFunction.o $< -MF $@
 
 .obj/HeapEngine.dep : ../../Fundamental/CCore/src/HeapEngine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/HeapEngine.o $< -MF $@
@@ -3124,6 +3199,9 @@ include $(RULES_FILE)
 
 .obj/Log.dep : ../../Applied/CCore/src/Log.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Log.o $< -MF $@
+
+.obj/MD5.dep : ../../Applied/CCore/src/crypton/MD5.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MD5.o $< -MF $@
 
 .obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
@@ -3433,6 +3511,12 @@ include $(RULES_FILE)
 
 .obj/ResSem.dep : ../../HCore/CCore/src/task/ResSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ResSem.o $< -MF $@
+
+.obj/Rot.dep : ../../Applied/CCore/src/crypton/Rot.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Rot.o $< -MF $@
+
+.obj/SHA.dep : ../../Applied/CCore/src/crypton/SHA.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SHA.o $< -MF $@
 
 .obj/SIntFunc.dep : ../../Simple/CCore/src/gadget/SIntFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SIntFunc.o $< -MF $@

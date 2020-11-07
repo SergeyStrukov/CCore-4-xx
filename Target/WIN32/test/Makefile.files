@@ -112,6 +112,11 @@ OBJ_LIST = \
 ../.test-obj/test3010.CancelPacketList.o \
 ../.test-obj/test3011.LineInput.o \
 ../.test-obj/test3012.CmdInput.o \
+../.test-obj/test3013.AES.o \
+../.test-obj/test3014.AES-speed.o \
+../.test-obj/test3015.SHA.o \
+../.test-obj/test3016.SHA-speed.o \
+../.test-obj/test3017.MD5.o \
 ../.test-obj/test3026.Bridge.o \
 ../.test-obj/test3027.SingleBridge.o \
 ../.test-obj/test3029.NetFork.o \
@@ -279,6 +284,11 @@ ASM_LIST = \
 ../.test-obj/test3010.CancelPacketList.s \
 ../.test-obj/test3011.LineInput.s \
 ../.test-obj/test3012.CmdInput.s \
+../.test-obj/test3013.AES.s \
+../.test-obj/test3014.AES-speed.s \
+../.test-obj/test3015.SHA.s \
+../.test-obj/test3016.SHA-speed.s \
+../.test-obj/test3017.MD5.s \
 ../.test-obj/test3026.Bridge.s \
 ../.test-obj/test3027.SingleBridge.s \
 ../.test-obj/test3029.NetFork.s \
@@ -446,6 +456,11 @@ DEP_LIST = \
 ../.test-obj/test3010.CancelPacketList.dep \
 ../.test-obj/test3011.LineInput.dep \
 ../.test-obj/test3012.CmdInput.dep \
+../.test-obj/test3013.AES.dep \
+../.test-obj/test3014.AES-speed.dep \
+../.test-obj/test3015.SHA.dep \
+../.test-obj/test3016.SHA-speed.dep \
+../.test-obj/test3017.MD5.dep \
 ../.test-obj/test3026.Bridge.dep \
 ../.test-obj/test3027.SingleBridge.dep \
 ../.test-obj/test3029.NetFork.dep \
@@ -842,6 +857,21 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3012.CmdInput.o : ../../../Applied/CCore/test/test3012.CmdInput.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3013.AES.o : ../../../Applied/CCore/test/test3013.AES.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3014.AES-speed.o : ../../../Applied/CCore/test/test3014.AES-speed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3015.SHA.o : ../../../Applied/CCore/test/test3015.SHA.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3016.SHA-speed.o : ../../../Applied/CCore/test/test3016.SHA-speed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3017.MD5.o : ../../../Applied/CCore/test/test3017.MD5.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3026.Bridge.o : ../../../Applied/CCore/test/test3026.Bridge.cpp
@@ -1338,6 +1368,21 @@ include $(RULES_FILE)
 ../.test-obj/test3012.CmdInput.s : ../../../Applied/CCore/test/test3012.CmdInput.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3013.AES.s : ../../../Applied/CCore/test/test3013.AES.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3014.AES-speed.s : ../../../Applied/CCore/test/test3014.AES-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3015.SHA.s : ../../../Applied/CCore/test/test3015.SHA.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3016.SHA-speed.s : ../../../Applied/CCore/test/test3016.SHA-speed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3017.MD5.s : ../../../Applied/CCore/test/test3017.MD5.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3026.Bridge.s : ../../../Applied/CCore/test/test3026.Bridge.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1831,6 +1876,21 @@ include $(RULES_FILE)
 
 ../.test-obj/test3012.CmdInput.dep : ../../../Applied/CCore/test/test3012.CmdInput.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3012.CmdInput.o $< -MF $@
+
+../.test-obj/test3013.AES.dep : ../../../Applied/CCore/test/test3013.AES.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3013.AES.o $< -MF $@
+
+../.test-obj/test3014.AES-speed.dep : ../../../Applied/CCore/test/test3014.AES-speed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3014.AES-speed.o $< -MF $@
+
+../.test-obj/test3015.SHA.dep : ../../../Applied/CCore/test/test3015.SHA.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3015.SHA.o $< -MF $@
+
+../.test-obj/test3016.SHA-speed.dep : ../../../Applied/CCore/test/test3016.SHA-speed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3016.SHA-speed.o $< -MF $@
+
+../.test-obj/test3017.MD5.dep : ../../../Applied/CCore/test/test3017.MD5.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3017.MD5.o $< -MF $@
 
 ../.test-obj/test3026.Bridge.dep : ../../../Applied/CCore/test/test3026.Bridge.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3026.Bridge.o $< -MF $@
