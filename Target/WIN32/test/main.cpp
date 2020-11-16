@@ -40,7 +40,8 @@ int main()
 
   //Testit<2999>().run();
 
-  Testit<6007>().run();
+  Testit<3034>().run();
+  Testit<3035>().run();
 
   //Testit<3040>().run();
   //Testit<4034>().run();

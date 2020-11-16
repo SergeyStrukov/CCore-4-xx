@@ -1,5 +1,7 @@
 OBJ_LIST = \
 .obj/AES.o \
+.obj/APRTest.o \
+.obj/APRTestData.gen.o \
 .obj/Abort.o \
 .obj/AbortMsgFunc.o \
 .obj/AbstFileToMem.o \
@@ -48,6 +50,7 @@ OBJ_LIST = \
 .obj/Crc.o \
 .obj/CreateAt.o \
 .obj/Creator.o \
+.obj/DHExp.o \
 .obj/DefaultTimeout.o \
 .obj/DeferCall.o \
 .obj/Deflate.o \
@@ -66,6 +69,7 @@ OBJ_LIST = \
 .obj/Exception.o \
 .obj/ExceptionType.o \
 .obj/ExpandWildcard.o \
+.obj/FFTMul.o \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
@@ -96,6 +100,16 @@ OBJ_LIST = \
 .obj/InstanceLock.o \
 .obj/IntPrint.o \
 .obj/IntScan.o \
+.obj/Integer.o \
+.obj/IntegerAlgo.o \
+.obj/IntegerBuilder.o \
+.obj/IntegerDivider.o \
+.obj/IntegerFastAlgo.o \
+.obj/IntegerFromString.o \
+.obj/IntegerGCD.o \
+.obj/IntegerMulAlgo.o \
+.obj/IntegerOctetBuilder.o \
+.obj/IntegerSlowAlgo.o \
 .obj/IntelAES.o \
 .obj/IntelCPUID.o \
 .obj/IntelRandom.o \
@@ -125,6 +139,7 @@ OBJ_LIST = \
 .obj/MersenneTwister.o \
 .obj/Meta.o \
 .obj/MetaList.o \
+.obj/ModEngine.o \
 .obj/Move.o \
 .obj/MultiEvent.o \
 .obj/MultiSem.o \
@@ -138,6 +153,7 @@ OBJ_LIST = \
 .obj/NewDelete.o \
 .obj/NoCopy.o \
 .obj/NoMutex.o \
+.obj/NoPrimeTest.o \
 .obj/NoThrowFlags.o \
 .obj/NodeAllocator.o \
 .obj/Nothing.o \
@@ -186,6 +202,7 @@ OBJ_LIST = \
 .obj/PrintCon.o \
 .obj/PrintError.o \
 .obj/PrintFile.o \
+.obj/PrintInteger.o \
 .obj/PrintPTPCon.o \
 .obj/PrintProxy.o \
 .obj/PrintRatio.o \
@@ -240,6 +257,7 @@ OBJ_LIST = \
 .obj/SingleEchoDevice.o \
 .obj/SingleHost.o \
 .obj/SlowSem.o \
+.obj/SmallPrimes.o \
 .obj/Sort.o \
 .obj/SortUnique.o \
 .obj/Space.o \
@@ -320,6 +338,8 @@ OBJ_LIST = \
 
 ASM_LIST = \
 .obj/AES.s \
+.obj/APRTest.s \
+.obj/APRTestData.gen.s \
 .obj/Abort.s \
 .obj/AbortMsgFunc.s \
 .obj/AbstFileToMem.s \
@@ -368,6 +388,7 @@ ASM_LIST = \
 .obj/Crc.s \
 .obj/CreateAt.s \
 .obj/Creator.s \
+.obj/DHExp.s \
 .obj/DefaultTimeout.s \
 .obj/DeferCall.s \
 .obj/Deflate.s \
@@ -386,6 +407,7 @@ ASM_LIST = \
 .obj/Exception.s \
 .obj/ExceptionType.s \
 .obj/ExpandWildcard.s \
+.obj/FFTMul.s \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
@@ -416,6 +438,16 @@ ASM_LIST = \
 .obj/InstanceLock.s \
 .obj/IntPrint.s \
 .obj/IntScan.s \
+.obj/Integer.s \
+.obj/IntegerAlgo.s \
+.obj/IntegerBuilder.s \
+.obj/IntegerDivider.s \
+.obj/IntegerFastAlgo.s \
+.obj/IntegerFromString.s \
+.obj/IntegerGCD.s \
+.obj/IntegerMulAlgo.s \
+.obj/IntegerOctetBuilder.s \
+.obj/IntegerSlowAlgo.s \
 .obj/IntelAES.s \
 .obj/IntelCPUID.s \
 .obj/IntelRandom.s \
@@ -445,6 +477,7 @@ ASM_LIST = \
 .obj/MersenneTwister.s \
 .obj/Meta.s \
 .obj/MetaList.s \
+.obj/ModEngine.s \
 .obj/Move.s \
 .obj/MultiEvent.s \
 .obj/MultiSem.s \
@@ -458,6 +491,7 @@ ASM_LIST = \
 .obj/NewDelete.s \
 .obj/NoCopy.s \
 .obj/NoMutex.s \
+.obj/NoPrimeTest.s \
 .obj/NoThrowFlags.s \
 .obj/NodeAllocator.s \
 .obj/Nothing.s \
@@ -506,6 +540,7 @@ ASM_LIST = \
 .obj/PrintCon.s \
 .obj/PrintError.s \
 .obj/PrintFile.s \
+.obj/PrintInteger.s \
 .obj/PrintPTPCon.s \
 .obj/PrintProxy.s \
 .obj/PrintRatio.s \
@@ -560,6 +595,7 @@ ASM_LIST = \
 .obj/SingleEchoDevice.s \
 .obj/SingleHost.s \
 .obj/SlowSem.s \
+.obj/SmallPrimes.s \
 .obj/Sort.s \
 .obj/SortUnique.s \
 .obj/Space.s \
@@ -640,6 +676,8 @@ ASM_LIST = \
 
 DEP_LIST = \
 .obj/AES.dep \
+.obj/APRTest.dep \
+.obj/APRTestData.gen.dep \
 .obj/Abort.dep \
 .obj/AbortMsgFunc.dep \
 .obj/AbstFileToMem.dep \
@@ -688,6 +726,7 @@ DEP_LIST = \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
 .obj/Creator.dep \
+.obj/DHExp.dep \
 .obj/DefaultTimeout.dep \
 .obj/DeferCall.dep \
 .obj/Deflate.dep \
@@ -706,6 +745,7 @@ DEP_LIST = \
 .obj/Exception.dep \
 .obj/ExceptionType.dep \
 .obj/ExpandWildcard.dep \
+.obj/FFTMul.dep \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
@@ -736,6 +776,16 @@ DEP_LIST = \
 .obj/InstanceLock.dep \
 .obj/IntPrint.dep \
 .obj/IntScan.dep \
+.obj/Integer.dep \
+.obj/IntegerAlgo.dep \
+.obj/IntegerBuilder.dep \
+.obj/IntegerDivider.dep \
+.obj/IntegerFastAlgo.dep \
+.obj/IntegerFromString.dep \
+.obj/IntegerGCD.dep \
+.obj/IntegerMulAlgo.dep \
+.obj/IntegerOctetBuilder.dep \
+.obj/IntegerSlowAlgo.dep \
 .obj/IntelAES.dep \
 .obj/IntelCPUID.dep \
 .obj/IntelRandom.dep \
@@ -765,6 +815,7 @@ DEP_LIST = \
 .obj/MersenneTwister.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
+.obj/ModEngine.dep \
 .obj/Move.dep \
 .obj/MultiEvent.dep \
 .obj/MultiSem.dep \
@@ -778,6 +829,7 @@ DEP_LIST = \
 .obj/NewDelete.dep \
 .obj/NoCopy.dep \
 .obj/NoMutex.dep \
+.obj/NoPrimeTest.dep \
 .obj/NoThrowFlags.dep \
 .obj/NodeAllocator.dep \
 .obj/Nothing.dep \
@@ -826,6 +878,7 @@ DEP_LIST = \
 .obj/PrintCon.dep \
 .obj/PrintError.dep \
 .obj/PrintFile.dep \
+.obj/PrintInteger.dep \
 .obj/PrintPTPCon.dep \
 .obj/PrintProxy.dep \
 .obj/PrintRatio.dep \
@@ -880,6 +933,7 @@ DEP_LIST = \
 .obj/SingleEchoDevice.dep \
 .obj/SingleHost.dep \
 .obj/SlowSem.dep \
+.obj/SmallPrimes.dep \
 .obj/Sort.dep \
 .obj/SortUnique.dep \
 .obj/Space.dep \
@@ -959,6 +1013,7 @@ DEP_LIST = \
 
 
 ASM_OBJ_LIST = \
+.obj/IntegerFastAlgo.s.o \
 .obj/IntelAES.s.o \
 .obj/IntelCPUID.s.o \
 .obj/IntelRandom.s.o \
@@ -972,6 +1027,12 @@ include $(RULES_FILE)
 
 
 .obj/AES.o : ../../Applied/CCore/src/crypton/AES.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/APRTest.o : ../../Applied/CCore/src/math/APRTest.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/APRTestData.gen.o : ../../Applied/CCore/src/math/APRTestData.gen.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Abort.o : ../../HCore/CCore/src/Abort.cpp
@@ -1118,6 +1179,9 @@ include $(RULES_FILE)
 .obj/Creator.o : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DHExp.o : ../../Applied/CCore/src/crypton/DHExp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DefaultTimeout.o : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1170,6 +1234,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ExpandWildcard.o : ../../HCore/CCore/src/ExpandWildcard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FFTMul.o : ../../Applied/CCore/src/math/FFTMul.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FastMutex.o : ../../HCore/CCore/src/task/FastMutex.cpp
@@ -1262,6 +1329,36 @@ include $(RULES_FILE)
 .obj/IntScan.o : ../../Fundamental/CCore/src/scanf/IntScan.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Integer.o : ../../Applied/CCore/src/math/Integer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerAlgo.o : ../../Applied/CCore/src/math/IntegerAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerBuilder.o : ../../Applied/CCore/src/math/IntegerBuilder.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerDivider.o : ../../Applied/CCore/src/math/IntegerDivider.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerFastAlgo.o : ../../Target/WIN32/CCore/src/math/IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerFromString.o : ../../Applied/CCore/src/math/IntegerFromString.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerGCD.o : ../../Applied/CCore/src/math/IntegerGCD.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerMulAlgo.o : ../../Applied/CCore/src/math/IntegerMulAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerOctetBuilder.o : ../../Applied/CCore/src/math/IntegerOctetBuilder.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntegerSlowAlgo.o : ../../Applied/CCore/src/math/IntegerSlowAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/IntelAES.o : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1349,6 +1446,9 @@ include $(RULES_FILE)
 .obj/MetaList.o : ../../Simple/CCore/src/gadget/MetaList.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ModEngine.o : ../../Applied/CCore/src/math/ModEngine.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Move.o : ../../Simple/CCore/src/Move.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1386,6 +1486,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NoMutex.o : ../../Fundamental/CCore/src/task/NoMutex.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NoPrimeTest.o : ../../Applied/CCore/src/math/NoPrimeTest.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NoThrowFlags.o : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
@@ -1530,6 +1633,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PrintFile.o : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PrintInteger.o : ../../Applied/CCore/src/math/PrintInteger.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PrintPTPCon.o : ../../Applied/CCore/src/print/PrintPTPCon.cpp
@@ -1692,6 +1798,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SlowSem.o : ../../HCore/CCore/src/task/SlowSem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SmallPrimes.o : ../../Applied/CCore/src/math/SmallPrimes.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Sort.o : ../../Fundamental/CCore/src/Sort.cpp
@@ -1927,6 +2036,12 @@ include $(RULES_FILE)
 .obj/AES.s : ../../Applied/CCore/src/crypton/AES.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/APRTest.s : ../../Applied/CCore/src/math/APRTest.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/APRTestData.gen.s : ../../Applied/CCore/src/math/APRTestData.gen.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Abort.s : ../../HCore/CCore/src/Abort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2071,6 +2186,9 @@ include $(RULES_FILE)
 .obj/Creator.s : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DHExp.s : ../../Applied/CCore/src/crypton/DHExp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DefaultTimeout.s : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2123,6 +2241,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ExpandWildcard.s : ../../HCore/CCore/src/ExpandWildcard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FFTMul.s : ../../Applied/CCore/src/math/FFTMul.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FastMutex.s : ../../HCore/CCore/src/task/FastMutex.cpp
@@ -2215,6 +2336,36 @@ include $(RULES_FILE)
 .obj/IntScan.s : ../../Fundamental/CCore/src/scanf/IntScan.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Integer.s : ../../Applied/CCore/src/math/Integer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerAlgo.s : ../../Applied/CCore/src/math/IntegerAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerBuilder.s : ../../Applied/CCore/src/math/IntegerBuilder.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerDivider.s : ../../Applied/CCore/src/math/IntegerDivider.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerFastAlgo.s : ../../Target/WIN32/CCore/src/math/IntegerFastAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerFromString.s : ../../Applied/CCore/src/math/IntegerFromString.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerGCD.s : ../../Applied/CCore/src/math/IntegerGCD.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerMulAlgo.s : ../../Applied/CCore/src/math/IntegerMulAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerOctetBuilder.s : ../../Applied/CCore/src/math/IntegerOctetBuilder.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntegerSlowAlgo.s : ../../Applied/CCore/src/math/IntegerSlowAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/IntelAES.s : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2302,6 +2453,9 @@ include $(RULES_FILE)
 .obj/MetaList.s : ../../Simple/CCore/src/gadget/MetaList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ModEngine.s : ../../Applied/CCore/src/math/ModEngine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Move.s : ../../Simple/CCore/src/Move.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2339,6 +2493,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NoMutex.s : ../../Fundamental/CCore/src/task/NoMutex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NoPrimeTest.s : ../../Applied/CCore/src/math/NoPrimeTest.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NoThrowFlags.s : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
@@ -2483,6 +2640,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PrintFile.s : ../../HCore/CCore/src/print/PrintFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PrintInteger.s : ../../Applied/CCore/src/math/PrintInteger.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PrintPTPCon.s : ../../Applied/CCore/src/print/PrintPTPCon.cpp
@@ -2645,6 +2805,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SlowSem.s : ../../HCore/CCore/src/task/SlowSem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SmallPrimes.s : ../../Applied/CCore/src/math/SmallPrimes.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Sort.s : ../../Fundamental/CCore/src/Sort.cpp
@@ -2880,6 +3043,12 @@ include $(RULES_FILE)
 .obj/AES.dep : ../../Applied/CCore/src/crypton/AES.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AES.o $< -MF $@
 
+.obj/APRTest.dep : ../../Applied/CCore/src/math/APRTest.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/APRTest.o $< -MF $@
+
+.obj/APRTestData.gen.dep : ../../Applied/CCore/src/math/APRTestData.gen.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/APRTestData.gen.o $< -MF $@
+
 .obj/Abort.dep : ../../HCore/CCore/src/Abort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Abort.o $< -MF $@
 
@@ -3024,6 +3193,9 @@ include $(RULES_FILE)
 .obj/Creator.dep : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Creator.o $< -MF $@
 
+.obj/DHExp.dep : ../../Applied/CCore/src/crypton/DHExp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DHExp.o $< -MF $@
+
 .obj/DefaultTimeout.dep : ../../Simple/CCore/src/gadget/DefaultTimeout.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DefaultTimeout.o $< -MF $@
 
@@ -3077,6 +3249,9 @@ include $(RULES_FILE)
 
 .obj/ExpandWildcard.dep : ../../HCore/CCore/src/ExpandWildcard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExpandWildcard.o $< -MF $@
+
+.obj/FFTMul.dep : ../../Applied/CCore/src/math/FFTMul.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FFTMul.o $< -MF $@
 
 .obj/FastMutex.dep : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FastMutex.o $< -MF $@
@@ -3168,6 +3343,36 @@ include $(RULES_FILE)
 .obj/IntScan.dep : ../../Fundamental/CCore/src/scanf/IntScan.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntScan.o $< -MF $@
 
+.obj/Integer.dep : ../../Applied/CCore/src/math/Integer.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Integer.o $< -MF $@
+
+.obj/IntegerAlgo.dep : ../../Applied/CCore/src/math/IntegerAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerAlgo.o $< -MF $@
+
+.obj/IntegerBuilder.dep : ../../Applied/CCore/src/math/IntegerBuilder.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerBuilder.o $< -MF $@
+
+.obj/IntegerDivider.dep : ../../Applied/CCore/src/math/IntegerDivider.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerDivider.o $< -MF $@
+
+.obj/IntegerFastAlgo.dep : ../../Target/WIN32/CCore/src/math/IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerFastAlgo.o $< -MF $@
+
+.obj/IntegerFromString.dep : ../../Applied/CCore/src/math/IntegerFromString.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerFromString.o $< -MF $@
+
+.obj/IntegerGCD.dep : ../../Applied/CCore/src/math/IntegerGCD.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerGCD.o $< -MF $@
+
+.obj/IntegerMulAlgo.dep : ../../Applied/CCore/src/math/IntegerMulAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerMulAlgo.o $< -MF $@
+
+.obj/IntegerOctetBuilder.dep : ../../Applied/CCore/src/math/IntegerOctetBuilder.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerOctetBuilder.o $< -MF $@
+
+.obj/IntegerSlowAlgo.dep : ../../Applied/CCore/src/math/IntegerSlowAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntegerSlowAlgo.o $< -MF $@
+
 .obj/IntelAES.dep : ../../Target/WIN32/CCore/src/crypton/IntelAES.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntelAES.o $< -MF $@
 
@@ -3255,6 +3460,9 @@ include $(RULES_FILE)
 .obj/MetaList.dep : ../../Simple/CCore/src/gadget/MetaList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MetaList.o $< -MF $@
 
+.obj/ModEngine.dep : ../../Applied/CCore/src/math/ModEngine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ModEngine.o $< -MF $@
+
 .obj/Move.dep : ../../Simple/CCore/src/Move.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Move.o $< -MF $@
 
@@ -3293,6 +3501,9 @@ include $(RULES_FILE)
 
 .obj/NoMutex.dep : ../../Fundamental/CCore/src/task/NoMutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoMutex.o $< -MF $@
+
+.obj/NoPrimeTest.dep : ../../Applied/CCore/src/math/NoPrimeTest.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NoPrimeTest.o $< -MF $@
 
 .obj/NoThrowFlags.dep : ../../Simple/CCore/src/gadget/NoThrowFlags.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NoThrowFlags.o $< -MF $@
@@ -3437,6 +3648,9 @@ include $(RULES_FILE)
 
 .obj/PrintFile.dep : ../../HCore/CCore/src/print/PrintFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintFile.o $< -MF $@
+
+.obj/PrintInteger.dep : ../../Applied/CCore/src/math/PrintInteger.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintInteger.o $< -MF $@
 
 .obj/PrintPTPCon.dep : ../../Applied/CCore/src/print/PrintPTPCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintPTPCon.o $< -MF $@
@@ -3599,6 +3813,9 @@ include $(RULES_FILE)
 
 .obj/SlowSem.dep : ../../HCore/CCore/src/task/SlowSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SlowSem.o $< -MF $@
+
+.obj/SmallPrimes.dep : ../../Applied/CCore/src/math/SmallPrimes.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SmallPrimes.o $< -MF $@
 
 .obj/Sort.dep : ../../Fundamental/CCore/src/Sort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Sort.o $< -MF $@
@@ -3829,6 +4046,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) -MM -MT .obj/XPoint.o $< -MF $@
 
 
+
+.obj/IntegerFastAlgo.s.o : ../../Target/WIN32/CCore/src/math/IntegerFastAlgo.s
+	$(AS) $(ASOPT) $< -o $@
 
 .obj/IntelAES.s.o : ../../Target/WIN32/CCore/src/crypton/IntelAES.s
 	$(AS) $(ASOPT) $< -o $@

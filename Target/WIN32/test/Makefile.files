@@ -1,4 +1,5 @@
 OBJ_LIST = \
+../.test-obj/PriorityBoost.o \
 ../.test-obj/main.o \
 ../.test-obj/test1001.NoCopy.o \
 ../.test-obj/test1002.CreateAt.o \
@@ -117,10 +118,22 @@ OBJ_LIST = \
 ../.test-obj/test3015.SHA.o \
 ../.test-obj/test3016.SHA-speed.o \
 ../.test-obj/test3017.MD5.o \
+../.test-obj/test3018.IntegerSlowAlgo.o \
+../.test-obj/test3019.IntegerSlowMul.o \
+../.test-obj/test3020.IntegerFastAlgo.o \
+../.test-obj/test3021.IntegerInverse.o \
+../.test-obj/test3022.Integer.o \
+../.test-obj/test3023.NoPrimeTest.o \
+../.test-obj/test3024.APRTest.o \
+../.test-obj/test3025.DHExp.o \
 ../.test-obj/test3026.Bridge.o \
 ../.test-obj/test3027.SingleBridge.o \
 ../.test-obj/test3029.NetFork.o \
 ../.test-obj/test3032.FileNameMatch.o \
+../.test-obj/test3033.IntegerSpeed.o \
+../.test-obj/test3034.IntegerMulAlgo1.o \
+../.test-obj/test3035.IntegerMulAlgo2.o \
+../.test-obj/test3036.FFTMul.o \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
 ../.test-obj/test3040.Deflate.o \
@@ -162,16 +175,22 @@ OBJ_LIST = \
 ../.test-obj/test6001.Quick.o \
 ../.test-obj/test6002.SysError.o \
 ../.test-obj/test6003.Char.o \
+../.test-obj/test6004.IntegerFastAlgo.o \
 ../.test-obj/test6006.IntelRandom.o \
 ../.test-obj/test6007.IntelAES.o \
 ../.test-obj/test6008.DirCursor.o \
 ../.test-obj/testArray.o \
+../.test-obj/testInt.o \
+../.test-obj/testIntAlgo.o \
+../.test-obj/testIntBase.o \
+../.test-obj/testIntSpeed.o \
 ../.test-obj/testNet.o \
 ../.test-obj/testPrint.o \
 ../.test-obj/testRun.o \
 
 
 ASM_LIST = \
+../.test-obj/PriorityBoost.s \
 ../.test-obj/main.s \
 ../.test-obj/test1001.NoCopy.s \
 ../.test-obj/test1002.CreateAt.s \
@@ -290,10 +309,22 @@ ASM_LIST = \
 ../.test-obj/test3015.SHA.s \
 ../.test-obj/test3016.SHA-speed.s \
 ../.test-obj/test3017.MD5.s \
+../.test-obj/test3018.IntegerSlowAlgo.s \
+../.test-obj/test3019.IntegerSlowMul.s \
+../.test-obj/test3020.IntegerFastAlgo.s \
+../.test-obj/test3021.IntegerInverse.s \
+../.test-obj/test3022.Integer.s \
+../.test-obj/test3023.NoPrimeTest.s \
+../.test-obj/test3024.APRTest.s \
+../.test-obj/test3025.DHExp.s \
 ../.test-obj/test3026.Bridge.s \
 ../.test-obj/test3027.SingleBridge.s \
 ../.test-obj/test3029.NetFork.s \
 ../.test-obj/test3032.FileNameMatch.s \
+../.test-obj/test3033.IntegerSpeed.s \
+../.test-obj/test3034.IntegerMulAlgo1.s \
+../.test-obj/test3035.IntegerMulAlgo2.s \
+../.test-obj/test3036.FFTMul.s \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
 ../.test-obj/test3040.Deflate.s \
@@ -335,16 +366,22 @@ ASM_LIST = \
 ../.test-obj/test6001.Quick.s \
 ../.test-obj/test6002.SysError.s \
 ../.test-obj/test6003.Char.s \
+../.test-obj/test6004.IntegerFastAlgo.s \
 ../.test-obj/test6006.IntelRandom.s \
 ../.test-obj/test6007.IntelAES.s \
 ../.test-obj/test6008.DirCursor.s \
 ../.test-obj/testArray.s \
+../.test-obj/testInt.s \
+../.test-obj/testIntAlgo.s \
+../.test-obj/testIntBase.s \
+../.test-obj/testIntSpeed.s \
 ../.test-obj/testNet.s \
 ../.test-obj/testPrint.s \
 ../.test-obj/testRun.s \
 
 
 DEP_LIST = \
+../.test-obj/PriorityBoost.dep \
 ../.test-obj/main.dep \
 ../.test-obj/test1001.NoCopy.dep \
 ../.test-obj/test1002.CreateAt.dep \
@@ -463,10 +500,22 @@ DEP_LIST = \
 ../.test-obj/test3015.SHA.dep \
 ../.test-obj/test3016.SHA-speed.dep \
 ../.test-obj/test3017.MD5.dep \
+../.test-obj/test3018.IntegerSlowAlgo.dep \
+../.test-obj/test3019.IntegerSlowMul.dep \
+../.test-obj/test3020.IntegerFastAlgo.dep \
+../.test-obj/test3021.IntegerInverse.dep \
+../.test-obj/test3022.Integer.dep \
+../.test-obj/test3023.NoPrimeTest.dep \
+../.test-obj/test3024.APRTest.dep \
+../.test-obj/test3025.DHExp.dep \
 ../.test-obj/test3026.Bridge.dep \
 ../.test-obj/test3027.SingleBridge.dep \
 ../.test-obj/test3029.NetFork.dep \
 ../.test-obj/test3032.FileNameMatch.dep \
+../.test-obj/test3033.IntegerSpeed.dep \
+../.test-obj/test3034.IntegerMulAlgo1.dep \
+../.test-obj/test3035.IntegerMulAlgo2.dep \
+../.test-obj/test3036.FFTMul.dep \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
 ../.test-obj/test3040.Deflate.dep \
@@ -508,10 +557,15 @@ DEP_LIST = \
 ../.test-obj/test6001.Quick.dep \
 ../.test-obj/test6002.SysError.dep \
 ../.test-obj/test6003.Char.dep \
+../.test-obj/test6004.IntegerFastAlgo.dep \
 ../.test-obj/test6006.IntelRandom.dep \
 ../.test-obj/test6007.IntelAES.dep \
 ../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/testArray.dep \
+../.test-obj/testInt.dep \
+../.test-obj/testIntAlgo.dep \
+../.test-obj/testIntBase.dep \
+../.test-obj/testIntSpeed.dep \
 ../.test-obj/testNet.dep \
 ../.test-obj/testPrint.dep \
 ../.test-obj/testRun.dep \
@@ -522,6 +576,9 @@ ASM_OBJ_LIST = \
 
 include $(RULES_FILE)
 
+
+../.test-obj/PriorityBoost.o : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
+	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/main.o : ./main.cpp
 	$(CC) $(CCOPT) $< -o $@
@@ -877,6 +934,30 @@ include $(RULES_FILE)
 ../.test-obj/test3017.MD5.o : ../../../Applied/CCore/test/test3017.MD5.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3018.IntegerSlowAlgo.o : ../../../Applied/CCore/test/test3018.IntegerSlowAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3019.IntegerSlowMul.o : ../../../Applied/CCore/test/test3019.IntegerSlowMul.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3020.IntegerFastAlgo.o : ../../../Applied/CCore/test/test3020.IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3021.IntegerInverse.o : ../../../Applied/CCore/test/test3021.IntegerInverse.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3022.Integer.o : ../../../Applied/CCore/test/test3022.Integer.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3023.NoPrimeTest.o : ../../../Applied/CCore/test/test3023.NoPrimeTest.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3024.APRTest.o : ../../../Applied/CCore/test/test3024.APRTest.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3025.DHExp.o : ../../../Applied/CCore/test/test3025.DHExp.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test3026.Bridge.o : ../../../Applied/CCore/test/test3026.Bridge.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -887,6 +968,18 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3032.FileNameMatch.o : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3033.IntegerSpeed.o : ../../../Applied/CCore/test/test3033.IntegerSpeed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3034.IntegerMulAlgo1.o : ../../../Applied/CCore/test/test3034.IntegerMulAlgo1.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3035.IntegerMulAlgo2.o : ../../../Applied/CCore/test/test3035.IntegerMulAlgo2.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3036.FFTMul.o : ../../../Applied/CCore/test/test3036.FFTMul.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3038.CmdlineParser.o : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
@@ -1012,6 +1105,9 @@ include $(RULES_FILE)
 ../.test-obj/test6003.Char.o : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test6004.IntegerFastAlgo.o : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test6006.IntelRandom.o : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1024,6 +1120,18 @@ include $(RULES_FILE)
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/testInt.o : ../../../Applied/CCore/test/testInt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testIntAlgo.o : ../../../Applied/CCore/test/testIntAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testIntBase.o : ../../../Applied/CCore/test/testIntBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/testIntSpeed.o : ../../../Applied/CCore/test/testIntSpeed.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testNet.o : ../../../Applied/CCore/test/testNet.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1034,6 +1142,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 
+
+../.test-obj/PriorityBoost.s : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/main.s : ./main.cpp
 	$(CC) -S $(CCOPT) $< -o $@
@@ -1389,6 +1500,30 @@ include $(RULES_FILE)
 ../.test-obj/test3017.MD5.s : ../../../Applied/CCore/test/test3017.MD5.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3018.IntegerSlowAlgo.s : ../../../Applied/CCore/test/test3018.IntegerSlowAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3019.IntegerSlowMul.s : ../../../Applied/CCore/test/test3019.IntegerSlowMul.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3020.IntegerFastAlgo.s : ../../../Applied/CCore/test/test3020.IntegerFastAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3021.IntegerInverse.s : ../../../Applied/CCore/test/test3021.IntegerInverse.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3022.Integer.s : ../../../Applied/CCore/test/test3022.Integer.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3023.NoPrimeTest.s : ../../../Applied/CCore/test/test3023.NoPrimeTest.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3024.APRTest.s : ../../../Applied/CCore/test/test3024.APRTest.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3025.DHExp.s : ../../../Applied/CCore/test/test3025.DHExp.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3026.Bridge.s : ../../../Applied/CCore/test/test3026.Bridge.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1399,6 +1534,18 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3032.FileNameMatch.s : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3033.IntegerSpeed.s : ../../../Applied/CCore/test/test3033.IntegerSpeed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3034.IntegerMulAlgo1.s : ../../../Applied/CCore/test/test3034.IntegerMulAlgo1.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3035.IntegerMulAlgo2.s : ../../../Applied/CCore/test/test3035.IntegerMulAlgo2.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3036.FFTMul.s : ../../../Applied/CCore/test/test3036.FFTMul.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3038.CmdlineParser.s : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
@@ -1524,6 +1671,9 @@ include $(RULES_FILE)
 ../.test-obj/test6003.Char.s : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6004.IntegerFastAlgo.s : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test6006.IntelRandom.s : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1536,6 +1686,18 @@ include $(RULES_FILE)
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/testInt.s : ../../../Applied/CCore/test/testInt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testIntAlgo.s : ../../../Applied/CCore/test/testIntAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testIntBase.s : ../../../Applied/CCore/test/testIntBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/testIntSpeed.s : ../../../Applied/CCore/test/testIntSpeed.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testNet.s : ../../../Applied/CCore/test/testNet.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1546,6 +1708,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 
+
+../.test-obj/PriorityBoost.dep : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/PriorityBoost.o $< -MF $@
 
 ../.test-obj/main.dep : ./main.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/main.o $< -MF $@
@@ -1901,6 +2066,30 @@ include $(RULES_FILE)
 ../.test-obj/test3017.MD5.dep : ../../../Applied/CCore/test/test3017.MD5.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3017.MD5.o $< -MF $@
 
+../.test-obj/test3018.IntegerSlowAlgo.dep : ../../../Applied/CCore/test/test3018.IntegerSlowAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3018.IntegerSlowAlgo.o $< -MF $@
+
+../.test-obj/test3019.IntegerSlowMul.dep : ../../../Applied/CCore/test/test3019.IntegerSlowMul.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3019.IntegerSlowMul.o $< -MF $@
+
+../.test-obj/test3020.IntegerFastAlgo.dep : ../../../Applied/CCore/test/test3020.IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3020.IntegerFastAlgo.o $< -MF $@
+
+../.test-obj/test3021.IntegerInverse.dep : ../../../Applied/CCore/test/test3021.IntegerInverse.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3021.IntegerInverse.o $< -MF $@
+
+../.test-obj/test3022.Integer.dep : ../../../Applied/CCore/test/test3022.Integer.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3022.Integer.o $< -MF $@
+
+../.test-obj/test3023.NoPrimeTest.dep : ../../../Applied/CCore/test/test3023.NoPrimeTest.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3023.NoPrimeTest.o $< -MF $@
+
+../.test-obj/test3024.APRTest.dep : ../../../Applied/CCore/test/test3024.APRTest.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3024.APRTest.o $< -MF $@
+
+../.test-obj/test3025.DHExp.dep : ../../../Applied/CCore/test/test3025.DHExp.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3025.DHExp.o $< -MF $@
+
 ../.test-obj/test3026.Bridge.dep : ../../../Applied/CCore/test/test3026.Bridge.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3026.Bridge.o $< -MF $@
 
@@ -1912,6 +2101,18 @@ include $(RULES_FILE)
 
 ../.test-obj/test3032.FileNameMatch.dep : ../../../Applied/CCore/test/test3032.FileNameMatch.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3032.FileNameMatch.o $< -MF $@
+
+../.test-obj/test3033.IntegerSpeed.dep : ../../../Applied/CCore/test/test3033.IntegerSpeed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3033.IntegerSpeed.o $< -MF $@
+
+../.test-obj/test3034.IntegerMulAlgo1.dep : ../../../Applied/CCore/test/test3034.IntegerMulAlgo1.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3034.IntegerMulAlgo1.o $< -MF $@
+
+../.test-obj/test3035.IntegerMulAlgo2.dep : ../../../Applied/CCore/test/test3035.IntegerMulAlgo2.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3035.IntegerMulAlgo2.o $< -MF $@
+
+../.test-obj/test3036.FFTMul.dep : ../../../Applied/CCore/test/test3036.FFTMul.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3036.FFTMul.o $< -MF $@
 
 ../.test-obj/test3038.CmdlineParser.dep : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3038.CmdlineParser.o $< -MF $@
@@ -2036,6 +2237,9 @@ include $(RULES_FILE)
 ../.test-obj/test6003.Char.dep : ../../../Target/WIN32/CCore/test/test6003.Char.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6003.Char.o $< -MF $@
 
+../.test-obj/test6004.IntegerFastAlgo.dep : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6004.IntegerFastAlgo.o $< -MF $@
+
 ../.test-obj/test6006.IntelRandom.dep : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6006.IntelRandom.o $< -MF $@
 
@@ -2047,6 +2251,18 @@ include $(RULES_FILE)
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
+
+../.test-obj/testInt.dep : ../../../Applied/CCore/test/testInt.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testInt.o $< -MF $@
+
+../.test-obj/testIntAlgo.dep : ../../../Applied/CCore/test/testIntAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testIntAlgo.o $< -MF $@
+
+../.test-obj/testIntBase.dep : ../../../Applied/CCore/test/testIntBase.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testIntBase.o $< -MF $@
+
+../.test-obj/testIntSpeed.dep : ../../../Applied/CCore/test/testIntSpeed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/testIntSpeed.o $< -MF $@
 
 ../.test-obj/testNet.dep : ../../../Applied/CCore/test/testNet.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testNet.o $< -MF $@
