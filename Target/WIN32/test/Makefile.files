@@ -106,6 +106,9 @@ OBJ_LIST = \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test3001.Atomic.o \
 ../.test-obj/test3002.EventRecorder.o \
+../.test-obj/test3003.PerTask.o \
+../.test-obj/test3004.Log.o \
+../.test-obj/test3005.LogMem.o \
 ../.test-obj/test3006.TaskMemStack.o \
 ../.test-obj/test3007.FileName.o \
 ../.test-obj/test3008.Packet.o \
@@ -128,12 +131,14 @@ OBJ_LIST = \
 ../.test-obj/test3025.DHExp.o \
 ../.test-obj/test3026.Bridge.o \
 ../.test-obj/test3027.SingleBridge.o \
+../.test-obj/test3028.PTP.o \
 ../.test-obj/test3029.NetFork.o \
 ../.test-obj/test3032.FileNameMatch.o \
 ../.test-obj/test3033.IntegerSpeed.o \
 ../.test-obj/test3034.IntegerMulAlgo1.o \
 ../.test-obj/test3035.IntegerMulAlgo2.o \
 ../.test-obj/test3036.FFTMul.o \
+../.test-obj/test3037.AtomicSpeed.o \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
 ../.test-obj/test3040.Deflate.o \
@@ -297,6 +302,9 @@ ASM_LIST = \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test3001.Atomic.s \
 ../.test-obj/test3002.EventRecorder.s \
+../.test-obj/test3003.PerTask.s \
+../.test-obj/test3004.Log.s \
+../.test-obj/test3005.LogMem.s \
 ../.test-obj/test3006.TaskMemStack.s \
 ../.test-obj/test3007.FileName.s \
 ../.test-obj/test3008.Packet.s \
@@ -319,12 +327,14 @@ ASM_LIST = \
 ../.test-obj/test3025.DHExp.s \
 ../.test-obj/test3026.Bridge.s \
 ../.test-obj/test3027.SingleBridge.s \
+../.test-obj/test3028.PTP.s \
 ../.test-obj/test3029.NetFork.s \
 ../.test-obj/test3032.FileNameMatch.s \
 ../.test-obj/test3033.IntegerSpeed.s \
 ../.test-obj/test3034.IntegerMulAlgo1.s \
 ../.test-obj/test3035.IntegerMulAlgo2.s \
 ../.test-obj/test3036.FFTMul.s \
+../.test-obj/test3037.AtomicSpeed.s \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
 ../.test-obj/test3040.Deflate.s \
@@ -488,6 +498,9 @@ DEP_LIST = \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test3001.Atomic.dep \
 ../.test-obj/test3002.EventRecorder.dep \
+../.test-obj/test3003.PerTask.dep \
+../.test-obj/test3004.Log.dep \
+../.test-obj/test3005.LogMem.dep \
 ../.test-obj/test3006.TaskMemStack.dep \
 ../.test-obj/test3007.FileName.dep \
 ../.test-obj/test3008.Packet.dep \
@@ -510,12 +523,14 @@ DEP_LIST = \
 ../.test-obj/test3025.DHExp.dep \
 ../.test-obj/test3026.Bridge.dep \
 ../.test-obj/test3027.SingleBridge.dep \
+../.test-obj/test3028.PTP.dep \
 ../.test-obj/test3029.NetFork.dep \
 ../.test-obj/test3032.FileNameMatch.dep \
 ../.test-obj/test3033.IntegerSpeed.dep \
 ../.test-obj/test3034.IntegerMulAlgo1.dep \
 ../.test-obj/test3035.IntegerMulAlgo2.dep \
 ../.test-obj/test3036.FFTMul.dep \
+../.test-obj/test3037.AtomicSpeed.dep \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
 ../.test-obj/test3040.Deflate.dep \
@@ -898,6 +913,15 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.o : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3003.PerTask.o : ../../../Applied/CCore/test/test3003.PerTask.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3004.Log.o : ../../../Applied/CCore/test/test3004.Log.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3005.LogMem.o : ../../../Applied/CCore/test/test3005.LogMem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test3006.TaskMemStack.o : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -964,6 +988,9 @@ include $(RULES_FILE)
 ../.test-obj/test3027.SingleBridge.o : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test3028.PTP.o : ../../../Applied/CCore/test/test3028.PTP.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/test3029.NetFork.o : ../../../Applied/CCore/test/test3029.NetFork.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -980,6 +1007,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3036.FFTMul.o : ../../../Applied/CCore/test/test3036.FFTMul.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3037.AtomicSpeed.o : ../../../Applied/CCore/test/test3037.AtomicSpeed.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3038.CmdlineParser.o : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
@@ -1464,6 +1494,15 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.s : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3003.PerTask.s : ../../../Applied/CCore/test/test3003.PerTask.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3004.Log.s : ../../../Applied/CCore/test/test3004.Log.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3005.LogMem.s : ../../../Applied/CCore/test/test3005.LogMem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3006.TaskMemStack.s : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1530,6 +1569,9 @@ include $(RULES_FILE)
 ../.test-obj/test3027.SingleBridge.s : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3028.PTP.s : ../../../Applied/CCore/test/test3028.PTP.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test3029.NetFork.s : ../../../Applied/CCore/test/test3029.NetFork.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1546,6 +1588,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3036.FFTMul.s : ../../../Applied/CCore/test/test3036.FFTMul.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test3037.AtomicSpeed.s : ../../../Applied/CCore/test/test3037.AtomicSpeed.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/test3038.CmdlineParser.s : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
@@ -2030,6 +2075,15 @@ include $(RULES_FILE)
 ../.test-obj/test3002.EventRecorder.dep : ../../../Applied/CCore/test/test3002.EventRecorder.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3002.EventRecorder.o $< -MF $@
 
+../.test-obj/test3003.PerTask.dep : ../../../Applied/CCore/test/test3003.PerTask.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3003.PerTask.o $< -MF $@
+
+../.test-obj/test3004.Log.dep : ../../../Applied/CCore/test/test3004.Log.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3004.Log.o $< -MF $@
+
+../.test-obj/test3005.LogMem.dep : ../../../Applied/CCore/test/test3005.LogMem.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3005.LogMem.o $< -MF $@
+
 ../.test-obj/test3006.TaskMemStack.dep : ../../../Applied/CCore/test/test3006.TaskMemStack.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3006.TaskMemStack.o $< -MF $@
 
@@ -2096,6 +2150,9 @@ include $(RULES_FILE)
 ../.test-obj/test3027.SingleBridge.dep : ../../../Applied/CCore/test/test3027.SingleBridge.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3027.SingleBridge.o $< -MF $@
 
+../.test-obj/test3028.PTP.dep : ../../../Applied/CCore/test/test3028.PTP.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3028.PTP.o $< -MF $@
+
 ../.test-obj/test3029.NetFork.dep : ../../../Applied/CCore/test/test3029.NetFork.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3029.NetFork.o $< -MF $@
 
@@ -2113,6 +2170,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test3036.FFTMul.dep : ../../../Applied/CCore/test/test3036.FFTMul.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3036.FFTMul.o $< -MF $@
+
+../.test-obj/test3037.AtomicSpeed.dep : ../../../Applied/CCore/test/test3037.AtomicSpeed.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3037.AtomicSpeed.o $< -MF $@
 
 ../.test-obj/test3038.CmdlineParser.dep : ../../../Applied/CCore/test/test3038.CmdlineParser.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3038.CmdlineParser.o $< -MF $@
