@@ -21,12 +21,16 @@
 #include <CCore/inc/Random.h>
 #include <CCore/inc/Timer.h>
 #include <CCore/inc/String.h>
+#include <CCore/inc/Array.h>
+#include <CCore/inc/PrintRatio.h>
 
 namespace App {
 
 /* classes */
 
 template <class Algo> class TestIntegerSpeed;
+
+template <class Algo> class TestIntMulSpeed;
 
 /* class TestIntegerSpeed<Algo> */
 
@@ -532,6 +536,189 @@ class TestIntegerSpeed
    static void Run(P &&out,StrLen title)
     {
      TestIntegerSpeed<Algo> obj;
+
+     obj.run(out,title);
+    }
+ };
+
+/* class TestIntMulSpeed<Algo> */
+
+template <class Algo>
+class TestIntMulSpeed
+ {
+   using Unit = typename Algo::Unit ;
+
+   static constexpr ulen Len  = 5'000'000 ;
+   static constexpr ulen Len1 =       500 ;
+   static constexpr ulen Len2 =       800 ;
+   static constexpr ulen Len3 =      8000 ;
+
+   static constexpr unsigned Rep  =   100 ;
+   static constexpr unsigned Rep2 =    32 ;
+
+   using Stat = TimeStat<ClockTimer::ValueType> ;
+
+  private:
+
+   Random gen;
+
+   SimpleArray<Unit> buf;
+
+   Unit *a; // Len
+   Unit *b; // Len
+   Unit *c; // 2*Len
+
+   SimpleArray<Stat> table;
+
+  private:
+
+   TestIntMulSpeed()
+    : buf(4*Len),
+      table(Len+1)
+    {
+     a=buf.getPtr();
+     b=a+Len;
+     c=b+Len;
+    }
+
+   void fill(PtrLen<Unit> r) { gen.fill(r); }
+
+  private:
+
+   static unsigned Log(UIntType auto x) { return UIntBitsOf(x); }
+
+   void funcUMul(ulen n,ulen m) CCORE_NOINLINE
+    {
+     Algo::UMul(c,a,n,b,m);
+    }
+
+   Stat testUMul(ulen n,ulen m,unsigned rep=Rep,unsigned rep2=Rep2)
+    {
+     Stat stat;
+
+     for(unsigned cnt=rep; cnt ;cnt--)
+       {
+        fill(Range(a,n));
+        fill(Range(b,m));
+
+        ClockTimer timer;
+
+        for(unsigned cnt=rep2; cnt ;cnt--) funcUMul(n,m);
+
+        stat.add(timer.get());
+       }
+
+     return stat;
+    }
+
+  private:
+
+   template <class P,class T>
+   void show(P &&out,ulen n,T t)
+    {
+     if( (n%10)==0 ) Putch(out,'\n');
+
+     auto l=Log(n);
+     auto b=n*l*Log(l);
+
+     if( b )
+       {
+        Printf(out,"n = #; best = #; O = #;\n",n,t,PrintRatio(t,b));
+       }
+     else
+       {
+        Printf(out,"n = #; best = #;\n",n,t);
+       }
+    }
+
+   template <class P>
+   void test1(P &&out)
+    {
+     for(ulen n=1; n<=Len1 ;n++)
+       {
+        Printf(Con,"n = #;\n",n);
+
+        table[n]=testUMul(n,n);
+       }
+
+     for(ulen n=1; n<=Len1 ;n++)
+       {
+        Stat stat=table[n];
+
+        stat.div(Rep2);
+
+        show(out,n,stat.getMin());
+       }
+
+     Printf(Con,"test1 done\n");
+    }
+
+   template <class P>
+   void test2(P &&out)
+    {
+     ulen N=Len2;
+
+     for(ulen n=1; N<Len3 ;n++,N+=N/10)
+       {
+        Printf(Con,"n = #;\n",N);
+
+        table[n]=testUMul(N,N,10,1);
+       }
+
+     N=Len2;
+
+     for(ulen n=1; N<Len3 ;n++,N+=N/10)
+       {
+        Stat stat=table[n];
+
+        show(out,N,stat.getMin());
+       }
+
+     Printf(Con,"test2 done\n");
+    }
+
+   template <class P>
+   void test3(P &&out)
+    {
+     ulen N=Len3;
+
+     for(ulen n=1; N<=Len ;n++,N*=2)
+       {
+        Printf(Con,"N = #;\n",N);
+
+        table[n]=testUMul(N,N,10,1);
+       }
+
+     N=Len3;
+
+     for(ulen n=1; N<=Len ;n++,N*=2)
+       {
+        Stat stat=table[n];
+
+        show(out,N,stat.getMin());
+       }
+
+     Printf(Con,"test3 done\n");
+    }
+
+   template <class P>
+   void run(P &&out,StrLen title)
+    {
+     Printf(out,"#;\n\n",Title(title));
+
+     test1(out);
+     test2(out);
+     test3(out);
+
+     Printf(out,"\n#;\n\n",TextDivider());
+    }
+
+  public:
+
+   template <class P>
+   static void Run(P &&out,StrLen title)
+    {
+     TestIntMulSpeed<Algo> obj;
 
      obj.run(out,title);
     }

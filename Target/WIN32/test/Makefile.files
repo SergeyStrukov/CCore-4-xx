@@ -181,6 +181,7 @@ OBJ_LIST = \
 ../.test-obj/test6002.SysError.o \
 ../.test-obj/test6003.Char.o \
 ../.test-obj/test6004.IntegerFastAlgo.o \
+../.test-obj/test6005.IntegerMulAlgo.o \
 ../.test-obj/test6006.IntelRandom.o \
 ../.test-obj/test6007.IntelAES.o \
 ../.test-obj/test6008.DirCursor.o \
@@ -377,6 +378,7 @@ ASM_LIST = \
 ../.test-obj/test6002.SysError.s \
 ../.test-obj/test6003.Char.s \
 ../.test-obj/test6004.IntegerFastAlgo.s \
+../.test-obj/test6005.IntegerMulAlgo.s \
 ../.test-obj/test6006.IntelRandom.s \
 ../.test-obj/test6007.IntelAES.s \
 ../.test-obj/test6008.DirCursor.s \
@@ -573,6 +575,7 @@ DEP_LIST = \
 ../.test-obj/test6002.SysError.dep \
 ../.test-obj/test6003.Char.dep \
 ../.test-obj/test6004.IntegerFastAlgo.dep \
+../.test-obj/test6005.IntegerMulAlgo.dep \
 ../.test-obj/test6006.IntelRandom.dep \
 ../.test-obj/test6007.IntelAES.dep \
 ../.test-obj/test6008.DirCursor.dep \
@@ -1136,6 +1139,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6004.IntegerFastAlgo.o : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6005.IntegerMulAlgo.o : ../../../Target/WIN32/CCore/test/test6005.IntegerMulAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6006.IntelRandom.o : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
@@ -1719,6 +1725,9 @@ include $(RULES_FILE)
 ../.test-obj/test6004.IntegerFastAlgo.s : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6005.IntegerMulAlgo.s : ../../../Target/WIN32/CCore/test/test6005.IntegerMulAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test6006.IntelRandom.s : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2299,6 +2308,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test6004.IntegerFastAlgo.dep : ../../../Target/WIN32/CCore/test/test6004.IntegerFastAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6004.IntegerFastAlgo.o $< -MF $@
+
+../.test-obj/test6005.IntegerMulAlgo.dep : ../../../Target/WIN32/CCore/test/test6005.IntegerMulAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6005.IntegerMulAlgo.o $< -MF $@
 
 ../.test-obj/test6006.IntelRandom.dep : ../../../Target/WIN32/CCore/test/test6006.IntelRandom.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6006.IntelRandom.o $< -MF $@
