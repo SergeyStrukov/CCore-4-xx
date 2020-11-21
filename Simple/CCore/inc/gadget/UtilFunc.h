@@ -88,6 +88,15 @@ T AddToCap(T val,T delta,T cap)
     }
  }
 
+template <UIntType UInt,UIntType UIntVal>
+void PosDec(UInt &obj,UIntVal val)
+ {
+  if( val<=obj )
+    obj-=(UInt)val;
+  else
+    obj=0;
+ }
+
 template <class T,class S>
 void CapDown(T &obj,S cap)
  {
