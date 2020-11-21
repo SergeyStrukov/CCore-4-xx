@@ -40,8 +40,6 @@ int main()
 
   //Testit<2999>().run();
 
-  //Testit<6004>().run();
-
   //Testit<3040>().run();
   //Testit<4034>().run();
 

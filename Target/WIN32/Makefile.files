@@ -166,6 +166,10 @@ OBJ_LIST = \
 .obj/Optional.o \
 .obj/OutBuf.o \
 .obj/OwnPtr.o \
+.obj/PKE.o \
+.obj/PSec.o \
+.obj/PSecCore.o \
+.obj/PSecKey.o \
 .obj/PTPBase.o \
 .obj/PTPBoot.o \
 .obj/PTPBootBase.o \
@@ -504,6 +508,10 @@ ASM_LIST = \
 .obj/Optional.s \
 .obj/OutBuf.s \
 .obj/OwnPtr.s \
+.obj/PKE.s \
+.obj/PSec.s \
+.obj/PSecCore.s \
+.obj/PSecKey.s \
 .obj/PTPBase.s \
 .obj/PTPBoot.s \
 .obj/PTPBootBase.s \
@@ -842,6 +850,10 @@ DEP_LIST = \
 .obj/Optional.dep \
 .obj/OutBuf.dep \
 .obj/OwnPtr.dep \
+.obj/PKE.dep \
+.obj/PSec.dep \
+.obj/PSecCore.dep \
+.obj/PSecKey.dep \
 .obj/PTPBase.dep \
 .obj/PTPBoot.dep \
 .obj/PTPBootBase.dep \
@@ -1525,6 +1537,18 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/OwnPtr.o : ../../Simple/CCore/src/OwnPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PKE.o : ../../Applied/CCore/src/net/PKE.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PSec.o : ../../Applied/CCore/src/net/PSec.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PSecCore.o : ../../Applied/CCore/src/net/PSecCore.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PSecKey.o : ../../Applied/CCore/src/net/PSecKey.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PTPBase.o : ../../Applied/CCore/src/net/PTPBase.cpp
@@ -2534,6 +2558,18 @@ include $(RULES_FILE)
 .obj/OwnPtr.s : ../../Simple/CCore/src/OwnPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PKE.s : ../../Applied/CCore/src/net/PKE.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PSec.s : ../../Applied/CCore/src/net/PSec.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PSecCore.s : ../../Applied/CCore/src/net/PSecCore.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PSecKey.s : ../../Applied/CCore/src/net/PSecKey.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PTPBase.s : ../../Applied/CCore/src/net/PTPBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3540,6 +3576,18 @@ include $(RULES_FILE)
 
 .obj/OwnPtr.dep : ../../Simple/CCore/src/OwnPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/OwnPtr.o $< -MF $@
+
+.obj/PKE.dep : ../../Applied/CCore/src/net/PKE.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PKE.o $< -MF $@
+
+.obj/PSec.dep : ../../Applied/CCore/src/net/PSec.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PSec.o $< -MF $@
+
+.obj/PSecCore.dep : ../../Applied/CCore/src/net/PSecCore.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PSecCore.o $< -MF $@
+
+.obj/PSecKey.dep : ../../Applied/CCore/src/net/PSecKey.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PSecKey.o $< -MF $@
 
 .obj/PTPBase.dep : ../../Applied/CCore/src/net/PTPBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PTPBase.o $< -MF $@
