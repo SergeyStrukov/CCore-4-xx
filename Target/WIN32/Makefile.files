@@ -190,6 +190,7 @@ OBJ_LIST = \
 .obj/ParaQuickSort.o \
 .obj/Partition.o \
 .obj/Path.o \
+.obj/PathProc.o \
 .obj/PerTask.o \
 .obj/Place.o \
 .obj/PlanInit.o \
@@ -532,6 +533,7 @@ ASM_LIST = \
 .obj/ParaQuickSort.s \
 .obj/Partition.s \
 .obj/Path.s \
+.obj/PathProc.s \
 .obj/PerTask.s \
 .obj/Place.s \
 .obj/PlanInit.s \
@@ -874,6 +876,7 @@ DEP_LIST = \
 .obj/ParaQuickSort.dep \
 .obj/Partition.dep \
 .obj/Path.dep \
+.obj/PathProc.dep \
 .obj/PerTask.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
@@ -1609,6 +1612,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Path.o : ../../Fundamental/CCore/src/Path.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PathProc.o : ../../Fundamental/CCore/src/PathProc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PerTask.o : ../../Applied/CCore/src/PerTask.cpp
@@ -2630,6 +2636,9 @@ include $(RULES_FILE)
 .obj/Path.s : ../../Fundamental/CCore/src/Path.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PathProc.s : ../../Fundamental/CCore/src/PathProc.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PerTask.s : ../../Applied/CCore/src/PerTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3648,6 +3657,9 @@ include $(RULES_FILE)
 
 .obj/Path.dep : ../../Fundamental/CCore/src/Path.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Path.o $< -MF $@
+
+.obj/PathProc.dep : ../../Fundamental/CCore/src/PathProc.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PathProc.o $< -MF $@
 
 .obj/PerTask.dep : ../../Applied/CCore/src/PerTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PerTask.o $< -MF $@

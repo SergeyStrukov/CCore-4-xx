@@ -172,6 +172,9 @@ OBJ_LIST = \
 ../.test-obj/test4026.PTPEcho.o \
 ../.test-obj/test4027.PTPServer.o \
 ../.test-obj/test4028.PTPServer.ConWrite.o \
+../.test-obj/test4029.PSec.o \
+../.test-obj/test4030.PKE.o \
+../.test-obj/test4031.PTPSec.o \
 ../.test-obj/test4032.DelDirRecursive.o \
 ../.test-obj/test4033.exec.o \
 ../.test-obj/test4034.Deflate.o \
@@ -371,6 +374,9 @@ ASM_LIST = \
 ../.test-obj/test4026.PTPEcho.s \
 ../.test-obj/test4027.PTPServer.s \
 ../.test-obj/test4028.PTPServer.ConWrite.s \
+../.test-obj/test4029.PSec.s \
+../.test-obj/test4030.PKE.s \
+../.test-obj/test4031.PTPSec.s \
 ../.test-obj/test4032.DelDirRecursive.s \
 ../.test-obj/test4033.exec.s \
 ../.test-obj/test4034.Deflate.s \
@@ -570,6 +576,9 @@ DEP_LIST = \
 ../.test-obj/test4026.PTPEcho.dep \
 ../.test-obj/test4027.PTPServer.dep \
 ../.test-obj/test4028.PTPServer.ConWrite.dep \
+../.test-obj/test4029.PSec.dep \
+../.test-obj/test4030.PKE.dep \
+../.test-obj/test4031.PTPSec.dep \
 ../.test-obj/test4032.DelDirRecursive.dep \
 ../.test-obj/test4033.exec.dep \
 ../.test-obj/test4034.Deflate.dep \
@@ -1118,6 +1127,15 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4028.PTPServer.ConWrite.o : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4029.PSec.o : ../../../HCore/CCore/test/test4029.PSec.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4030.PKE.o : ../../../HCore/CCore/test/test4030.PKE.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test4031.PTPSec.o : ../../../HCore/CCore/test/test4031.PTPSec.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4032.DelDirRecursive.o : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
@@ -1710,6 +1728,15 @@ include $(RULES_FILE)
 ../.test-obj/test4028.PTPServer.ConWrite.s : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test4029.PSec.s : ../../../HCore/CCore/test/test4029.PSec.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4030.PKE.s : ../../../HCore/CCore/test/test4030.PKE.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/test4031.PTPSec.s : ../../../HCore/CCore/test/test4031.PTPSec.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4032.DelDirRecursive.s : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2299,6 +2326,15 @@ include $(RULES_FILE)
 
 ../.test-obj/test4028.PTPServer.ConWrite.dep : ../../../HCore/CCore/test/test4028.PTPServer.ConWrite.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4028.PTPServer.ConWrite.o $< -MF $@
+
+../.test-obj/test4029.PSec.dep : ../../../HCore/CCore/test/test4029.PSec.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4029.PSec.o $< -MF $@
+
+../.test-obj/test4030.PKE.dep : ../../../HCore/CCore/test/test4030.PKE.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4030.PKE.o $< -MF $@
+
+../.test-obj/test4031.PTPSec.dep : ../../../HCore/CCore/test/test4031.PTPSec.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4031.PTPSec.o $< -MF $@
 
 ../.test-obj/test4032.DelDirRecursive.dep : ../../../HCore/CCore/test/test4032.DelDirRecursive.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4032.DelDirRecursive.o $< -MF $@
