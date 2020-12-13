@@ -1,7 +1,7 @@
 /* test4029.PSec.cpp */
 //----------------------------------------------------------------------------------------
 //
-//  Project: CCore 2.00
+//  Project: CCore 4.01
 //
 //  Tag: HCore
 //
@@ -9,7 +9,7 @@
 //
 //            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 //
-//  Copyright (c) 2015 Sergey Strukov. All rights reserved.
+//  Copyright (c) 2020 Sergey Strukov. All rights reserved.
 //
 //----------------------------------------------------------------------------------------
 
