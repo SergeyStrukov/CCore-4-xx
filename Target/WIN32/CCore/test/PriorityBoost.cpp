@@ -17,19 +17,22 @@
 
 #include <CCore/inc/Print.h>
 
-#include <windows.h>
+#include <CCore/inc/sys/SysTypes.h>
+
+#include <CCore/inc/win32/Win32.h>
 
 namespace App {
 
 /* using */
 
 using namespace CCore;
+using namespace CCore::Sys;
 
 /* PriorityBoost() */
 
 void PriorityBoost()
  {
-  if( !SetThreadPriority(GetCurrentThread(),THREAD_PRIORITY_TIME_CRITICAL) )
+  if( !WinNN::SetThreadPriority(WinNN::GetCurrentThread(),WinNN::ThreadPriorityTimeCritical) )
     {
      Printf(Con,"No priority boost!\n");
     }

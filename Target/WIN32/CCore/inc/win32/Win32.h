@@ -429,7 +429,7 @@ bool_t WIN32_API ReleaseSemaphore(handle_t h_sem,
                                   sem_count_t *prev_count);
 
 /*--------------------------------------------------------------------------------------*/
-/* Process flags                                                                        */
+/* Process constants                                                                    */
 /*--------------------------------------------------------------------------------------*/
 
 /* enum ProcessCreationFlags */
@@ -446,6 +446,19 @@ enum StartupInfoFlags
  {
   StartupInfo_show_window = 0x0001,
   StartupInfo_std_handles = 0x0100
+ };
+
+/* enum ThreadPriority */
+
+enum ThreadPriority
+ {
+  ThreadPriorityIdle         = -15,
+  ThreadPriorityLowest       =  -2,
+  ThreadPriorityLow          =  -1,
+  ThreadPriorityNormal       =   0,
+  ThreadPriorityHigh         =   1,
+  ThreadPriorityHighest      =   2,
+  ThreadPriorityTimeCritical =  15
  };
 
 /*--------------------------------------------------------------------------------------*/
@@ -519,6 +532,10 @@ void WIN32_API GetStartupInfoW(StartupInfo *info);
 
 handle_t WIN32_API GetCurrentProcess(void);
 
+/* GetCurrentThread() */
+
+handle_t WIN32_API GetCurrentThread(void);
+
 /* TerminateProcess() */
 
 bool_t WIN32_API TerminateProcess(handle_t h_process, unsigned exit_code);
@@ -547,6 +564,10 @@ bool_t WIN32_API CreateProcessW(const wchar *program,
 /* GetExitCodeProcess() */
 
 bool_t WIN32_API GetExitCodeProcess(handle_t h_process, unsigned *exit_code);
+
+/* SetThreadPriority() */
+
+bool_t WIN32_API SetThreadPriority(handle_t h_thread, options_t priority);
 
 /*--------------------------------------------------------------------------------------*/
 /* System property functions                                                            */
