@@ -1,5 +1,6 @@
 OBJ_LIST = \
 ../.test-obj/PriorityBoost.o \
+../.test-obj/TypeName.o \
 ../.test-obj/main.o \
 ../.test-obj/test1001.NoCopy.o \
 ../.test-obj/test1002.CreateAt.o \
@@ -190,6 +191,7 @@ OBJ_LIST = \
 ../.test-obj/test6006.IntelRandom.o \
 ../.test-obj/test6007.IntelAES.o \
 ../.test-obj/test6008.DirCursor.o \
+../.test-obj/test6009.TypeName.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testInt.o \
 ../.test-obj/testIntAlgo.o \
@@ -202,6 +204,7 @@ OBJ_LIST = \
 
 ASM_LIST = \
 ../.test-obj/PriorityBoost.s \
+../.test-obj/TypeName.s \
 ../.test-obj/main.s \
 ../.test-obj/test1001.NoCopy.s \
 ../.test-obj/test1002.CreateAt.s \
@@ -392,6 +395,7 @@ ASM_LIST = \
 ../.test-obj/test6006.IntelRandom.s \
 ../.test-obj/test6007.IntelAES.s \
 ../.test-obj/test6008.DirCursor.s \
+../.test-obj/test6009.TypeName.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testInt.s \
 ../.test-obj/testIntAlgo.s \
@@ -404,6 +408,7 @@ ASM_LIST = \
 
 DEP_LIST = \
 ../.test-obj/PriorityBoost.dep \
+../.test-obj/TypeName.dep \
 ../.test-obj/main.dep \
 ../.test-obj/test1001.NoCopy.dep \
 ../.test-obj/test1002.CreateAt.dep \
@@ -594,6 +599,7 @@ DEP_LIST = \
 ../.test-obj/test6006.IntelRandom.dep \
 ../.test-obj/test6007.IntelAES.dep \
 ../.test-obj/test6008.DirCursor.dep \
+../.test-obj/test6009.TypeName.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testInt.dep \
 ../.test-obj/testIntAlgo.dep \
@@ -611,6 +617,9 @@ include $(RULES_FILE)
 
 
 ../.test-obj/PriorityBoost.o : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/TypeName.o : ../../../Target/WIN32/CCore/test/TypeName.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/main.o : ./main.cpp
@@ -1183,6 +1192,9 @@ include $(RULES_FILE)
 ../.test-obj/test6008.DirCursor.o : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+../.test-obj/test6009.TypeName.o : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1210,6 +1222,9 @@ include $(RULES_FILE)
 
 
 ../.test-obj/PriorityBoost.s : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+../.test-obj/TypeName.s : ../../../Target/WIN32/CCore/test/TypeName.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 ../.test-obj/main.s : ./main.cpp
@@ -1782,6 +1797,9 @@ include $(RULES_FILE)
 ../.test-obj/test6008.DirCursor.s : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6009.TypeName.s : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -1810,6 +1828,9 @@ include $(RULES_FILE)
 
 ../.test-obj/PriorityBoost.dep : ../../../Target/WIN32/CCore/test/PriorityBoost.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/PriorityBoost.o $< -MF $@
+
+../.test-obj/TypeName.dep : ../../../Target/WIN32/CCore/test/TypeName.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/TypeName.o $< -MF $@
 
 ../.test-obj/main.dep : ./main.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/main.o $< -MF $@
@@ -2380,6 +2401,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test6008.DirCursor.dep : ../../../Target/WIN32/CCore/test/test6008.DirCursor.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6008.DirCursor.o $< -MF $@
+
+../.test-obj/test6009.TypeName.dep : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6009.TypeName.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
