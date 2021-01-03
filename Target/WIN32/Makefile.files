@@ -216,6 +216,7 @@ OBJ_LIST = \
 .obj/PrintTime.o \
 .obj/PrintTitle.o \
 .obj/Printf.o \
+.obj/ProcessUtils.o \
 .obj/PtrLen.o \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
@@ -559,6 +560,7 @@ ASM_LIST = \
 .obj/PrintTime.s \
 .obj/PrintTitle.s \
 .obj/Printf.s \
+.obj/ProcessUtils.s \
 .obj/PtrLen.s \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
@@ -902,6 +904,7 @@ DEP_LIST = \
 .obj/PrintTime.dep \
 .obj/PrintTitle.dep \
 .obj/Printf.dep \
+.obj/ProcessUtils.dep \
 .obj/PtrLen.dep \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
@@ -1690,6 +1693,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Printf.o : ../../Fundamental/CCore/src/Printf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ProcessUtils.o : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PtrLen.o : ../../Simple/CCore/src/gadget/PtrLen.cpp
@@ -2714,6 +2720,9 @@ include $(RULES_FILE)
 .obj/Printf.s : ../../Fundamental/CCore/src/Printf.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ProcessUtils.s : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PtrLen.s : ../../Simple/CCore/src/gadget/PtrLen.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3735,6 +3744,9 @@ include $(RULES_FILE)
 
 .obj/Printf.dep : ../../Fundamental/CCore/src/Printf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Printf.o $< -MF $@
+
+.obj/ProcessUtils.dep : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ProcessUtils.o $< -MF $@
 
 .obj/PtrLen.dep : ../../Simple/CCore/src/gadget/PtrLen.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PtrLen.o $< -MF $@
