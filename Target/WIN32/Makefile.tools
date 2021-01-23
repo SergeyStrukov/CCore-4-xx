@@ -29,7 +29,7 @@ CAT = /usr/bin/cat
 
 TOUCH = /usr/bin/touch
 
-CC_ = /opt/gcc-10.1.0/bin/g++-10.1.0
+CC_ = g++
 
 CC = @$(ECHO) CC $< ; $(CC_)
 

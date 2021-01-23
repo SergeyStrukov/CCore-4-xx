@@ -43,7 +43,12 @@ struct Test2
   Test x;
   Test y;
 
-  int operator <=> (const Test2 &obj) const noexcept = default ;
+  int operator <=> (const Test2 &obj) const noexcept
+   {
+    if( int ret =( x <=> obj.x ) ) return ret;
+
+    return y <=> obj.y;
+   }
  };
 
 } // namespace Private_1040
