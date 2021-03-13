@@ -1,0 +1,82 @@
+{
+  "folders":
+   [
+      {
+         "path": "."
+      },
+      {
+         "path": "Target/WIN32"
+      },
+      {
+         "path": "Target/WIN32/test"
+      }
+   ],
+
+  "settings":
+   {
+      "C_Cpp.default.includePath":
+      [
+         "${workspaceFolder}",
+         "${workspaceFolder}/../../HCore",
+         "${workspaceFolder}/../../Simple",
+         "${workspaceFolder}/../../Fundamental",
+         "${workspaceFolder}/../../Applied"
+      ],
+      "C_Cpp.default.cppStandard": "c++20",
+      "C_Cpp.default.defines": [],
+      "C_Cpp.default.compilerPath": "D:/cygwin/bin/g++.exe",
+      "C_Cpp.default.intelliSenseMode": "windows-gcc-x86",
+      "files.associations": {
+         "cstddef": "cpp"
+      }
+   },
+
+  "tasks":
+   {
+      "version": "2.0.0",
+      "tasks":
+      [
+         {
+            "type": "cppbuild",
+            "label": "make",
+            "command": "make",
+            "args": [
+               ""
+            ],
+            "options": {
+               "cwd": "${workspaceFolder}",
+               "env": {
+                  "PATH": "D:/cygwin/bin"
+               }
+            },
+            "problemMatcher": [
+               "$gcc"
+            ],
+            "group": {
+               "kind": "build",
+               "isDefault": true
+            },
+            "detail": ""
+         },
+         {
+            "type": "cppbuild",
+            "label": "make clean",
+            "command": "make",
+            "args": [
+               "clean"
+            ],
+            "options": {
+               "cwd": "${workspaceFolder}",
+               "env": {
+                  "PATH": "D:/cygwin/bin"
+               }
+            },
+            "problemMatcher": [
+               "$gcc"
+            ],
+            "group": "build",
+            "detail": ""
+         }
+      ]
+   }
+}
