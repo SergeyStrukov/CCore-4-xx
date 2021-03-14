@@ -170,7 +170,7 @@ int main()
      int ret;
 
      {
-      Putobj(Con,"--- PTPEchoServer 1.00 ---\n--- Copyright (c) 2015 Sergey Strukov. All rights reserved. ---\n\n");
+      Putobj(Con,"--- PTPEchoServer 1.00 ---\n--- Copyright (c) 2021 Sergey Strukov. All rights reserved. ---\n\n");
 
       Engine engine;
 
