@@ -2,13 +2,12 @@
 
 .eclipse/*
 
-PTPServerLog.txt
-PTPSecureServerLog.txt
-
 CCore.book.vol
 
 tools/Volume/test1/*
 tools/Volume/test.vol
+
+**/root/**
 
 # Prerequisites
 *.dep
