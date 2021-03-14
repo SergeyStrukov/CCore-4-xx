@@ -1,6 +1,7 @@
 {
    "C_Cpp.default.includePath":
    [
+      "${workspaceFolder}/Target/WIN32",
       "${workspaceFolder}/HCore",
       "${workspaceFolder}/Simple",
       "${workspaceFolder}/Fundamental",
