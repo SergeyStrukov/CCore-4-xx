@@ -153,7 +153,7 @@ class ExtCharCode
 
    void print(PrinterType auto &out) const
     {
-     if( code.getLen()==1 )
+     if( SymbolLen(code)==1 )
        Putobj(out,CharCode(code[0]));
      else
        Putobj(out,code);
