@@ -455,7 +455,7 @@ class DynArray : DynArrayBase<T,Algo>
 /* type MiniDynArray<T> */
 
 template <class T>
-using MiniDynArray = DynArray<T,ArrayAlgo_mini<T> > ;
+using MiniDynArray = DynArray<T, ArrayAlgo_mini<T> > ;
 
 } // namespace CCore
 

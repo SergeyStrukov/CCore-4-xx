@@ -486,6 +486,11 @@ class Collector : NoCopy
     }
  };
 
+/* type MiniCollector<T> */
+
+template <class T>
+using MiniCollector = Collector<T, ArrayAlgo_mini<T> >;
+
 } // namespace CCore
 
 #endif
