@@ -412,6 +412,18 @@ ListNextPtr<T> begin(const Enlist<T> &obj) { return obj.getRoot(); }
 template <class T>
 ListNextPtr<T> end(const Enlist<T> &) { return 0; }
 
+ //
+ // struct T
+ //  {
+ //   T *next;
+ //   ....
+ //  };
+ //
+ // T *root=new T{ss};
+ //
+ // expand(T *cur,Add add) { .... add(ss); } // add new T{ss};
+ //
+
 /* struct CheckLoopState<T> */
 
 template <class T>
@@ -551,6 +563,21 @@ bool CheckLoop(List &list,ErrorFunc error)
 
   return ret;
  }
+
+ //
+ // List of T
+ //
+ // struct T
+ //  {
+ //   ulen index; // set to root index
+ //  };
+ //
+ // error(T *obj); // loop found at obj
+ //
+ // Descend descend(obj);
+ //
+ // descend(Add add) { .... add(T *desc); }
+ //
 
 } // namespace DDL
 } // namespace CCore
