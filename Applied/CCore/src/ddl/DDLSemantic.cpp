@@ -47,16 +47,18 @@ NameId Context::generateIds()
       name->name_id=id;
      }
 
-    CmpResult operator <=> (const Rec &obj) const
+    CmpResult operator <=> (const Rec &obj) const noexcept
      {
       if( auto ret=Cmp(hash,obj.hash) ) return ret;
 
       return StrCmp(name->getStr(),obj.name->getStr());
      }
 
-    bool operator == (const Rec &obj) const
+    bool operator == (const Rec &obj) const noexcept
      {
-      return ( (*this) <=> obj ) == CmpEqual ;
+      if( hash!=obj.hash ) return false;
+
+      return name->getStr().equal(obj.name->getStr());
      }
    };
 
@@ -147,30 +149,6 @@ bool Context::buildMaps(BodyNode *body_node,NameId max_id)
   return ret;
  }
 
-struct Context::PickNextAlias
- {
-  AliasNode * &ret;
-
-  explicit PickNextAlias(AliasNode * &ret_) : ret(ret_) {}
-
-  template <class T>
-  void operator () (T *) { ret=0; }
-
-  void operator () (TypeNode::Ref *ptr)
-   {
-    ret=ptr->ptr.castPtr<AliasNode>();
-   }
- };
-
-AliasNode * Context::NextAlias(AliasNode *node)
- {
-  AliasNode *ret;
-
-  node->type_node->ptr.apply( PickNextAlias(ret) );
-
-  return ret;
- }
-
 bool Context::setAliasTypes(AliasNode &node,ulen mark)
  {
   if( node.result_type ) return true;
@@ -181,7 +159,7 @@ bool Context::setAliasTypes(AliasNode &node,ulen mark)
     {
      alias->index=mark;
 
-     if( AliasNode *next=NextAlias(alias) )
+     if( AliasNode *next=alias->getNext() )
        {
         if( next->index==mark )
           {
@@ -213,7 +191,7 @@ bool Context::setAliasTypes(AliasNode &node,ulen mark)
     {
      alias->result_type=type;
 
-     if( AliasNode *next=NextAlias(alias) )
+     if( AliasNode *next=alias->getNext() )
        {
         alias=next;
 
@@ -593,6 +571,32 @@ bool ExprNode::doLinkQName(From from,LinkContext ctx)
   AndFlag ret;
 
   for(RefListNode &node : lists->ref_list ) ret+=ctx.doLinkQName(from,node.ptr);
+
+  return ret;
+ }
+
+/* struct AliasNode */
+
+struct AliasNode::PickNextAlias
+ {
+  AliasNode * &ret;
+
+  explicit PickNextAlias(AliasNode * &ret_) : ret(ret_) {}
+
+  template <class T>
+  void operator () (T *) { ret=0; }
+
+  void operator () (TypeNode::Ref *ptr)
+   {
+    ret=ptr->ptr.castPtr<AliasNode>();
+   }
+ };
+
+AliasNode * AliasNode::getNext()
+ {
+  AliasNode *ret;
+
+  type_node->ptr.apply( PickNextAlias(ret) );
 
   return ret;
  }
@@ -1093,7 +1097,7 @@ void BodyNode::add(TypeNode *type_node)
  {
   if( auto *lists=type_node->lists )
     {
-     lists->fill_from_list();
+     lists->fillFromList();
 
      len_list.join(lists->len_list);
 

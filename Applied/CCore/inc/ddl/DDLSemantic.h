@@ -48,6 +48,8 @@ struct ScopeNode;
 
 struct From;
 
+class ScopeList;
+
 struct LenNode;
 
 struct TypeListNode;
@@ -111,11 +113,9 @@ class Context : NoCopy
 
    bool buildMaps(BodyNode *body_node,NameId max_id);
 
+  private:
+
    bool setAliasTypes(AliasNode &node,ulen mark);
-
-   struct PickNextAlias;
-
-   static AliasNode * NextAlias(AliasNode *node);
 
    bool setAliasTypes(BodyNode *body_node);
 
@@ -374,7 +374,7 @@ struct From
     return false;
    }
 
-  CmpResult operator <=> (From obj) const
+  CmpResult operator <=> (From obj) const noexcept
    {
     if( auto ret=Cmp(depth,obj.depth) ) return ret;
 
@@ -386,7 +386,17 @@ struct From
     return CmpEqual;
    }
 
-  bool operator == (From obj) const { return ( (*this) <=> obj ) == CmpEqual ; }
+  bool operator == (From obj) const noexcept
+   {
+    if( depth!=obj.depth ) return false;
+
+    for(ScopeNode *a=scope,*b=obj.scope; a ;a=a->prev,b=b->prev)
+      {
+       if( a->name.name_id!=b->name.name_id ) return false;
+      }
+
+    return true;
+   }
  };
 
 /* class ScopeList */
@@ -1007,6 +1017,10 @@ struct AliasNode : NodeBase<AliasNode>
     result_type=0;
    }
 
+  struct PickNextAlias;
+
+  AliasNode * getNext();
+
   bool doLink(LinkContext ctx);
 
   // print object
@@ -1481,7 +1495,7 @@ struct TypeNode::Lists : NoCopy
     from_list.init();
    }
 
-  void fill_from_list()
+  void fillFromList()
    {
     for(LenNode &node : len_list ) from_list.add(&node.from_node);
    }
