@@ -579,24 +579,29 @@ bool ExprNode::doLinkQName(From from,LinkContext ctx)
 
 struct AliasNode::PickNextAlias
  {
-  AliasNode * &ret;
+  AliasNode * ret = 0;
 
-  explicit PickNextAlias(AliasNode * &ret_) : ret(ret_) {}
+  operator AliasNode * () const { return ret; }
 
   template <class T>
-  void operator () (T *) { ret=0; }
+  void operator () (T *) {}
+
+  void operator () (AliasNode *ptr)
+   {
+    ret=ptr;
+   }
 
   void operator () (TypeNode::Ref *ptr)
    {
-    ret=ptr->ptr.castPtr<AliasNode>();
+    ElaborateAnyPtr(*this,ptr->ptr);
    }
  };
 
 AliasNode * AliasNode::getNext()
  {
-  AliasNode *ret;
+  PickNextAlias ret;
 
-  type_node->ptr.apply( PickNextAlias(ret) );
+  ElaborateAnyPtr(ret,type_node->ptr);
 
   return ret;
  }
@@ -674,7 +679,7 @@ bool NameLinkMap::check(ErrorMsg &error,RecPtr a,RecPtr b)
   return false;
  }
 
-bool NameLinkMap::check(ErrorMsg &error,PtrLen<Rec> range)
+bool NameLinkMap::check(ErrorMsg &error,PtrLen<Rec> range) // O(N^2)
  {
   AndFlag ret;
 
@@ -826,7 +831,7 @@ bool NameLinkMap::tryFindNode(From from,NameNodeList *name_list,Func func)
  {
   if( auto *map=tryFindMap(from,name_list) )
     {
-     if( func(map,name_list->list.last->name) ) return true;
+     if( func(map,name_list->getLastName()) ) return true;
     }
 
   return false;
@@ -837,7 +842,7 @@ void NameLinkMap::findNode(Error &error,From from,NameNodeList *name_list,Func f
  {
   if( auto *map=findMap(error,from,name_list) )
     {
-     if( func(map,name_list->list.last->name) ) return;
+     if( func(map,name_list->getLastName()) ) return;
     }
 
   error("Undefined name : #;",*name_list);
@@ -895,7 +900,7 @@ ConstNode * NameLinkMap::findConst(Error &error,From from,NameRefNode *name_ref)
  {
   ConstNode *ret=0;
 
-  findNode(error,from,name_ref, [&] (NameLinkMap *map,NameIdNode &name)
+  findNode(error,from,name_ref, [&] (NameLinkMap *map,const NameIdNode &name)
                                     {
                                      ret=map->findConst(name);
 
@@ -910,7 +915,7 @@ AliasNode * NameLinkMap::findAlias(ErrorMsg &error,From from,NameRefNode *name_r
  {
   AliasNode *ret=0;
 
-  findNode(error,from,name_ref, [&] (NameLinkMap *map,NameIdNode &name)
+  findNode(error,from,name_ref, [&] (NameLinkMap *map,const NameIdNode &name)
                                     {
                                      ret=map->findAlias(name);
 
@@ -925,7 +930,7 @@ AnyPtr<AliasNode,StructNode> NameLinkMap::findAliasStruct(ErrorMsg &error,From f
  {
   AnyPtr<AliasNode,StructNode> ret;
 
-  findNode(error,from,name_ref, [&] (NameLinkMap *map,NameIdNode &name)
+  findNode(error,from,name_ref, [&] (NameLinkMap *map,const NameIdNode &name)
                                     {
                                      if( auto *ptr=map->findAlias(name) )
                                        {

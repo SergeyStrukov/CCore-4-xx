@@ -281,7 +281,9 @@ struct NameNodeList : NoCopy
     qname_flag=true;
    }
 
-  const PosName & posName() const { return list.last->name.posname; }
+  const NameIdNode & getLastName() const { return list.last->name; }
+
+  const PosName & posName() const { return getLastName().posname; }
 
   // print object
 
