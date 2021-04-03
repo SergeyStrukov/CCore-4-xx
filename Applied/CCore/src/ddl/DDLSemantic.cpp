@@ -679,9 +679,9 @@ bool NameLinkMap::check(ErrorMsg &error,RecPtr a,RecPtr b)
   return false;
  }
 
-bool NameLinkMap::check(ErrorMsg &error,PtrLen<Rec> range) // O(N^2)
+bool NameLinkMap::check(ErrorMsg &error,PtrLen<Rec> range)
  {
-  AndFlag ret;
+  unsigned count=0;
 
   for(; +range ;++range)
     {
@@ -689,11 +689,13 @@ bool NameLinkMap::check(ErrorMsg &error,PtrLen<Rec> range) // O(N^2)
 
      for(++r; +r ;++r)
        {
-        ret+=check(error,range->ptr,r->ptr);
+        if( !check(error,range->ptr,r->ptr) ) count++;
+
+        if( count>=ErrorMsgCap ) return false;
        }
     }
 
-  return ret;
+  return count==0;
  }
 
 NameLinkMap * NameLinkMap::add(ElementPool &pool,NameId max_id,ScopeNode &node,BaseList<NameLinkMap> &map_list)
@@ -1041,15 +1043,17 @@ ConstNode * NameLinkMap::doLink(From from,ExprNode::Ref *ptr)
 struct LinkContext::Func
  {
   LinkContext *ctx;
-  bool &ret;
   From from;
+  bool ret;
 
-  Func(LinkContext *ctx_,bool &ret_,From from_)
+  Func(LinkContext *ctx_,From from_)
    : ctx(ctx_),
-     ret(ret_),
-     from(from_)
+     from(from_),
+     ret(false)
    {
    }
+
+  operator bool() const { return ret; }
 
   template <class T>
   void operator () (T *ptr)
@@ -1061,15 +1065,17 @@ struct LinkContext::Func
 struct LinkContext::FuncQName
  {
   LinkContext *ctx;
-  bool &ret;
   From from;
+  bool ret;
 
-  FuncQName(LinkContext *ctx_,bool &ret_,From from_)
+  FuncQName(LinkContext *ctx_,From from_)
    : ctx(ctx_),
-     ret(ret_),
-     from(from_)
+     from(from_),
+     ret(false)
    {
    }
+
+  operator bool() const { return ret; }
 
   template <class T>
   void operator () (T *ptr)
@@ -1080,18 +1086,18 @@ struct LinkContext::FuncQName
 
 bool LinkContext::doLink(From from,AnyPtr<TypeNode::Ref,ExprNode::Domain,ExprNode::Ref> ptr)
  {
-  bool ret;
+  Func ret(this,from);
 
-  ptr.apply( Func(this,ret,from) );
+  ElaborateAnyPtr(ret,ptr);
 
   return ret;
  }
 
 bool LinkContext::doLinkQName(From from,AnyPtr<TypeNode::Ref,ExprNode::Domain,ExprNode::Ref> ptr)
  {
-  bool ret;
+  FuncQName ret(this,from);
 
-  ptr.apply( FuncQName(this,ret,from) );
+  ElaborateAnyPtr(ret,ptr);
 
   return ret;
  }

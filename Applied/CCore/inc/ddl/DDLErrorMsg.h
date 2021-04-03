@@ -23,7 +23,7 @@ namespace DDL {
 
 /* consts */
 
-inline constexpr ulen ErrorMsgCap = 100 ;
+inline constexpr unsigned ErrorMsgCap = 100 ;
 
 /* classes */
 
@@ -35,7 +35,7 @@ class ErrorMsg : NoCopy
  {
    PrintBase &msg;
 
-   ulen error_cap;
+   unsigned error_cap;
 
   public:
 
@@ -44,6 +44,8 @@ class ErrorMsg : NoCopy
    bool operator + () const { return error_cap!=ErrorMsgCap; }
 
    bool operator ! () const { return error_cap==ErrorMsgCap; }
+
+   bool tooMany() const { return error_cap==0; }
 
    PrintBase & getMsg() { return msg; }
 
