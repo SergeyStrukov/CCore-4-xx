@@ -51,14 +51,19 @@ OBJ_LIST = \
 .obj/CreateAt.o \
 .obj/Creator.o \
 .obj/DDLChar.o \
+.obj/DDLEngine.o \
 .obj/DDLErrorMsg.o \
+.obj/DDLEval.o \
 .obj/DDLParser.o \
 .obj/DDLParserElements.o \
 .obj/DDLParserRules.o \
 .obj/DDLParserTable.o \
+.obj/DDLPlatformTypes.o \
 .obj/DDLSemantic.o \
 .obj/DDLToken.o \
 .obj/DDLTools.o \
+.obj/DDLTypes.o \
+.obj/DDLValue.o \
 .obj/DHExp.o \
 .obj/DefaultTimeout.o \
 .obj/DeferCall.o \
@@ -404,14 +409,19 @@ ASM_LIST = \
 .obj/CreateAt.s \
 .obj/Creator.s \
 .obj/DDLChar.s \
+.obj/DDLEngine.s \
 .obj/DDLErrorMsg.s \
+.obj/DDLEval.s \
 .obj/DDLParser.s \
 .obj/DDLParserElements.s \
 .obj/DDLParserRules.s \
 .obj/DDLParserTable.s \
+.obj/DDLPlatformTypes.s \
 .obj/DDLSemantic.s \
 .obj/DDLToken.s \
 .obj/DDLTools.s \
+.obj/DDLTypes.s \
+.obj/DDLValue.s \
 .obj/DHExp.s \
 .obj/DefaultTimeout.s \
 .obj/DeferCall.s \
@@ -757,14 +767,19 @@ DEP_LIST = \
 .obj/CreateAt.dep \
 .obj/Creator.dep \
 .obj/DDLChar.dep \
+.obj/DDLEngine.dep \
 .obj/DDLErrorMsg.dep \
+.obj/DDLEval.dep \
 .obj/DDLParser.dep \
 .obj/DDLParserElements.dep \
 .obj/DDLParserRules.dep \
 .obj/DDLParserTable.dep \
+.obj/DDLPlatformTypes.dep \
 .obj/DDLSemantic.dep \
 .obj/DDLToken.dep \
 .obj/DDLTools.dep \
+.obj/DDLTypes.dep \
+.obj/DDLValue.dep \
 .obj/DHExp.dep \
 .obj/DefaultTimeout.dep \
 .obj/DeferCall.dep \
@@ -1227,7 +1242,13 @@ include $(RULES_FILE)
 .obj/DDLChar.o : ../../Applied/CCore/src/ddl/DDLChar.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DDLEngine.o : ../../Applied/CCore/src/ddl/DDLEngine.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DDLErrorMsg.o : ../../Applied/CCore/src/ddl/DDLErrorMsg.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLEval.o : ../../Applied/CCore/src/ddl/DDLEval.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DDLParser.o : ../../Applied/CCore/src/ddl/DDLParser.cpp
@@ -1242,6 +1263,9 @@ include $(RULES_FILE)
 .obj/DDLParserTable.o : ../../Applied/CCore/src/ddl/DDLParserTable.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DDLPlatformTypes.o : ../../Applied/CCore/src/ddl/DDLPlatformTypes.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DDLSemantic.o : ../../Applied/CCore/src/ddl/DDLSemantic.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1249,6 +1273,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DDLTools.o : ../../Applied/CCore/src/ddl/DDLTools.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLTypes.o : ../../Applied/CCore/src/ddl/DDLTypes.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLValue.o : ../../Applied/CCore/src/ddl/DDLValue.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DHExp.o : ../../Applied/CCore/src/crypton/DHExp.cpp
@@ -2279,7 +2309,13 @@ include $(RULES_FILE)
 .obj/DDLChar.s : ../../Applied/CCore/src/ddl/DDLChar.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DDLEngine.s : ../../Applied/CCore/src/ddl/DDLEngine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DDLErrorMsg.s : ../../Applied/CCore/src/ddl/DDLErrorMsg.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLEval.s : ../../Applied/CCore/src/ddl/DDLEval.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DDLParser.s : ../../Applied/CCore/src/ddl/DDLParser.cpp
@@ -2294,6 +2330,9 @@ include $(RULES_FILE)
 .obj/DDLParserTable.s : ../../Applied/CCore/src/ddl/DDLParserTable.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DDLPlatformTypes.s : ../../Applied/CCore/src/ddl/DDLPlatformTypes.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DDLSemantic.s : ../../Applied/CCore/src/ddl/DDLSemantic.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2301,6 +2340,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DDLTools.s : ../../Applied/CCore/src/ddl/DDLTools.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLTypes.s : ../../Applied/CCore/src/ddl/DDLTypes.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLValue.s : ../../Applied/CCore/src/ddl/DDLValue.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DHExp.s : ../../Applied/CCore/src/crypton/DHExp.cpp
@@ -3331,8 +3376,14 @@ include $(RULES_FILE)
 .obj/DDLChar.dep : ../../Applied/CCore/src/ddl/DDLChar.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLChar.o $< -MF $@
 
+.obj/DDLEngine.dep : ../../Applied/CCore/src/ddl/DDLEngine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLEngine.o $< -MF $@
+
 .obj/DDLErrorMsg.dep : ../../Applied/CCore/src/ddl/DDLErrorMsg.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLErrorMsg.o $< -MF $@
+
+.obj/DDLEval.dep : ../../Applied/CCore/src/ddl/DDLEval.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLEval.o $< -MF $@
 
 .obj/DDLParser.dep : ../../Applied/CCore/src/ddl/DDLParser.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLParser.o $< -MF $@
@@ -3346,6 +3397,9 @@ include $(RULES_FILE)
 .obj/DDLParserTable.dep : ../../Applied/CCore/src/ddl/DDLParserTable.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLParserTable.o $< -MF $@
 
+.obj/DDLPlatformTypes.dep : ../../Applied/CCore/src/ddl/DDLPlatformTypes.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLPlatformTypes.o $< -MF $@
+
 .obj/DDLSemantic.dep : ../../Applied/CCore/src/ddl/DDLSemantic.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLSemantic.o $< -MF $@
 
@@ -3354,6 +3408,12 @@ include $(RULES_FILE)
 
 .obj/DDLTools.dep : ../../Applied/CCore/src/ddl/DDLTools.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLTools.o $< -MF $@
+
+.obj/DDLTypes.dep : ../../Applied/CCore/src/ddl/DDLTypes.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLTypes.o $< -MF $@
+
+.obj/DDLValue.dep : ../../Applied/CCore/src/ddl/DDLValue.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLValue.o $< -MF $@
 
 .obj/DHExp.dep : ../../Applied/CCore/src/crypton/DHExp.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DHExp.o $< -MF $@
