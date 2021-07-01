@@ -101,7 +101,7 @@ struct Block
 
   Block() {}
 
-  explicit Block(PtrLen<Value> data_) : data(data_) {}
+  Block(PtrLen<Value> data_) : data(data_) {}
  };
 
 /* struct PtrNode */
