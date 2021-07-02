@@ -1153,6 +1153,15 @@ struct StructNode : NodeBase<StructNode>
 
   FieldNode * find(const NameIdNode &name) const { return field_map->find(name); }
 
+  FieldNode & getField(UIntType auto index) const
+   {
+    auto cur=begin(field_list);
+
+    while( index-- ) ++cur;
+
+    return *cur;
+   }
+
   // print object
 
   void print(PrinterType auto &out) const
