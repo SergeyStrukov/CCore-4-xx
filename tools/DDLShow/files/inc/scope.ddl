@@ -2,7 +2,7 @@
 
 struct S
  {
-  int i = ?i ;
+  int i = ?i + j;
  };
 
 int i = 0 ;
