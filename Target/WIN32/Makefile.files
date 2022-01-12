@@ -54,6 +54,9 @@ OBJ_LIST = \
 .obj/DDLEngine.o \
 .obj/DDLErrorMsg.o \
 .obj/DDLEval.o \
+.obj/DDLMapBase.o \
+.obj/DDLMapTools.o \
+.obj/DDLMapTypes.o \
 .obj/DDLParser.o \
 .obj/DDLParserElements.o \
 .obj/DDLParserRules.o \
@@ -62,6 +65,8 @@ OBJ_LIST = \
 .obj/DDLSemantic.o \
 .obj/DDLToken.o \
 .obj/DDLTools.o \
+.obj/DDLTypeSet.o \
+.obj/DDLTypedMap.o \
 .obj/DDLTypes.o \
 .obj/DDLValue.o \
 .obj/DHExp.o \
@@ -412,6 +417,9 @@ ASM_LIST = \
 .obj/DDLEngine.s \
 .obj/DDLErrorMsg.s \
 .obj/DDLEval.s \
+.obj/DDLMapBase.s \
+.obj/DDLMapTools.s \
+.obj/DDLMapTypes.s \
 .obj/DDLParser.s \
 .obj/DDLParserElements.s \
 .obj/DDLParserRules.s \
@@ -420,6 +428,8 @@ ASM_LIST = \
 .obj/DDLSemantic.s \
 .obj/DDLToken.s \
 .obj/DDLTools.s \
+.obj/DDLTypeSet.s \
+.obj/DDLTypedMap.s \
 .obj/DDLTypes.s \
 .obj/DDLValue.s \
 .obj/DHExp.s \
@@ -770,6 +780,9 @@ DEP_LIST = \
 .obj/DDLEngine.dep \
 .obj/DDLErrorMsg.dep \
 .obj/DDLEval.dep \
+.obj/DDLMapBase.dep \
+.obj/DDLMapTools.dep \
+.obj/DDLMapTypes.dep \
 .obj/DDLParser.dep \
 .obj/DDLParserElements.dep \
 .obj/DDLParserRules.dep \
@@ -778,6 +791,8 @@ DEP_LIST = \
 .obj/DDLSemantic.dep \
 .obj/DDLToken.dep \
 .obj/DDLTools.dep \
+.obj/DDLTypeSet.dep \
+.obj/DDLTypedMap.dep \
 .obj/DDLTypes.dep \
 .obj/DDLValue.dep \
 .obj/DHExp.dep \
@@ -1251,6 +1266,15 @@ include $(RULES_FILE)
 .obj/DDLEval.o : ../../Applied/CCore/src/ddl/DDLEval.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DDLMapBase.o : ../../Applied/CCore/src/ddl/DDLMapBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLMapTools.o : ../../Applied/CCore/src/ddl/DDLMapTools.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLMapTypes.o : ../../Applied/CCore/src/ddl/DDLMapTypes.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DDLParser.o : ../../Applied/CCore/src/ddl/DDLParser.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1273,6 +1297,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DDLTools.o : ../../Applied/CCore/src/ddl/DDLTools.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLTypeSet.o : ../../Applied/CCore/src/ddl/DDLTypeSet.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DDLTypedMap.o : ../../Applied/CCore/src/ddl/DDLTypedMap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DDLTypes.o : ../../Applied/CCore/src/ddl/DDLTypes.cpp
@@ -2318,6 +2348,15 @@ include $(RULES_FILE)
 .obj/DDLEval.s : ../../Applied/CCore/src/ddl/DDLEval.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DDLMapBase.s : ../../Applied/CCore/src/ddl/DDLMapBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLMapTools.s : ../../Applied/CCore/src/ddl/DDLMapTools.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLMapTypes.s : ../../Applied/CCore/src/ddl/DDLMapTypes.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DDLParser.s : ../../Applied/CCore/src/ddl/DDLParser.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2340,6 +2379,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DDLTools.s : ../../Applied/CCore/src/ddl/DDLTools.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLTypeSet.s : ../../Applied/CCore/src/ddl/DDLTypeSet.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DDLTypedMap.s : ../../Applied/CCore/src/ddl/DDLTypedMap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DDLTypes.s : ../../Applied/CCore/src/ddl/DDLTypes.cpp
@@ -3385,6 +3430,15 @@ include $(RULES_FILE)
 .obj/DDLEval.dep : ../../Applied/CCore/src/ddl/DDLEval.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLEval.o $< -MF $@
 
+.obj/DDLMapBase.dep : ../../Applied/CCore/src/ddl/DDLMapBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLMapBase.o $< -MF $@
+
+.obj/DDLMapTools.dep : ../../Applied/CCore/src/ddl/DDLMapTools.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLMapTools.o $< -MF $@
+
+.obj/DDLMapTypes.dep : ../../Applied/CCore/src/ddl/DDLMapTypes.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLMapTypes.o $< -MF $@
+
 .obj/DDLParser.dep : ../../Applied/CCore/src/ddl/DDLParser.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLParser.o $< -MF $@
 
@@ -3408,6 +3462,12 @@ include $(RULES_FILE)
 
 .obj/DDLTools.dep : ../../Applied/CCore/src/ddl/DDLTools.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLTools.o $< -MF $@
+
+.obj/DDLTypeSet.dep : ../../Applied/CCore/src/ddl/DDLTypeSet.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLTypeSet.o $< -MF $@
+
+.obj/DDLTypedMap.dep : ../../Applied/CCore/src/ddl/DDLTypedMap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DDLTypedMap.o $< -MF $@
 
 .obj/DDLTypes.dep : ../../Applied/CCore/src/ddl/DDLTypes.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLTypes.o $< -MF $@

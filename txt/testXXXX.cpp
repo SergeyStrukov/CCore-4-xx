@@ -9,7 +9,7 @@
 //
 //            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 //
-//  Copyright (c) 2021 Sergey Strukov. All rights reserved.
+//  Copyright (c) 2022 Sergey Strukov. All rights reserved.
 //
 //----------------------------------------------------------------------------------------
 
