@@ -7,6 +7,8 @@ CCore.book.vol
 tools/Volume/test1/*
 tools/Volume/test.vol
 
+*Log.txt
+
 **/root/**
 
 # Prerequisites
