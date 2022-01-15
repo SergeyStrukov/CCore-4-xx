@@ -90,6 +90,8 @@ void ConRead::Symbol::put(unicode_t sym)
 
 bool ConRead::Symbol::pushUnicode(unicode_t sym)
  {
+  if( sym==127 ) sym='\b'; // Windows sends 127 on BS in unicode mode
+
   put(sym);
 
   return true;
