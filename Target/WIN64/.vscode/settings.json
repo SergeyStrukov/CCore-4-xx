@@ -1,0 +1,10 @@
+{
+   "C_Cpp.default.includePath":
+   [
+      "${workspaceFolder}",
+      "${workspaceFolder}/../../HCore",
+      "${workspaceFolder}/../../Simple",
+      "${workspaceFolder}/../../Fundamental",
+      "${workspaceFolder}/../../Applied"
+   ]
+}

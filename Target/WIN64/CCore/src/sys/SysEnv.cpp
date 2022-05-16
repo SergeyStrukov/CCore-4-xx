@@ -3,19 +3,19 @@
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Target/WIN64
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
 //            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 //
-//  Copyright (c) 2020 Sergey Strukov. All rights reserved.
+//  Copyright (c) 2022 Sergey Strukov. All rights reserved.
 //
 //----------------------------------------------------------------------------------------
 
 #include <CCore/inc/sys/SysEnv.h>
 
-#include <CCore/inc/win32/Win32.h>
+#include <CCore/inc/win64/Win64.h>
 
 #include <cstdlib>
 
@@ -26,7 +26,9 @@ namespace Sys {
 
 NormalGetEnv::NormalGetEnv(const WChar *name,WChar *buf,ulen buf_len) noexcept
  {
-  len=WinNN::GetEnvironmentVariableW(name,buf,buf_len);
+  Replace_min(buf_len,WinNN::MaxUShortLen);
+
+  len=WinNN::GetEnvironmentVariableW(name,buf,(WinNN::ushortlen_t)buf_len);
 
   if( len==0 )
     {

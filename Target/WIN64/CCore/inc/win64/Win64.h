@@ -1,28 +1,26 @@
-/* Win32.h */
+/* Win64.h */
 //----------------------------------------------------------------------------------------
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Target/WIN64
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
 //            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 //
-//  Copyright (c) 2020 Sergey Strukov. All rights reserved.
+//  Copyright (c) 2022 Sergey Strukov. All rights reserved.
 //
 //----------------------------------------------------------------------------------------
 
-#ifndef CCore_inc_win32_Win32_h
-#define CCore_inc_win32_Win32_h
+#ifndef CCore_inc_win64_Win64_h
+#define CCore_inc_win64_Win64_h
 
-#include <CCore/inc/win32/Win32Types.h>
+#include <CCore/inc/win64/Win64Types.h>
 
-#define WIN32_CALLTYPE   __stdcall
+#define WIN64_API __attribute__((dllimport))
 
-#define WIN32_API        __declspec(dllimport) WIN32_CALLTYPE
-
-namespace Win32 {
+namespace Win64 {
 
 /*--------------------------------------------------------------------------------------*/
 /* basic types                                                                          */
@@ -30,7 +28,7 @@ namespace Win32 {
 
 /* type proc_t */
 
-using proc_t = void (WIN32_CALLTYPE *)(void) ;
+using proc_t = void (*)(void) ;
 
 /*--------------------------------------------------------------------------------------*/
 /* common structures                                                                    */
@@ -40,7 +38,7 @@ using proc_t = void (WIN32_CALLTYPE *)(void) ;
 
 struct SecurityAttributes
  {
-  ulen_t cb;
+  ushortlen_t cb;
 
   void_ptr desc;
   bool_t inherit;
@@ -50,7 +48,8 @@ struct SecurityAttributes
 
 struct Overlapped
  {
-  file_len_t internal;
+  ulen_t internal;
+  ulen_t internal_hi;
   file_len_t offset;
   handle_t h_event;
  };
@@ -124,17 +123,17 @@ enum FormatMessageFlags
 
 /* GetLastError() */
 
-error_t WIN32_API GetLastError(void);
+error_t WIN64_API GetLastError(void);
 
 /* FormatMessageW() */
 
-ulen_t WIN32_API FormatMessageW(flags_t format_message_flags,
-                                handle_t,
-                                error_t code,
-                                unsigned,
-                                wchar *buf,
-                                ulen_t buf_len,
-                                void_ptr);
+ushortlen_t WIN64_API FormatMessageW(flags_t format_message_flags,
+                                     handle_t,
+                                     error_t code,
+                                     unsigned,
+                                     wchar *buf,
+                                     ushortlen_t buf_len,
+                                     void_ptr);
 
 /*--------------------------------------------------------------------------------------*/
 /* Character flags                                                                      */
@@ -169,16 +168,16 @@ enum MultiByteFlags
 
 /* MultiByteToWideChar() */
 
-int WIN32_API MultiByteToWideChar(codepage_t codepage,
+int WIN64_API MultiByteToWideChar(codepage_t codepage,
                                   flags_t flags,
                                   const char *str,
                                   int str_len,
                                   wchar *out,
                                   int out_len);
 
-/* CharLowerW() */
+/* CharLowerA() */
 
-wchar * WIN32_API CharLowerW(wchar *str);
+wchar * WIN64_API CharLowerW(wchar *str);
 
 /*--------------------------------------------------------------------------------------*/
 /* System information structures                                                        */
@@ -193,7 +192,7 @@ struct SystemInfo
   unsigned page_len;
   void_ptr min_address;
   void_ptr max_address;
-  unsigned cpu_mask;
+  unsigned long cpu_mask;
   unsigned cpu_count;
   unsigned cpu_type;
   unsigned alloc_granularity;
@@ -207,7 +206,7 @@ struct SystemInfo
 
 /* GetSystemInfo() */
 
-void WIN32_API GetSystemInfo(SystemInfo *info);
+void WIN64_API GetSystemInfo(SystemInfo *info);
 
 /*--------------------------------------------------------------------------------------*/
 /* Time functions                                                                       */
@@ -215,11 +214,11 @@ void WIN32_API GetSystemInfo(SystemInfo *info);
 
 /* GetTickCount() */
 
-timeout_t WIN32_API GetTickCount(void);
+timeout_t WIN64_API GetTickCount(void);
 
 /* GetSystemTimeAsFileTime() */
 
-void WIN32_API GetSystemTimeAsFileTime(file_time_t *ret);
+void WIN64_API GetSystemTimeAsFileTime(file_time_t *ret);
 
 /*--------------------------------------------------------------------------------------*/
 /* Virtual memory flags                                                                 */
@@ -253,14 +252,14 @@ enum FreeFlags
 
 /* VirtualAlloc() */
 
-void_ptr WIN32_API VirtualAlloc(void_ptr address,
+void_ptr WIN64_API VirtualAlloc(void_ptr address,
                                 ulen_t len,
                                 flags_t alloc_flags,
                                 flags_t page_flags);
 
 /* VirtualFree() */
 
-bool_t WIN32_API VirtualFree(void_ptr address,
+bool_t WIN64_API VirtualFree(void_ptr address,
                              ulen_t len,
                              flags_t free_flags);
 
@@ -280,11 +279,11 @@ enum HandleFlags
 
 /* CloseHandle() */
 
-bool_t WIN32_API CloseHandle(handle_t h_any);
+bool_t WIN64_API CloseHandle(handle_t h_any);
 
 /* SetHandleInformation() */
 
-bool_t WIN32_API SetHandleInformation(handle_t h_any,flags_t mask,flags_t flags);
+bool_t WIN64_API SetHandleInformation(handle_t h_any,flags_t mask,flags_t flags);
 
 /*--------------------------------------------------------------------------------------*/
 /* Global memory constants                                                              */
@@ -300,15 +299,15 @@ enum GMemFlags
 /* Global memory functions                                                              */
 /*--------------------------------------------------------------------------------------*/
 
-handle_t WIN32_API GlobalAlloc(flags_t flags, ulen_t len);
+handle_t WIN64_API GlobalAlloc(flags_t flags, ulen_t len);
 
-handle_t WIN32_API GlobalFree(handle_t h_mem);
+handle_t WIN64_API GlobalFree(handle_t h_mem);
 
-ulen_t WIN32_API GlobalSize(handle_t h_mem);
+ulen_t WIN64_API GlobalSize(handle_t h_mem);
 
-void_ptr WIN32_API GlobalLock(handle_t h_mem);
+void_ptr WIN64_API GlobalLock(handle_t h_mem);
 
-bool_t WIN32_API GlobalUnlock(handle_t h_mem);
+bool_t WIN64_API GlobalUnlock(handle_t h_mem);
 
 /*--------------------------------------------------------------------------------------*/
 /* Wait constants                                                                       */
@@ -337,11 +336,11 @@ enum WaitOptions
 
 /* WaitForSingleObject() */
 
-options_t WIN32_API WaitForSingleObject(handle_t h_any, timeout_t timeout);
+options_t WIN64_API WaitForSingleObject(handle_t h_any, timeout_t timeout);
 
 /* WaitForMultipleObjects() */
 
-options_t WIN32_API WaitForMultipleObjects(ulen_t hcount,
+options_t WIN64_API WaitForMultipleObjects(ushortlen_t hcount,
                                            handle_t hlist[/* hcount */],
                                            bool_t wait_all,
                                            timeout_t timeout);
@@ -352,13 +351,13 @@ options_t WIN32_API WaitForMultipleObjects(ulen_t hcount,
 
 /* GetModuleHandleW() */
 
-handle_t WIN32_API GetModuleHandleW(const wchar *module_name);
+handle_t WIN64_API GetModuleHandleW(const wchar *module_name);
 
 /* GetModuleFileNameW() */
 
-ulen_t WIN32_API GetModuleFileNameW(handle_t h_module,
-                                    wchar *buf,
-                                    ulen_t len);
+ushortlen_t WIN64_API GetModuleFileNameW(handle_t h_module,
+                                         wchar *buf,
+                                         ushortlen_t len);
 
 /*--------------------------------------------------------------------------------------*/
 /* TLS constants                                                                        */
@@ -374,19 +373,19 @@ inline constexpr index_t TlsNoIndex = index_t(-1) ;
 
 /* TlsAlloc() */
 
-index_t WIN32_API TlsAlloc(void);
+index_t WIN64_API TlsAlloc(void);
 
 /* TlsFree() */
 
-bool_t WIN32_API TlsFree(index_t index);
+bool_t WIN64_API TlsFree(index_t index);
 
 /* TlsGetValue() */
 
-void_ptr WIN32_API TlsGetValue(index_t index);
+void_ptr WIN64_API TlsGetValue(index_t index);
 
 /* TlsSetValue() */
 
-bool_t WIN32_API TlsSetValue(index_t index, void_ptr value);
+bool_t WIN64_API TlsSetValue(index_t index, void_ptr value);
 
 /*--------------------------------------------------------------------------------------*/
 /* Event functions                                                                      */
@@ -394,14 +393,14 @@ bool_t WIN32_API TlsSetValue(index_t index, void_ptr value);
 
 /* CreateEventW() */
 
-handle_t WIN32_API CreateEventW(SecurityAttributes *,
+handle_t WIN64_API CreateEventW(SecurityAttributes *,
                                 bool_t manual_reset,
                                 bool_t initial_state,
                                 const wchar *object_name);
 
 /* SetEvent() */
 
-bool_t WIN32_API SetEvent(handle_t h_event);
+bool_t WIN64_API SetEvent(handle_t h_event);
 
 /*--------------------------------------------------------------------------------------*/
 /* Semaphore constants                                                                  */
@@ -417,16 +416,14 @@ inline constexpr sem_count_t MaxSemaphoreCount = 0x7FFF'FFFF ;
 
 /* CreateSemaphoreW() */
 
-handle_t WIN32_API CreateSemaphoreW(SecurityAttributes *,
+handle_t WIN64_API CreateSemaphoreW(SecurityAttributes *,
                                     sem_count_t initial_count,
                                     sem_count_t max_count,
                                     const wchar *object_name);
 
 /* ReleaseSemaphore() */
 
-bool_t WIN32_API ReleaseSemaphore(handle_t h_sem,
-                                  sem_count_t delta,
-                                  sem_count_t *prev_count);
+bool_t WIN64_API ReleaseSemaphore(handle_t h_sem, sem_count_t delta, sem_count_t *prev_count);
 
 /*--------------------------------------------------------------------------------------*/
 /* Process constants                                                                    */
@@ -469,7 +466,7 @@ enum ThreadPriority
 
 struct StartupInfo
  {
-  ulen_t cb;
+  ushortlen_t cb;
 
   const wchar *reserved;
   const wchar *desktop;
@@ -512,62 +509,62 @@ struct ProcessInfo
 
 /* GetEnvironmentStringsW() */
 
-wchar * WIN32_API GetEnvironmentStringsW(void);
+wchar * WIN64_API GetEnvironmentStringsW(void);
 
 /* FreeEnvironmentStringsW() */
 
-bool_t WIN32_API FreeEnvironmentStringsW(wchar *envblock);
+bool_t WIN64_API FreeEnvironmentStringsW(wchar *envblock);
 
 /* GetEnvironmentVariableW() */
 
-ulen_t WIN32_API GetEnvironmentVariableW(const wchar *name,
-                                         wchar *buf,
-                                         ulen_t len);
+ushortlen_t WIN64_API GetEnvironmentVariableW(const wchar *name,
+                                              wchar *buf,
+                                              ushortlen_t len);
 
 /* GetStartupInfoW() */
 
-void WIN32_API GetStartupInfoW(StartupInfo *info);
+void WIN64_API GetStartupInfoW(StartupInfo *info);
 
 /* GetCurrentProcess() */
 
-handle_t WIN32_API GetCurrentProcess(void);
+handle_t WIN64_API GetCurrentProcess(void);
 
 /* GetCurrentThread() */
 
-handle_t WIN32_API GetCurrentThread(void);
+handle_t WIN64_API GetCurrentThread(void);
 
 /* TerminateProcess() */
 
-bool_t WIN32_API TerminateProcess(handle_t h_process, unsigned exit_code);
+bool_t WIN64_API TerminateProcess(handle_t h_process, unsigned exit_code);
 
 /* Sleep() */
 
-void WIN32_API Sleep(timeout_t timeout);
+void WIN64_API Sleep(timeout_t timeout);
 
 /* GetCurrentThreadId() */
 
-numid_t WIN32_API GetCurrentThreadId(void);
+numid_t WIN64_API GetCurrentThreadId(void);
 
 /* CreateProcessW() */
 
-bool_t WIN32_API CreateProcessW(const wchar *program,
+bool_t WIN64_API CreateProcessW(const wchar *program,
                                 wchar *arg,
                                 SecurityAttributes *,
                                 SecurityAttributes *,
                                 bool_t inherit_handles,
                                 flags_t process_creation_flags,
-                                const wchar *envblock,
+                                void_ptr envblock,
                                 const wchar *dir,
                                 StartupInfo *info,
                                 ProcessInfo *pinfo);
 
 /* GetExitCodeProcess() */
 
-bool_t WIN32_API GetExitCodeProcess(handle_t h_process, unsigned *exit_code);
+bool_t WIN64_API GetExitCodeProcess(handle_t h_process, unsigned *exit_code);
 
 /* SetThreadPriority() */
 
-bool_t WIN32_API SetThreadPriority(handle_t h_thread, options_t priority);
+bool_t WIN64_API SetThreadPriority(handle_t h_thread, options_t priority);
 
 /*--------------------------------------------------------------------------------------*/
 /* System property functions                                                            */
@@ -575,7 +572,7 @@ bool_t WIN32_API SetThreadPriority(handle_t h_thread, options_t priority);
 
 /* GetACP() */
 
-codepage_t WIN32_API GetACP(void);
+codepage_t WIN64_API GetACP(void);
 
 /*--------------------------------------------------------------------------------------*/
 /* Console constants                                                                    */
@@ -677,34 +674,34 @@ struct ConInputRecord
 
 /* SetConsoleOutputCP() */
 
-bool_t WIN32_API SetConsoleOutputCP(codepage_t code_page);
+bool_t WIN64_API SetConsoleOutputCP(codepage_t code_page);
 
 /* GetConsoleOutputCP() */
 
-codepage_t WIN32_API GetConsoleOutputCP(void);
+codepage_t WIN64_API GetConsoleOutputCP(void);
 
 /* SetConsoleCP() */
 
-bool_t WIN32_API SetConsoleCP(codepage_t code_page);
+bool_t WIN64_API SetConsoleCP(codepage_t code_page);
 
 /* GetConsoleCP() */
 
-codepage_t WIN32_API GetConsoleCP(void);
+codepage_t WIN64_API GetConsoleCP(void);
 
 /* SetConsoleMode() */
 
-bool_t WIN32_API SetConsoleMode(handle_t h_con, flags_t modes);
+bool_t WIN64_API SetConsoleMode(handle_t h_con, flags_t modes);
 
 /* GetConsoleMode() */
 
-bool_t WIN32_API GetConsoleMode(handle_t h_con, flags_t *modes);
+bool_t WIN64_API GetConsoleMode(handle_t h_con, flags_t *modes);
 
 /* ReadConsoleInputW() */
 
-bool_t WIN32_API ReadConsoleInputW(handle_t h_con,
+bool_t WIN64_API ReadConsoleInputW(handle_t h_con,
                                    ConInputRecord *buf,
-                                   ulen_t buf_len,
-                                   ulen_t *ret_len);
+                                   ushortlen_t buf_len,
+                                   ushortlen_t *ret_len);
 
 /*--------------------------------------------------------------------------------------*/
 /* Pipe functions                                                                       */
@@ -712,11 +709,11 @@ bool_t WIN32_API ReadConsoleInputW(handle_t h_con,
 
 /* CreatePipe() */
 
-bool_t WIN32_API CreatePipe(handle_t *h_read, handle_t *h_write, SecurityAttributes *sa, ulen_t buf_len);
+bool_t WIN64_API CreatePipe(handle_t *h_read, handle_t *h_write, SecurityAttributes *sa, ushortlen_t buf_len);
 
 /* PeekNamedPipe() */
 
-bool_t WIN32_API PeekNamedPipe(handle_t h_read,
+bool_t WIN64_API PeekNamedPipe(handle_t h_read,
                                void_ptr buf,
                                ulen_t buf_len,
                                ulen_t *ret_len,
@@ -830,11 +827,11 @@ struct FileDispositionInfoData
 
 /* GetStdHandle() */
 
-handle_t WIN32_API GetStdHandle(options_t std_handle_options);
+handle_t WIN64_API GetStdHandle(options_t std_handle_options);
 
 /* CreateFileW() */
 
-handle_t WIN32_API CreateFileW(const wchar *file_name,
+handle_t WIN64_API CreateFileW(const wchar *file_name,
                                flags_t access_flags,
                                flags_t share_flags,
                                SecurityAttributes *,
@@ -844,48 +841,48 @@ handle_t WIN32_API CreateFileW(const wchar *file_name,
 
 /* WriteFile() */
 
-bool_t WIN32_API WriteFile(handle_t h_file,
+bool_t WIN64_API WriteFile(handle_t h_file,
                            const_void_ptr buf,
-                           ulen_t buf_len,
-                           ulen_t *ret_len,
+                           ushortlen_t buf_len,
+                           ushortlen_t *ret_len,
                            Overlapped *olap);
 
 /* ReadFile() */
 
-bool_t WIN32_API ReadFile(handle_t h_file,
+bool_t WIN64_API ReadFile(handle_t h_file,
                           void_ptr buf,
-                          ulen_t buf_len,
-                          ulen_t *ret_len,
+                          ushortlen_t buf_len,
+                          ushortlen_t *ret_len,
                           Overlapped *olap);
 
 /* GetOverlappedResult() */
 
-bool_t WIN32_API GetOverlappedResult(handle_t h_file,
+bool_t WIN64_API GetOverlappedResult(handle_t h_file,
                                      Overlapped *olap,
-                                     ulen_t *ret_len,
+                                     ushortlen_t *ret_len,
                                      bool_t wait_flag);
 
 /* GetFileSizeEx() */
 
-bool_t WIN32_API GetFileSizeEx(handle_t h_file, file_len_t *ret);
+bool_t WIN64_API GetFileSizeEx(handle_t h_file, file_len_t *ret);
 
 /* SetFilePointerEx() */
 
-bool_t WIN32_API SetFilePointerEx(handle_t h_file,
+bool_t WIN64_API SetFilePointerEx(handle_t h_file,
                                   file_len_t to,
                                   file_len_t *ret,
                                   options_t from_options);
 
 /* FlushFileBuffers() */
 
-bool_t WIN32_API FlushFileBuffers(handle_t h_file);
+bool_t WIN64_API FlushFileBuffers(handle_t h_file);
 
 /* SetFileInformationByHandle() */
 
-bool_t WIN32_API SetFileInformationByHandle(handle_t h_file,
+bool_t WIN64_API SetFileInformationByHandle(handle_t h_file,
                                             options_t file_info_options,
                                             void_ptr buf,
-                                            ulen_t buf_len);
+                                            ushortlen_t buf_len);
 
 /*--------------------------------------------------------------------------------------*/
 /* File system structures                                                               */
@@ -909,8 +906,8 @@ struct FindFileData
   FileTime last_access_time;
   FileTime last_write_time;
 
-  ulen_t file_len_hi;
-  ulen_t file_len_lo;
+  unsigned file_len_hi;
+  unsigned file_len_lo;
 
   flags_t reserved0;
   flags_t reserved1;
@@ -925,48 +922,48 @@ struct FindFileData
 
 /* GetFileTime() */
 
-bool_t WIN32_API GetFileTime(handle_t h_file, FileTime *creation_time,
+bool_t WIN64_API GetFileTime(handle_t h_file, FileTime *creation_time,
                                               FileTime *last_access_time,
                                               FileTime *last_write_time);
 
 /* GetFileAttributesW() */
 
-flags_t WIN32_API GetFileAttributesW(const wchar *path);
+flags_t WIN64_API GetFileAttributesW(const wchar *path);
 
 /* DeleteFileW() */
 
-bool_t WIN32_API DeleteFileW(const wchar *path);
+bool_t WIN64_API DeleteFileW(const wchar *path);
 
 /* CreateDirectoryW() */
 
-bool_t WIN32_API CreateDirectoryW(const wchar *path, SecurityAttributes *);
+bool_t WIN64_API CreateDirectoryW(const wchar *path, SecurityAttributes *);
 
 /* RemoveDirectoryW() */
 
-bool_t WIN32_API RemoveDirectoryW(const wchar *path);
+bool_t WIN64_API RemoveDirectoryW(const wchar *path);
 
 /* MoveFileExW() */
 
-bool_t WIN32_API MoveFileExW(const wchar *old_path, const wchar *new_path, flags_t flags);
+bool_t WIN64_API MoveFileExW(const wchar *old_path, const wchar *new_path, flags_t flags);
 
 /* FindFirstFileW() */
 
-handle_t WIN32_API FindFirstFileW(const wchar *path, FindFileData *find_data);
+handle_t WIN64_API FindFirstFileW(const wchar *path, FindFileData *find_data);
 
 /* FindNextFileW() */
 
-bool_t WIN32_API FindNextFileW(handle_t h_find, FindFileData *find_data);
+bool_t WIN64_API FindNextFileW(handle_t h_find, FindFileData *find_data);
 
 /* FindClose() */
 
-bool_t WIN32_API FindClose(handle_t h_find);
+bool_t WIN64_API FindClose(handle_t h_find);
 
 /* GetFullPathNameW() */
 
-ulen_t WIN32_API GetFullPathNameW(const wchar *path,
-                                  ulen_t buf_len,
-                                  wchar *buf,
-                                  wchar **file_part);
+ushortlen_t WIN64_API GetFullPathNameW(const wchar *path,
+                                       ushortlen_t buf_len,
+                                       wchar *buf,
+                                       wchar **file_part);
 
 /*--------------------------------------------------------------------------------------*/
 /* Socket flags and options                                                             */
@@ -976,9 +973,9 @@ ulen_t WIN32_API GetFullPathNameW(const wchar *path,
 
 inline constexpr socket_t InvalidSocket = -1 ;
 
-/* const InvalidULen */
+/* const InvalidUShortLen */
 
-inline constexpr ulen_t InvalidULen = ulen_t(-1) ;
+inline constexpr ushortlen_t InvalidUShortLen = ushortlen_t(-1) ;
 
 /* enum WSAVersions */
 
@@ -1044,14 +1041,13 @@ struct WSAInfo
   WSAVersion version;
   WSAVersion hi_version;
 
-  char desc[257];
-  char status[129];
-
-  // deprecated
-
   unsigned short max_sockets;
   unsigned short max_UDP_data_len;
+
   char *vendor_info;
+
+  char desc[257];
+  char status[129];
  };
 
 /* struct WSAProtocolInfo */
@@ -1062,7 +1058,7 @@ struct WSAProtocolInfo;
 
 struct WSASockSet
  {
-  ulen_t count;
+  ushortlen_t count;
   socket_t set[64];
  };
 
@@ -1078,7 +1074,8 @@ struct WSATimeout
 
 struct WSAOverlapped
  {
-  file_len_t internal;
+  ulen_t internal;
+  ulen_t internal_hi;
   file_len_t offset;
   handle_t h_event;
  };
@@ -1097,19 +1094,19 @@ struct WSABuf
 
 /* WSAStartup() */
 
-error_t WIN32_API WSAStartup(WSAVersion version, WSAInfo *info);
+error_t WIN64_API WSAStartup(WSAVersion version, WSAInfo *info);
 
 /* WSACleanup() */
 
-negbool_t WIN32_API WSACleanup(void);
+negbool_t WIN64_API WSACleanup(void);
 
 /* WSAGetLastError() */
 
-error_t WIN32_API WSAGetLastError(void);
+error_t WIN64_API WSAGetLastError(void);
 
 /* WSASocketW() */
 
-socket_t WIN32_API WSASocketW(options_t address_family,
+socket_t WIN64_API WSASocketW(options_t address_family,
                               options_t type,
                               options_t protocol,
                               WSAProtocolInfo *,
@@ -1118,91 +1115,91 @@ socket_t WIN32_API WSASocketW(options_t address_family,
 
 /* bind() */
 
-negbool_t WIN32_API bind(socket_t sock,
+negbool_t WIN64_API bind(socket_t sock,
                          const_void_ptr address,
-                         ulen_t address_len);
+                         ushortlen_t address_len);
 
 /* closesocket() */
 
-negbool_t WIN32_API closesocket(socket_t sock);
+negbool_t WIN64_API closesocket(socket_t sock);
 
 /* sendto() */
 
-ulen_t WIN32_API sendto(socket_t sock,
-                        const_void_ptr data,
-                        ulen_t data_len,
-                        flags_t,
-                        const_void_ptr address,
-                        ulen_t address_len);
+ushortlen_t WIN64_API sendto(socket_t sock,
+                             const_void_ptr data,
+                             ushortlen_t data_len,
+                             flags_t,
+                             const_void_ptr address,
+                             ushortlen_t address_len);
 
 /* recvfrom() */
 
-ulen_t WIN32_API recvfrom(socket_t sock,
-                          void_ptr buf,
-                          ulen_t buf_len,
-                          flags_t,
-                          void_ptr address,
-                          ulen_t *address_len);
+ushortlen_t WIN64_API recvfrom(socket_t sock,
+                               void_ptr buf,
+                               ushortlen_t buf_len,
+                               flags_t,
+                               void_ptr address,
+                               ushortlen_t *address_len);
 
 /* select() */
 
-ulen_t WIN32_API select(int,
-                        WSASockSet *read_set,
-                        WSASockSet *write_set,
-                        WSASockSet *error_set,
-                        const WSATimeout *timeout);
+ushortlen_t WIN64_API select(int,
+                             WSASockSet *read_set,
+                             WSASockSet *write_set,
+                             WSASockSet *error_set,
+                             const WSATimeout *timeout);
 
 /* WSASendTo() */
 
-negbool_t WIN32_API WSASendTo(socket_t sock,
+negbool_t WIN64_API WSASendTo(socket_t sock,
                               WSABuf *buf,
-                              ulen_t buf_len,
-                              ulen_t *ret_len,
+                              ushortlen_t buf_len,
+                              ushortlen_t *ret_len,
                               flags_t,
                               const_void_ptr address,
-                              ulen_t address_len,
+                              ushortlen_t address_len,
                               WSAOverlapped *olap,
                               proc_t);
 
 /* WSARecvFrom() */
 
-negbool_t WIN32_API WSARecvFrom(socket_t sock,
+negbool_t WIN64_API WSARecvFrom(socket_t sock,
                                 WSABuf *buf,
-                                ulen_t buf_len,
-                                ulen_t *ret_len,
+                                ushortlen_t buf_len,
+                                ushortlen_t *ret_len,
                                 flags_t *ret_flags,
                                 void_ptr address,
-                                ulen_t *address_len,
+                                ushortlen_t *address_len,
                                 WSAOverlapped *olap,
                                 proc_t);
 
 /* WSAGetOverlappedResult() */
 
-bool_t WIN32_API WSAGetOverlappedResult(socket_t sock,
+bool_t WIN64_API WSAGetOverlappedResult(socket_t sock,
                                         WSAOverlapped *olap,
-                                        ulen_t *ret_len,
+                                        ushortlen_t *ret_len,
                                         bool_t wait_flag,
                                         flags_t *ret_flags);
 
 /* WSACreateEvent() */
 
-handle_t WIN32_API WSACreateEvent(void);
+handle_t WIN64_API WSACreateEvent(void);
 
 /* WSACloseEvent() */
 
-bool_t WIN32_API WSACloseEvent(handle_t h_event);
+bool_t WIN64_API WSACloseEvent(handle_t h_event);
 
 /* WSASetEvent() */
 
-bool_t WIN32_API WSASetEvent(handle_t h_event);
+bool_t WIN64_API WSASetEvent(handle_t h_event);
 
 /* WSAResetEvent() */
 
-bool_t WIN32_API WSAResetEvent(handle_t h_event);
+bool_t WIN64_API WSAResetEvent(handle_t h_event);
 
 /* WSAWaitForMultipleEvents() */
 
-options_t WIN32_API WSAWaitForMultipleEvents(ulen_t hcount,
+options_t WIN64_API WSAWaitForMultipleEvents(ushortlen_t hcount,
                                              handle_t hlist[/* hcount */],
                                              bool_t wait_all,
                                              timeout_t timeout,
@@ -1210,8 +1207,25 @@ options_t WIN32_API WSAWaitForMultipleEvents(ulen_t hcount,
 
 } // extern "C"
 
-} // namespace Win32
+/* adapters */
+
+inline constexpr ushortlen_t MaxUShortLen = ushortlen_t(-1) ;
+
+inline constexpr ushortlen_t SplitLen = 0x10'0000 ;
+
+inline ushortlen_t CapLen(ulen_t len) { if( len>MaxUShortLen ) return MaxUShortLen; return (ushortlen_t)len; }
+
+bool_t ExtWriteFile(handle_t h_file,
+                    const_void_ptr buf,
+                    ulen_t buf_len,
+                    ulen_t *ret_len);
+
+bool_t ExtReadFile(handle_t h_file,
+                   void_ptr buf,
+                   ulen_t buf_len,
+                   ulen_t *ret_len);
+
+} // namespace Win64
 
 #endif
-
 
