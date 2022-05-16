@@ -37,9 +37,8 @@ tools/Volume/test.vol
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
 *.out
-*.app
+
