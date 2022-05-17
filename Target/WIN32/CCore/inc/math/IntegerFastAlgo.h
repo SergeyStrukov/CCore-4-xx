@@ -35,11 +35,11 @@ struct IntegerFastAlgo
  {
   // types and consts
 
-  using Unit = unsigned ;
+  using Unit = mp_limb_t ;
 
-  using SUnit = int ;
+  using SUnit = mp_limb_signed_t ;
 
-  static constexpr unsigned UnitBits = 32 ;
+  static constexpr unsigned UnitBits = Meta::UIntBits<Unit> ;
 
   static constexpr Unit MaxUnit = Unit(-1) ;
 

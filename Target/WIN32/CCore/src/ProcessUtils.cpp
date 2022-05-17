@@ -218,9 +218,9 @@ class MakeCmdLine : NoCopy
            Printf(Exception,"CCore::Private_ProcessUtils::MakeCmdLine::MakeCmdLine(...) : broken utf8");
           }
 
-        if( Sys::IsSurrogate(sym) )
+        if( IsSurrogate(sym) )
           {
-           Sys::SurrogateCouple couple(sym);
+           SurrogateCouple couple(sym);
 
            put(couple.hi);
            put(couple.lo);

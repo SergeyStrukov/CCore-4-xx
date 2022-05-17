@@ -15,12 +15,12 @@
 
 #include <CCore/inc/PlanInit.h>
 
+#include <CCore/inc/Job.h>
+#include <CCore/inc/PerTask.h>
+#include <CCore/inc/ObjHost.h>
 #include <CCore/inc/PacketPool.h>
 #include <CCore/inc/TaskMemStack.h>
 #include <CCore/inc/DeferCall.h>
-#include <CCore/inc/Job.h>
-#include <CCore/inc/ObjHost.h>
-#include <CCore/inc/PerTask.h>
 #include <CCore/inc/Scope.h>
 
 namespace CCore {

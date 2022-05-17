@@ -21,7 +21,7 @@
 
         .p2align 4,,15
 
-  # uint32 CCore::Crypton::IntelRandom::next()
+  # uint32 CCore::Crypton::IntelRandom::next() noexcept
 
 __ZN5CCore7Crypton11IntelRandom4nextEv:
 

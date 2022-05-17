@@ -36,7 +36,7 @@ struct IntelCPUID1
 
   IntelCPUID1() noexcept;
 
-  static uint32 Bit(unsigned num) { return UIntBit<uint32>(num); }
+  static constexpr uint32 Bit(unsigned num) { return UIntBit<uint32>(num); }
 
   uint32 capableTIMESTAMP() const { return EDX&Bit(4); }
 

@@ -21,7 +21,7 @@
 
         .p2align 4,,15
 
-  # CCore::Crypton::IntelCPUID1::IntelCPUID1()
+  # CCore::Crypton::IntelCPUID1::IntelCPUID1() noexcept
 
 __ZN5CCore7Crypton11IntelCPUID1C1Ev:
 
