@@ -24,7 +24,8 @@ namespace Math {
 
 /* struct IntegerFastAlgo */
 
-static_assert( IntegerFastAlgo::UnitBits==32 ,"CCore::IntegerFastAlgo : bad gmp limb size");
+static_assert( IntegerFastAlgo::UnitBits == 32 ,"CCore::IntegerFastAlgo : bad gmp limb size");
+static_assert( Meta::UIntBits<mp_limb_t> == 32 ,"CCore::IntegerFastAlgo : bad gmp limb size");
 
 using Unit = IntegerFastAlgo::Unit ;
 

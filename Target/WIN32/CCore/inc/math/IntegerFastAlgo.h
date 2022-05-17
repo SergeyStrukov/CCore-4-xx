@@ -35,9 +35,9 @@ struct IntegerFastAlgo
  {
   // types and consts
 
-  using Unit = mp_limb_t ;
+  using Unit = unsigned ;
 
-  using SUnit = mp_limb_signed_t ;
+  using SUnit = int ;
 
   static constexpr unsigned UnitBits = Meta::UIntBits<Unit> ;
 
