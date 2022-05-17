@@ -23,7 +23,7 @@
 namespace CCore {
 namespace Sys {
 
-/* class ProcessSetup */
+/* class ProcessSetup::BuildStr */
 
 class ProcessSetup::BuildStr : NoCopy
  {
