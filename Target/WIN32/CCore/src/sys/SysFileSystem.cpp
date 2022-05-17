@@ -123,7 +123,7 @@ class EmptyDirEngine : NoCopy
              }
           }
        }
-     while( FindNextFileW(h_find,&data) );
+     while( WinNN::FindNextFileW(h_find,&data) );
 
      WinNN::error_t error_=WinNN::GetLastError();
 
@@ -359,15 +359,7 @@ auto FileSystem::getFileUpdateTime(StrLen path_) noexcept -> CmpTimeResult
     }
   else
     {
-     WinNN::flags_t access_flags = WinNN::AccessRead ;
-
-     WinNN::flags_t share_flags = WinNN::ShareRead ;
-
-     WinNN::options_t creation_options = WinNN::OpenExisting ;
-
-     WinNN::flags_t file_flags = WinNN::FileBackupSemantic ;
-
-     WinNN::handle_t h_file=WinNN::CreateFileW(path,access_flags,share_flags,0,creation_options,file_flags,0);
+     WinNN::handle_t h_file=WinNN::CreateFileW(path,WinNN::AccessRead,WinNN::ShareRead,0,WinNN::OpenExisting,WinNN::FileBackupSemantic,0);
 
      if( h_file==WinNN::InvalidFileHandle )
        {
