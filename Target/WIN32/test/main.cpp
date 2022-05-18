@@ -40,13 +40,6 @@ int main()
 
   //Testit<2999>().run();
 
-  //Testit<4030>().run();
-
-  //Testit<3040>().run();
-  //Testit<4034>().run();
-  //Testit<4029>().run();
-  Testit<3023>().run();
-
   Printf(Con,"\nPeak memory usage #;\n\n",MemPeak());
 
   DetachPacketBufs();
