@@ -51,6 +51,8 @@ struct CoTaskResume;
 
 template <class T> struct CoTaskResult;
 
+class CoTaskPromiseBase;
+
 template <class T> class CoTaskPromise;
 
 template <class T,template <class> class Promise=CoTaskPromise> class CoTask;
@@ -64,6 +66,9 @@ struct CoTaskResume
   cotask handle;
 
   CoTaskResume(cotask handle_) : handle(handle_) { GuardCoTaskActive(handle_); }
+
+  template <class T>
+  CoTaskResume(std::coroutine_handle<T> handle_) : handle(handle_) { GuardCoTaskActive(handle); }
 
   bool await_ready() { return false; }
 
@@ -99,18 +104,15 @@ struct CoTaskResult
   bool operator ! () const { return !ok; }
  };
 
-/* class CoTaskPromise<T> */
+/* class CoTaskPromiseBase */
 
-template <>
-class CoTaskPromise<void> : public MemBase_nocopy
+class CoTaskPromiseBase : public MemBase_nocopy
  {
    std::exception_ptr exception;
 
   public:
 
-   CoTaskPromise() : exception{} {}
-
-   CoTask<void,CoTaskPromise> get_return_object() noexcept;
+   CoTaskPromiseBase() : exception{} {}
 
    std::suspend_always initial_suspend() const noexcept { return {}; }
 
@@ -118,17 +120,31 @@ class CoTaskPromise<void> : public MemBase_nocopy
 
    void unhandled_exception() { exception=std::current_exception(); }
 
-   void return_void() {}
-
    // methods
 
    void rethrowException() { if( exception ) std::rethrow_exception(exception); }
+ };
+
+/* class CoTaskPromise<T> */
+
+template <>
+class CoTaskPromise<void> : public CoTaskPromiseBase
+ {
+  public:
+
+   CoTaskPromise() {}
+
+   CoTask<void,CoTaskPromise> get_return_object() noexcept;
+
+   void return_void() {}
+
+   // methods
 
    CoTaskResult<void> getResult() const { return true; }
  };
 
 template <class T>
-class CoTaskPromise : public CoTaskPromise<void>
+class CoTaskPromise : public CoTaskPromiseBase
  {
    CoTaskResult<T> result;
 
