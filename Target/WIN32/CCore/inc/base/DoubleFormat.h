@@ -20,18 +20,18 @@
 
 namespace CCore {
 
-/* classes */
-
-struct DoubleFormat;
-
 /* struct DoubleFormat */
 
 struct DoubleFormat
  {
   using BodyType = unsigned long long;
 
-  static constexpr unsigned MaxExp = 0x7FFu ;
-  static constexpr BodyType MaxFract = 0xF'FFFF'FFFF'FFFFu ;
+  static constexpr unsigned FractBits = 52 ;
+  static constexpr unsigned ExpBits   = 11 ;
+  static constexpr unsigned ExpBias   = 1023 ;
+
+  static constexpr unsigned MaxExp    = 0x7FFu ;
+  static constexpr BodyType MaxFract  = 0xF'FFFF'FFFF'FFFFu ;
 
   BodyType body;
            // sign  : 1
