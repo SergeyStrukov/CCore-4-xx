@@ -192,6 +192,7 @@ OBJ_LIST = \
 ../.test-obj/test6007.IntelAES.o \
 ../.test-obj/test6008.DirCursor.o \
 ../.test-obj/test6009.TypeName.o \
+../.test-obj/test6010.Double.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testInt.o \
 ../.test-obj/testIntAlgo.o \
@@ -396,6 +397,7 @@ ASM_LIST = \
 ../.test-obj/test6007.IntelAES.s \
 ../.test-obj/test6008.DirCursor.s \
 ../.test-obj/test6009.TypeName.s \
+../.test-obj/test6010.Double.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testInt.s \
 ../.test-obj/testIntAlgo.s \
@@ -600,6 +602,7 @@ DEP_LIST = \
 ../.test-obj/test6007.IntelAES.dep \
 ../.test-obj/test6008.DirCursor.dep \
 ../.test-obj/test6009.TypeName.dep \
+../.test-obj/test6010.Double.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testInt.dep \
 ../.test-obj/testIntAlgo.dep \
@@ -1193,6 +1196,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6009.TypeName.o : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6010.Double.o : ../../../Target/WIN32/CCore/test/test6010.Double.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/testArray.cpp
@@ -1800,6 +1806,9 @@ include $(RULES_FILE)
 ../.test-obj/test6009.TypeName.s : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6010.Double.s : ../../../Target/WIN32/CCore/test/test6010.Double.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2404,6 +2413,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test6009.TypeName.dep : ../../../Target/WIN32/CCore/test/test6009.TypeName.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6009.TypeName.o $< -MF $@
+
+../.test-obj/test6010.Double.dep : ../../../Target/WIN32/CCore/test/test6010.Double.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6010.Double.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@
