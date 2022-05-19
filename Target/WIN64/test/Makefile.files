@@ -192,6 +192,7 @@ OBJ_LIST = \
 ../.test-obj/test6009.SysFile.o \
 ../.test-obj/test6010.Quick.o \
 ../.test-obj/test6012.SysError.o \
+../.test-obj/test6013.Double.o \
 ../.test-obj/testArray.o \
 ../.test-obj/testInt.o \
 ../.test-obj/testIntAlgo.o \
@@ -396,6 +397,7 @@ ASM_LIST = \
 ../.test-obj/test6009.SysFile.s \
 ../.test-obj/test6010.Quick.s \
 ../.test-obj/test6012.SysError.s \
+../.test-obj/test6013.Double.s \
 ../.test-obj/testArray.s \
 ../.test-obj/testInt.s \
 ../.test-obj/testIntAlgo.s \
@@ -600,6 +602,7 @@ DEP_LIST = \
 ../.test-obj/test6009.SysFile.dep \
 ../.test-obj/test6010.Quick.dep \
 ../.test-obj/test6012.SysError.dep \
+../.test-obj/test6013.Double.dep \
 ../.test-obj/testArray.dep \
 ../.test-obj/testInt.dep \
 ../.test-obj/testIntAlgo.dep \
@@ -1193,6 +1196,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test6012.SysError.o : ../../../Target/WIN64/CCore/test/test6012.SysError.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test6013.Double.o : ../../../Target/WIN64/CCore/test/test6013.Double.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/testArray.o : ../../../Fundamental/CCore/test/testArray.cpp
@@ -1800,6 +1806,9 @@ include $(RULES_FILE)
 ../.test-obj/test6012.SysError.s : ../../../Target/WIN64/CCore/test/test6012.SysError.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test6013.Double.s : ../../../Target/WIN64/CCore/test/test6013.Double.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/testArray.s : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2404,6 +2413,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test6012.SysError.dep : ../../../Target/WIN64/CCore/test/test6012.SysError.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6012.SysError.o $< -MF $@
+
+../.test-obj/test6013.Double.dep : ../../../Target/WIN64/CCore/test/test6013.Double.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test6013.Double.o $< -MF $@
 
 ../.test-obj/testArray.dep : ../../../Fundamental/CCore/test/testArray.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/testArray.o $< -MF $@

@@ -76,6 +76,7 @@ OBJ_LIST = \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
 .obj/DirTreeRun.o \
+.obj/DoubleFormat.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
 .obj/EchoDevice.o \
@@ -440,6 +441,7 @@ ASM_LIST = \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
 .obj/DirTreeRun.s \
+.obj/DoubleFormat.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
 .obj/EchoDevice.s \
@@ -804,6 +806,7 @@ DEP_LIST = \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
 .obj/DirTreeRun.dep \
+.obj/DoubleFormat.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/EchoDevice.dep \
@@ -1332,6 +1335,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DirTreeRun.o : ../../HCore/CCore/src/DirTreeRun.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DoubleFormat.o : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
@@ -2419,6 +2425,9 @@ include $(RULES_FILE)
 .obj/DirTreeRun.s : ../../HCore/CCore/src/DirTreeRun.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DoubleFormat.s : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3503,6 +3512,9 @@ include $(RULES_FILE)
 
 .obj/DirTreeRun.dep : ../../HCore/CCore/src/DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DirTreeRun.o $< -MF $@
+
+.obj/DoubleFormat.dep : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DoubleFormat.o $< -MF $@
 
 .obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
