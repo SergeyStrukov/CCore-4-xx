@@ -77,6 +77,7 @@ OBJ_LIST = \
 .obj/DetectProxy.o \
 .obj/DirTreeRun.o \
 .obj/DoubleFormat.o \
+.obj/DoubleUtils.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
 .obj/EchoDevice.o \
@@ -442,6 +443,7 @@ ASM_LIST = \
 .obj/DetectProxy.s \
 .obj/DirTreeRun.s \
 .obj/DoubleFormat.s \
+.obj/DoubleUtils.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
 .obj/EchoDevice.s \
@@ -807,6 +809,7 @@ DEP_LIST = \
 .obj/DetectProxy.dep \
 .obj/DirTreeRun.dep \
 .obj/DoubleFormat.dep \
+.obj/DoubleUtils.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/EchoDevice.dep \
@@ -1338,6 +1341,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DoubleFormat.o : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DoubleUtils.o : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
@@ -2428,6 +2434,9 @@ include $(RULES_FILE)
 .obj/DoubleFormat.s : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DoubleUtils.s : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3515,6 +3524,9 @@ include $(RULES_FILE)
 
 .obj/DoubleFormat.dep : ../../Target/WIN64/CCore/src/base/DoubleFormat.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DoubleFormat.o $< -MF $@
+
+.obj/DoubleUtils.dep : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DoubleUtils.o $< -MF $@
 
 .obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
