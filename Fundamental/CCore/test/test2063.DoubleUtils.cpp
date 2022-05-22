@@ -21,6 +21,59 @@ namespace App {
 
 namespace Private_2063 {
 
+/* toText() */
+
+const char * toText(IntShowSign val)
+ {
+  switch( val )
+    {
+     case IntShowMinus : return  "";
+     case IntShowPlus  : return "+";
+     default: return "???";
+    }
+ }
+
+const char * toText(DoubleFmt val)
+ {
+  switch( val )
+    {
+     case DoubleFmtF : return "F";
+     case DoubleFmtE : return "E";
+     case DoubleFmtX : return "X";
+     default: return "???";
+    }
+ }
+
+const char * toText(DoubleAlign val)
+ {
+  switch( val )
+    {
+     case DoubleAlignLeft  : return "L";
+     case DoubleAlignRight : return "R";
+     default: return "???";
+    }
+ }
+
+/* ShowOpt() */
+
+void ShowOpt(StrLen opt)
+ {
+  DoublePrintOpt obj(opt.ptr,opt.ptr+opt.len);
+
+  Printf(Con,"#; #; #; .#; .e#; #;\n",toText(obj.show_sign),obj.width,toText(obj.fmt),
+                                      obj.digit_len,obj.exp_len,toText(obj.align));
+ }
+
+/* test1() */
+
+void test1()
+ {
+  ShowOpt("20");
+  ShowOpt("+20.8");
+  ShowOpt("+20.8L");
+  ShowOpt("+20.8R");
+  ShowOpt("+20x.8.e15R");
+ }
 
 } // namespace Private_2063
 
@@ -34,6 +87,8 @@ const char *const Testit<2063>::Name="Test2063 DoubleUtils";
 template<>
 bool Testit<2063>::Main()
  {
+  test1();
+
   return true;
  }
 

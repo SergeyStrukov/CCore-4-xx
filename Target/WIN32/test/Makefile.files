@@ -103,6 +103,7 @@ OBJ_LIST = \
 ../.test-obj/test2060.CharUtils.o \
 ../.test-obj/test2061.UniqueToFront.o \
 ../.test-obj/test2062.CoTask.o \
+../.test-obj/test2063.DoubleUtils.o \
 ../.test-obj/test2500.PrintFile.o \
 ../.test-obj/test2999.Blank.o \
 ../.test-obj/test3001.Atomic.o \
@@ -308,6 +309,7 @@ ASM_LIST = \
 ../.test-obj/test2060.CharUtils.s \
 ../.test-obj/test2061.UniqueToFront.s \
 ../.test-obj/test2062.CoTask.s \
+../.test-obj/test2063.DoubleUtils.s \
 ../.test-obj/test2500.PrintFile.s \
 ../.test-obj/test2999.Blank.s \
 ../.test-obj/test3001.Atomic.s \
@@ -513,6 +515,7 @@ DEP_LIST = \
 ../.test-obj/test2060.CharUtils.dep \
 ../.test-obj/test2061.UniqueToFront.dep \
 ../.test-obj/test2062.CoTask.dep \
+../.test-obj/test2063.DoubleUtils.dep \
 ../.test-obj/test2500.PrintFile.dep \
 ../.test-obj/test2999.Blank.dep \
 ../.test-obj/test3001.Atomic.dep \
@@ -929,6 +932,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2062.CoTask.o : ../../../Fundamental/CCore/test/test2062.CoTask.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test2063.DoubleUtils.o : ../../../Fundamental/CCore/test/test2063.DoubleUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test2500.PrintFile.o : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
@@ -1539,6 +1545,9 @@ include $(RULES_FILE)
 ../.test-obj/test2062.CoTask.s : ../../../Fundamental/CCore/test/test2062.CoTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test2063.DoubleUtils.s : ../../../Fundamental/CCore/test/test2063.DoubleUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test2500.PrintFile.s : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2146,6 +2155,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test2062.CoTask.dep : ../../../Fundamental/CCore/test/test2062.CoTask.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2062.CoTask.o $< -MF $@
+
+../.test-obj/test2063.DoubleUtils.dep : ../../../Fundamental/CCore/test/test2063.DoubleUtils.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2063.DoubleUtils.o $< -MF $@
 
 ../.test-obj/test2500.PrintFile.dep : ../../../Fundamental/CCore/test/test2500.PrintFile.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test2500.PrintFile.o $< -MF $@
