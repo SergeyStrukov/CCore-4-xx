@@ -21,23 +21,10 @@
 
 namespace CCore {
 
-/* struct DoubleTo10Based */
+/* struct DoubleTo2Based */
 
-int DoubleTo10Based::DecExp(double value) // value > 0
+DoubleTo2Based::DoubleTo2Based(double value)
  {
-  // TODO
-
-  double exp = std::ceil(std::log10(value));
-
-  return static_cast<int>(exp);
-
-  // 10^exp > value
- }
-
-DoubleTo10Based::DoubleTo10Based(double value,unsigned digit_len_)
- {
-  // TODO
-
   if( std::isnan(value) )
     {
      kind=DoubleIsNan;
@@ -61,6 +48,66 @@ DoubleTo10Based::DoubleTo10Based(double value,unsigned digit_len_)
        {
         kind=DoubleIsPos;
        }
+
+     // TODO
+
+     value=std::frexp(value,&bin_exp);
+
+     int delta=53;
+
+     value=std::ldexp(value,delta);
+     bin_exp-=delta;
+
+     base=static_cast<BaseType>(value);
+
+     while( !(base&1u) )
+       {
+        base>>=1;
+        bin_exp++;
+       }
+    }
+ }
+
+/* struct DoubleTo10Based */
+
+int DoubleTo10Based::DecExp(double value) // value > 0
+ {
+  // TODO
+
+  double exp = std::ceil(std::log10(value));
+
+  return static_cast<int>(exp);
+
+  // 10^exp > value
+ }
+
+DoubleTo10Based::DoubleTo10Based(double value,unsigned digit_len_)
+ {
+  if( std::isnan(value) )
+    {
+     kind=DoubleIsNan;
+    }
+  else if( std::isinf(value) )
+    {
+     kind=DoubleIsInf;
+    }
+  else if( value==0 )
+    {
+     kind=DoubleIsNull;
+    }
+  else
+    {
+     if( value<0 )
+       {
+        kind=DoubleIsNeg;
+        value=-value;
+       }
+     else
+       {
+        kind=DoubleIsPos;
+       }
+
+     // TODO
 
      digit_len=Cap<unsigned>(6,digit_len_,16);
 
@@ -104,6 +151,50 @@ DoubleToDec::DoubleToDec(double value,unsigned digit_len)
 
      base.do_uint(obj.base);
     }
+ }
+
+ulen DoubleToDec::getDecLen(IntShowSign show_sign) const
+ {
+  PrintCount<void> out;
+
+  printDec(out,show_sign);
+
+  return out.getCount();
+ }
+
+ulen DoubleToDec::getExpLen(IntShowSign show_sign) const
+ {
+  PrintCount<void> out;
+
+  printExp(out,show_sign);
+
+  return out.getCount();
+ }
+
+/* class DoubleToHex */
+
+DoubleToHex::DoubleToHex(double value)
+ : base(16)
+ {
+  DoubleTo2Based obj(value);
+
+  kind=obj.kind;
+
+  if( kind==DoubleIsPos || kind==DoubleIsNeg )
+    {
+     bin_exp=obj.bin_exp;
+
+     base.do_uint(obj.base);
+    }
+ }
+
+ulen DoubleToHex::getLen() const
+ {
+  PrintCount<void> out;
+
+  print(out);
+
+  return out.getCount();
  }
 
 /* struct DoublePrintOpt */

@@ -17,6 +17,7 @@
 #define CCore_inc_math_DoubleUtils_h
 
 #include <CCore/inc/base/DoubleFormat.h>
+
 #include <CCore/inc/Printf.h>
 
 namespace CCore {
@@ -31,6 +32,8 @@ namespace CCore {
 
 struct DoublePrintOpt;
 
+struct DoubleTo2Based;
+
 struct DoubleTo10Based;
 
 class DoubleToDec;
@@ -41,7 +44,9 @@ class DoubleDecPrint;
 
 class DoubleHexPrint;
 
-class DoublePrintProxy;
+class DoublePrint;
+
+struct DoublePrintProxy;
 
 /* enum DoubleKind */
 
@@ -178,6 +183,24 @@ struct DoublePrintOpt
   //
  };
 
+/* struct DoubleTo2Based */
+
+struct DoubleTo2Based : NoCopy
+ {
+  DoubleKind kind;
+
+  // only for Pos or Neg values
+
+  using BaseType = uint64;
+
+  int bin_exp;
+  BaseType base;
+
+  // base*10^dec_exp
+
+  explicit DoubleTo2Based(double value);
+ };
+
 /* struct DoubleTo10Based */
 
 struct DoubleTo10Based : NoCopy
@@ -300,23 +323,9 @@ class DoubleToDec : NoCopy
        }
     }
 
-   ulen getDecLen(IntShowSign show_sign) const
-    {
-     PrintCount<void> out;
+   ulen getDecLen(IntShowSign show_sign) const;
 
-     printDec(out,show_sign);
-
-     return out.getCount();
-    }
-
-   ulen getExpLen(IntShowSign show_sign) const
-    {
-     PrintCount<void> out;
-
-     printExp(out,show_sign);
-
-     return out.getCount();
-    }
+   ulen getExpLen(IntShowSign show_sign) const;
 
    void printDec(PrinterType auto &out,IntShowSign show_sign) const
     {
@@ -397,23 +406,71 @@ class DoubleToDec : NoCopy
 
 /* class DoubleToHex */
 
-class DoubleToHex : NoCopy // TODO
+class DoubleToHex : NoCopy
  {
+   DoubleKind kind;
+
+   // only for Pos or Neg values
+
+   int bin_exp;
+   IntToStr base;
+
+  private:
+
+   void printExp(PrinterType auto &out) const
+    {
+     StrLen str=base.getStr();
+
+     if( !str )
+       {
+        out.put('0');
+        return;
+       }
+
+     Printf(out,"0x#;P#;",str,bin_exp);
+    }
+
   public:
 
    explicit DoubleToHex(double value);
 
-   ulen getLen() const
-    {
-     PrintCount<void> out;
-
-     print(out);
-
-     return out.getCount();
-    }
+   ulen getLen() const;
 
    void print(PrinterType auto &out) const
     {
+     switch( kind )
+       {
+        case DoubleIsNan :
+         {
+          Putobj(out,"NaN"_c);
+         }
+        break;
+
+        case DoubleIsInf :
+         {
+          Putobj(out,"Inf"_c);
+         }
+        break;
+
+        case DoubleIsPos :
+         {
+          printExp(out);
+         }
+        break;
+
+        case DoubleIsNull :
+         {
+          out.put('0');
+         }
+        break;
+
+        case DoubleIsNeg :
+         {
+          out.put('-');
+          printExp(out);
+         }
+        break;
+       }
     }
  };
 
@@ -516,15 +573,15 @@ class DoubleHexPrint : NoCopy
     }
  };
 
-/* class DoublePrintProxy */
+/* class DoublePrint */
 
-class DoublePrintProxy
+class DoublePrint
  {
    double value;
 
   public:
 
-   explicit DoublePrintProxy(double value_) : value(value_) {}
+   explicit DoublePrint(double value_) : value(value_) {}
 
    using PrintOptType = DoublePrintOpt ;
 
@@ -553,7 +610,15 @@ class DoublePrintProxy
     }
  };
 
-/* struct PrintProxy<T> */
+/* struct DoublePrintProxy */
+
+struct DoublePrintProxy
+ {
+  using OptType = DoublePrintOpt ;
+  using ProxyType = DoublePrint ;
+ };
+
+/* struct PrintProxy */
 
 template <>
 struct PrintProxy<float> : DoublePrintProxy {};

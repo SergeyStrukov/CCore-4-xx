@@ -75,6 +75,17 @@ void test1()
   ShowOpt("+20x.8.e15R");
  }
 
+/* test2() */
+
+void test2()
+ {
+  Printf(Con,"#;\n",3.14159);
+  Printf(Con,"#;\n",1.23456E+100);
+  Printf(Con,"#;\n",1.23456E-100);
+  Printf(Con,"#x;\n",1.);
+  Printf(Con,"#x;\n",1000000000.);
+ }
+
 } // namespace Private_2063
 
 using namespace Private_2063;
@@ -87,7 +98,8 @@ const char *const Testit<2063>::Name="Test2063 DoubleUtils";
 template<>
 bool Testit<2063>::Main()
  {
-  test1();
+  //test1();
+  test2();
 
   return true;
  }
