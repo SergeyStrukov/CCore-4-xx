@@ -15,6 +15,8 @@
 
 #include <CCore/test/test.h>
 
+#include <cmath>
+
 #include <CCore/inc/math/DoubleUtils.h>
 
 namespace App {
@@ -82,8 +84,18 @@ void test2()
   Printf(Con,"#;\n",3.14159);
   Printf(Con,"#;\n",1.23456E+100);
   Printf(Con,"#;\n",1.23456E-100);
-  Printf(Con,"#x;\n",1.);
-  Printf(Con,"#x;\n",1000000000.);
+  Printf(Con,"#;\n",1.23456E+308);
+  Printf(Con,"#;\n",1.23456E-308);
+  Printf(Con,"#.20;\n",1.234567890123456789E+100);
+  Printf(Con,"#.20;\n",1.234567890123456789E-100);
+  Printf(Con,"| #30xL; |\n",1.);
+  Printf(Con,"| #30xR; |\n",1000000000.);
+
+  for(int e=-50; e<=50 ;e++)
+    Printf(Con,"| #30.20L; |\n",1.234567890123456789*std::pow(10.,e));
+
+  for(int e=-50; e<=50 ;e++)
+    Printf(Con,"| #30R; |\n",1.234567890123456789*std::pow(10.,e));
  }
 
 } // namespace Private_2063

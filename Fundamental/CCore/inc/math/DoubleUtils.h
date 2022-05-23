@@ -196,7 +196,9 @@ struct DoubleTo2Based : NoCopy
   int bin_exp;
   BaseType base;
 
-  // base*10^dec_exp
+  // base*2^bin_exp
+
+  void correct();
 
   explicit DoubleTo2Based(double value);
  };
@@ -249,7 +251,7 @@ class DoubleToDec : NoCopy
      if( dec_exp>=0 )
        {
         out.put(str.ptr,str.len);
-        out.put(ulen(dec_exp),'0');
+        out.put('0',ulen(dec_exp));
         out.put('.');
        }
      else
@@ -268,7 +270,7 @@ class DoubleToDec : NoCopy
           {
            out.put('0');
            out.put('.');
-           if( shift>str.len ) out.put(shift-str.len,'0');
+           if( shift>str.len ) out.put('0',shift-str.len);
            out.put(str.ptr,str.len);
           }
        }
@@ -501,14 +503,14 @@ class DoubleDecPrint : NoCopy
         case DoubleAlignLeft :
          {
           obj.printDec(out,show_sign);
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
          }
         break;
 
         default:
         case DoubleAlignRight :
          {
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
           obj.printDec(out,show_sign);
          }
         break;
@@ -524,14 +526,14 @@ class DoubleDecPrint : NoCopy
         case DoubleAlignLeft :
          {
           obj.printExp(out,show_sign);
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
          }
         break;
 
         default:
         case DoubleAlignRight :
          {
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
           obj.printExp(out,show_sign);
          }
         break;
@@ -558,14 +560,14 @@ class DoubleHexPrint : NoCopy
         case DoubleAlignLeft :
          {
           obj.print(out);
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
          }
         break;
 
         default:
         case DoubleAlignRight :
          {
-          if( len<width ) out.put(width-len,' ');
+          if( len<width ) out.put(' ',width-len);
           obj.print(out);
          }
         break;

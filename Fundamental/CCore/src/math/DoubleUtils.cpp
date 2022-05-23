@@ -23,47 +23,57 @@ namespace CCore {
 
 /* struct DoubleTo2Based */
 
+void DoubleTo2Based::correct()
+ {
+  unsigned delta=UIntFunc<BaseType>::CountZeroLSB(base);
+
+  base>>=delta;
+  bin_exp+=delta;
+ }
+
 DoubleTo2Based::DoubleTo2Based(double value)
  {
-  if( std::isnan(value) )
+  DoubleFormat obj(value);
+
+  unsigned exp=obj.getExp();
+
+  static constexpr int DExp = DoubleFormat::ExpBias+DoubleFormat::FractBits ;
+
+  if( exp==DoubleFormat::MaxExp )
     {
-     kind=DoubleIsNan;
-    }
-  else if( std::isinf(value) )
-    {
-     kind=DoubleIsInf;
-    }
-  else if( value==0 )
-    {
-     kind=DoubleIsNull;
-    }
-  else
-    {
-     if( value<0 )
+     if( obj.getFract() )
        {
-        kind=DoubleIsNeg;
-        value=-value;
+        kind=DoubleIsNan;
        }
      else
        {
-        kind=DoubleIsPos;
+        kind=DoubleIsInf;
        }
+    }
+  else if( exp )
+    {
+     kind = obj.getSign()? DoubleIsNeg : DoubleIsPos ;
 
-     // TODO
+     bin_exp=int(exp)-DExp;
+     base=obj.getFract()+(1+DoubleFormat::MaxFract);
 
-     value=std::frexp(value,&bin_exp);
+     correct();
+    }
+  else
+    {
+     base=obj.getFract();
 
-     int delta=53;
-
-     value=std::ldexp(value,delta);
-     bin_exp-=delta;
-
-     base=static_cast<BaseType>(value);
-
-     while( !(base&1u) )
+     if( base )
        {
-        base>>=1;
-        bin_exp++;
+        kind = obj.getSign()? DoubleIsNeg : DoubleIsPos ;
+
+        bin_exp=1-DExp;
+
+        correct();
+       }
+     else
+       {
+        kind=DoubleIsNull;
        }
     }
  }
