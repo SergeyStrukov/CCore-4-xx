@@ -98,6 +98,35 @@ void test2()
     Printf(Con,"| #30R; |\n",1.234567890123456789*std::pow(10.,e));
  }
 
+/* test3() */
+
+void test3()
+ {
+  DoubleFormat obj;
+
+  obj.setExp(DoubleFormat::MaxExp);
+
+  Printf(Con,"#;\n",obj.get());
+
+  obj.setFract(1);
+
+  Printf(Con,"#;\n",obj.get());
+
+  Printf(Con,"#;\n",0.);
+ }
+
+/* test4() */
+
+void test4()
+ {
+  Printf(Con,"#x;\n",std::ldexp(1.,1023));         // max pow2
+  Printf(Con,"#x;\n",0xF'FFFF'FFFF'FFFFP972);      // max
+  Printf(Con,"#x;\n",std::ldexp(2.-0x1P-51,1023)); // max
+  Printf(Con,"#x;\n",std::ldexp(1.,1024));         // inf
+  Printf(Con,"#x;\n",std::ldexp(1.,-1074));        // min
+  Printf(Con,"#x;\n",std::ldexp(1.,-1075));        // 0
+ }
+
 } // namespace Private_2063
 
 using namespace Private_2063;
@@ -111,7 +140,9 @@ template<>
 bool Testit<2063>::Main()
  {
   //test1();
-  test2();
+  //test2();
+  //test3();
+  test4();
 
   return true;
  }
