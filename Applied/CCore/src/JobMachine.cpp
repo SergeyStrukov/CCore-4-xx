@@ -47,6 +47,26 @@ JobObject * JobList::get()
   return normal.del_first();
  }
 
+/* class JobQueue */
+
+JobQueue::JobQueue()
+ {
+ }
+
+JobQueue::~JobQueue()
+ {
+ }
+
+void JobQueue::add(JobObject *job)
+ {
+  queue.ins_last(job);
+ }
+
+JobObject * JobQueue::get()
+ {
+  return queue.del_first();
+ }
+
 /* class JobMachine */
 
 JobObject * JobMachine::getJob()

@@ -27,7 +27,11 @@ namespace CCore {
 
 class JobObject;
 
+class JobAccObject;
+
 class JobList;
+
+class JobQueue;
 
 class JobMachine;
 
@@ -42,6 +46,7 @@ class JobObject : public MemBase_nocopy
    DLink<JobObject> link;
 
    friend class JobList;
+   friend class JobQueue;
 
   public:
 
@@ -50,6 +55,19 @@ class JobObject : public MemBase_nocopy
    virtual ~JobObject() {}
 
    virtual void job(bool stop_flag)=0;
+ };
+
+/* class JobAccObject */
+
+class JobAccObject : public JobObject
+ {
+  public:
+
+   JobAccObject();
+
+   virtual ~JobAccObject() {}
+
+   virtual void setupAcc()=0;
  };
 
 /* class JobList */
@@ -74,12 +92,29 @@ class JobList : NoCopy
    JobObject * get();
  };
 
+/* class JobQueue */
+
+class JobQueue : NoCopy
+ {
+   using Algo = DLink<JobObject>::LinearAlgo<&JobObject::link>;
+
+   Algo::FirstLast queue;
+
+  public:
+
+   JobQueue();
+
+   ~JobQueue();
+
+   void add(JobObject *job);
+
+   JobObject * get();
+ };
+
 /* class JobMachine */
 
 class JobMachine : NoCopy
  {
-  private:
-
    Sem sem;
    Mutex mutex;
    Atomic stop_flag;
