@@ -28,6 +28,10 @@ JobList::JobList()
 
 JobList::~JobList()
  {
+  if( +normal || +pri )
+    {
+     Abort("Fatal error: non-empty JobList on exit");
+    }
  }
 
 void JobList::add(JobObject *job)
@@ -55,6 +59,10 @@ JobQueue::JobQueue()
 
 JobQueue::~JobQueue()
  {
+  if( +queue )
+    {
+     Abort("Fatal error: non-empty JobQueue on exit");
+    }
  }
 
 void JobQueue::add(JobObject *job)
