@@ -146,6 +146,7 @@ OBJ_LIST = \
 ../.test-obj/test3038.CmdlineParser.o \
 ../.test-obj/test3039.IntervalTree.o \
 ../.test-obj/test3040.Deflate.o \
+../.test-obj/test3041.JobMachine.o \
 ../.test-obj/test4001.Mutex.o \
 ../.test-obj/test4002.Sem.o \
 ../.test-obj/test4003.Event.o \
@@ -352,6 +353,7 @@ ASM_LIST = \
 ../.test-obj/test3038.CmdlineParser.s \
 ../.test-obj/test3039.IntervalTree.s \
 ../.test-obj/test3040.Deflate.s \
+../.test-obj/test3041.JobMachine.s \
 ../.test-obj/test4001.Mutex.s \
 ../.test-obj/test4002.Sem.s \
 ../.test-obj/test4003.Event.s \
@@ -558,6 +560,7 @@ DEP_LIST = \
 ../.test-obj/test3038.CmdlineParser.dep \
 ../.test-obj/test3039.IntervalTree.dep \
 ../.test-obj/test3040.Deflate.dep \
+../.test-obj/test3041.JobMachine.dep \
 ../.test-obj/test4001.Mutex.dep \
 ../.test-obj/test4002.Sem.dep \
 ../.test-obj/test4003.Event.dep \
@@ -1061,6 +1064,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test3040.Deflate.o : ../../../Applied/CCore/test/test3040.Deflate.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+../.test-obj/test3041.JobMachine.o : ../../../Applied/CCore/test/test3041.JobMachine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 ../.test-obj/test4001.Mutex.o : ../../../HCore/CCore/test/test4001.Mutex.cpp
@@ -1674,6 +1680,9 @@ include $(RULES_FILE)
 ../.test-obj/test3040.Deflate.s : ../../../Applied/CCore/test/test3040.Deflate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+../.test-obj/test3041.JobMachine.s : ../../../Applied/CCore/test/test3041.JobMachine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 ../.test-obj/test4001.Mutex.s : ../../../HCore/CCore/test/test4001.Mutex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2284,6 +2293,9 @@ include $(RULES_FILE)
 
 ../.test-obj/test3040.Deflate.dep : ../../../Applied/CCore/test/test3040.Deflate.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3040.Deflate.o $< -MF $@
+
+../.test-obj/test3041.JobMachine.dep : ../../../Applied/CCore/test/test3041.JobMachine.cpp
+	$(CC) $(CCOPT) -MM -MT ../.test-obj/test3041.JobMachine.o $< -MF $@
 
 ../.test-obj/test4001.Mutex.dep : ../../../HCore/CCore/test/test4001.Mutex.cpp
 	$(CC) $(CCOPT) -MM -MT ../.test-obj/test4001.Mutex.o $< -MF $@

@@ -137,6 +137,7 @@ OBJ_LIST = \
 .obj/InterfaceHost.o \
 .obj/IntervalTree.o \
 .obj/Job.o \
+.obj/JobMachine.o \
 .obj/LaunchPath.o \
 .obj/Len.o \
 .obj/LineInput.o \
@@ -502,6 +503,7 @@ ASM_LIST = \
 .obj/InterfaceHost.s \
 .obj/IntervalTree.s \
 .obj/Job.s \
+.obj/JobMachine.s \
 .obj/LaunchPath.s \
 .obj/Len.s \
 .obj/LineInput.s \
@@ -867,6 +869,7 @@ DEP_LIST = \
 .obj/InterfaceHost.dep \
 .obj/IntervalTree.dep \
 .obj/Job.dep \
+.obj/JobMachine.dep \
 .obj/LaunchPath.dep \
 .obj/Len.dep \
 .obj/LineInput.dep \
@@ -1519,6 +1522,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Job.o : ../../Fundamental/CCore/src/Job.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/JobMachine.o : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/LaunchPath.o : ../../HCore/CCore/src/LaunchPath.cpp
@@ -2609,6 +2615,9 @@ include $(RULES_FILE)
 .obj/Job.s : ../../Fundamental/CCore/src/Job.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/JobMachine.s : ../../Applied/CCore/src/JobMachine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/LaunchPath.s : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3696,6 +3705,9 @@ include $(RULES_FILE)
 
 .obj/Job.dep : ../../Fundamental/CCore/src/Job.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Job.o $< -MF $@
+
+.obj/JobMachine.dep : ../../Applied/CCore/src/JobMachine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/JobMachine.o $< -MF $@
 
 .obj/LaunchPath.dep : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LaunchPath.o $< -MF $@
