@@ -65,16 +65,13 @@ void test1()
       const int *src=inp.getPtr()+ind;
       int *dst=out.getPtr()+ind;
 
-      AddFuncJob( [=,&asem] ()
+      AddFuncJob( [=] ()
                   {
-                   //Printf(Con,"[#;,+#;]\n",ind,len);
+                   Printf(Con,"[#;,+#;]\n",ind,len);
 
                    AlgoNeg(src,dst,len);
 
-                   asem.dec();
-                  } );
-
-      asem.inc();
+                  } ,asem);
 
       ind+=len;
      }
@@ -94,16 +91,13 @@ void test1()
       const int *src=inp.getPtr()+ind;
       int *dst=out.getPtr()+ind;
 
-      AddFuncJob( [=,&asem,&nok] ()
+      AddFuncJob( [=,&nok] ()
                   {
-                   //Printf(Con,"[#;,+#;]\n",ind,len);
+                   Printf(Con,"[#;,+#;]\n",ind,len);
 
                    if( !AlgoTestNeg(src,dst,len) ) nok=1;
 
-                   asem.dec();
-                  } );
-
-      asem.inc();
+                  } ,asem);
 
       ind+=len;
      }

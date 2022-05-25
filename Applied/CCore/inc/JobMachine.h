@@ -41,6 +41,8 @@ class JobMachineInit;
 
 template <FuncInitArgType<> FuncInit> class FuncJobObject;
 
+template <FuncInitArgType<> FuncInit> class FuncJobAntiSemObject;
+
 /* class JobObject */
 
 class JobObject : public MemBase_nocopy
@@ -107,6 +109,10 @@ class JobQueue : NoCopy
    JobQueue();
 
    ~JobQueue();
+
+   bool isEmpty() const { return !queue; }
+
+   bool notEmpty() const { return +queue; }
 
    void add(JobObject *job);
 
@@ -208,6 +214,33 @@ class FuncJobObject : public JobObject
     }
  };
 
+/* class FuncJobAntiSemObject<FuncInit> */
+
+template <FuncInitArgType<> FuncInit>
+class FuncJobAntiSemObject : public JobObject
+ {
+   FunctorTypeOf<FuncInit> func;
+   AntiSem &asem;
+
+  public:
+
+   FuncJobAntiSemObject(const FuncInit &func_init,AntiSem &asem_) : func(func_init),asem(asem_) {}
+
+   virtual ~FuncJobAntiSemObject() {}
+
+   virtual void job(bool stop_flag)
+    {
+     ScopeGuard guard( [this] ()
+                       {
+                        asem.dec();
+
+                        delete this;
+                       } );
+
+     if( !stop_flag ) func();
+    }
+ };
+
 /* functions */
 
 inline void AddJob(JobObject *job) { JobMachineInit::Add(job); }
@@ -222,6 +255,15 @@ JobObject * CreateFuncJob(FuncInitArgType<> auto func_init)
 void AddFuncJob(FuncInitArgType<> auto func_init)
  {
   AddJob(CreateFuncJob(func_init));
+ }
+
+void AddFuncJob(FuncInitArgType<> auto func_init,AntiSem &asem)
+ {
+  JobObject *job=new FuncJobAntiSemObject(func_init,asem);
+
+  asem.inc();
+
+  AddJob(job);
  }
 
 } // namespace CCore
