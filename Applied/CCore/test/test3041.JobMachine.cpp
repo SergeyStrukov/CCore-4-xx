@@ -62,15 +62,17 @@ void test1()
    for(ulen ind=0; ind<total ;)
      {
       ulen len=Min<ulen>(delta,total-ind);
+      const int *src=inp.getPtr()+ind;
+      int *dst=out.getPtr()+ind;
 
-      AddFuncJob( [&inp,&out,ind,len,&asem] ()
-                 {
-                  Printf(Con,"[#;,+#;]\n",ind,len);
+      AddFuncJob( [=,&asem] ()
+                  {
+                   //Printf(Con,"[#;,+#;]\n",ind,len);
 
-                  AlgoNeg(inp.getPtr()+ind,out.getPtr()+ind,len);
+                   AlgoNeg(src,dst,len);
 
-                  asem.dec();
-                 } );
+                   asem.dec();
+                  } );
 
       asem.inc();
 
@@ -78,7 +80,7 @@ void test1()
      }
   }
 
-  bool nok=false;
+  Atomic nok;
 
   {
    ScopeGuard guard( [&] () { asem.wait(); } );
@@ -89,15 +91,17 @@ void test1()
    for(ulen ind=0; ind<total ;)
      {
       ulen len=Min<ulen>(delta,total-ind);
+      const int *src=inp.getPtr()+ind;
+      int *dst=out.getPtr()+ind;
 
-      AddFuncJob( [&inp,&out,ind,len,&asem,&nok] ()
-                 {
-                  Printf(Con,"[#;,+#;]\n",ind,len);
+      AddFuncJob( [=,&asem,&nok] ()
+                  {
+                   //Printf(Con,"[#;,+#;]\n",ind,len);
 
-                  if( !AlgoTestNeg(inp.getPtr()+ind,out.getPtr()+ind,len) ) nok=true;
+                   if( !AlgoTestNeg(src,dst,len) ) nok=1;
 
-                  asem.dec();
-                 } );
+                   asem.dec();
+                  } );
 
       asem.inc();
 

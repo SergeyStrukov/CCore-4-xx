@@ -33,6 +33,8 @@ class JobList;
 
 class JobQueue;
 
+class JobSet;
+
 class JobMachine;
 
 class JobMachineInit;
@@ -109,6 +111,23 @@ class JobQueue : NoCopy
    void add(JobObject *job);
 
    JobObject * get();
+
+   void destroyAll();
+ };
+
+/* class JobSet */
+
+class JobSet : NoCopy
+ {
+   JobQueue queue;
+
+  public:
+
+   JobSet() {}
+
+   ~JobSet() { queue.destroyAll(); }
+
+   JobObject * add(JobObject *job) { queue.add(job); return job; }
  };
 
 /* class JobMachine */

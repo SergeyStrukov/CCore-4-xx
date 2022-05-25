@@ -75,6 +75,14 @@ JobObject * JobQueue::get()
   return queue.del_first();
  }
 
+void JobQueue::destroyAll()
+ {
+  while( JobObject *job=get() )
+    {
+     delete job;
+    }
+ }
+
 /* class JobMachine */
 
 JobObject * JobMachine::getJob()
