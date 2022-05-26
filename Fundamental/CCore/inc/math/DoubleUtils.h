@@ -194,7 +194,7 @@ struct DoubleTo2Based : NoCopy
   using BaseType = uint64;
 
   int bin_exp;
-  BaseType base;
+  BaseType base; // odd
 
   // base*2^bin_exp
 
@@ -219,7 +219,10 @@ struct DoubleTo10Based : NoCopy
 
   // base*10^dec_exp
 
-  static int DecExp(double value); // value > 0
+  static double Pow10hi(int dec_exp);
+  static int DecExp(double value,int bin_exp);
+
+  void complete(double value,unsigned digit_len,int bin_exp);
 
   DoubleTo10Based(double value,unsigned digit_len);
  };

@@ -18,6 +18,7 @@
 #include <cmath>
 
 #include <CCore/inc/math/DoubleUtils.h>
+#include <CCore/inc/Print.h>
 
 namespace App {
 
@@ -127,6 +128,43 @@ void test4()
   Printf(Con,"#x;\n",std::ldexp(1.,-1075));        // 0
  }
 
+/* test5() */
+
+void test5()
+ {
+  static constexpr int DExp = DoubleFormat::ExpBias+DoubleFormat::FractBits ;
+  static constexpr int MinBinExp = 1-DExp ;
+  static constexpr int MaxBinExp = DoubleFormat::MaxExp-1-DoubleFormat::ExpBias ;
+
+  Printf(Con,"DExp = #; MinBinExp = #; MaxBinExp = #;\n",DExp,MinBinExp,MaxBinExp);
+
+  const double M=std::log10(2);
+
+  PrintFile out("test.txt");
+
+  int ind=0;
+  int line=20;
+
+  for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
+    {
+     double mul=M*bin_exp;
+     int dec_exp=(int)std::ceil(mul);
+
+     if( dec_exp-mul>1-0.0001 ) Printf(Con,"#; ???\n",bin_exp);
+
+     if( ind==0 ) Putobj(out,"    ");
+
+     Printf(out,"#4; ,",dec_exp);
+
+     if( ++ind>=line ) ind=0;
+
+     if( ind==0 )
+       Putch(out,'\n');
+     else
+       Putch(out,' ');
+    }
+ }
+
 } // namespace Private_2063
 
 using namespace Private_2063;
@@ -142,7 +180,8 @@ bool Testit<2063>::Main()
   //test1();
   //test2();
   //test3();
-  test4();
+  //test4();
+  test5();
 
   return true;
  }
