@@ -220,6 +220,7 @@ struct DoubleTo10Based : NoCopy
   // base*10^dec_exp
 
   static double Pow10hi(int dec_exp);
+  static int DecExp(int bin_exp);
   static int DecExp(double value,int bin_exp);
 
   void complete(double value,unsigned digit_len,int bin_exp);
