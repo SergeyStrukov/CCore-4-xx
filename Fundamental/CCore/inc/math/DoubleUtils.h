@@ -219,6 +219,7 @@ struct DoubleTo10Based : NoCopy
 
   // base*10^dec_exp
 
+  static double Pow10lo(int dec_exp);
   static double Pow10hi(int dec_exp);
   static int DecExp(int bin_exp);
   static int DecExp(double value,int bin_exp);
@@ -236,7 +237,6 @@ class DoubleToDec : NoCopy
 
    // only for Pos or Neg values
 
-   int digit_len;
    int dec_exp;
    IntToStr base;
 

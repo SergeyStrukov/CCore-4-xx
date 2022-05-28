@@ -19,6 +19,10 @@
 
 #include <CCore/inc/math/DoubleUtils.h>
 #include <CCore/inc/Print.h>
+#include <CCore/inc/Random.h>
+
+#include <CCore/inc/math/IntegerFastAlgo.h>
+#include <CCore/inc/math/Integer.h>
 
 namespace App {
 
@@ -132,37 +136,226 @@ void test4()
 
 void test5()
  {
-  static constexpr int DExp = DoubleFormat::ExpBias+DoubleFormat::FractBits ;
-  static constexpr int MinBinExp = 1-DExp ;
-  static constexpr int MaxBinExp = DoubleFormat::MaxExp-1-DoubleFormat::ExpBias ;
-
-  Printf(Con,"DExp = #; MinBinExp = #; MaxBinExp = #;\n",DExp,MinBinExp,MaxBinExp);
-
-  const double M=std::log10(2);
+  static constexpr int MinDecExp = -323 ;
+  static constexpr int MaxDecExp =  308 ;
 
   PrintFile out("test.txt");
 
-  int ind=0;
-  int line=20;
-
-  for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
+  for(int dec_exp=MinDecExp; dec_exp<=MaxDecExp ;dec_exp++)
     {
-     double mul=M*bin_exp;
-     int dec_exp=(int)std::ceil(mul);
+     double lo=DoubleTo10Based::Pow10lo(dec_exp);
+     double hi=DoubleTo10Based::Pow10hi(dec_exp);
 
-     if( dec_exp-mul>1-0.0001 ) Printf(Con,"#; ???\n",bin_exp);
-
-     if( ind==0 ) Putobj(out,"    ");
-
-     Printf(out,"#4; ,",dec_exp);
-
-     if( ++ind>=line ) ind=0;
-
-     if( ind==0 )
-       Putch(out,'\n');
-     else
-       Putch(out,' ');
+     Printf(out,"#; #.16; #.16;\n",dec_exp,lo,hi);
     }
+ }
+
+/* class Engine */
+
+class Engine : NoCopy
+ {
+   PrintFile out;
+   Random random;
+
+  private:
+
+   static constexpr int DExp = DoubleFormat::ExpBias+DoubleFormat::FractBits ;
+   static constexpr int MinBinExp = 1-DExp ;
+   static constexpr int MinNormBinExp = 1-DoubleFormat::ExpBias ;
+   static constexpr int MaxBinExp = DoubleFormat::MaxExp-1-DoubleFormat::ExpBias ;
+
+   using BodyType = DoubleFormat::BodyType;
+
+   using Int = Math::Integer<Math::IntegerFastAlgo> ;
+
+   struct Delta
+    {
+     Int x;
+     Int y;
+
+     Delta(BodyType bin,int bin_exp,BodyType dec,int dec_exp)
+      {
+       if( dec_exp>=0 )
+         {
+          if( bin_exp>=0 )
+            {
+             y=Int(10).pow(dec_exp);
+             x=dec*y-bin*Int(2).pow(bin_exp);
+            }
+          else
+            {
+             y=Int(10).pow(dec_exp)*Int(2).pow(-bin_exp);
+             x=dec*y-bin;
+            }
+         }
+       else
+        {
+         Int c=bin*Int(10).pow(-dec_exp);
+
+         if( bin_exp>=0 )
+           {
+            y=1;
+            x=dec-c*Int(2).pow(bin_exp);
+           }
+         else
+           {
+            y=Int(2).pow(-bin_exp);
+            x=dec*y-c;
+           }
+        }
+      }
+
+     struct Val
+      {
+       bool pos;
+       unsigned val;
+
+       void print(PrinterType auto &out) const
+        {
+         if( pos )
+           {
+            Printf(out,"+ #.f3;",val);
+           }
+         else
+           {
+            Printf(out,"- #.f3;",val);
+           }
+        }
+      };
+
+     Val get() const
+      {
+       bool pos;
+       Int t;
+
+       if( x>=0 )
+         {
+          t=(1000*x)/y;
+          pos=false;
+         }
+       else
+         {
+          t=(-1000*x)/y;
+          pos=true;
+         }
+
+       if( t>100'000 )
+         {
+          Printf(Exception,"fail");
+         }
+
+       return {pos,t.cast<unsigned>()};
+      }
+    };
+
+   void test(double value,unsigned digit_len)
+    {
+     DoubleTo2Based bin(value);
+     DoubleTo10Based dec(value,digit_len);
+
+     Delta delta(bin.base,bin.bin_exp,dec.base,dec.dec_exp);
+     auto val=delta.get();
+
+     addVal(val);
+
+     if( !val.pos && val.val>=1000 )
+       {
+        Printf(out,"  #; 2^#; ",bin.base,bin.bin_exp);
+        Printf(out," ->  #; #; 10^#;\n",dec.base,val,dec.dec_exp);
+       }
+    }
+
+   void test(double value)
+    {
+     for(unsigned digit_len=6; digit_len<=16 ;digit_len++)
+       {
+        test(value,digit_len);
+       }
+    }
+
+   BodyType genBody() { return random.next_uint<BodyType>(); }
+
+   double gen(int bin_exp,unsigned ones)
+    {
+     DoubleFormat obj;
+
+     static constexpr auto MaxFract = DoubleFormat::MaxFract;
+     static constexpr auto ExpBias = DoubleFormat::ExpBias;
+
+     if( bin_exp>=MinNormBinExp )
+       {
+        obj.setExp(bin_exp+ExpBias);
+
+        auto fract=genBody();
+        auto mask=MaxFract^(MaxFract>>ones);
+
+        obj.setFract(fract|mask);
+       }
+     else
+       {
+        obj.setExp(0);
+
+        auto fract=MaxFract+1;
+        auto mask=MaxFract^(MaxFract>>ones);
+
+        obj.setFract((fract|mask)>>(MinNormBinExp-bin_exp));
+       }
+
+     return obj.get();
+    }
+
+  private:
+
+   unsigned posVal = 0 ;
+   unsigned negVal = 0 ;
+
+   void addVal(Delta::Val val)
+    {
+     if( val.pos )
+       {
+        Replace_max(posVal,val.val);
+       }
+     else
+       {
+        Replace_max(negVal,val.val);
+       }
+    }
+
+  public:
+
+   Engine() : out("test.txt") {}
+
+   ~Engine() {}
+
+   void step()
+    {
+     for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
+       {
+        test(gen(bin_exp,0));
+       }
+    }
+
+   void run(unsigned count=10000)
+    {
+     while( count-- )
+       {
+        step();
+
+        if( count<10 || (count%100)==0 ) Printf(Con,"count = #;\n",count);
+       }
+
+     Printf(Con,"- #.f3;\n",negVal);
+     Printf(Con,"+ #.f3;\n",posVal);
+    }
+  };
+
+/* test6() */
+
+void test6()
+ {
+  Engine engine;
+
+  engine.run();
  }
 
 } // namespace Private_2063
@@ -178,10 +371,11 @@ template<>
 bool Testit<2063>::Main()
  {
   //test1();
-  //test2();
+  test2();
   //test3();
   //test4();
   //test5();
+  //test6();
 
   return true;
  }

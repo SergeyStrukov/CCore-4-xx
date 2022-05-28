@@ -79,47 +79,109 @@ static RecTable Table;
 static int MinDecExp=0;
 static int MaxDecExp=0;
 
-static DynArray<double> Pow10hi;
+struct Span
+ {
+  double lo;
+  double hi;
+ };
+
+class PowTable : NoCopy
+ {
+   DynArray<Span> table;
+
+  public:
+
+   PowTable() {}
+
+   ~PowTable() {}
+
+   void alloc() { table.extend_raw(MaxDecExp-MinDecExp+1); }
+
+   Span & operator [] (int dec_exp) { return table[dec_exp-MinDecExp]; }
+
+   auto getRange() { return Range(table); }
+ };
+
+static PowTable Pow10;
 
 /* functions */
 
-double ToDoubleHi(Int x)
+double BaseToDouble(Int x)
+ {
+  return x.cast<DoubleFormat::BodyType>();
+ }
+
+double BaseToDouble(Int x,int e)
+ {
+  return std::ldexp(x.cast<DoubleFormat::BodyType>(),e);
+ }
+
+Span ToDouble(Int x)
  {
   unsigned bits=x.bitsOf().total();
+  unsigned fit=DoubleFormat::FractBits+1;
 
-  if( bits>DoubleFormat::FractBits )
+  if( bits>fit )
     {
-     unsigned extra=bits-DoubleFormat::FractBits-1;
+     unsigned extra=bits-fit;
 
-     Int y=x>>extra; // DoubleFormat::FractBits+1 bits
+     Int y=x>>extra; // fit bits
 
-     if( x>(y<<extra) ) y+=1;
+     double lo=BaseToDouble(y,extra);
 
-     return std::ldexp(y.cast<DoubleFormat::BodyType>(),extra);
+     if( x>(y<<extra) )
+       {
+        double hi=BaseToDouble(y+1,extra);
+
+        return {lo,hi};
+       }
+     else
+       {
+        return {lo,lo};
+       }
     }
   else
     {
-     return x.cast<DoubleFormat::BodyType>();
+     double lo=BaseToDouble(x);
+
+     return {lo,lo};
     }
  }
 
-double InvToDoubleHi(Int x) // not pow2
+Span InvToDouble(Int x) // not pow2
  {
   unsigned bits=x.bitsOf().total();
-  unsigned extra=DoubleFormat::FractBits+1;
+  unsigned extra=DoubleFormat::FractBits;
+  unsigned cap=DoubleFormat::ExpBias-1;
+
+  if( bits>cap )
+    {
+     if( bits>=extra+cap )
+       {
+        extra=0;
+       }
+     else
+       {
+        extra-=(bits-cap);
+       }
+    }
+
   unsigned t=bits+extra;
 
-  DoubleFormat::BodyType y=(Int(2).pow(t)/x).cast<DoubleFormat::BodyType>();
+  Int y=Int(2).pow(t)/x;
 
-  return ldexp(y+1,-(int)t);
+  int e=-(int)t;
+
+  double lo=BaseToDouble(y,e);
+  double hi=BaseToDouble(y+1,e);
+
+  return {lo,hi};
  }
 
 /* Main1() */
 
-void Main1()
+void MakeTable()
  {
-  Printf(Con,"DExp = #; MinBinExp = #; MaxBinExp = #;\n",DExp,MinBinExp,MaxBinExp);
-
   Int x(1);
   Int y(10);
   int dec_exp=1;
@@ -151,7 +213,7 @@ void Main1()
 
      Int y1=10*y;
 
-     if( x>10*y )
+     if( x>y1 )
        {
         dec_exp--;
         y=y1;
@@ -159,21 +221,19 @@ void Main1()
 
      Table[bin_exp]={bin_exp,dec_exp,x,y};
     }
+ }
 
-  MinDecExp=Table[MinBinExp].dec_exp;
-  MaxDecExp=Table[MaxBinExp].dec_exp;
+void MakePow10()
+ {
+  Int y(1);
 
-  Pow10hi.extend_raw(MaxDecExp-MinDecExp+1);
-
-  y=1;
-
-  Pow10hi[0-MinDecExp]=1;
+  Pow10[0]={1,1};
 
   for(int dec_exp=1; dec_exp<=MaxDecExp ;dec_exp++)
     {
      y*=10;
 
-     Pow10hi[dec_exp-MinDecExp]=ToDoubleHi(y);
+     Pow10[dec_exp]=ToDouble(y);
     }
 
   y=1;
@@ -182,51 +242,77 @@ void Main1()
     {
      y*=10;
 
-     Pow10hi[dec_exp-MinDecExp]=InvToDoubleHi(y);
+     Pow10[dec_exp]=InvToDouble(y);
+    }
+ }
+
+void PrintExp(PrintBase &out)
+ {
+  PrintPeriod stem(20,"    "_c," , "_c," ,\n    "_c);
+
+  for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
+    {
+     Printf(out,"#;#4;",*(stem++),Table[bin_exp].dec_exp);
     }
 
-  {
-   PrintFile out("table.txt");
+  Printf(out,"\n\n#;\n\n",TextDivider());
+ }
 
-   for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
-     {
-      Printf(out,"#;\n",Table[bin_exp]);
-     }
-  }
+void PrintLo(PrintBase &out)
+ {
+  Printf(out,"Pow10lo\n\n");
 
-  {
-   PrintFile out("data.txt");
+  PrintPeriod stem(8,"    "_c," , "_c," ,\n    "_c);
 
-   // 1
+  for(Span span : Pow10.getRange() )
+    {
+     Printf(out,"#;#22x;",*(stem++),span.lo);
+    }
 
-   Printf(out,"MinDecExp = #; MaxDecExp = #;\n\n",MinDecExp,MaxDecExp);
+  Printf(out,"\n\n#;\n\n",TextDivider());
+ }
 
-   Printf(out,"#;\n\n",TextDivider());
+void PrintHi(PrintBase &out)
+ {
+  Printf(out,"Pow10hi\n\n");
 
-   // 2
-   {
-    PrintPeriod stem(20,"    "_c," , "_c," ,\n    "_c);
+  PrintPeriod stem(8,"    "_c," , "_c," ,\n    "_c);
 
-    for(int bin_exp=MinBinExp; bin_exp<=MaxBinExp ;bin_exp++)
-      {
-       Printf(out,"#;#4;",*(stem++),Table[bin_exp].dec_exp);
-      }
+  for(Span span : Pow10.getRange() )
+    {
+     Printf(out,"#;#22x;",*(stem++),span.hi);
+    }
 
-    Printf(out,"\n\n#;\n\n",TextDivider());
-   }
+  Printf(out,"\n\n#;\n\n",TextDivider());
+ }
 
-   // 3
-   {
-    PrintPeriod stem(8,"    "_c," , "_c," ,\n    "_c);
+void PrintData()
+ {
+  PrintFile out("data.txt");
 
-    for(double val : Pow10hi )
-      {
-       Printf(out,"#;#22x;",*(stem++),val);
-      }
+  Printf(out,"MinDecExp = #; MaxDecExp = #;\n\n",MinDecExp,MaxDecExp);
 
-    Printf(out,"\n\n#;\n\n",TextDivider());
-   }
-  }
+  Printf(out,"#;\n\n",TextDivider());
+
+  PrintExp(out);
+  PrintLo(out);
+  PrintHi(out);
+ }
+
+void Main1()
+ {
+  Printf(Con,"DExp = #; MinBinExp = #; MaxBinExp = #;\n",DExp,MinBinExp,MaxBinExp);
+
+  MakeTable();
+
+  MinDecExp=Table[MinBinExp].dec_exp;
+  MaxDecExp=Table[MaxBinExp].dec_exp;
+
+  Pow10.alloc();
+
+  MakePow10();
+
+  PrintData();
  }
 
 } // namespace App
