@@ -249,6 +249,7 @@ OBJ_LIST = \
 .obj/RBTreeBase.o \
 .obj/RBTreeLink.o \
 .obj/RBTreeUpLink.o \
+.obj/Radix2FFT.o \
 .obj/RadixHeap.o \
 .obj/Random.o \
 .obj/RangeDel.o \
@@ -615,6 +616,7 @@ ASM_LIST = \
 .obj/RBTreeBase.s \
 .obj/RBTreeLink.s \
 .obj/RBTreeUpLink.s \
+.obj/Radix2FFT.s \
 .obj/RadixHeap.s \
 .obj/Random.s \
 .obj/RangeDel.s \
@@ -981,6 +983,7 @@ DEP_LIST = \
 .obj/RBTreeBase.dep \
 .obj/RBTreeLink.dep \
 .obj/RBTreeUpLink.dep \
+.obj/Radix2FFT.dep \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
 .obj/RangeDel.dep \
@@ -1858,6 +1861,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RBTreeUpLink.o : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Radix2FFT.o : ../../Applied/CCore/src/math/Radix2FFT.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/RadixHeap.o : ../../Fundamental/CCore/src/RadixHeap.cpp
@@ -2951,6 +2957,9 @@ include $(RULES_FILE)
 .obj/RBTreeUpLink.s : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Radix2FFT.s : ../../Applied/CCore/src/math/Radix2FFT.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RadixHeap.s : ../../Fundamental/CCore/src/RadixHeap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -4041,6 +4050,9 @@ include $(RULES_FILE)
 
 .obj/RBTreeUpLink.dep : ../../Fundamental/CCore/src/tree/RBTreeUpLink.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RBTreeUpLink.o $< -MF $@
+
+.obj/Radix2FFT.dep : ../../Applied/CCore/src/math/Radix2FFT.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Radix2FFT.o $< -MF $@
 
 .obj/RadixHeap.dep : ../../Fundamental/CCore/src/RadixHeap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RadixHeap.o $< -MF $@
