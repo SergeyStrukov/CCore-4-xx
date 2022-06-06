@@ -89,40 +89,9 @@ template <class T,class Algo=FFTRootAlgo<T> > class Radix2FFTEngine;
 template <class T>
 struct FFTRootAlgo
  {
-  static T SqRoot(T root)
-   {
-    constexpr double eps = 1e-300; // TODO
-
-    T x=T::I;
-
-    for(;;)
-      {
-       T x1=(x+root/x)/2;
-
-       if( SupNorm(x-x1) < eps ) return x;
-
-       x=x1;
-      }
-   }
-
   static T Root(ulen ind,ulen len) // ind > 0 && ind < len/2 , len is 2^order
    {
-    if( unsigned shift=UIntFunc<ulen>::CountZeroLSB(ind) )
-      {
-       ind>>=shift;
-       len>>=shift;
-      }
-
-    if( len==4 ) return T::I;
-
-    if( ind<len/4 )
-      {
-       return SqRoot(Root(ind,len/2));
-      }
-    else
-      {
-       return SqRoot(Root(ind-len/4,len/2)).mulI();
-      }
+    return T::UniExp(ind,len);
    }
 
   static T Inv(T root) { return root.conj(); }
@@ -156,7 +125,8 @@ class Radix2FFTEngine : NoCopy
  };
 
 template <class T,class Algo>
-Radix2FFTEngine<T,Algo>::Radix2FFTEngine(unsigned max_order)
+Radix2FFTEngine<T,Algo>::Radix2FFTEngine(unsigned max_order_)
+ : max_order(max_order_)
  {
   ulen cap=Meta::UIntBits<ulen>-1;
 

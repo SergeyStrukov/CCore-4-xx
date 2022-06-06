@@ -45,6 +45,7 @@ OBJ_LIST = \
 .obj/CompactList.o \
 .obj/CompactMap.o \
 .obj/CompactNodeAllocator.o \
+.obj/Complex.o \
 .obj/ContainerList.o \
 .obj/Counters.o \
 .obj/Crc.o \
@@ -412,6 +413,7 @@ ASM_LIST = \
 .obj/CompactList.s \
 .obj/CompactMap.s \
 .obj/CompactNodeAllocator.s \
+.obj/Complex.s \
 .obj/ContainerList.s \
 .obj/Counters.s \
 .obj/Crc.s \
@@ -779,6 +781,7 @@ DEP_LIST = \
 .obj/CompactList.dep \
 .obj/CompactMap.dep \
 .obj/CompactNodeAllocator.dep \
+.obj/Complex.dep \
 .obj/ContainerList.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
@@ -1249,6 +1252,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CompactNodeAllocator.o : ../../Fundamental/CCore/src/CompactNodeAllocator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Complex.o : ../../Applied/CCore/src/math/Complex.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ContainerList.o : ../../Fundamental/CCore/src/ContainerList.cpp
@@ -2345,6 +2351,9 @@ include $(RULES_FILE)
 .obj/CompactNodeAllocator.s : ../../Fundamental/CCore/src/CompactNodeAllocator.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Complex.s : ../../Applied/CCore/src/math/Complex.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ContainerList.s : ../../Fundamental/CCore/src/ContainerList.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3438,6 +3447,9 @@ include $(RULES_FILE)
 
 .obj/CompactNodeAllocator.dep : ../../Fundamental/CCore/src/CompactNodeAllocator.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CompactNodeAllocator.o $< -MF $@
+
+.obj/Complex.dep : ../../Applied/CCore/src/math/Complex.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Complex.o $< -MF $@
 
 .obj/ContainerList.dep : ../../Fundamental/CCore/src/ContainerList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ContainerList.o $< -MF $@
