@@ -121,6 +121,8 @@ class Radix2FFTEngine : NoCopy
 
    ulen getLen() const { return buf.getLen(); }
 
+   T getRoot(ulen ind) const { return roots[ind-1]; } // ind > 0 && ind < len/2 , len is 2^max_order
+
    void run(unsigned order,bool inv);
  };
 
