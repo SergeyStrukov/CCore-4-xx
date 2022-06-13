@@ -73,6 +73,8 @@ class SpaceHeap : NoCopy
 
    ~SpaceHeap();
 
+   Space getSpace() const { return space; }
+
    bool isEmpty() const { return heap.isEmpty(); }
 
    void * alloc(ulen len) noexcept;
