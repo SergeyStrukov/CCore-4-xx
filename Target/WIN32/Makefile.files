@@ -139,6 +139,7 @@ OBJ_LIST = \
 .obj/IntervalTree.o \
 .obj/Job.o \
 .obj/JobMachine.o \
+.obj/LangDataMap.o \
 .obj/LaunchPath.o \
 .obj/Len.o \
 .obj/LineInput.o \
@@ -169,6 +170,7 @@ OBJ_LIST = \
 .obj/MultiSignal.o \
 .obj/Mutex.o \
 .obj/MutexSpinCount.o \
+.obj/NanoIPDevice.o \
 .obj/NanoPacket.o \
 .obj/NegBool.o \
 .obj/NetBase.o \
@@ -507,6 +509,7 @@ ASM_LIST = \
 .obj/IntervalTree.s \
 .obj/Job.s \
 .obj/JobMachine.s \
+.obj/LangDataMap.s \
 .obj/LaunchPath.s \
 .obj/Len.s \
 .obj/LineInput.s \
@@ -537,6 +540,7 @@ ASM_LIST = \
 .obj/MultiSignal.s \
 .obj/Mutex.s \
 .obj/MutexSpinCount.s \
+.obj/NanoIPDevice.s \
 .obj/NanoPacket.s \
 .obj/NegBool.s \
 .obj/NetBase.s \
@@ -875,6 +879,7 @@ DEP_LIST = \
 .obj/IntervalTree.dep \
 .obj/Job.dep \
 .obj/JobMachine.dep \
+.obj/LangDataMap.dep \
 .obj/LaunchPath.dep \
 .obj/Len.dep \
 .obj/LineInput.dep \
@@ -905,6 +910,7 @@ DEP_LIST = \
 .obj/MultiSignal.dep \
 .obj/Mutex.dep \
 .obj/MutexSpinCount.dep \
+.obj/NanoIPDevice.dep \
 .obj/NanoPacket.dep \
 .obj/NegBool.dep \
 .obj/NetBase.dep \
@@ -1536,6 +1542,9 @@ include $(RULES_FILE)
 .obj/JobMachine.o : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/LangDataMap.o : ../../Applied/CCore/src/lang/LangDataMap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/LaunchPath.o : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1624,6 +1633,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MutexSpinCount.o : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NanoIPDevice.o : ../../Applied/CCore/src/net/NanoIPDevice.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/NanoPacket.o : ../../Applied/CCore/src/NanoPacket.cpp
@@ -2633,6 +2645,9 @@ include $(RULES_FILE)
 .obj/JobMachine.s : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/LangDataMap.s : ../../Applied/CCore/src/lang/LangDataMap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/LaunchPath.s : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2721,6 +2736,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MutexSpinCount.s : ../../HCore/CCore/src/task/MutexSpinCount.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NanoIPDevice.s : ../../Applied/CCore/src/net/NanoIPDevice.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/NanoPacket.s : ../../Applied/CCore/src/NanoPacket.cpp
@@ -3730,6 +3748,9 @@ include $(RULES_FILE)
 .obj/JobMachine.dep : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/JobMachine.o $< -MF $@
 
+.obj/LangDataMap.dep : ../../Applied/CCore/src/lang/LangDataMap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LangDataMap.o $< -MF $@
+
 .obj/LaunchPath.dep : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LaunchPath.o $< -MF $@
 
@@ -3819,6 +3840,9 @@ include $(RULES_FILE)
 
 .obj/MutexSpinCount.dep : ../../HCore/CCore/src/task/MutexSpinCount.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MutexSpinCount.o $< -MF $@
+
+.obj/NanoIPDevice.dep : ../../Applied/CCore/src/net/NanoIPDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NanoIPDevice.o $< -MF $@
 
 .obj/NanoPacket.dep : ../../Applied/CCore/src/NanoPacket.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/NanoPacket.o $< -MF $@
