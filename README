@@ -29,4 +29,10 @@ CCore 4-xx is built using C++20. It is not fully backward compatible with 3-xx s
 Online documentation is http://sergeystrukov.github.io/CCore-4-01/.
 An there is a brief http://sergeystrukov.github.io/CCore-Sphinx-4-01/brief/brief.html.
 
+See Hack.txt for necessary hack in the standard header.
+
+----------------
+
+In initial development stage now.
+
 ----------------
