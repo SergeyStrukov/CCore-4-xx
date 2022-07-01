@@ -41,6 +41,7 @@ OBJ_LIST = \
 .obj/Cmp.o \
 .obj/CoTask.o \
 .obj/Collector.o \
+.obj/Color.o \
 .obj/CommonIntAlgo.o \
 .obj/CompactList.o \
 .obj/CompactMap.o \
@@ -81,6 +82,7 @@ OBJ_LIST = \
 .obj/DoubleUtils.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
+.obj/EDID.o \
 .obj/EchoDevice.o \
 .obj/ElementPool.o \
 .obj/ErrorText.o \
@@ -102,11 +104,13 @@ OBJ_LIST = \
 .obj/FileToRead.o \
 .obj/ForLoop.o \
 .obj/Forget.o \
+.obj/FrameBuf.o \
 .obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
 .obj/GCDConst.o \
 .obj/Gadget.o \
+.obj/Gamma.o \
 .obj/GenFile.o \
 .obj/GetAbstFile.o \
 .obj/GetAsyncBinaryFile.o \
@@ -120,6 +124,7 @@ OBJ_LIST = \
 .obj/HeapSort.o \
 .obj/Init.o \
 .obj/InstanceLock.o \
+.obj/IntOp.o \
 .obj/IntPrint.o \
 .obj/IntScan.o \
 .obj/Integer.o \
@@ -221,6 +226,7 @@ OBJ_LIST = \
 .obj/PlanInit.o \
 .obj/PlanInit_CCore.o \
 .obj/PlatformBase.o \
+.obj/Point.o \
 .obj/PosSub.o \
 .obj/Pow.o \
 .obj/PretextFileToMem.o \
@@ -284,6 +290,7 @@ OBJ_LIST = \
 .obj/ShortSort.o \
 .obj/Signal.o \
 .obj/SimpleArray.o \
+.obj/SimpleConsole.o \
 .obj/SimpleRotate.o \
 .obj/SingleBridge.o \
 .obj/SingleEchoDevice.o \
@@ -364,6 +371,8 @@ OBJ_LIST = \
 .obj/UniqueToFront.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
+.obj/VideoConsole.o \
+.obj/VideoDevice.o \
 .obj/Volume.o \
 .obj/XPoint.o \
 
@@ -411,6 +420,7 @@ ASM_LIST = \
 .obj/Cmp.s \
 .obj/CoTask.s \
 .obj/Collector.s \
+.obj/Color.s \
 .obj/CommonIntAlgo.s \
 .obj/CompactList.s \
 .obj/CompactMap.s \
@@ -451,6 +461,7 @@ ASM_LIST = \
 .obj/DoubleUtils.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
+.obj/EDID.s \
 .obj/EchoDevice.s \
 .obj/ElementPool.s \
 .obj/ErrorText.s \
@@ -472,11 +483,13 @@ ASM_LIST = \
 .obj/FileToRead.s \
 .obj/ForLoop.s \
 .obj/Forget.s \
+.obj/FrameBuf.s \
 .obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
 .obj/GCDConst.s \
 .obj/Gadget.s \
+.obj/Gamma.s \
 .obj/GenFile.s \
 .obj/GetAbstFile.s \
 .obj/GetAsyncBinaryFile.s \
@@ -490,6 +503,7 @@ ASM_LIST = \
 .obj/HeapSort.s \
 .obj/Init.s \
 .obj/InstanceLock.s \
+.obj/IntOp.s \
 .obj/IntPrint.s \
 .obj/IntScan.s \
 .obj/Integer.s \
@@ -591,6 +605,7 @@ ASM_LIST = \
 .obj/PlanInit.s \
 .obj/PlanInit_CCore.s \
 .obj/PlatformBase.s \
+.obj/Point.s \
 .obj/PosSub.s \
 .obj/Pow.s \
 .obj/PretextFileToMem.s \
@@ -654,6 +669,7 @@ ASM_LIST = \
 .obj/ShortSort.s \
 .obj/Signal.s \
 .obj/SimpleArray.s \
+.obj/SimpleConsole.s \
 .obj/SimpleRotate.s \
 .obj/SingleBridge.s \
 .obj/SingleEchoDevice.s \
@@ -734,6 +750,8 @@ ASM_LIST = \
 .obj/UniqueToFront.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
+.obj/VideoConsole.s \
+.obj/VideoDevice.s \
 .obj/Volume.s \
 .obj/XPoint.s \
 
@@ -781,6 +799,7 @@ DEP_LIST = \
 .obj/Cmp.dep \
 .obj/CoTask.dep \
 .obj/Collector.dep \
+.obj/Color.dep \
 .obj/CommonIntAlgo.dep \
 .obj/CompactList.dep \
 .obj/CompactMap.dep \
@@ -821,6 +840,7 @@ DEP_LIST = \
 .obj/DoubleUtils.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
+.obj/EDID.dep \
 .obj/EchoDevice.dep \
 .obj/ElementPool.dep \
 .obj/ErrorText.dep \
@@ -842,11 +862,13 @@ DEP_LIST = \
 .obj/FileToRead.dep \
 .obj/ForLoop.dep \
 .obj/Forget.dep \
+.obj/FrameBuf.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
 .obj/GCDConst.dep \
 .obj/Gadget.dep \
+.obj/Gamma.dep \
 .obj/GenFile.dep \
 .obj/GetAbstFile.dep \
 .obj/GetAsyncBinaryFile.dep \
@@ -860,6 +882,7 @@ DEP_LIST = \
 .obj/HeapSort.dep \
 .obj/Init.dep \
 .obj/InstanceLock.dep \
+.obj/IntOp.dep \
 .obj/IntPrint.dep \
 .obj/IntScan.dep \
 .obj/Integer.dep \
@@ -961,6 +984,7 @@ DEP_LIST = \
 .obj/PlanInit.dep \
 .obj/PlanInit_CCore.dep \
 .obj/PlatformBase.dep \
+.obj/Point.dep \
 .obj/PosSub.dep \
 .obj/Pow.dep \
 .obj/PretextFileToMem.dep \
@@ -1024,6 +1048,7 @@ DEP_LIST = \
 .obj/ShortSort.dep \
 .obj/Signal.dep \
 .obj/SimpleArray.dep \
+.obj/SimpleConsole.dep \
 .obj/SimpleRotate.dep \
 .obj/SingleBridge.dep \
 .obj/SingleEchoDevice.dep \
@@ -1104,6 +1129,8 @@ DEP_LIST = \
 .obj/UniqueToFront.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
+.obj/VideoConsole.dep \
+.obj/VideoDevice.dep \
 .obj/Volume.dep \
 .obj/XPoint.dep \
 
@@ -1248,6 +1275,9 @@ include $(RULES_FILE)
 .obj/Collector.o : ../../Fundamental/CCore/src/array/Collector.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Color.o : ../../Applied/CCore/src/video/Color.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1368,6 +1398,9 @@ include $(RULES_FILE)
 .obj/DynObject.o : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/EDID.o : ../../Applied/CCore/src/video/EDID.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/EchoDevice.o : ../../Applied/CCore/src/net/EchoDevice.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1431,6 +1464,9 @@ include $(RULES_FILE)
 .obj/Forget.o : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FrameBuf.o : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FuncTask.o : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1444,6 +1480,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Gadget.o : ../../Simple/CCore/src/Gadget.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Gamma.o : ../../Applied/CCore/src/video/Gamma.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GenFile.o : ../../Fundamental/CCore/src/GenFile.cpp
@@ -1483,6 +1522,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/InstanceLock.o : ../../Simple/CCore/src/InstanceLock.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/IntOp.o : ../../Applied/CCore/src/video/IntOp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/IntPrint.o : ../../Fundamental/CCore/src/printf/IntPrint.cpp
@@ -1788,6 +1830,9 @@ include $(RULES_FILE)
 .obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Point.o : ../../Applied/CCore/src/video/Point.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1975,6 +2020,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SimpleArray.o : ../../Fundamental/CCore/src/array/SimpleArray.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SimpleConsole.o : ../../Applied/CCore/src/video/SimpleConsole.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SimpleRotate.o : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
@@ -2217,6 +2265,12 @@ include $(RULES_FILE)
 .obj/UtilFunc.o : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/VideoConsole.o : ../../Applied/CCore/src/video/VideoConsole.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/VideoDevice.o : ../../Applied/CCore/src/video/VideoDevice.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Volume.o : ../../Applied/CCore/src/Volume.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2351,6 +2405,9 @@ include $(RULES_FILE)
 .obj/Collector.s : ../../Fundamental/CCore/src/array/Collector.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Color.s : ../../Applied/CCore/src/video/Color.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2471,6 +2528,9 @@ include $(RULES_FILE)
 .obj/DynObject.s : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/EDID.s : ../../Applied/CCore/src/video/EDID.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/EchoDevice.s : ../../Applied/CCore/src/net/EchoDevice.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2534,6 +2594,9 @@ include $(RULES_FILE)
 .obj/Forget.s : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FrameBuf.s : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FuncTask.s : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2547,6 +2610,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Gadget.s : ../../Simple/CCore/src/Gadget.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Gamma.s : ../../Applied/CCore/src/video/Gamma.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GenFile.s : ../../Fundamental/CCore/src/GenFile.cpp
@@ -2586,6 +2652,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/InstanceLock.s : ../../Simple/CCore/src/InstanceLock.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/IntOp.s : ../../Applied/CCore/src/video/IntOp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/IntPrint.s : ../../Fundamental/CCore/src/printf/IntPrint.cpp
@@ -2891,6 +2960,9 @@ include $(RULES_FILE)
 .obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Point.s : ../../Applied/CCore/src/video/Point.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3078,6 +3150,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SimpleArray.s : ../../Fundamental/CCore/src/array/SimpleArray.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SimpleConsole.s : ../../Applied/CCore/src/video/SimpleConsole.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SimpleRotate.s : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
@@ -3320,6 +3395,12 @@ include $(RULES_FILE)
 .obj/UtilFunc.s : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/VideoConsole.s : ../../Applied/CCore/src/video/VideoConsole.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/VideoDevice.s : ../../Applied/CCore/src/video/VideoDevice.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Volume.s : ../../Applied/CCore/src/Volume.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3454,6 +3535,9 @@ include $(RULES_FILE)
 .obj/Collector.dep : ../../Fundamental/CCore/src/array/Collector.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Collector.o $< -MF $@
 
+.obj/Color.dep : ../../Applied/CCore/src/video/Color.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Color.o $< -MF $@
+
 .obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
 
@@ -3574,6 +3658,9 @@ include $(RULES_FILE)
 .obj/DynObject.dep : ../../Simple/CCore/src/DynObject.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynObject.o $< -MF $@
 
+.obj/EDID.dep : ../../Applied/CCore/src/video/EDID.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/EDID.o $< -MF $@
+
 .obj/EchoDevice.dep : ../../Applied/CCore/src/net/EchoDevice.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/EchoDevice.o $< -MF $@
 
@@ -3637,6 +3724,9 @@ include $(RULES_FILE)
 .obj/Forget.dep : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Forget.o $< -MF $@
 
+.obj/FrameBuf.dep : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FrameBuf.o $< -MF $@
+
 .obj/FuncTask.dep : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FuncTask.o $< -MF $@
 
@@ -3651,6 +3741,9 @@ include $(RULES_FILE)
 
 .obj/Gadget.dep : ../../Simple/CCore/src/Gadget.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Gadget.o $< -MF $@
+
+.obj/Gamma.dep : ../../Applied/CCore/src/video/Gamma.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Gamma.o $< -MF $@
 
 .obj/GenFile.dep : ../../Fundamental/CCore/src/GenFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GenFile.o $< -MF $@
@@ -3690,6 +3783,9 @@ include $(RULES_FILE)
 
 .obj/InstanceLock.dep : ../../Simple/CCore/src/InstanceLock.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/InstanceLock.o $< -MF $@
+
+.obj/IntOp.dep : ../../Applied/CCore/src/video/IntOp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/IntOp.o $< -MF $@
 
 .obj/IntPrint.dep : ../../Fundamental/CCore/src/printf/IntPrint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/IntPrint.o $< -MF $@
@@ -3994,6 +4090,9 @@ include $(RULES_FILE)
 .obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
 
+.obj/Point.dep : ../../Applied/CCore/src/video/Point.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Point.o $< -MF $@
+
 .obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
 
@@ -4182,6 +4281,9 @@ include $(RULES_FILE)
 
 .obj/SimpleArray.dep : ../../Fundamental/CCore/src/array/SimpleArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleArray.o $< -MF $@
+
+.obj/SimpleConsole.dep : ../../Applied/CCore/src/video/SimpleConsole.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SimpleConsole.o $< -MF $@
 
 .obj/SimpleRotate.dep : ../../Fundamental/CCore/src/algon/SimpleRotate.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SimpleRotate.o $< -MF $@
@@ -4422,6 +4524,12 @@ include $(RULES_FILE)
 
 .obj/UtilFunc.dep : ../../Simple/CCore/src/gadget/UtilFunc.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UtilFunc.o $< -MF $@
+
+.obj/VideoConsole.dep : ../../Applied/CCore/src/video/VideoConsole.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/VideoConsole.o $< -MF $@
+
+.obj/VideoDevice.dep : ../../Applied/CCore/src/video/VideoDevice.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/VideoDevice.o $< -MF $@
 
 .obj/Volume.dep : ../../Applied/CCore/src/Volume.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Volume.o $< -MF $@
