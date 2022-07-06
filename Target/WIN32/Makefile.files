@@ -85,6 +85,7 @@ OBJ_LIST = \
 .obj/EDID.o \
 .obj/EchoDevice.o \
 .obj/ElementPool.o \
+.obj/Elf.o \
 .obj/ErrorText.o \
 .obj/EthDevice.o \
 .obj/EuclidRotate.o \
@@ -464,6 +465,7 @@ ASM_LIST = \
 .obj/EDID.s \
 .obj/EchoDevice.s \
 .obj/ElementPool.s \
+.obj/Elf.s \
 .obj/ErrorText.s \
 .obj/EthDevice.s \
 .obj/EuclidRotate.s \
@@ -843,6 +845,7 @@ DEP_LIST = \
 .obj/EDID.dep \
 .obj/EchoDevice.dep \
 .obj/ElementPool.dep \
+.obj/Elf.dep \
 .obj/ErrorText.dep \
 .obj/EthDevice.dep \
 .obj/EuclidRotate.dep \
@@ -1405,6 +1408,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ElementPool.o : ../../Fundamental/CCore/src/ElementPool.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Elf.o : ../../Applied/CCore/src/Elf.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ErrorText.o : ../../Simple/CCore/src/ErrorText.cpp
@@ -2537,6 +2543,9 @@ include $(RULES_FILE)
 .obj/ElementPool.s : ../../Fundamental/CCore/src/ElementPool.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Elf.s : ../../Applied/CCore/src/Elf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ErrorText.s : ../../Simple/CCore/src/ErrorText.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3666,6 +3675,9 @@ include $(RULES_FILE)
 
 .obj/ElementPool.dep : ../../Fundamental/CCore/src/ElementPool.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ElementPool.o $< -MF $@
+
+.obj/Elf.dep : ../../Applied/CCore/src/Elf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Elf.o $< -MF $@
 
 .obj/ErrorText.dep : ../../Simple/CCore/src/ErrorText.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ErrorText.o $< -MF $@
