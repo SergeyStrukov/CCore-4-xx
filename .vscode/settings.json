@@ -5,6 +5,7 @@
       "${workspaceFolder}/HCore",
       "${workspaceFolder}/Simple",
       "${workspaceFolder}/Fundamental",
-      "${workspaceFolder}/Applied"
+      "${workspaceFolder}/Applied",
+      "${workspaceFolder}/Desktop/Core"
    ]
 }

@@ -80,6 +80,7 @@ OBJ_LIST = \
 .obj/DirTreeRun.o \
 .obj/DoubleFormat.o \
 .obj/DoubleUtils.o \
+.obj/DrawBuf.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
 .obj/EDID.o \
@@ -106,6 +107,7 @@ OBJ_LIST = \
 .obj/ForLoop.o \
 .obj/Forget.o \
 .obj/FrameBuf.o \
+.obj/FrameWindow.o \
 .obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
@@ -145,6 +147,7 @@ OBJ_LIST = \
 .obj/IntervalTree.o \
 .obj/Job.o \
 .obj/JobMachine.o \
+.obj/Keyboard.o \
 .obj/LangDataMap.o \
 .obj/LaunchPath.o \
 .obj/Len.o \
@@ -170,6 +173,7 @@ OBJ_LIST = \
 .obj/Meta.o \
 .obj/MetaList.o \
 .obj/ModEngine.o \
+.obj/Mouse.o \
 .obj/Move.o \
 .obj/MultiEvent.o \
 .obj/MultiSem.o \
@@ -269,6 +273,7 @@ OBJ_LIST = \
 .obj/RefArray.o \
 .obj/RefObjectBase.o \
 .obj/RefPtr.o \
+.obj/RefVal.o \
 .obj/Replace.o \
 .obj/ResSem.o \
 .obj/Rot.o \
@@ -312,6 +317,7 @@ OBJ_LIST = \
 .obj/StrToChar.o \
 .obj/String.o \
 .obj/StringScan.o \
+.obj/SubWindow.o \
 .obj/Swap.o \
 .obj/SymCount.o \
 .obj/SymPart.o \
@@ -370,6 +376,7 @@ OBJ_LIST = \
 .obj/UIntSplit.o \
 .obj/Unid.o \
 .obj/UniqueToFront.o \
+.obj/UserAction.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 .obj/VideoConsole.o \
@@ -460,6 +467,7 @@ ASM_LIST = \
 .obj/DirTreeRun.s \
 .obj/DoubleFormat.s \
 .obj/DoubleUtils.s \
+.obj/DrawBuf.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
 .obj/EDID.s \
@@ -486,6 +494,7 @@ ASM_LIST = \
 .obj/ForLoop.s \
 .obj/Forget.s \
 .obj/FrameBuf.s \
+.obj/FrameWindow.s \
 .obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
@@ -525,6 +534,7 @@ ASM_LIST = \
 .obj/IntervalTree.s \
 .obj/Job.s \
 .obj/JobMachine.s \
+.obj/Keyboard.s \
 .obj/LangDataMap.s \
 .obj/LaunchPath.s \
 .obj/Len.s \
@@ -550,6 +560,7 @@ ASM_LIST = \
 .obj/Meta.s \
 .obj/MetaList.s \
 .obj/ModEngine.s \
+.obj/Mouse.s \
 .obj/Move.s \
 .obj/MultiEvent.s \
 .obj/MultiSem.s \
@@ -649,6 +660,7 @@ ASM_LIST = \
 .obj/RefArray.s \
 .obj/RefObjectBase.s \
 .obj/RefPtr.s \
+.obj/RefVal.s \
 .obj/Replace.s \
 .obj/ResSem.s \
 .obj/Rot.s \
@@ -692,6 +704,7 @@ ASM_LIST = \
 .obj/StrToChar.s \
 .obj/String.s \
 .obj/StringScan.s \
+.obj/SubWindow.s \
 .obj/Swap.s \
 .obj/SymCount.s \
 .obj/SymPart.s \
@@ -750,6 +763,7 @@ ASM_LIST = \
 .obj/UIntSplit.s \
 .obj/Unid.s \
 .obj/UniqueToFront.s \
+.obj/UserAction.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 .obj/VideoConsole.s \
@@ -840,6 +854,7 @@ DEP_LIST = \
 .obj/DirTreeRun.dep \
 .obj/DoubleFormat.dep \
 .obj/DoubleUtils.dep \
+.obj/DrawBuf.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/EDID.dep \
@@ -866,6 +881,7 @@ DEP_LIST = \
 .obj/ForLoop.dep \
 .obj/Forget.dep \
 .obj/FrameBuf.dep \
+.obj/FrameWindow.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
@@ -905,6 +921,7 @@ DEP_LIST = \
 .obj/IntervalTree.dep \
 .obj/Job.dep \
 .obj/JobMachine.dep \
+.obj/Keyboard.dep \
 .obj/LangDataMap.dep \
 .obj/LaunchPath.dep \
 .obj/Len.dep \
@@ -930,6 +947,7 @@ DEP_LIST = \
 .obj/Meta.dep \
 .obj/MetaList.dep \
 .obj/ModEngine.dep \
+.obj/Mouse.dep \
 .obj/Move.dep \
 .obj/MultiEvent.dep \
 .obj/MultiSem.dep \
@@ -1029,6 +1047,7 @@ DEP_LIST = \
 .obj/RefArray.dep \
 .obj/RefObjectBase.dep \
 .obj/RefPtr.dep \
+.obj/RefVal.dep \
 .obj/Replace.dep \
 .obj/ResSem.dep \
 .obj/Rot.dep \
@@ -1072,6 +1091,7 @@ DEP_LIST = \
 .obj/StrToChar.dep \
 .obj/String.dep \
 .obj/StringScan.dep \
+.obj/SubWindow.dep \
 .obj/Swap.dep \
 .obj/SymCount.dep \
 .obj/SymPart.dep \
@@ -1130,6 +1150,7 @@ DEP_LIST = \
 .obj/UIntSplit.dep \
 .obj/Unid.dep \
 .obj/UniqueToFront.dep \
+.obj/UserAction.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 .obj/VideoConsole.dep \
@@ -1395,6 +1416,9 @@ include $(RULES_FILE)
 .obj/DoubleUtils.o : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DrawBuf.o : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1471,6 +1495,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FrameBuf.o : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FrameWindow.o : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FuncTask.o : ../../Applied/CCore/src/task/FuncTask.cpp
@@ -1590,6 +1617,9 @@ include $(RULES_FILE)
 .obj/JobMachine.o : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Keyboard.o : ../../Desktop/Core/CCore/src/video/Keyboard.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/LangDataMap.o : ../../Applied/CCore/src/lang/LangDataMap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1663,6 +1693,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ModEngine.o : ../../Applied/CCore/src/math/ModEngine.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Mouse.o : ../../Desktop/Core/CCore/src/video/Mouse.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Move.o : ../../Simple/CCore/src/Move.cpp
@@ -1962,6 +1995,9 @@ include $(RULES_FILE)
 .obj/RefPtr.o : ../../Simple/CCore/src/RefPtr.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RefVal.o : ../../Desktop/Core/CCore/src/video/RefVal.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Replace.o : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2089,6 +2125,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/StringScan.o : ../../Fundamental/CCore/src/scanf/StringScan.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SubWindow.o : ../../Desktop/Core/CCore/src/video/SubWindow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Swap.o : ../../Simple/CCore/src/Swap.cpp
@@ -2263,6 +2302,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/UniqueToFront.o : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/UserAction.o : ../../Desktop/Core/CCore/src/video/UserAction.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Utf8.o : ../../Fundamental/CCore/src/Utf8.cpp
@@ -2528,6 +2570,9 @@ include $(RULES_FILE)
 .obj/DoubleUtils.s : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DrawBuf.s : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2604,6 +2649,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FrameBuf.s : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FrameWindow.s : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FuncTask.s : ../../Applied/CCore/src/task/FuncTask.cpp
@@ -2723,6 +2771,9 @@ include $(RULES_FILE)
 .obj/JobMachine.s : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Keyboard.s : ../../Desktop/Core/CCore/src/video/Keyboard.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/LangDataMap.s : ../../Applied/CCore/src/lang/LangDataMap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2796,6 +2847,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ModEngine.s : ../../Applied/CCore/src/math/ModEngine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Mouse.s : ../../Desktop/Core/CCore/src/video/Mouse.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Move.s : ../../Simple/CCore/src/Move.cpp
@@ -3095,6 +3149,9 @@ include $(RULES_FILE)
 .obj/RefPtr.s : ../../Simple/CCore/src/RefPtr.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RefVal.s : ../../Desktop/Core/CCore/src/video/RefVal.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Replace.s : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3222,6 +3279,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/StringScan.s : ../../Fundamental/CCore/src/scanf/StringScan.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SubWindow.s : ../../Desktop/Core/CCore/src/video/SubWindow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Swap.s : ../../Simple/CCore/src/Swap.cpp
@@ -3396,6 +3456,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/UniqueToFront.s : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/UserAction.s : ../../Desktop/Core/CCore/src/video/UserAction.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Utf8.s : ../../Fundamental/CCore/src/Utf8.cpp
@@ -3661,6 +3724,9 @@ include $(RULES_FILE)
 .obj/DoubleUtils.dep : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DoubleUtils.o $< -MF $@
 
+.obj/DrawBuf.dep : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DrawBuf.o $< -MF $@
+
 .obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
 
@@ -3738,6 +3804,9 @@ include $(RULES_FILE)
 
 .obj/FrameBuf.dep : ../../Applied/CCore/src/video/FrameBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FrameBuf.o $< -MF $@
+
+.obj/FrameWindow.dep : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FrameWindow.o $< -MF $@
 
 .obj/FuncTask.dep : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FuncTask.o $< -MF $@
@@ -3856,6 +3925,9 @@ include $(RULES_FILE)
 .obj/JobMachine.dep : ../../Applied/CCore/src/JobMachine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/JobMachine.o $< -MF $@
 
+.obj/Keyboard.dep : ../../Desktop/Core/CCore/src/video/Keyboard.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Keyboard.o $< -MF $@
+
 .obj/LangDataMap.dep : ../../Applied/CCore/src/lang/LangDataMap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LangDataMap.o $< -MF $@
 
@@ -3930,6 +4002,9 @@ include $(RULES_FILE)
 
 .obj/ModEngine.dep : ../../Applied/CCore/src/math/ModEngine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ModEngine.o $< -MF $@
+
+.obj/Mouse.dep : ../../Desktop/Core/CCore/src/video/Mouse.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Mouse.o $< -MF $@
 
 .obj/Move.dep : ../../Simple/CCore/src/Move.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Move.o $< -MF $@
@@ -4228,6 +4303,9 @@ include $(RULES_FILE)
 .obj/RefPtr.dep : ../../Simple/CCore/src/RefPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RefPtr.o $< -MF $@
 
+.obj/RefVal.dep : ../../Desktop/Core/CCore/src/video/RefVal.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RefVal.o $< -MF $@
+
 .obj/Replace.dep : ../../Simple/CCore/src/gadget/Replace.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Replace.o $< -MF $@
 
@@ -4356,6 +4434,9 @@ include $(RULES_FILE)
 
 .obj/StringScan.dep : ../../Fundamental/CCore/src/scanf/StringScan.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/StringScan.o $< -MF $@
+
+.obj/SubWindow.dep : ../../Desktop/Core/CCore/src/video/SubWindow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SubWindow.o $< -MF $@
 
 .obj/Swap.dep : ../../Simple/CCore/src/Swap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Swap.o $< -MF $@
@@ -4530,6 +4611,9 @@ include $(RULES_FILE)
 
 .obj/UniqueToFront.dep : ../../Fundamental/CCore/src/algon/UniqueToFront.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UniqueToFront.o $< -MF $@
+
+.obj/UserAction.dep : ../../Desktop/Core/CCore/src/video/UserAction.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UserAction.o $< -MF $@
 
 .obj/Utf8.dep : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
