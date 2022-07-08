@@ -42,6 +42,7 @@ OBJ_LIST = \
 .obj/CoTask.o \
 .obj/Collector.o \
 .obj/Color.o \
+.obj/ColorField.o \
 .obj/CommonIntAlgo.o \
 .obj/CompactList.o \
 .obj/CompactMap.o \
@@ -52,6 +53,7 @@ OBJ_LIST = \
 .obj/Crc.o \
 .obj/CreateAt.o \
 .obj/Creator.o \
+.obj/CurveDriver.o \
 .obj/DDLChar.o \
 .obj/DDLEngine.o \
 .obj/DDLErrorMsg.o \
@@ -81,6 +83,7 @@ OBJ_LIST = \
 .obj/DoubleFormat.o \
 .obj/DoubleUtils.o \
 .obj/DrawBuf.o \
+.obj/DrawTools.o \
 .obj/DynArray.o \
 .obj/DynObject.o \
 .obj/EDID.o \
@@ -114,6 +117,7 @@ OBJ_LIST = \
 .obj/GCDConst.o \
 .obj/Gadget.o \
 .obj/Gamma.o \
+.obj/GammaTable.o \
 .obj/GenFile.o \
 .obj/GetAbstFile.o \
 .obj/GetAsyncBinaryFile.o \
@@ -159,6 +163,7 @@ OBJ_LIST = \
 .obj/Locked.o \
 .obj/Log.o \
 .obj/MD5.o \
+.obj/MPoint.o \
 .obj/MSec.o \
 .obj/MakeFileName.o \
 .obj/MakeString.o \
@@ -303,6 +308,8 @@ OBJ_LIST = \
 .obj/SingleHost.o \
 .obj/SlowSem.o \
 .obj/SmallPrimes.o \
+.obj/SmoothAlgo.o \
+.obj/SmoothDrawArt.o \
 .obj/Sort.o \
 .obj/SortUnique.o \
 .obj/Space.o \
@@ -429,6 +436,7 @@ ASM_LIST = \
 .obj/CoTask.s \
 .obj/Collector.s \
 .obj/Color.s \
+.obj/ColorField.s \
 .obj/CommonIntAlgo.s \
 .obj/CompactList.s \
 .obj/CompactMap.s \
@@ -439,6 +447,7 @@ ASM_LIST = \
 .obj/Crc.s \
 .obj/CreateAt.s \
 .obj/Creator.s \
+.obj/CurveDriver.s \
 .obj/DDLChar.s \
 .obj/DDLEngine.s \
 .obj/DDLErrorMsg.s \
@@ -468,6 +477,7 @@ ASM_LIST = \
 .obj/DoubleFormat.s \
 .obj/DoubleUtils.s \
 .obj/DrawBuf.s \
+.obj/DrawTools.s \
 .obj/DynArray.s \
 .obj/DynObject.s \
 .obj/EDID.s \
@@ -501,6 +511,7 @@ ASM_LIST = \
 .obj/GCDConst.s \
 .obj/Gadget.s \
 .obj/Gamma.s \
+.obj/GammaTable.s \
 .obj/GenFile.s \
 .obj/GetAbstFile.s \
 .obj/GetAsyncBinaryFile.s \
@@ -546,6 +557,7 @@ ASM_LIST = \
 .obj/Locked.s \
 .obj/Log.s \
 .obj/MD5.s \
+.obj/MPoint.s \
 .obj/MSec.s \
 .obj/MakeFileName.s \
 .obj/MakeString.s \
@@ -690,6 +702,8 @@ ASM_LIST = \
 .obj/SingleHost.s \
 .obj/SlowSem.s \
 .obj/SmallPrimes.s \
+.obj/SmoothAlgo.s \
+.obj/SmoothDrawArt.s \
 .obj/Sort.s \
 .obj/SortUnique.s \
 .obj/Space.s \
@@ -816,6 +830,7 @@ DEP_LIST = \
 .obj/CoTask.dep \
 .obj/Collector.dep \
 .obj/Color.dep \
+.obj/ColorField.dep \
 .obj/CommonIntAlgo.dep \
 .obj/CompactList.dep \
 .obj/CompactMap.dep \
@@ -826,6 +841,7 @@ DEP_LIST = \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
 .obj/Creator.dep \
+.obj/CurveDriver.dep \
 .obj/DDLChar.dep \
 .obj/DDLEngine.dep \
 .obj/DDLErrorMsg.dep \
@@ -855,6 +871,7 @@ DEP_LIST = \
 .obj/DoubleFormat.dep \
 .obj/DoubleUtils.dep \
 .obj/DrawBuf.dep \
+.obj/DrawTools.dep \
 .obj/DynArray.dep \
 .obj/DynObject.dep \
 .obj/EDID.dep \
@@ -888,6 +905,7 @@ DEP_LIST = \
 .obj/GCDConst.dep \
 .obj/Gadget.dep \
 .obj/Gamma.dep \
+.obj/GammaTable.dep \
 .obj/GenFile.dep \
 .obj/GetAbstFile.dep \
 .obj/GetAsyncBinaryFile.dep \
@@ -933,6 +951,7 @@ DEP_LIST = \
 .obj/Locked.dep \
 .obj/Log.dep \
 .obj/MD5.dep \
+.obj/MPoint.dep \
 .obj/MSec.dep \
 .obj/MakeFileName.dep \
 .obj/MakeString.dep \
@@ -1077,6 +1096,8 @@ DEP_LIST = \
 .obj/SingleHost.dep \
 .obj/SlowSem.dep \
 .obj/SmallPrimes.dep \
+.obj/SmoothAlgo.dep \
+.obj/SmoothDrawArt.dep \
 .obj/Sort.dep \
 .obj/SortUnique.dep \
 .obj/Space.dep \
@@ -1302,6 +1323,9 @@ include $(RULES_FILE)
 .obj/Color.o : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ColorField.o : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1330,6 +1354,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Creator.o : ../../Fundamental/CCore/src/array/Creator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CurveDriver.o : ../../Desktop/Draw/CCore/src/video/CurveDriver.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DDLChar.o : ../../Applied/CCore/src/ddl/DDLChar.cpp
@@ -1417,6 +1444,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DrawBuf.o : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DrawTools.o : ../../Desktop/Draw/CCore/src/video/DrawTools.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DynArray.o : ../../Fundamental/CCore/src/array/DynArray.cpp
@@ -1516,6 +1546,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Gamma.o : ../../Applied/CCore/src/video/Gamma.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/GammaTable.o : ../../Desktop/Draw/CCore/src/video/GammaTable.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/GenFile.o : ../../Fundamental/CCore/src/GenFile.cpp
@@ -1651,6 +1684,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MD5.o : ../../Applied/CCore/src/crypton/MD5.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MPoint.o : ../../Desktop/Draw/CCore/src/video/MPoint.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MSec.o : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -2085,6 +2121,12 @@ include $(RULES_FILE)
 .obj/SmallPrimes.o : ../../Applied/CCore/src/math/SmallPrimes.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SmoothAlgo.o : ../../Desktop/Draw/CCore/src/video/SmoothAlgo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SmoothDrawArt.o : ../../Desktop/Draw/CCore/src/video/SmoothDrawArt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Sort.o : ../../Fundamental/CCore/src/Sort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2456,6 +2498,9 @@ include $(RULES_FILE)
 .obj/Color.s : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ColorField.s : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2484,6 +2529,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Creator.s : ../../Fundamental/CCore/src/array/Creator.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CurveDriver.s : ../../Desktop/Draw/CCore/src/video/CurveDriver.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DDLChar.s : ../../Applied/CCore/src/ddl/DDLChar.cpp
@@ -2571,6 +2619,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DrawBuf.s : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DrawTools.s : ../../Desktop/Draw/CCore/src/video/DrawTools.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DynArray.s : ../../Fundamental/CCore/src/array/DynArray.cpp
@@ -2670,6 +2721,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Gamma.s : ../../Applied/CCore/src/video/Gamma.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/GammaTable.s : ../../Desktop/Draw/CCore/src/video/GammaTable.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/GenFile.s : ../../Fundamental/CCore/src/GenFile.cpp
@@ -2805,6 +2859,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MD5.s : ../../Applied/CCore/src/crypton/MD5.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MPoint.s : ../../Desktop/Draw/CCore/src/video/MPoint.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MSec.s : ../../Simple/CCore/src/gadget/MSec.cpp
@@ -3239,6 +3296,12 @@ include $(RULES_FILE)
 .obj/SmallPrimes.s : ../../Applied/CCore/src/math/SmallPrimes.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SmoothAlgo.s : ../../Desktop/Draw/CCore/src/video/SmoothAlgo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SmoothDrawArt.s : ../../Desktop/Draw/CCore/src/video/SmoothDrawArt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Sort.s : ../../Fundamental/CCore/src/Sort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3610,6 +3673,9 @@ include $(RULES_FILE)
 .obj/Color.dep : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Color.o $< -MF $@
 
+.obj/ColorField.dep : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ColorField.o $< -MF $@
+
 .obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
 
@@ -3639,6 +3705,9 @@ include $(RULES_FILE)
 
 .obj/Creator.dep : ../../Fundamental/CCore/src/array/Creator.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Creator.o $< -MF $@
+
+.obj/CurveDriver.dep : ../../Desktop/Draw/CCore/src/video/CurveDriver.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CurveDriver.o $< -MF $@
 
 .obj/DDLChar.dep : ../../Applied/CCore/src/ddl/DDLChar.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DDLChar.o $< -MF $@
@@ -3726,6 +3795,9 @@ include $(RULES_FILE)
 
 .obj/DrawBuf.dep : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DrawBuf.o $< -MF $@
+
+.obj/DrawTools.dep : ../../Desktop/Draw/CCore/src/video/DrawTools.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DrawTools.o $< -MF $@
 
 .obj/DynArray.dep : ../../Fundamental/CCore/src/array/DynArray.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DynArray.o $< -MF $@
@@ -3825,6 +3897,9 @@ include $(RULES_FILE)
 
 .obj/Gamma.dep : ../../Applied/CCore/src/video/Gamma.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Gamma.o $< -MF $@
+
+.obj/GammaTable.dep : ../../Desktop/Draw/CCore/src/video/GammaTable.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/GammaTable.o $< -MF $@
 
 .obj/GenFile.dep : ../../Fundamental/CCore/src/GenFile.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/GenFile.o $< -MF $@
@@ -3960,6 +4035,9 @@ include $(RULES_FILE)
 
 .obj/MD5.dep : ../../Applied/CCore/src/crypton/MD5.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MD5.o $< -MF $@
+
+.obj/MPoint.dep : ../../Desktop/Draw/CCore/src/video/MPoint.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MPoint.o $< -MF $@
 
 .obj/MSec.dep : ../../Simple/CCore/src/gadget/MSec.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MSec.o $< -MF $@
@@ -4392,6 +4470,12 @@ include $(RULES_FILE)
 
 .obj/SmallPrimes.dep : ../../Applied/CCore/src/math/SmallPrimes.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SmallPrimes.o $< -MF $@
+
+.obj/SmoothAlgo.dep : ../../Desktop/Draw/CCore/src/video/SmoothAlgo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SmoothAlgo.o $< -MF $@
+
+.obj/SmoothDrawArt.dep : ../../Desktop/Draw/CCore/src/video/SmoothDrawArt.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SmoothDrawArt.o $< -MF $@
 
 .obj/Sort.dep : ../../Fundamental/CCore/src/Sort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Sort.o $< -MF $@
