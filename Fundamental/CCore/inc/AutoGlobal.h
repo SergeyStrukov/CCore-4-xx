@@ -70,6 +70,8 @@ class AutoGlobal : NoCopy
 
    using Lock = LockObject< AutoGlobal<T> > ;
 
+   friend Lock;
+
    // object ptr : valid inside Lock scope
 
    T * getPtr() const { return obj.getPtr(); }

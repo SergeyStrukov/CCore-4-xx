@@ -6,6 +6,7 @@ OBJ_LIST = \
 .obj/AbortMsgFunc.o \
 .obj/AbstFileToMem.o \
 .obj/AbstFileToRead.o \
+.obj/Activator.o \
 .obj/AntiSem.o \
 .obj/AnyPtr.o \
 .obj/ApplyToList.o \
@@ -26,9 +27,11 @@ OBJ_LIST = \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinarySearch.o \
+.obj/Bitmap.o \
 .obj/BlockCipher.o \
 .obj/BlockFifo.o \
 .obj/Bridge.o \
+.obj/ButtonId.o \
 .obj/CancelPacketList.o \
 .obj/CapString.o \
 .obj/CharProp.o \
@@ -77,6 +80,7 @@ OBJ_LIST = \
 .obj/DefaultTimeout.o \
 .obj/DeferCall.o \
 .obj/Deflate.o \
+.obj/DesktopKey.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
 .obj/DirTreeRun.o \
@@ -102,15 +106,23 @@ OBJ_LIST = \
 .obj/FastMutex.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
+.obj/FileBoss.o \
 .obj/FileName.o \
+.obj/FileNameCmp.o \
 .obj/FileNameMatch.o \
 .obj/FileSystem.o \
 .obj/FileToMem.o \
 .obj/FileToRead.o \
+.obj/Font.o \
+.obj/FontDatabase.o \
+.obj/FontLookup.o \
+.obj/FontParam.o \
 .obj/ForLoop.o \
 .obj/Forget.o \
 .obj/FrameBuf.o \
 .obj/FrameWindow.o \
+.obj/FreeType.o \
+.obj/FreeTypeFont.o \
 .obj/FuncTask.o \
 .obj/Function.o \
 .obj/FunctorType.o \
@@ -129,6 +141,10 @@ OBJ_LIST = \
 .obj/HashFunction.o \
 .obj/HeapEngine.o \
 .obj/HeapSort.o \
+.obj/HomeFile.o \
+.obj/Incremental.o \
+.obj/Info.o \
+.obj/InfoSize.o \
 .obj/Init.o \
 .obj/InstanceLock.o \
 .obj/IntOp.o \
@@ -232,6 +248,7 @@ OBJ_LIST = \
 .obj/Path.o \
 .obj/PathProc.o \
 .obj/PerTask.o \
+.obj/Picture.o \
 .obj/Place.o \
 .obj/PlanInit.o \
 .obj/PlanInit_CCore.o \
@@ -246,6 +263,7 @@ OBJ_LIST = \
 .obj/PrintBase.o \
 .obj/PrintBits.o \
 .obj/PrintCon.o \
+.obj/PrintDDL.o \
 .obj/PrintError.o \
 .obj/PrintFile.o \
 .obj/PrintInteger.o \
@@ -258,6 +276,7 @@ OBJ_LIST = \
 .obj/PrintTitle.o \
 .obj/Printf.o \
 .obj/ProcessUtils.o \
+.obj/ProgressScale.o \
 .obj/PtrLen.o \
 .obj/PtrLenReverse.o \
 .obj/PtrStepLen.o \
@@ -400,6 +419,7 @@ ASM_LIST = \
 .obj/AbortMsgFunc.s \
 .obj/AbstFileToMem.s \
 .obj/AbstFileToRead.s \
+.obj/Activator.s \
 .obj/AntiSem.s \
 .obj/AnyPtr.s \
 .obj/ApplyToList.s \
@@ -420,9 +440,11 @@ ASM_LIST = \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinarySearch.s \
+.obj/Bitmap.s \
 .obj/BlockCipher.s \
 .obj/BlockFifo.s \
 .obj/Bridge.s \
+.obj/ButtonId.s \
 .obj/CancelPacketList.s \
 .obj/CapString.s \
 .obj/CharProp.s \
@@ -471,6 +493,7 @@ ASM_LIST = \
 .obj/DefaultTimeout.s \
 .obj/DeferCall.s \
 .obj/Deflate.s \
+.obj/DesktopKey.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
 .obj/DirTreeRun.s \
@@ -496,15 +519,23 @@ ASM_LIST = \
 .obj/FastMutex.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
+.obj/FileBoss.s \
 .obj/FileName.s \
+.obj/FileNameCmp.s \
 .obj/FileNameMatch.s \
 .obj/FileSystem.s \
 .obj/FileToMem.s \
 .obj/FileToRead.s \
+.obj/Font.s \
+.obj/FontDatabase.s \
+.obj/FontLookup.s \
+.obj/FontParam.s \
 .obj/ForLoop.s \
 .obj/Forget.s \
 .obj/FrameBuf.s \
 .obj/FrameWindow.s \
+.obj/FreeType.s \
+.obj/FreeTypeFont.s \
 .obj/FuncTask.s \
 .obj/Function.s \
 .obj/FunctorType.s \
@@ -523,6 +554,10 @@ ASM_LIST = \
 .obj/HashFunction.s \
 .obj/HeapEngine.s \
 .obj/HeapSort.s \
+.obj/HomeFile.s \
+.obj/Incremental.s \
+.obj/Info.s \
+.obj/InfoSize.s \
 .obj/Init.s \
 .obj/InstanceLock.s \
 .obj/IntOp.s \
@@ -626,6 +661,7 @@ ASM_LIST = \
 .obj/Path.s \
 .obj/PathProc.s \
 .obj/PerTask.s \
+.obj/Picture.s \
 .obj/Place.s \
 .obj/PlanInit.s \
 .obj/PlanInit_CCore.s \
@@ -640,6 +676,7 @@ ASM_LIST = \
 .obj/PrintBase.s \
 .obj/PrintBits.s \
 .obj/PrintCon.s \
+.obj/PrintDDL.s \
 .obj/PrintError.s \
 .obj/PrintFile.s \
 .obj/PrintInteger.s \
@@ -652,6 +689,7 @@ ASM_LIST = \
 .obj/PrintTitle.s \
 .obj/Printf.s \
 .obj/ProcessUtils.s \
+.obj/ProgressScale.s \
 .obj/PtrLen.s \
 .obj/PtrLenReverse.s \
 .obj/PtrStepLen.s \
@@ -794,6 +832,7 @@ DEP_LIST = \
 .obj/AbortMsgFunc.dep \
 .obj/AbstFileToMem.dep \
 .obj/AbstFileToRead.dep \
+.obj/Activator.dep \
 .obj/AntiSem.dep \
 .obj/AnyPtr.dep \
 .obj/ApplyToList.dep \
@@ -814,9 +853,11 @@ DEP_LIST = \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinarySearch.dep \
+.obj/Bitmap.dep \
 .obj/BlockCipher.dep \
 .obj/BlockFifo.dep \
 .obj/Bridge.dep \
+.obj/ButtonId.dep \
 .obj/CancelPacketList.dep \
 .obj/CapString.dep \
 .obj/CharProp.dep \
@@ -865,6 +906,7 @@ DEP_LIST = \
 .obj/DefaultTimeout.dep \
 .obj/DeferCall.dep \
 .obj/Deflate.dep \
+.obj/DesktopKey.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
 .obj/DirTreeRun.dep \
@@ -890,15 +932,23 @@ DEP_LIST = \
 .obj/FastMutex.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
+.obj/FileBoss.dep \
 .obj/FileName.dep \
+.obj/FileNameCmp.dep \
 .obj/FileNameMatch.dep \
 .obj/FileSystem.dep \
 .obj/FileToMem.dep \
 .obj/FileToRead.dep \
+.obj/Font.dep \
+.obj/FontDatabase.dep \
+.obj/FontLookup.dep \
+.obj/FontParam.dep \
 .obj/ForLoop.dep \
 .obj/Forget.dep \
 .obj/FrameBuf.dep \
 .obj/FrameWindow.dep \
+.obj/FreeType.dep \
+.obj/FreeTypeFont.dep \
 .obj/FuncTask.dep \
 .obj/Function.dep \
 .obj/FunctorType.dep \
@@ -917,6 +967,10 @@ DEP_LIST = \
 .obj/HashFunction.dep \
 .obj/HeapEngine.dep \
 .obj/HeapSort.dep \
+.obj/HomeFile.dep \
+.obj/Incremental.dep \
+.obj/Info.dep \
+.obj/InfoSize.dep \
 .obj/Init.dep \
 .obj/InstanceLock.dep \
 .obj/IntOp.dep \
@@ -1020,6 +1074,7 @@ DEP_LIST = \
 .obj/Path.dep \
 .obj/PathProc.dep \
 .obj/PerTask.dep \
+.obj/Picture.dep \
 .obj/Place.dep \
 .obj/PlanInit.dep \
 .obj/PlanInit_CCore.dep \
@@ -1034,6 +1089,7 @@ DEP_LIST = \
 .obj/PrintBase.dep \
 .obj/PrintBits.dep \
 .obj/PrintCon.dep \
+.obj/PrintDDL.dep \
 .obj/PrintError.dep \
 .obj/PrintFile.dep \
 .obj/PrintInteger.dep \
@@ -1046,6 +1102,7 @@ DEP_LIST = \
 .obj/PrintTitle.dep \
 .obj/Printf.dep \
 .obj/ProcessUtils.dep \
+.obj/ProgressScale.dep \
 .obj/PtrLen.dep \
 .obj/PtrLenReverse.dep \
 .obj/PtrStepLen.dep \
@@ -1215,6 +1272,9 @@ include $(RULES_FILE)
 .obj/AbstFileToRead.o : ../../Applied/CCore/src/AbstFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Activator.o : ../../Desktop/Tools/CCore/src/video/Activator.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/AntiSem.o : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1275,6 +1335,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Bitmap.o : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/BlockCipher.o : ../../Applied/CCore/src/crypton/BlockCipher.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1282,6 +1345,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Bridge.o : ../../Applied/CCore/src/net/Bridge.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ButtonId.o : ../../Desktop/Tools/CCore/src/video/ButtonId.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CancelPacketList.o : ../../Applied/CCore/src/CancelPacketList.cpp
@@ -1428,6 +1494,9 @@ include $(RULES_FILE)
 .obj/Deflate.o : ../../Applied/CCore/src/Deflate.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DesktopKey.o : ../../Desktop/Tools/CCore/src/video/DesktopKey.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.o : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1503,7 +1572,13 @@ include $(RULES_FILE)
 .obj/Fifo.o : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FileBoss.o : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FileName.o : ../../Applied/CCore/src/FileName.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileNameCmp.o : ../../Desktop/Tools/CCore/src/video/FileNameCmp.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FileNameMatch.o : ../../Applied/CCore/src/FileNameMatch.cpp
@@ -1518,6 +1593,18 @@ include $(RULES_FILE)
 .obj/FileToRead.o : ../../HCore/CCore/src/FileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Font.o : ../../Desktop/Font/CCore/src/video/Font.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FontDatabase.o : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FontLookup.o : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FontParam.o : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ForLoop.o : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1528,6 +1615,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FrameWindow.o : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FreeType.o : ../../Desktop/Font/CCore/src/video/FreeType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FreeTypeFont.o : ../../Desktop/Font/CCore/src/video/FreeTypeFont.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FuncTask.o : ../../Applied/CCore/src/task/FuncTask.cpp
@@ -1582,6 +1675,18 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/HeapSort.o : ../../Fundamental/CCore/src/sort/HeapSort.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/HomeFile.o : ../../Desktop/Tools/CCore/src/video/HomeFile.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Incremental.o : ../../Desktop/Tools/CCore/src/video/Incremental.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Info.o : ../../Desktop/Tools/CCore/src/video/Info.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/InfoSize.o : ../../Desktop/Tools/CCore/src/video/InfoSize.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Init.o : ../../Simple/CCore/src/gadget/Init.cpp
@@ -1893,6 +1998,9 @@ include $(RULES_FILE)
 .obj/PerTask.o : ../../Applied/CCore/src/PerTask.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Picture.o : ../../Desktop/Tools/CCore/src/video/Picture.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Place.o : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1935,6 +2043,9 @@ include $(RULES_FILE)
 .obj/PrintCon.o : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PrintDDL.o : ../../Desktop/Tools/CCore/src/video/PrintDDL.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PrintError.o : ../../Simple/CCore/src/PrintError.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1969,6 +2080,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ProcessUtils.o : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ProgressScale.o : ../../Desktop/Tools/CCore/src/video/ProgressScale.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/PtrLen.o : ../../Simple/CCore/src/gadget/PtrLen.cpp
@@ -2390,6 +2504,9 @@ include $(RULES_FILE)
 .obj/AbstFileToRead.s : ../../Applied/CCore/src/AbstFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Activator.s : ../../Desktop/Tools/CCore/src/video/Activator.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/AntiSem.s : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2450,6 +2567,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Bitmap.s : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/BlockCipher.s : ../../Applied/CCore/src/crypton/BlockCipher.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2457,6 +2577,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Bridge.s : ../../Applied/CCore/src/net/Bridge.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ButtonId.s : ../../Desktop/Tools/CCore/src/video/ButtonId.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CancelPacketList.s : ../../Applied/CCore/src/CancelPacketList.cpp
@@ -2603,6 +2726,9 @@ include $(RULES_FILE)
 .obj/Deflate.s : ../../Applied/CCore/src/Deflate.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DesktopKey.s : ../../Desktop/Tools/CCore/src/video/DesktopKey.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DestroyGuard.s : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2678,7 +2804,13 @@ include $(RULES_FILE)
 .obj/Fifo.s : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FileBoss.s : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FileName.s : ../../Applied/CCore/src/FileName.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FileNameCmp.s : ../../Desktop/Tools/CCore/src/video/FileNameCmp.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FileNameMatch.s : ../../Applied/CCore/src/FileNameMatch.cpp
@@ -2693,6 +2825,18 @@ include $(RULES_FILE)
 .obj/FileToRead.s : ../../HCore/CCore/src/FileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Font.s : ../../Desktop/Font/CCore/src/video/Font.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FontDatabase.s : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FontLookup.s : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FontParam.s : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ForLoop.s : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2703,6 +2847,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FrameWindow.s : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FreeType.s : ../../Desktop/Font/CCore/src/video/FreeType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FreeTypeFont.s : ../../Desktop/Font/CCore/src/video/FreeTypeFont.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FuncTask.s : ../../Applied/CCore/src/task/FuncTask.cpp
@@ -2757,6 +2907,18 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/HeapSort.s : ../../Fundamental/CCore/src/sort/HeapSort.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/HomeFile.s : ../../Desktop/Tools/CCore/src/video/HomeFile.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Incremental.s : ../../Desktop/Tools/CCore/src/video/Incremental.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Info.s : ../../Desktop/Tools/CCore/src/video/Info.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/InfoSize.s : ../../Desktop/Tools/CCore/src/video/InfoSize.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Init.s : ../../Simple/CCore/src/gadget/Init.cpp
@@ -3068,6 +3230,9 @@ include $(RULES_FILE)
 .obj/PerTask.s : ../../Applied/CCore/src/PerTask.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Picture.s : ../../Desktop/Tools/CCore/src/video/Picture.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Place.s : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3110,6 +3275,9 @@ include $(RULES_FILE)
 .obj/PrintCon.s : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PrintDDL.s : ../../Desktop/Tools/CCore/src/video/PrintDDL.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PrintError.s : ../../Simple/CCore/src/PrintError.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3144,6 +3312,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ProcessUtils.s : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ProgressScale.s : ../../Desktop/Tools/CCore/src/video/ProgressScale.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/PtrLen.s : ../../Simple/CCore/src/gadget/PtrLen.cpp
@@ -3565,6 +3736,9 @@ include $(RULES_FILE)
 .obj/AbstFileToRead.dep : ../../Applied/CCore/src/AbstFileToRead.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AbstFileToRead.o $< -MF $@
 
+.obj/Activator.dep : ../../Desktop/Tools/CCore/src/video/Activator.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Activator.o $< -MF $@
+
 .obj/AntiSem.dep : ../../HCore/CCore/src/task/AntiSem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AntiSem.o $< -MF $@
 
@@ -3625,6 +3799,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
 
+.obj/Bitmap.dep : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Bitmap.o $< -MF $@
+
 .obj/BlockCipher.dep : ../../Applied/CCore/src/crypton/BlockCipher.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockCipher.o $< -MF $@
 
@@ -3633,6 +3810,9 @@ include $(RULES_FILE)
 
 .obj/Bridge.dep : ../../Applied/CCore/src/net/Bridge.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Bridge.o $< -MF $@
+
+.obj/ButtonId.dep : ../../Desktop/Tools/CCore/src/video/ButtonId.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ButtonId.o $< -MF $@
 
 .obj/CancelPacketList.dep : ../../Applied/CCore/src/CancelPacketList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CancelPacketList.o $< -MF $@
@@ -3778,6 +3958,9 @@ include $(RULES_FILE)
 .obj/Deflate.dep : ../../Applied/CCore/src/Deflate.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Deflate.o $< -MF $@
 
+.obj/DesktopKey.dep : ../../Desktop/Tools/CCore/src/video/DesktopKey.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DesktopKey.o $< -MF $@
+
 .obj/DestroyGuard.dep : ../../Simple/CCore/src/DestroyGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DestroyGuard.o $< -MF $@
 
@@ -3853,8 +4036,14 @@ include $(RULES_FILE)
 .obj/Fifo.dep : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
 
+.obj/FileBoss.dep : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileBoss.o $< -MF $@
+
 .obj/FileName.dep : ../../Applied/CCore/src/FileName.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileName.o $< -MF $@
+
+.obj/FileNameCmp.dep : ../../Desktop/Tools/CCore/src/video/FileNameCmp.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileNameCmp.o $< -MF $@
 
 .obj/FileNameMatch.dep : ../../Applied/CCore/src/FileNameMatch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileNameMatch.o $< -MF $@
@@ -3868,6 +4057,18 @@ include $(RULES_FILE)
 .obj/FileToRead.dep : ../../HCore/CCore/src/FileToRead.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileToRead.o $< -MF $@
 
+.obj/Font.dep : ../../Desktop/Font/CCore/src/video/Font.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Font.o $< -MF $@
+
+.obj/FontDatabase.dep : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FontDatabase.o $< -MF $@
+
+.obj/FontLookup.dep : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FontLookup.o $< -MF $@
+
+.obj/FontParam.dep : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FontParam.o $< -MF $@
+
 .obj/ForLoop.dep : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
 
@@ -3879,6 +4080,12 @@ include $(RULES_FILE)
 
 .obj/FrameWindow.dep : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FrameWindow.o $< -MF $@
+
+.obj/FreeType.dep : ../../Desktop/Font/CCore/src/video/FreeType.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FreeType.o $< -MF $@
+
+.obj/FreeTypeFont.dep : ../../Desktop/Font/CCore/src/video/FreeTypeFont.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FreeTypeFont.o $< -MF $@
 
 .obj/FuncTask.dep : ../../Applied/CCore/src/task/FuncTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FuncTask.o $< -MF $@
@@ -3933,6 +4140,18 @@ include $(RULES_FILE)
 
 .obj/HeapSort.dep : ../../Fundamental/CCore/src/sort/HeapSort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/HeapSort.o $< -MF $@
+
+.obj/HomeFile.dep : ../../Desktop/Tools/CCore/src/video/HomeFile.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/HomeFile.o $< -MF $@
+
+.obj/Incremental.dep : ../../Desktop/Tools/CCore/src/video/Incremental.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Incremental.o $< -MF $@
+
+.obj/Info.dep : ../../Desktop/Tools/CCore/src/video/Info.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Info.o $< -MF $@
+
+.obj/InfoSize.dep : ../../Desktop/Tools/CCore/src/video/InfoSize.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/InfoSize.o $< -MF $@
 
 .obj/Init.dep : ../../Simple/CCore/src/gadget/Init.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Init.o $< -MF $@
@@ -4243,6 +4462,9 @@ include $(RULES_FILE)
 .obj/PerTask.dep : ../../Applied/CCore/src/PerTask.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PerTask.o $< -MF $@
 
+.obj/Picture.dep : ../../Desktop/Tools/CCore/src/video/Picture.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Picture.o $< -MF $@
+
 .obj/Place.dep : ../../Simple/CCore/src/gadget/Place.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Place.o $< -MF $@
 
@@ -4285,6 +4507,9 @@ include $(RULES_FILE)
 .obj/PrintCon.dep : ../../HCore/CCore/src/print/PrintCon.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintCon.o $< -MF $@
 
+.obj/PrintDDL.dep : ../../Desktop/Tools/CCore/src/video/PrintDDL.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PrintDDL.o $< -MF $@
+
 .obj/PrintError.dep : ../../Simple/CCore/src/PrintError.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PrintError.o $< -MF $@
 
@@ -4320,6 +4545,9 @@ include $(RULES_FILE)
 
 .obj/ProcessUtils.dep : ../../Target/WIN32/CCore/src/ProcessUtils.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ProcessUtils.o $< -MF $@
+
+.obj/ProgressScale.dep : ../../Desktop/Tools/CCore/src/video/ProgressScale.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ProgressScale.o $< -MF $@
 
 .obj/PtrLen.dep : ../../Simple/CCore/src/gadget/PtrLen.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PtrLen.o $< -MF $@
