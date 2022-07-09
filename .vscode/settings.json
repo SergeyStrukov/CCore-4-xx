@@ -12,5 +12,6 @@
       "${workspaceFolder}/Desktop/Font",
       "${workspaceFolder}/Desktop/App",
       "${workspaceFolder}/Desktop/Lib",
+      "D:/cygwin/usr/include/freetype2"
    ]
 }
