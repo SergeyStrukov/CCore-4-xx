@@ -9,6 +9,9 @@ OBJ_LIST = \
 .obj/Activator.o \
 .obj/AntiSem.o \
 .obj/AnyPtr.o \
+.obj/AppMain.o \
+.obj/AppOpt.o \
+.obj/ApplicationBase.o \
 .obj/ApplyToList.o \
 .obj/ApplyToRange.o \
 .obj/Array.o \
@@ -27,9 +30,15 @@ OBJ_LIST = \
 .obj/BaseRangeAlgo.o \
 .obj/BestSearch.o \
 .obj/BinarySearch.o \
+.obj/BindBagProxy.o \
 .obj/Bitmap.o \
 .obj/BlockCipher.o \
 .obj/BlockFifo.o \
+.obj/Book.o \
+.obj/BookAppMain.o \
+.obj/BookClient.o \
+.obj/BookFrame.o \
+.obj/BookWindow.o \
 .obj/Bridge.o \
 .obj/ButtonId.o \
 .obj/CancelPacketList.o \
@@ -45,13 +54,19 @@ OBJ_LIST = \
 .obj/CoTask.o \
 .obj/Collector.o \
 .obj/Color.o \
+.obj/ColorEdit.o \
 .obj/ColorField.o \
+.obj/ColorListWindow.o \
 .obj/CommonIntAlgo.o \
 .obj/CompactList.o \
 .obj/CompactMap.o \
 .obj/CompactNodeAllocator.o \
 .obj/Complex.o \
+.obj/ConfigBinder.o \
+.obj/ConfigEditor.o \
+.obj/ConfigStore.o \
 .obj/ContainerList.o \
+.obj/CoordEdit.o \
 .obj/Counters.o \
 .obj/Crc.o \
 .obj/CreateAt.o \
@@ -83,9 +98,12 @@ OBJ_LIST = \
 .obj/DesktopKey.o \
 .obj/DestroyGuard.o \
 .obj/DetectProxy.o \
+.obj/DirFrame.o \
 .obj/DirTreeRun.o \
 .obj/DoubleFormat.o \
 .obj/DoubleUtils.o \
+.obj/DrawBook.o \
+.obj/DrawBookTools.o \
 .obj/DrawBuf.o \
 .obj/DrawTools.o \
 .obj/DynArray.o \
@@ -100,13 +118,18 @@ OBJ_LIST = \
 .obj/Event.o \
 .obj/EventRecorder.o \
 .obj/Exception.o \
+.obj/ExceptionFrame.o \
 .obj/ExceptionType.o \
 .obj/ExpandWildcard.o \
 .obj/FFTMul.o \
 .obj/FastMutex.o \
+.obj/FavFrame.o \
+.obj/FavList.o \
 .obj/FeedBuf.o \
 .obj/Fifo.o \
+.obj/FigureLib.o \
 .obj/FileBoss.o \
+.obj/FileFrame.o \
 .obj/FileName.o \
 .obj/FileNameCmp.o \
 .obj/FileNameMatch.o \
@@ -115,11 +138,15 @@ OBJ_LIST = \
 .obj/FileToRead.o \
 .obj/Font.o \
 .obj/FontDatabase.o \
+.obj/FontEdit.o \
 .obj/FontLookup.o \
 .obj/FontParam.o \
+.obj/FontReplace.o \
 .obj/ForLoop.o \
 .obj/Forget.o \
+.obj/FrameBase.o \
 .obj/FrameBuf.o \
+.obj/FrameClient.o \
 .obj/FrameWindow.o \
 .obj/FreeType.o \
 .obj/FreeTypeFont.o \
@@ -170,6 +197,8 @@ OBJ_LIST = \
 .obj/Keyboard.o \
 .obj/LangDataMap.o \
 .obj/LaunchPath.o \
+.obj/Layout.o \
+.obj/LayoutCombo.o \
 .obj/Len.o \
 .obj/LineInput.o \
 .obj/List.o \
@@ -178,6 +207,7 @@ OBJ_LIST = \
 .obj/LockUse.o \
 .obj/Locked.o \
 .obj/Log.o \
+.obj/MCoordEdit.o \
 .obj/MD5.o \
 .obj/MPoint.o \
 .obj/MSec.o \
@@ -189,10 +219,14 @@ OBJ_LIST = \
 .obj/MemPageHeap.o \
 .obj/MemSpaceHeap.o \
 .obj/MemberFold.o \
+.obj/Menu.o \
 .obj/MergeSort.o \
 .obj/MersenneTwister.o \
+.obj/MessageFrame.o \
 .obj/Meta.o \
 .obj/MetaList.o \
+.obj/MinSizeType.o \
+.obj/MixColorWindow.o \
 .obj/ModEngine.o \
 .obj/Mouse.o \
 .obj/Move.o \
@@ -254,6 +288,7 @@ OBJ_LIST = \
 .obj/PlanInit_CCore.o \
 .obj/PlatformBase.o \
 .obj/Point.o \
+.obj/PointEdit.o \
 .obj/PosSub.o \
 .obj/Pow.o \
 .obj/PretextFileToMem.o \
@@ -291,6 +326,7 @@ OBJ_LIST = \
 .obj/RadixHeap.o \
 .obj/Random.o \
 .obj/RangeDel.o \
+.obj/RatioEdit.o \
 .obj/RawFileToRead.o \
 .obj/ReadCon.o \
 .obj/ReadConBase.o \
@@ -316,7 +352,37 @@ OBJ_LIST = \
 .obj/Scanf.o \
 .obj/Scope.o \
 .obj/ScopeGuard.o \
+.obj/SelectFrames.o \
 .obj/Sem.o \
+.obj/Shape.AllButton.o \
+.obj/Shape.Button.o \
+.obj/Shape.ButtonState.o \
+.obj/Shape.Check.o \
+.obj/Shape.CheckState.o \
+.obj/Shape.Contour.o \
+.obj/Shape.DragFrame.o \
+.obj/Shape.FixedFrame.o \
+.obj/Shape.FrameBase.o \
+.obj/Shape.Info.o \
+.obj/Shape.Label.o \
+.obj/Shape.Light.o \
+.obj/Shape.Line.o \
+.obj/Shape.LineEdit.o \
+.obj/Shape.MoveButton.o \
+.obj/Shape.Progress.o \
+.obj/Shape.Radio.o \
+.obj/Shape.RunButton.o \
+.obj/Shape.Scroll.o \
+.obj/Shape.ScrollList.o \
+.obj/Shape.ShiftSwitch.o \
+.obj/Shape.SimpleTextList.o \
+.obj/Shape.Slider.o \
+.obj/Shape.Spinor.o \
+.obj/Shape.Split.o \
+.obj/Shape.Switch.o \
+.obj/Shape.Text.o \
+.obj/Shape.TextLine.o \
+.obj/ShapeLib.o \
 .obj/ShortSort.o \
 .obj/Signal.o \
 .obj/SimpleArray.o \
@@ -332,6 +398,7 @@ OBJ_LIST = \
 .obj/Sort.o \
 .obj/SortUnique.o \
 .obj/Space.o \
+.obj/SpanLenEngine.o \
 .obj/SpawnProcess.o \
 .obj/StartStop.o \
 .obj/Starter.o \
@@ -386,6 +453,7 @@ OBJ_LIST = \
 .obj/TlsSlot.o \
 .obj/ToMemBase.o \
 .obj/ToMoveCtor.o \
+.obj/ToolFrame.o \
 .obj/Tree.o \
 .obj/TreeBase.o \
 .obj/TreeLink.o \
@@ -403,11 +471,35 @@ OBJ_LIST = \
 .obj/Unid.o \
 .obj/UniqueToFront.o \
 .obj/UserAction.o \
+.obj/UserPreference.o \
 .obj/Utf8.o \
 .obj/UtilFunc.o \
 .obj/VideoConsole.o \
 .obj/VideoDevice.o \
 .obj/Volume.o \
+.obj/Window.Blank.o \
+.obj/Window.Button.o \
+.obj/Window.Check.o \
+.obj/Window.Decor.o \
+.obj/Window.DragFrame.o \
+.obj/Window.FireButton.o \
+.obj/Window.Info.o \
+.obj/Window.Light.o \
+.obj/Window.LineEdit.o \
+.obj/Window.Progress.o \
+.obj/Window.Radio.o \
+.obj/Window.RunButton.o \
+.obj/Window.Scroll.o \
+.obj/Window.ScrollList.o \
+.obj/Window.Scrollable.o \
+.obj/Window.SimpleTextList.o \
+.obj/Window.Slider.o \
+.obj/Window.Spinor.o \
+.obj/Window.Split.o \
+.obj/Window.Text.o \
+.obj/Window.TextLine.o \
+.obj/WindowLib.o \
+.obj/WindowReport.o \
 .obj/XPoint.o \
 
 
@@ -422,6 +514,9 @@ ASM_LIST = \
 .obj/Activator.s \
 .obj/AntiSem.s \
 .obj/AnyPtr.s \
+.obj/AppMain.s \
+.obj/AppOpt.s \
+.obj/ApplicationBase.s \
 .obj/ApplyToList.s \
 .obj/ApplyToRange.s \
 .obj/Array.s \
@@ -440,9 +535,15 @@ ASM_LIST = \
 .obj/BaseRangeAlgo.s \
 .obj/BestSearch.s \
 .obj/BinarySearch.s \
+.obj/BindBagProxy.s \
 .obj/Bitmap.s \
 .obj/BlockCipher.s \
 .obj/BlockFifo.s \
+.obj/Book.s \
+.obj/BookAppMain.s \
+.obj/BookClient.s \
+.obj/BookFrame.s \
+.obj/BookWindow.s \
 .obj/Bridge.s \
 .obj/ButtonId.s \
 .obj/CancelPacketList.s \
@@ -458,13 +559,19 @@ ASM_LIST = \
 .obj/CoTask.s \
 .obj/Collector.s \
 .obj/Color.s \
+.obj/ColorEdit.s \
 .obj/ColorField.s \
+.obj/ColorListWindow.s \
 .obj/CommonIntAlgo.s \
 .obj/CompactList.s \
 .obj/CompactMap.s \
 .obj/CompactNodeAllocator.s \
 .obj/Complex.s \
+.obj/ConfigBinder.s \
+.obj/ConfigEditor.s \
+.obj/ConfigStore.s \
 .obj/ContainerList.s \
+.obj/CoordEdit.s \
 .obj/Counters.s \
 .obj/Crc.s \
 .obj/CreateAt.s \
@@ -496,9 +603,12 @@ ASM_LIST = \
 .obj/DesktopKey.s \
 .obj/DestroyGuard.s \
 .obj/DetectProxy.s \
+.obj/DirFrame.s \
 .obj/DirTreeRun.s \
 .obj/DoubleFormat.s \
 .obj/DoubleUtils.s \
+.obj/DrawBook.s \
+.obj/DrawBookTools.s \
 .obj/DrawBuf.s \
 .obj/DrawTools.s \
 .obj/DynArray.s \
@@ -513,13 +623,18 @@ ASM_LIST = \
 .obj/Event.s \
 .obj/EventRecorder.s \
 .obj/Exception.s \
+.obj/ExceptionFrame.s \
 .obj/ExceptionType.s \
 .obj/ExpandWildcard.s \
 .obj/FFTMul.s \
 .obj/FastMutex.s \
+.obj/FavFrame.s \
+.obj/FavList.s \
 .obj/FeedBuf.s \
 .obj/Fifo.s \
+.obj/FigureLib.s \
 .obj/FileBoss.s \
+.obj/FileFrame.s \
 .obj/FileName.s \
 .obj/FileNameCmp.s \
 .obj/FileNameMatch.s \
@@ -528,11 +643,15 @@ ASM_LIST = \
 .obj/FileToRead.s \
 .obj/Font.s \
 .obj/FontDatabase.s \
+.obj/FontEdit.s \
 .obj/FontLookup.s \
 .obj/FontParam.s \
+.obj/FontReplace.s \
 .obj/ForLoop.s \
 .obj/Forget.s \
+.obj/FrameBase.s \
 .obj/FrameBuf.s \
+.obj/FrameClient.s \
 .obj/FrameWindow.s \
 .obj/FreeType.s \
 .obj/FreeTypeFont.s \
@@ -583,6 +702,8 @@ ASM_LIST = \
 .obj/Keyboard.s \
 .obj/LangDataMap.s \
 .obj/LaunchPath.s \
+.obj/Layout.s \
+.obj/LayoutCombo.s \
 .obj/Len.s \
 .obj/LineInput.s \
 .obj/List.s \
@@ -591,6 +712,7 @@ ASM_LIST = \
 .obj/LockUse.s \
 .obj/Locked.s \
 .obj/Log.s \
+.obj/MCoordEdit.s \
 .obj/MD5.s \
 .obj/MPoint.s \
 .obj/MSec.s \
@@ -602,10 +724,14 @@ ASM_LIST = \
 .obj/MemPageHeap.s \
 .obj/MemSpaceHeap.s \
 .obj/MemberFold.s \
+.obj/Menu.s \
 .obj/MergeSort.s \
 .obj/MersenneTwister.s \
+.obj/MessageFrame.s \
 .obj/Meta.s \
 .obj/MetaList.s \
+.obj/MinSizeType.s \
+.obj/MixColorWindow.s \
 .obj/ModEngine.s \
 .obj/Mouse.s \
 .obj/Move.s \
@@ -667,6 +793,7 @@ ASM_LIST = \
 .obj/PlanInit_CCore.s \
 .obj/PlatformBase.s \
 .obj/Point.s \
+.obj/PointEdit.s \
 .obj/PosSub.s \
 .obj/Pow.s \
 .obj/PretextFileToMem.s \
@@ -704,6 +831,7 @@ ASM_LIST = \
 .obj/RadixHeap.s \
 .obj/Random.s \
 .obj/RangeDel.s \
+.obj/RatioEdit.s \
 .obj/RawFileToRead.s \
 .obj/ReadCon.s \
 .obj/ReadConBase.s \
@@ -729,7 +857,37 @@ ASM_LIST = \
 .obj/Scanf.s \
 .obj/Scope.s \
 .obj/ScopeGuard.s \
+.obj/SelectFrames.s \
 .obj/Sem.s \
+.obj/Shape.AllButton.s \
+.obj/Shape.Button.s \
+.obj/Shape.ButtonState.s \
+.obj/Shape.Check.s \
+.obj/Shape.CheckState.s \
+.obj/Shape.Contour.s \
+.obj/Shape.DragFrame.s \
+.obj/Shape.FixedFrame.s \
+.obj/Shape.FrameBase.s \
+.obj/Shape.Info.s \
+.obj/Shape.Label.s \
+.obj/Shape.Light.s \
+.obj/Shape.Line.s \
+.obj/Shape.LineEdit.s \
+.obj/Shape.MoveButton.s \
+.obj/Shape.Progress.s \
+.obj/Shape.Radio.s \
+.obj/Shape.RunButton.s \
+.obj/Shape.Scroll.s \
+.obj/Shape.ScrollList.s \
+.obj/Shape.ShiftSwitch.s \
+.obj/Shape.SimpleTextList.s \
+.obj/Shape.Slider.s \
+.obj/Shape.Spinor.s \
+.obj/Shape.Split.s \
+.obj/Shape.Switch.s \
+.obj/Shape.Text.s \
+.obj/Shape.TextLine.s \
+.obj/ShapeLib.s \
 .obj/ShortSort.s \
 .obj/Signal.s \
 .obj/SimpleArray.s \
@@ -745,6 +903,7 @@ ASM_LIST = \
 .obj/Sort.s \
 .obj/SortUnique.s \
 .obj/Space.s \
+.obj/SpanLenEngine.s \
 .obj/SpawnProcess.s \
 .obj/StartStop.s \
 .obj/Starter.s \
@@ -799,6 +958,7 @@ ASM_LIST = \
 .obj/TlsSlot.s \
 .obj/ToMemBase.s \
 .obj/ToMoveCtor.s \
+.obj/ToolFrame.s \
 .obj/Tree.s \
 .obj/TreeBase.s \
 .obj/TreeLink.s \
@@ -816,11 +976,35 @@ ASM_LIST = \
 .obj/Unid.s \
 .obj/UniqueToFront.s \
 .obj/UserAction.s \
+.obj/UserPreference.s \
 .obj/Utf8.s \
 .obj/UtilFunc.s \
 .obj/VideoConsole.s \
 .obj/VideoDevice.s \
 .obj/Volume.s \
+.obj/Window.Blank.s \
+.obj/Window.Button.s \
+.obj/Window.Check.s \
+.obj/Window.Decor.s \
+.obj/Window.DragFrame.s \
+.obj/Window.FireButton.s \
+.obj/Window.Info.s \
+.obj/Window.Light.s \
+.obj/Window.LineEdit.s \
+.obj/Window.Progress.s \
+.obj/Window.Radio.s \
+.obj/Window.RunButton.s \
+.obj/Window.Scroll.s \
+.obj/Window.ScrollList.s \
+.obj/Window.Scrollable.s \
+.obj/Window.SimpleTextList.s \
+.obj/Window.Slider.s \
+.obj/Window.Spinor.s \
+.obj/Window.Split.s \
+.obj/Window.Text.s \
+.obj/Window.TextLine.s \
+.obj/WindowLib.s \
+.obj/WindowReport.s \
 .obj/XPoint.s \
 
 
@@ -835,6 +1019,9 @@ DEP_LIST = \
 .obj/Activator.dep \
 .obj/AntiSem.dep \
 .obj/AnyPtr.dep \
+.obj/AppMain.dep \
+.obj/AppOpt.dep \
+.obj/ApplicationBase.dep \
 .obj/ApplyToList.dep \
 .obj/ApplyToRange.dep \
 .obj/Array.dep \
@@ -853,9 +1040,15 @@ DEP_LIST = \
 .obj/BaseRangeAlgo.dep \
 .obj/BestSearch.dep \
 .obj/BinarySearch.dep \
+.obj/BindBagProxy.dep \
 .obj/Bitmap.dep \
 .obj/BlockCipher.dep \
 .obj/BlockFifo.dep \
+.obj/Book.dep \
+.obj/BookAppMain.dep \
+.obj/BookClient.dep \
+.obj/BookFrame.dep \
+.obj/BookWindow.dep \
 .obj/Bridge.dep \
 .obj/ButtonId.dep \
 .obj/CancelPacketList.dep \
@@ -871,13 +1064,19 @@ DEP_LIST = \
 .obj/CoTask.dep \
 .obj/Collector.dep \
 .obj/Color.dep \
+.obj/ColorEdit.dep \
 .obj/ColorField.dep \
+.obj/ColorListWindow.dep \
 .obj/CommonIntAlgo.dep \
 .obj/CompactList.dep \
 .obj/CompactMap.dep \
 .obj/CompactNodeAllocator.dep \
 .obj/Complex.dep \
+.obj/ConfigBinder.dep \
+.obj/ConfigEditor.dep \
+.obj/ConfigStore.dep \
 .obj/ContainerList.dep \
+.obj/CoordEdit.dep \
 .obj/Counters.dep \
 .obj/Crc.dep \
 .obj/CreateAt.dep \
@@ -909,9 +1108,12 @@ DEP_LIST = \
 .obj/DesktopKey.dep \
 .obj/DestroyGuard.dep \
 .obj/DetectProxy.dep \
+.obj/DirFrame.dep \
 .obj/DirTreeRun.dep \
 .obj/DoubleFormat.dep \
 .obj/DoubleUtils.dep \
+.obj/DrawBook.dep \
+.obj/DrawBookTools.dep \
 .obj/DrawBuf.dep \
 .obj/DrawTools.dep \
 .obj/DynArray.dep \
@@ -926,13 +1128,18 @@ DEP_LIST = \
 .obj/Event.dep \
 .obj/EventRecorder.dep \
 .obj/Exception.dep \
+.obj/ExceptionFrame.dep \
 .obj/ExceptionType.dep \
 .obj/ExpandWildcard.dep \
 .obj/FFTMul.dep \
 .obj/FastMutex.dep \
+.obj/FavFrame.dep \
+.obj/FavList.dep \
 .obj/FeedBuf.dep \
 .obj/Fifo.dep \
+.obj/FigureLib.dep \
 .obj/FileBoss.dep \
+.obj/FileFrame.dep \
 .obj/FileName.dep \
 .obj/FileNameCmp.dep \
 .obj/FileNameMatch.dep \
@@ -941,11 +1148,15 @@ DEP_LIST = \
 .obj/FileToRead.dep \
 .obj/Font.dep \
 .obj/FontDatabase.dep \
+.obj/FontEdit.dep \
 .obj/FontLookup.dep \
 .obj/FontParam.dep \
+.obj/FontReplace.dep \
 .obj/ForLoop.dep \
 .obj/Forget.dep \
+.obj/FrameBase.dep \
 .obj/FrameBuf.dep \
+.obj/FrameClient.dep \
 .obj/FrameWindow.dep \
 .obj/FreeType.dep \
 .obj/FreeTypeFont.dep \
@@ -996,6 +1207,8 @@ DEP_LIST = \
 .obj/Keyboard.dep \
 .obj/LangDataMap.dep \
 .obj/LaunchPath.dep \
+.obj/Layout.dep \
+.obj/LayoutCombo.dep \
 .obj/Len.dep \
 .obj/LineInput.dep \
 .obj/List.dep \
@@ -1004,6 +1217,7 @@ DEP_LIST = \
 .obj/LockUse.dep \
 .obj/Locked.dep \
 .obj/Log.dep \
+.obj/MCoordEdit.dep \
 .obj/MD5.dep \
 .obj/MPoint.dep \
 .obj/MSec.dep \
@@ -1015,10 +1229,14 @@ DEP_LIST = \
 .obj/MemPageHeap.dep \
 .obj/MemSpaceHeap.dep \
 .obj/MemberFold.dep \
+.obj/Menu.dep \
 .obj/MergeSort.dep \
 .obj/MersenneTwister.dep \
+.obj/MessageFrame.dep \
 .obj/Meta.dep \
 .obj/MetaList.dep \
+.obj/MinSizeType.dep \
+.obj/MixColorWindow.dep \
 .obj/ModEngine.dep \
 .obj/Mouse.dep \
 .obj/Move.dep \
@@ -1080,6 +1298,7 @@ DEP_LIST = \
 .obj/PlanInit_CCore.dep \
 .obj/PlatformBase.dep \
 .obj/Point.dep \
+.obj/PointEdit.dep \
 .obj/PosSub.dep \
 .obj/Pow.dep \
 .obj/PretextFileToMem.dep \
@@ -1117,6 +1336,7 @@ DEP_LIST = \
 .obj/RadixHeap.dep \
 .obj/Random.dep \
 .obj/RangeDel.dep \
+.obj/RatioEdit.dep \
 .obj/RawFileToRead.dep \
 .obj/ReadCon.dep \
 .obj/ReadConBase.dep \
@@ -1142,7 +1362,37 @@ DEP_LIST = \
 .obj/Scanf.dep \
 .obj/Scope.dep \
 .obj/ScopeGuard.dep \
+.obj/SelectFrames.dep \
 .obj/Sem.dep \
+.obj/Shape.AllButton.dep \
+.obj/Shape.Button.dep \
+.obj/Shape.ButtonState.dep \
+.obj/Shape.Check.dep \
+.obj/Shape.CheckState.dep \
+.obj/Shape.Contour.dep \
+.obj/Shape.DragFrame.dep \
+.obj/Shape.FixedFrame.dep \
+.obj/Shape.FrameBase.dep \
+.obj/Shape.Info.dep \
+.obj/Shape.Label.dep \
+.obj/Shape.Light.dep \
+.obj/Shape.Line.dep \
+.obj/Shape.LineEdit.dep \
+.obj/Shape.MoveButton.dep \
+.obj/Shape.Progress.dep \
+.obj/Shape.Radio.dep \
+.obj/Shape.RunButton.dep \
+.obj/Shape.Scroll.dep \
+.obj/Shape.ScrollList.dep \
+.obj/Shape.ShiftSwitch.dep \
+.obj/Shape.SimpleTextList.dep \
+.obj/Shape.Slider.dep \
+.obj/Shape.Spinor.dep \
+.obj/Shape.Split.dep \
+.obj/Shape.Switch.dep \
+.obj/Shape.Text.dep \
+.obj/Shape.TextLine.dep \
+.obj/ShapeLib.dep \
 .obj/ShortSort.dep \
 .obj/Signal.dep \
 .obj/SimpleArray.dep \
@@ -1158,6 +1408,7 @@ DEP_LIST = \
 .obj/Sort.dep \
 .obj/SortUnique.dep \
 .obj/Space.dep \
+.obj/SpanLenEngine.dep \
 .obj/SpawnProcess.dep \
 .obj/StartStop.dep \
 .obj/Starter.dep \
@@ -1212,6 +1463,7 @@ DEP_LIST = \
 .obj/TlsSlot.dep \
 .obj/ToMemBase.dep \
 .obj/ToMoveCtor.dep \
+.obj/ToolFrame.dep \
 .obj/Tree.dep \
 .obj/TreeBase.dep \
 .obj/TreeLink.dep \
@@ -1229,11 +1481,35 @@ DEP_LIST = \
 .obj/Unid.dep \
 .obj/UniqueToFront.dep \
 .obj/UserAction.dep \
+.obj/UserPreference.dep \
 .obj/Utf8.dep \
 .obj/UtilFunc.dep \
 .obj/VideoConsole.dep \
 .obj/VideoDevice.dep \
 .obj/Volume.dep \
+.obj/Window.Blank.dep \
+.obj/Window.Button.dep \
+.obj/Window.Check.dep \
+.obj/Window.Decor.dep \
+.obj/Window.DragFrame.dep \
+.obj/Window.FireButton.dep \
+.obj/Window.Info.dep \
+.obj/Window.Light.dep \
+.obj/Window.LineEdit.dep \
+.obj/Window.Progress.dep \
+.obj/Window.Radio.dep \
+.obj/Window.RunButton.dep \
+.obj/Window.Scroll.dep \
+.obj/Window.ScrollList.dep \
+.obj/Window.Scrollable.dep \
+.obj/Window.SimpleTextList.dep \
+.obj/Window.Slider.dep \
+.obj/Window.Spinor.dep \
+.obj/Window.Split.dep \
+.obj/Window.Text.dep \
+.obj/Window.TextLine.dep \
+.obj/WindowLib.dep \
+.obj/WindowReport.dep \
 .obj/XPoint.dep \
 
 
@@ -1279,6 +1555,15 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/AnyPtr.o : ../../Simple/CCore/src/AnyPtr.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AppMain.o : ../../Desktop/App/CCore/src/video/AppMain.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/AppOpt.o : ../../Desktop/App/CCore/src/video/AppOpt.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ApplicationBase.o : ../../Desktop/App/CCore/src/video/ApplicationBase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ApplyToList.o : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
@@ -1335,6 +1620,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.o : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/BindBagProxy.o : ../../Desktop/Lib/CCore/src/video/BindBagProxy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Bitmap.o : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1342,6 +1630,21 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/BlockFifo.o : ../../Simple/CCore/src/BlockFifo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Book.o : ../../Desktop/Lib/CCore/src/video/book/Book.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BookAppMain.o : ../../Desktop/App/CCore/src/video/BookAppMain.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BookClient.o : ../../Desktop/Lib/CCore/src/video/book/BookClient.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BookFrame.o : ../../Desktop/Lib/CCore/src/video/BookFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/BookWindow.o : ../../Desktop/Lib/CCore/src/video/book/BookWindow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Bridge.o : ../../Applied/CCore/src/net/Bridge.cpp
@@ -1389,7 +1692,13 @@ include $(RULES_FILE)
 .obj/Color.o : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ColorEdit.o : ../../Desktop/Lib/CCore/src/video/pref/ColorEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ColorField.o : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ColorListWindow.o : ../../Desktop/Lib/CCore/src/video/pref/ColorListWindow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/CommonIntAlgo.o : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
@@ -1407,7 +1716,19 @@ include $(RULES_FILE)
 .obj/Complex.o : ../../Applied/CCore/src/math/Complex.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ConfigBinder.o : ../../Desktop/Lib/CCore/src/video/ConfigBinder.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ConfigEditor.o : ../../Desktop/Lib/CCore/src/video/ConfigEditor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ConfigStore.o : ../../Desktop/Lib/CCore/src/video/ConfigStore.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ContainerList.o : ../../Fundamental/CCore/src/ContainerList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/CoordEdit.o : ../../Desktop/Lib/CCore/src/video/pref/CoordEdit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Counters.o : ../../Simple/CCore/src/Counters.cpp
@@ -1503,6 +1824,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.o : ../../Fundamental/CCore/src/DetectProxy.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/DirFrame.o : ../../Desktop/Lib/CCore/src/video/DirFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/DirTreeRun.o : ../../HCore/CCore/src/DirTreeRun.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1510,6 +1834,12 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DoubleUtils.o : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DrawBook.o : ../../Desktop/Lib/CCore/src/video/book/DrawBook.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/DrawBookTools.o : ../../Desktop/Lib/CCore/src/video/book/DrawBookTools.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/DrawBuf.o : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
@@ -1554,6 +1884,9 @@ include $(RULES_FILE)
 .obj/Exception.o : ../../Fundamental/CCore/src/Exception.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ExceptionFrame.o : ../../Desktop/Lib/CCore/src/video/ExceptionFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/ExceptionType.o : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1566,13 +1899,25 @@ include $(RULES_FILE)
 .obj/FastMutex.o : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FavFrame.o : ../../Desktop/Lib/CCore/src/video/FavFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FavList.o : ../../Desktop/Lib/CCore/src/video/FavList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FeedBuf.o : ../../Simple/CCore/src/FeedBuf.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Fifo.o : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FigureLib.o : ../../Desktop/Lib/CCore/src/video/FigureLib.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FileBoss.o : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FileFrame.o : ../../Desktop/Lib/CCore/src/video/FileFrame.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FileName.o : ../../Applied/CCore/src/FileName.cpp
@@ -1599,10 +1944,16 @@ include $(RULES_FILE)
 .obj/FontDatabase.o : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FontEdit.o : ../../Desktop/Lib/CCore/src/video/pref/FontEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FontLookup.o : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FontParam.o : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FontReplace.o : ../../Desktop/Lib/CCore/src/video/FontReplace.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ForLoop.o : ../../Simple/CCore/src/ForLoop.cpp
@@ -1611,7 +1962,13 @@ include $(RULES_FILE)
 .obj/Forget.o : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/FrameBase.o : ../../Desktop/Lib/CCore/src/video/FrameBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/FrameBuf.o : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/FrameClient.o : ../../Desktop/Lib/CCore/src/video/FrameClient.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/FrameWindow.o : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
@@ -1764,6 +2121,12 @@ include $(RULES_FILE)
 .obj/LaunchPath.o : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Layout.o : ../../Desktop/Lib/CCore/src/video/Layout.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/LayoutCombo.o : ../../Desktop/Lib/CCore/src/video/LayoutCombo.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Len.o : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -1786,6 +2149,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Log.o : ../../Applied/CCore/src/Log.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MCoordEdit.o : ../../Desktop/Lib/CCore/src/video/pref/MCoordEdit.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MD5.o : ../../Applied/CCore/src/crypton/MD5.cpp
@@ -1821,16 +2187,28 @@ include $(RULES_FILE)
 .obj/MemberFold.o : ../../Simple/CCore/src/MemberFold.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/Menu.o : ../../Desktop/Lib/CCore/src/video/Menu.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/MergeSort.o : ../../Fundamental/CCore/src/sort/MergeSort.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MersenneTwister.o : ../../Fundamental/CCore/src/MersenneTwister.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/MessageFrame.o : ../../Desktop/Lib/CCore/src/video/MessageFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Meta.o : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/MetaList.o : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MinSizeType.o : ../../Desktop/Lib/CCore/src/video/MinSizeType.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/MixColorWindow.o : ../../Desktop/Lib/CCore/src/video/pref/MixColorWindow.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ModEngine.o : ../../Applied/CCore/src/math/ModEngine.cpp
@@ -2016,6 +2394,9 @@ include $(RULES_FILE)
 .obj/Point.o : ../../Applied/CCore/src/video/Point.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/PointEdit.o : ../../Desktop/Lib/CCore/src/video/pref/PointEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/PosSub.o : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2127,6 +2508,9 @@ include $(RULES_FILE)
 .obj/RangeDel.o : ../../Simple/CCore/src/RangeDel.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/RatioEdit.o : ../../Desktop/Lib/CCore/src/video/pref/RatioEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/RawFileToRead.o : ../../HCore/CCore/src/RawFileToRead.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2202,7 +2586,97 @@ include $(RULES_FILE)
 .obj/ScopeGuard.o : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/SelectFrames.o : ../../Desktop/Lib/CCore/src/video/book/SelectFrames.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Sem.o : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.AllButton.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.AllButton.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Button.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Button.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.ButtonState.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.ButtonState.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Check.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Check.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.CheckState.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.CheckState.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Contour.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Contour.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.DragFrame.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.DragFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.FixedFrame.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.FixedFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.FrameBase.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.FrameBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Info.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Info.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Label.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Label.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Light.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Light.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Line.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Line.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.LineEdit.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.LineEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.MoveButton.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.MoveButton.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Progress.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Progress.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Radio.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Radio.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.RunButton.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.RunButton.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Scroll.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Scroll.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.ScrollList.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.ScrollList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.ShiftSwitch.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.ShiftSwitch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.SimpleTextList.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.SimpleTextList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Slider.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Slider.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Spinor.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Spinor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Split.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Split.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Switch.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Switch.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.Text.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.Text.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Shape.TextLine.o : ../../Desktop/Lib/CCore/src/video/lib/Shape.TextLine.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/ShapeLib.o : ../../Desktop/Lib/CCore/src/video/ShapeLib.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/ShortSort.o : ../../Fundamental/CCore/src/sort/ShortSort.cpp
@@ -2248,6 +2722,9 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Space.o : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/SpanLenEngine.o : ../../Desktop/Lib/CCore/src/video/book/SpanLenEngine.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/SpawnProcess.o : ../../HCore/CCore/src/SpawnProcess.cpp
@@ -2412,6 +2889,9 @@ include $(RULES_FILE)
 .obj/ToMoveCtor.o : ../../Simple/CCore/src/ToMoveCtor.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/ToolFrame.o : ../../Desktop/Lib/CCore/src/video/ToolFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Tree.o : ../../Fundamental/CCore/src/Tree.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2463,6 +2943,9 @@ include $(RULES_FILE)
 .obj/UserAction.o : ../../Desktop/Core/CCore/src/video/UserAction.cpp
 	$(CC) $(CCOPT) $< -o $@
 
+.obj/UserPreference.o : ../../Desktop/Lib/CCore/src/video/UserPreference.cpp
+	$(CC) $(CCOPT) $< -o $@
+
 .obj/Utf8.o : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) $(CCOPT) $< -o $@
 
@@ -2476,6 +2959,75 @@ include $(RULES_FILE)
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/Volume.o : ../../Applied/CCore/src/Volume.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Blank.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Blank.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Button.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Button.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Check.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Check.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Decor.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Decor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.DragFrame.o : ../../Desktop/Lib/CCore/src/video/lib/Window.DragFrame.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.FireButton.o : ../../Desktop/Lib/CCore/src/video/lib/Window.FireButton.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Info.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Info.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Light.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Light.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.LineEdit.o : ../../Desktop/Lib/CCore/src/video/lib/Window.LineEdit.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Progress.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Progress.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Radio.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Radio.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.RunButton.o : ../../Desktop/Lib/CCore/src/video/lib/Window.RunButton.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Scroll.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Scroll.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.ScrollList.o : ../../Desktop/Lib/CCore/src/video/lib/Window.ScrollList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Scrollable.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Scrollable.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.SimpleTextList.o : ../../Desktop/Lib/CCore/src/video/lib/Window.SimpleTextList.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Slider.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Slider.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Spinor.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Spinor.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Split.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Split.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.Text.o : ../../Desktop/Lib/CCore/src/video/lib/Window.Text.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/Window.TextLine.o : ../../Desktop/Lib/CCore/src/video/lib/Window.TextLine.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/WindowLib.o : ../../Desktop/Lib/CCore/src/video/WindowLib.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/WindowReport.o : ../../Desktop/App/CCore/src/video/WindowReport.cpp
 	$(CC) $(CCOPT) $< -o $@
 
 .obj/XPoint.o : ../../Applied/CCore/src/net/XPoint.cpp
@@ -2511,6 +3063,15 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/AnyPtr.s : ../../Simple/CCore/src/AnyPtr.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AppMain.s : ../../Desktop/App/CCore/src/video/AppMain.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/AppOpt.s : ../../Desktop/App/CCore/src/video/AppOpt.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ApplicationBase.s : ../../Desktop/App/CCore/src/video/ApplicationBase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ApplyToList.s : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
@@ -2567,6 +3128,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.s : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/BindBagProxy.s : ../../Desktop/Lib/CCore/src/video/BindBagProxy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Bitmap.s : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2574,6 +3138,21 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/BlockFifo.s : ../../Simple/CCore/src/BlockFifo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Book.s : ../../Desktop/Lib/CCore/src/video/book/Book.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BookAppMain.s : ../../Desktop/App/CCore/src/video/BookAppMain.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BookClient.s : ../../Desktop/Lib/CCore/src/video/book/BookClient.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BookFrame.s : ../../Desktop/Lib/CCore/src/video/BookFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/BookWindow.s : ../../Desktop/Lib/CCore/src/video/book/BookWindow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Bridge.s : ../../Applied/CCore/src/net/Bridge.cpp
@@ -2621,7 +3200,13 @@ include $(RULES_FILE)
 .obj/Color.s : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ColorEdit.s : ../../Desktop/Lib/CCore/src/video/pref/ColorEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ColorField.s : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ColorListWindow.s : ../../Desktop/Lib/CCore/src/video/pref/ColorListWindow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/CommonIntAlgo.s : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
@@ -2639,7 +3224,19 @@ include $(RULES_FILE)
 .obj/Complex.s : ../../Applied/CCore/src/math/Complex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ConfigBinder.s : ../../Desktop/Lib/CCore/src/video/ConfigBinder.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ConfigEditor.s : ../../Desktop/Lib/CCore/src/video/ConfigEditor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ConfigStore.s : ../../Desktop/Lib/CCore/src/video/ConfigStore.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ContainerList.s : ../../Fundamental/CCore/src/ContainerList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/CoordEdit.s : ../../Desktop/Lib/CCore/src/video/pref/CoordEdit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Counters.s : ../../Simple/CCore/src/Counters.cpp
@@ -2735,6 +3332,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.s : ../../Fundamental/CCore/src/DetectProxy.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/DirFrame.s : ../../Desktop/Lib/CCore/src/video/DirFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/DirTreeRun.s : ../../HCore/CCore/src/DirTreeRun.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2742,6 +3342,12 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DoubleUtils.s : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DrawBook.s : ../../Desktop/Lib/CCore/src/video/book/DrawBook.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/DrawBookTools.s : ../../Desktop/Lib/CCore/src/video/book/DrawBookTools.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/DrawBuf.s : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
@@ -2786,6 +3392,9 @@ include $(RULES_FILE)
 .obj/Exception.s : ../../Fundamental/CCore/src/Exception.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ExceptionFrame.s : ../../Desktop/Lib/CCore/src/video/ExceptionFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/ExceptionType.s : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -2798,13 +3407,25 @@ include $(RULES_FILE)
 .obj/FastMutex.s : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FavFrame.s : ../../Desktop/Lib/CCore/src/video/FavFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FavList.s : ../../Desktop/Lib/CCore/src/video/FavList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FeedBuf.s : ../../Simple/CCore/src/FeedBuf.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Fifo.s : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FigureLib.s : ../../Desktop/Lib/CCore/src/video/FigureLib.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FileBoss.s : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FileFrame.s : ../../Desktop/Lib/CCore/src/video/FileFrame.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FileName.s : ../../Applied/CCore/src/FileName.cpp
@@ -2831,10 +3452,16 @@ include $(RULES_FILE)
 .obj/FontDatabase.s : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FontEdit.s : ../../Desktop/Lib/CCore/src/video/pref/FontEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FontLookup.s : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FontParam.s : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FontReplace.s : ../../Desktop/Lib/CCore/src/video/FontReplace.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ForLoop.s : ../../Simple/CCore/src/ForLoop.cpp
@@ -2843,7 +3470,13 @@ include $(RULES_FILE)
 .obj/Forget.s : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/FrameBase.s : ../../Desktop/Lib/CCore/src/video/FrameBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/FrameBuf.s : ../../Applied/CCore/src/video/FrameBuf.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/FrameClient.s : ../../Desktop/Lib/CCore/src/video/FrameClient.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/FrameWindow.s : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
@@ -2996,6 +3629,12 @@ include $(RULES_FILE)
 .obj/LaunchPath.s : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Layout.s : ../../Desktop/Lib/CCore/src/video/Layout.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/LayoutCombo.s : ../../Desktop/Lib/CCore/src/video/LayoutCombo.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Len.s : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3018,6 +3657,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Log.s : ../../Applied/CCore/src/Log.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MCoordEdit.s : ../../Desktop/Lib/CCore/src/video/pref/MCoordEdit.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MD5.s : ../../Applied/CCore/src/crypton/MD5.cpp
@@ -3053,16 +3695,28 @@ include $(RULES_FILE)
 .obj/MemberFold.s : ../../Simple/CCore/src/MemberFold.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/Menu.s : ../../Desktop/Lib/CCore/src/video/Menu.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/MergeSort.s : ../../Fundamental/CCore/src/sort/MergeSort.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MersenneTwister.s : ../../Fundamental/CCore/src/MersenneTwister.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/MessageFrame.s : ../../Desktop/Lib/CCore/src/video/MessageFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Meta.s : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/MetaList.s : ../../Simple/CCore/src/gadget/MetaList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MinSizeType.s : ../../Desktop/Lib/CCore/src/video/MinSizeType.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/MixColorWindow.s : ../../Desktop/Lib/CCore/src/video/pref/MixColorWindow.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ModEngine.s : ../../Applied/CCore/src/math/ModEngine.cpp
@@ -3248,6 +3902,9 @@ include $(RULES_FILE)
 .obj/Point.s : ../../Applied/CCore/src/video/Point.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/PointEdit.s : ../../Desktop/Lib/CCore/src/video/pref/PointEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/PosSub.s : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3359,6 +4016,9 @@ include $(RULES_FILE)
 .obj/RangeDel.s : ../../Simple/CCore/src/RangeDel.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/RatioEdit.s : ../../Desktop/Lib/CCore/src/video/pref/RatioEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/RawFileToRead.s : ../../HCore/CCore/src/RawFileToRead.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3434,7 +4094,97 @@ include $(RULES_FILE)
 .obj/ScopeGuard.s : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/SelectFrames.s : ../../Desktop/Lib/CCore/src/video/book/SelectFrames.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Sem.s : ../../HCore/CCore/src/task/Sem.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.AllButton.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.AllButton.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Button.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Button.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.ButtonState.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.ButtonState.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Check.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Check.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.CheckState.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.CheckState.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Contour.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Contour.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.DragFrame.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.DragFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.FixedFrame.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.FixedFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.FrameBase.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.FrameBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Info.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Info.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Label.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Label.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Light.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Light.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Line.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Line.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.LineEdit.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.LineEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.MoveButton.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.MoveButton.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Progress.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Progress.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Radio.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Radio.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.RunButton.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.RunButton.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Scroll.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Scroll.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.ScrollList.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.ScrollList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.ShiftSwitch.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.ShiftSwitch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.SimpleTextList.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.SimpleTextList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Slider.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Slider.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Spinor.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Spinor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Split.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Split.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Switch.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Switch.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.Text.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.Text.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Shape.TextLine.s : ../../Desktop/Lib/CCore/src/video/lib/Shape.TextLine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/ShapeLib.s : ../../Desktop/Lib/CCore/src/video/ShapeLib.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/ShortSort.s : ../../Fundamental/CCore/src/sort/ShortSort.cpp
@@ -3480,6 +4230,9 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Space.s : ../../Simple/CCore/src/gadget/Space.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/SpanLenEngine.s : ../../Desktop/Lib/CCore/src/video/book/SpanLenEngine.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/SpawnProcess.s : ../../HCore/CCore/src/SpawnProcess.cpp
@@ -3644,6 +4397,9 @@ include $(RULES_FILE)
 .obj/ToMoveCtor.s : ../../Simple/CCore/src/ToMoveCtor.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/ToolFrame.s : ../../Desktop/Lib/CCore/src/video/ToolFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Tree.s : ../../Fundamental/CCore/src/Tree.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3695,6 +4451,9 @@ include $(RULES_FILE)
 .obj/UserAction.s : ../../Desktop/Core/CCore/src/video/UserAction.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
+.obj/UserPreference.s : ../../Desktop/Lib/CCore/src/video/UserPreference.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
 .obj/Utf8.s : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
@@ -3708,6 +4467,75 @@ include $(RULES_FILE)
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/Volume.s : ../../Applied/CCore/src/Volume.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Blank.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Blank.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Button.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Button.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Check.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Check.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Decor.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Decor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.DragFrame.s : ../../Desktop/Lib/CCore/src/video/lib/Window.DragFrame.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.FireButton.s : ../../Desktop/Lib/CCore/src/video/lib/Window.FireButton.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Info.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Info.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Light.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Light.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.LineEdit.s : ../../Desktop/Lib/CCore/src/video/lib/Window.LineEdit.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Progress.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Progress.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Radio.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Radio.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.RunButton.s : ../../Desktop/Lib/CCore/src/video/lib/Window.RunButton.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Scroll.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Scroll.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.ScrollList.s : ../../Desktop/Lib/CCore/src/video/lib/Window.ScrollList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Scrollable.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Scrollable.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.SimpleTextList.s : ../../Desktop/Lib/CCore/src/video/lib/Window.SimpleTextList.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Slider.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Slider.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Spinor.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Spinor.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Split.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Split.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.Text.s : ../../Desktop/Lib/CCore/src/video/lib/Window.Text.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/Window.TextLine.s : ../../Desktop/Lib/CCore/src/video/lib/Window.TextLine.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/WindowLib.s : ../../Desktop/Lib/CCore/src/video/WindowLib.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/WindowReport.s : ../../Desktop/App/CCore/src/video/WindowReport.cpp
 	$(CC) -S $(CCOPT) $< -o $@
 
 .obj/XPoint.s : ../../Applied/CCore/src/net/XPoint.cpp
@@ -3744,6 +4572,15 @@ include $(RULES_FILE)
 
 .obj/AnyPtr.dep : ../../Simple/CCore/src/AnyPtr.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/AnyPtr.o $< -MF $@
+
+.obj/AppMain.dep : ../../Desktop/App/CCore/src/video/AppMain.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AppMain.o $< -MF $@
+
+.obj/AppOpt.dep : ../../Desktop/App/CCore/src/video/AppOpt.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/AppOpt.o $< -MF $@
+
+.obj/ApplicationBase.dep : ../../Desktop/App/CCore/src/video/ApplicationBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ApplicationBase.o $< -MF $@
 
 .obj/ApplyToList.dep : ../../Fundamental/CCore/src/algon/ApplyToList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ApplyToList.o $< -MF $@
@@ -3799,6 +4636,9 @@ include $(RULES_FILE)
 .obj/BinarySearch.dep : ../../Fundamental/CCore/src/algon/BinarySearch.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BinarySearch.o $< -MF $@
 
+.obj/BindBagProxy.dep : ../../Desktop/Lib/CCore/src/video/BindBagProxy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BindBagProxy.o $< -MF $@
+
 .obj/Bitmap.dep : ../../Desktop/Tools/CCore/src/video/Bitmap.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Bitmap.o $< -MF $@
 
@@ -3807,6 +4647,21 @@ include $(RULES_FILE)
 
 .obj/BlockFifo.dep : ../../Simple/CCore/src/BlockFifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/BlockFifo.o $< -MF $@
+
+.obj/Book.dep : ../../Desktop/Lib/CCore/src/video/book/Book.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Book.o $< -MF $@
+
+.obj/BookAppMain.dep : ../../Desktop/App/CCore/src/video/BookAppMain.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BookAppMain.o $< -MF $@
+
+.obj/BookClient.dep : ../../Desktop/Lib/CCore/src/video/book/BookClient.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BookClient.o $< -MF $@
+
+.obj/BookFrame.dep : ../../Desktop/Lib/CCore/src/video/BookFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BookFrame.o $< -MF $@
+
+.obj/BookWindow.dep : ../../Desktop/Lib/CCore/src/video/book/BookWindow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/BookWindow.o $< -MF $@
 
 .obj/Bridge.dep : ../../Applied/CCore/src/net/Bridge.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Bridge.o $< -MF $@
@@ -3853,8 +4708,14 @@ include $(RULES_FILE)
 .obj/Color.dep : ../../Applied/CCore/src/video/Color.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Color.o $< -MF $@
 
+.obj/ColorEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/ColorEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ColorEdit.o $< -MF $@
+
 .obj/ColorField.dep : ../../Desktop/Draw/CCore/src/video/ColorField.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ColorField.o $< -MF $@
+
+.obj/ColorListWindow.dep : ../../Desktop/Lib/CCore/src/video/pref/ColorListWindow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ColorListWindow.o $< -MF $@
 
 .obj/CommonIntAlgo.dep : ../../Fundamental/CCore/src/algon/CommonIntAlgo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/CommonIntAlgo.o $< -MF $@
@@ -3871,8 +4732,20 @@ include $(RULES_FILE)
 .obj/Complex.dep : ../../Applied/CCore/src/math/Complex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Complex.o $< -MF $@
 
+.obj/ConfigBinder.dep : ../../Desktop/Lib/CCore/src/video/ConfigBinder.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ConfigBinder.o $< -MF $@
+
+.obj/ConfigEditor.dep : ../../Desktop/Lib/CCore/src/video/ConfigEditor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ConfigEditor.o $< -MF $@
+
+.obj/ConfigStore.dep : ../../Desktop/Lib/CCore/src/video/ConfigStore.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ConfigStore.o $< -MF $@
+
 .obj/ContainerList.dep : ../../Fundamental/CCore/src/ContainerList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ContainerList.o $< -MF $@
+
+.obj/CoordEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/CoordEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CoordEdit.o $< -MF $@
 
 .obj/Counters.dep : ../../Simple/CCore/src/Counters.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Counters.o $< -MF $@
@@ -3967,6 +4840,9 @@ include $(RULES_FILE)
 .obj/DetectProxy.dep : ../../Fundamental/CCore/src/DetectProxy.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DetectProxy.o $< -MF $@
 
+.obj/DirFrame.dep : ../../Desktop/Lib/CCore/src/video/DirFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DirFrame.o $< -MF $@
+
 .obj/DirTreeRun.dep : ../../HCore/CCore/src/DirTreeRun.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DirTreeRun.o $< -MF $@
 
@@ -3975,6 +4851,12 @@ include $(RULES_FILE)
 
 .obj/DoubleUtils.dep : ../../Fundamental/CCore/src/math/DoubleUtils.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DoubleUtils.o $< -MF $@
+
+.obj/DrawBook.dep : ../../Desktop/Lib/CCore/src/video/book/DrawBook.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DrawBook.o $< -MF $@
+
+.obj/DrawBookTools.dep : ../../Desktop/Lib/CCore/src/video/book/DrawBookTools.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/DrawBookTools.o $< -MF $@
 
 .obj/DrawBuf.dep : ../../Desktop/Core/CCore/src/video/DrawBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/DrawBuf.o $< -MF $@
@@ -4018,6 +4900,9 @@ include $(RULES_FILE)
 .obj/Exception.dep : ../../Fundamental/CCore/src/Exception.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Exception.o $< -MF $@
 
+.obj/ExceptionFrame.dep : ../../Desktop/Lib/CCore/src/video/ExceptionFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ExceptionFrame.o $< -MF $@
+
 .obj/ExceptionType.dep : ../../Simple/CCore/src/gadget/ExceptionType.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ExceptionType.o $< -MF $@
 
@@ -4030,14 +4915,26 @@ include $(RULES_FILE)
 .obj/FastMutex.dep : ../../HCore/CCore/src/task/FastMutex.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FastMutex.o $< -MF $@
 
+.obj/FavFrame.dep : ../../Desktop/Lib/CCore/src/video/FavFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FavFrame.o $< -MF $@
+
+.obj/FavList.dep : ../../Desktop/Lib/CCore/src/video/FavList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FavList.o $< -MF $@
+
 .obj/FeedBuf.dep : ../../Simple/CCore/src/FeedBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FeedBuf.o $< -MF $@
 
 .obj/Fifo.dep : ../../Simple/CCore/src/Fifo.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Fifo.o $< -MF $@
 
+.obj/FigureLib.dep : ../../Desktop/Lib/CCore/src/video/FigureLib.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FigureLib.o $< -MF $@
+
 .obj/FileBoss.dep : ../../Desktop/Tools/CCore/src/video/FileBoss.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileBoss.o $< -MF $@
+
+.obj/FileFrame.dep : ../../Desktop/Lib/CCore/src/video/FileFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FileFrame.o $< -MF $@
 
 .obj/FileName.dep : ../../Applied/CCore/src/FileName.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FileName.o $< -MF $@
@@ -4063,11 +4960,17 @@ include $(RULES_FILE)
 .obj/FontDatabase.dep : ../../Desktop/Tools/CCore/src/video/FontDatabase.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FontDatabase.o $< -MF $@
 
+.obj/FontEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/FontEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FontEdit.o $< -MF $@
+
 .obj/FontLookup.dep : ../../Desktop/Tools/CCore/src/video/FontLookup.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FontLookup.o $< -MF $@
 
 .obj/FontParam.dep : ../../Desktop/Tools/CCore/src/video/FontParam.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FontParam.o $< -MF $@
+
+.obj/FontReplace.dep : ../../Desktop/Lib/CCore/src/video/FontReplace.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FontReplace.o $< -MF $@
 
 .obj/ForLoop.dep : ../../Simple/CCore/src/ForLoop.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ForLoop.o $< -MF $@
@@ -4075,8 +4978,14 @@ include $(RULES_FILE)
 .obj/Forget.dep : ../../Applied/CCore/src/crypton/Forget.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Forget.o $< -MF $@
 
+.obj/FrameBase.dep : ../../Desktop/Lib/CCore/src/video/FrameBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FrameBase.o $< -MF $@
+
 .obj/FrameBuf.dep : ../../Applied/CCore/src/video/FrameBuf.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FrameBuf.o $< -MF $@
+
+.obj/FrameClient.dep : ../../Desktop/Lib/CCore/src/video/FrameClient.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/FrameClient.o $< -MF $@
 
 .obj/FrameWindow.dep : ../../Desktop/Core/CCore/src/video/FrameWindow.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/FrameWindow.o $< -MF $@
@@ -4228,6 +5137,12 @@ include $(RULES_FILE)
 .obj/LaunchPath.dep : ../../HCore/CCore/src/LaunchPath.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/LaunchPath.o $< -MF $@
 
+.obj/Layout.dep : ../../Desktop/Lib/CCore/src/video/Layout.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Layout.o $< -MF $@
+
+.obj/LayoutCombo.dep : ../../Desktop/Lib/CCore/src/video/LayoutCombo.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/LayoutCombo.o $< -MF $@
+
 .obj/Len.dep : ../../Simple/CCore/src/gadget/Len.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Len.o $< -MF $@
 
@@ -4251,6 +5166,9 @@ include $(RULES_FILE)
 
 .obj/Log.dep : ../../Applied/CCore/src/Log.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Log.o $< -MF $@
+
+.obj/MCoordEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/MCoordEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MCoordEdit.o $< -MF $@
 
 .obj/MD5.dep : ../../Applied/CCore/src/crypton/MD5.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MD5.o $< -MF $@
@@ -4285,17 +5203,29 @@ include $(RULES_FILE)
 .obj/MemberFold.dep : ../../Simple/CCore/src/MemberFold.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MemberFold.o $< -MF $@
 
+.obj/Menu.dep : ../../Desktop/Lib/CCore/src/video/Menu.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Menu.o $< -MF $@
+
 .obj/MergeSort.dep : ../../Fundamental/CCore/src/sort/MergeSort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MergeSort.o $< -MF $@
 
 .obj/MersenneTwister.dep : ../../Fundamental/CCore/src/MersenneTwister.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MersenneTwister.o $< -MF $@
 
+.obj/MessageFrame.dep : ../../Desktop/Lib/CCore/src/video/MessageFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MessageFrame.o $< -MF $@
+
 .obj/Meta.dep : ../../Simple/CCore/src/gadget/Meta.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Meta.o $< -MF $@
 
 .obj/MetaList.dep : ../../Simple/CCore/src/gadget/MetaList.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/MetaList.o $< -MF $@
+
+.obj/MinSizeType.dep : ../../Desktop/Lib/CCore/src/video/MinSizeType.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MinSizeType.o $< -MF $@
+
+.obj/MixColorWindow.dep : ../../Desktop/Lib/CCore/src/video/pref/MixColorWindow.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/MixColorWindow.o $< -MF $@
 
 .obj/ModEngine.dep : ../../Applied/CCore/src/math/ModEngine.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ModEngine.o $< -MF $@
@@ -4480,6 +5410,9 @@ include $(RULES_FILE)
 .obj/Point.dep : ../../Applied/CCore/src/video/Point.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Point.o $< -MF $@
 
+.obj/PointEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/PointEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PointEdit.o $< -MF $@
+
 .obj/PosSub.dep : ../../Simple/CCore/src/gadget/PosSub.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/PosSub.o $< -MF $@
 
@@ -4591,6 +5524,9 @@ include $(RULES_FILE)
 .obj/RangeDel.dep : ../../Simple/CCore/src/RangeDel.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RangeDel.o $< -MF $@
 
+.obj/RatioEdit.dep : ../../Desktop/Lib/CCore/src/video/pref/RatioEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/RatioEdit.o $< -MF $@
+
 .obj/RawFileToRead.dep : ../../HCore/CCore/src/RawFileToRead.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/RawFileToRead.o $< -MF $@
 
@@ -4666,8 +5602,98 @@ include $(RULES_FILE)
 .obj/ScopeGuard.dep : ../../Simple/CCore/src/gadget/ScopeGuard.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ScopeGuard.o $< -MF $@
 
+.obj/SelectFrames.dep : ../../Desktop/Lib/CCore/src/video/book/SelectFrames.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SelectFrames.o $< -MF $@
+
 .obj/Sem.dep : ../../HCore/CCore/src/task/Sem.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Sem.o $< -MF $@
+
+.obj/Shape.AllButton.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.AllButton.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.AllButton.o $< -MF $@
+
+.obj/Shape.Button.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Button.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Button.o $< -MF $@
+
+.obj/Shape.ButtonState.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.ButtonState.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.ButtonState.o $< -MF $@
+
+.obj/Shape.Check.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Check.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Check.o $< -MF $@
+
+.obj/Shape.CheckState.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.CheckState.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.CheckState.o $< -MF $@
+
+.obj/Shape.Contour.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Contour.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Contour.o $< -MF $@
+
+.obj/Shape.DragFrame.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.DragFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.DragFrame.o $< -MF $@
+
+.obj/Shape.FixedFrame.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.FixedFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.FixedFrame.o $< -MF $@
+
+.obj/Shape.FrameBase.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.FrameBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.FrameBase.o $< -MF $@
+
+.obj/Shape.Info.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Info.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Info.o $< -MF $@
+
+.obj/Shape.Label.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Label.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Label.o $< -MF $@
+
+.obj/Shape.Light.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Light.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Light.o $< -MF $@
+
+.obj/Shape.Line.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Line.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Line.o $< -MF $@
+
+.obj/Shape.LineEdit.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.LineEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.LineEdit.o $< -MF $@
+
+.obj/Shape.MoveButton.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.MoveButton.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.MoveButton.o $< -MF $@
+
+.obj/Shape.Progress.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Progress.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Progress.o $< -MF $@
+
+.obj/Shape.Radio.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Radio.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Radio.o $< -MF $@
+
+.obj/Shape.RunButton.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.RunButton.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.RunButton.o $< -MF $@
+
+.obj/Shape.Scroll.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Scroll.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Scroll.o $< -MF $@
+
+.obj/Shape.ScrollList.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.ScrollList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.ScrollList.o $< -MF $@
+
+.obj/Shape.ShiftSwitch.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.ShiftSwitch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.ShiftSwitch.o $< -MF $@
+
+.obj/Shape.SimpleTextList.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.SimpleTextList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.SimpleTextList.o $< -MF $@
+
+.obj/Shape.Slider.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Slider.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Slider.o $< -MF $@
+
+.obj/Shape.Spinor.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Spinor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Spinor.o $< -MF $@
+
+.obj/Shape.Split.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Split.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Split.o $< -MF $@
+
+.obj/Shape.Switch.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Switch.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Switch.o $< -MF $@
+
+.obj/Shape.Text.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.Text.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.Text.o $< -MF $@
+
+.obj/Shape.TextLine.dep : ../../Desktop/Lib/CCore/src/video/lib/Shape.TextLine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Shape.TextLine.o $< -MF $@
+
+.obj/ShapeLib.dep : ../../Desktop/Lib/CCore/src/video/ShapeLib.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ShapeLib.o $< -MF $@
 
 .obj/ShortSort.dep : ../../Fundamental/CCore/src/sort/ShortSort.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ShortSort.o $< -MF $@
@@ -4713,6 +5739,9 @@ include $(RULES_FILE)
 
 .obj/Space.dep : ../../Simple/CCore/src/gadget/Space.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Space.o $< -MF $@
+
+.obj/SpanLenEngine.dep : ../../Desktop/Lib/CCore/src/video/book/SpanLenEngine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/SpanLenEngine.o $< -MF $@
 
 .obj/SpawnProcess.dep : ../../HCore/CCore/src/SpawnProcess.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/SpawnProcess.o $< -MF $@
@@ -4876,6 +5905,9 @@ include $(RULES_FILE)
 .obj/ToMoveCtor.dep : ../../Simple/CCore/src/ToMoveCtor.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/ToMoveCtor.o $< -MF $@
 
+.obj/ToolFrame.dep : ../../Desktop/Lib/CCore/src/video/ToolFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/ToolFrame.o $< -MF $@
+
 .obj/Tree.dep : ../../Fundamental/CCore/src/Tree.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Tree.o $< -MF $@
 
@@ -4927,6 +5959,9 @@ include $(RULES_FILE)
 .obj/UserAction.dep : ../../Desktop/Core/CCore/src/video/UserAction.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/UserAction.o $< -MF $@
 
+.obj/UserPreference.dep : ../../Desktop/Lib/CCore/src/video/UserPreference.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/UserPreference.o $< -MF $@
+
 .obj/Utf8.dep : ../../Fundamental/CCore/src/Utf8.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Utf8.o $< -MF $@
 
@@ -4941,6 +5976,75 @@ include $(RULES_FILE)
 
 .obj/Volume.dep : ../../Applied/CCore/src/Volume.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/Volume.o $< -MF $@
+
+.obj/Window.Blank.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Blank.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Blank.o $< -MF $@
+
+.obj/Window.Button.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Button.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Button.o $< -MF $@
+
+.obj/Window.Check.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Check.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Check.o $< -MF $@
+
+.obj/Window.Decor.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Decor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Decor.o $< -MF $@
+
+.obj/Window.DragFrame.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.DragFrame.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.DragFrame.o $< -MF $@
+
+.obj/Window.FireButton.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.FireButton.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.FireButton.o $< -MF $@
+
+.obj/Window.Info.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Info.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Info.o $< -MF $@
+
+.obj/Window.Light.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Light.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Light.o $< -MF $@
+
+.obj/Window.LineEdit.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.LineEdit.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.LineEdit.o $< -MF $@
+
+.obj/Window.Progress.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Progress.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Progress.o $< -MF $@
+
+.obj/Window.Radio.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Radio.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Radio.o $< -MF $@
+
+.obj/Window.RunButton.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.RunButton.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.RunButton.o $< -MF $@
+
+.obj/Window.Scroll.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Scroll.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Scroll.o $< -MF $@
+
+.obj/Window.ScrollList.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.ScrollList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.ScrollList.o $< -MF $@
+
+.obj/Window.Scrollable.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Scrollable.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Scrollable.o $< -MF $@
+
+.obj/Window.SimpleTextList.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.SimpleTextList.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.SimpleTextList.o $< -MF $@
+
+.obj/Window.Slider.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Slider.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Slider.o $< -MF $@
+
+.obj/Window.Spinor.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Spinor.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Spinor.o $< -MF $@
+
+.obj/Window.Split.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Split.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Split.o $< -MF $@
+
+.obj/Window.Text.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.Text.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.Text.o $< -MF $@
+
+.obj/Window.TextLine.dep : ../../Desktop/Lib/CCore/src/video/lib/Window.TextLine.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Window.TextLine.o $< -MF $@
+
+.obj/WindowLib.dep : ../../Desktop/Lib/CCore/src/video/WindowLib.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/WindowLib.o $< -MF $@
+
+.obj/WindowReport.dep : ../../Desktop/App/CCore/src/video/WindowReport.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/WindowReport.o $< -MF $@
 
 .obj/XPoint.dep : ../../Applied/CCore/src/net/XPoint.cpp
 	$(CC) $(CCOPT) -MM -MT .obj/XPoint.o $< -MF $@

@@ -81,17 +81,13 @@ Coord MulSize(UIntType auto count,Coord x)
 template <class T,class ... TT>
 T Sup(T a,TT ... tt) requires ( sizeof ... (TT) >= 2 )
  {
-  using Helper = OpAddHelper<Coord,Sup> ;
-
-  return ( Helper(a) + ... + Helper(tt) ).val;
+  return Sup(a,Sup(tt...));
  }
 
 template <class T,class ... TT>
 T Inf(T a,TT ... tt) requires ( sizeof ... (TT) >= 2 )
  {
-  using Helper = OpAddHelper<Coord,Inf> ;
-
-  return ( Helper(a) + ... + Helper(tt) ).val;
+  return Inf(a,Inf(tt...));
  }
 
 /* CountToCoord() */
