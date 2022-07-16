@@ -170,7 +170,7 @@ WindowBitmap::WindowBitmap(Point size_)
  {
   const char *format="CCore::Video::Internal::WindowBitmap::WindowBitmap(...) : #;";
 
-  if( size<=Null )
+  if( !(size>Null) )
     {
      Printf(Exception,format,"bad size");
     }
@@ -211,7 +211,7 @@ void WindowBuf::setSize(Point new_size,bool first_time)
  {
   const char *format="CCore::Video::Internal::WindowBuf::setSize(...) : #;";
 
-  if( new_size<=Null )
+  if( !(new_size>Null) )
     {
      Printf(Exception,format,"bad size");
     }
