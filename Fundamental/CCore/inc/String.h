@@ -130,7 +130,7 @@ class String::StaticObject
  };
 
 template <char ... CC>
-String::StaticObject<CC...> String::StaticObject<CC...>::Object CCORE_INITPRI_3 ;
+String::StaticObject<CC...> String::StaticObject<CC...>::Object CCORE_INITPRI_1 ;
 
 /* String literal */
 
