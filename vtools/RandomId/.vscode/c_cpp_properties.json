@@ -1,8 +1,4 @@
 {
-    "configurations": [
-        {
-            "name": "CCore"
-        }
-    ],
+    "configurations": [ { "name": "CCore" } ],
     "version": 4
 }

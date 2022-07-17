@@ -9,6 +9,9 @@
       },
       {
          "path": "Target/WIN32/test"
+      },
+      {
+         "path": "vtools/RandomId"
       }
    ],
 
@@ -20,7 +23,14 @@
          "${workspaceFolder}/../../HCore",
          "${workspaceFolder}/../../Simple",
          "${workspaceFolder}/../../Fundamental",
-         "${workspaceFolder}/../../Applied"
+         "${workspaceFolder}/../../Applied",
+         "${workspaceFolder}/../../Desktop/Core",
+         "${workspaceFolder}/../../Desktop/Draw",
+         "${workspaceFolder}/../../Desktop/Tools",
+         "${workspaceFolder}/../../Desktop/Font",
+         "${workspaceFolder}/../../Desktop/App",
+         "${workspaceFolder}/../../Desktop/Lib",
+         "D:/cygwin/usr/include/freetype2"
       ],
       "files.associations": {
          "*.h": "cpp",

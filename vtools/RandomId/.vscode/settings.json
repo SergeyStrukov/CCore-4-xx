@@ -1,0 +1,18 @@
+{
+    "C_Cpp.default.includePath":
+    [
+       "${workspaceFolder}",
+       "${workspaceFolder}/../../Target/WIN32",
+       "${workspaceFolder}/../../HCore",
+       "${workspaceFolder}/../../Simple",
+       "${workspaceFolder}/../../Fundamental",
+       "${workspaceFolder}/../../Applied",
+       "${workspaceFolder}/../../Desktop/Core",
+       "${workspaceFolder}/../../Desktop/Draw",
+       "${workspaceFolder}/../../Desktop/Tools",
+       "${workspaceFolder}/../../Desktop/Font",
+       "${workspaceFolder}/../../Desktop/App",
+       "${workspaceFolder}/../../Desktop/Lib",
+       "D:/cygwin/usr/include/freetype2"
+    ]
+}
