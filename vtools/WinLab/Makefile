@@ -1,9 +1,9 @@
 # Makefile
 #----------------------------------------------------------------------------------------
 #
-#  Project: CCore 4.01
+#  Project: WinLab 1.00
 #
-#  License: Boost Software License - Version 1.0 - August 17th, 2003 
+#  License: Boost Software License - Version 1.0 - August 17th, 2003
 #
 #            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 #
@@ -11,9 +11,24 @@
 #
 #----------------------------------------------------------------------------------------
 
-OPT = -j 8
+CCORE_ROOT = ../..
 
-LIST = Aspect Book ContourLab RandomId Sample SubLab TruePrime UserPreference WinLab Zipmap 
+include $(CCORE_ROOT)/Makefile.host
 
-include ../Target/Makefile.list
+SRC_PATH_LIST = src
+
+TARGET = ./WinLab.exe
+
+CCOPT_EXTRA = -I.
+
+TARGET_DESKTOP = yes
+
+include $(CCORE_ROOT)/Target/Makefile.app
+
+.PHONY : run
+
+run: $(TARGET)
+	$(TARGET)
+
+
 
