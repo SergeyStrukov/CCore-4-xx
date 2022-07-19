@@ -1,9 +1,9 @@
 # Makefile
 #----------------------------------------------------------------------------------------
 #
-#  Project: CCore 4.01
+#  Project: ContourLab 1.00
 #
-#  License: Boost Software License - Version 1.0 - August 17th, 2003 
+#  License: Boost Software License - Version 1.0 - August 17th, 2003
 #
 #            see http://www.boost.org/LICENSE_1_0.txt or the local copy
 #
@@ -11,10 +11,10 @@
 #
 #----------------------------------------------------------------------------------------
 
-OPT = -j 8
+LANG = $(HOME)/bin/CCore-CondLangLR1.exe
 
-LIST = Aspect Book ContourLab RandomId Sample SubLab TruePrime 
-# DDLDisplay UserPreference Zipmap WinLab BookLab  
+GEN = $(HOME)/bin/CCore-ParserGen.exe
 
-include ../Target/Makefile.list
-
+run:
+	$(LANG) Formula.lang
+	$(GEN) Formula.ddl FormulaParserData Formula.gen.h_ Formula.gen.cpp_
