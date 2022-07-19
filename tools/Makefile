@@ -16,11 +16,10 @@ OPT = -j8
 LIST = ExecTest Keywords MakeList MakeString Volume EllipticPi Spawnee \
        EchoServer PSecEchoServer PTPEchoServer PTPServerProc PTPServer PTPSecureServerProc PTPSecureServer PTPSecureClient \
        DDLShow DDLTypeSet \
-
        
 #       CondLangLR1/Main CondLangLR1/Gen \
 #       Regen \
-#       vmake VMakeDep
+#       vmake VMakeDep VMakeList
 
 include ../Target/Makefile.list
 
