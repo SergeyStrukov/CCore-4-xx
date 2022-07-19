@@ -1,0 +1,53 @@
+OBJ_LIST = \
+.obj/Process.o \
+.obj/main.o \
+
+
+ASM_LIST = \
+.obj/Process.s \
+.obj/main.s \
+
+
+DEP_LIST = \
+.obj/Process.dep \
+.obj/main.dep \
+
+
+ASM_OBJ_LIST = \
+
+
+include $(RULES_FILE)
+
+
+.obj/Process.o : ./Process.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/main.o : ./main.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+
+
+.obj/Process.s : ./Process.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/main.s : ./main.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+
+
+.obj/Process.dep : ./Process.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/Process.o $< -MF $@
+
+.obj/main.dep : ./main.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/main.o $< -MF $@
+
+
+
+
+
+ifneq ($(MAKECMDGOALS),clean)
+
+-include $(DEP_FILE)
+
+endif
+
