@@ -1,7 +1,7 @@
 # Makefile
 #----------------------------------------------------------------------------------------
 #
-#  Project: CCore 4.01
+#  Project: vmake 1.00
 #
 #  License: Boost Software License - Version 1.0 - August 17th, 2003 
 #
@@ -11,9 +11,13 @@
 #
 #----------------------------------------------------------------------------------------
 
-OPT = -j8
+CCORE_ROOT = ../../..
 
-LIST = Aspect Book ContourLab RandomId Sample SubLab TruePrime UserPreference WinLab Zipmap 
+include $(CCORE_ROOT)/Makefile.host
 
-include ../Target/Makefile.list
+TARGET = ./test.exe
 
+include $(CCORE_ROOT)/Target/Makefile.app
+
+run: $(TARGET)
+	export ABRA=CODABRA ; $(TARGET) name "long name"

@@ -1,0 +1,4 @@
+/* test.h */
+
+int func();
+          
