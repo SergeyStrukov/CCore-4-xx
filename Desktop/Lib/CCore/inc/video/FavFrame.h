@@ -588,7 +588,7 @@ class FavListWindowOf : public SubWindow
 
      if( delta_<0 )
        {
-        if( mkey&KeyMod_Ctrl )
+        if( mkey&MouseKey_Ctrl )
           {
            moveDown(delta);
           }
@@ -615,7 +615,7 @@ class FavListWindowOf : public SubWindow
        }
      else
        {
-        if( mkey&KeyMod_Ctrl )
+        if( mkey&MouseKey_Ctrl )
           {
            moveUp(delta);
           }
