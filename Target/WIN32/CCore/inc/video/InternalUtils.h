@@ -31,11 +31,12 @@
 
 namespace CCore {
 namespace Video {
-namespace Internal {
 
 /* namespace */
 
 namespace WinNN = Sys::WinNN ;
+
+namespace Internal {
 
 /* SysGuard() */
 

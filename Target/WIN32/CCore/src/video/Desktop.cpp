@@ -3,7 +3,7 @@
 //
 //  Project: CCore 4.01
 //
-//  Tag: Target/WIN32
+//  Tag: Target/WinNN
 //
 //  License: Boost Software License - Version 1.0 - August 17th, 2003
 //
@@ -29,29 +29,29 @@ namespace Video {
 
 CmdDisplay StartDisplay()
  {
-  Win32::StartupInfo info;
+  WinNN::StartupInfo info;
 
   info.cb=sizeof (info);
 
-  Win32::GetStartupInfoW(&info);
+  WinNN::GetStartupInfoW(&info);
 
-  if( info.flags&Win32::StartupInfo_show_window )
+  if( info.flags&WinNN::StartupInfo_show_window )
     {
      switch( info.show_window )
        {
-        case Win32::CmdShow_Hide          : return CmdDisplay_Normal;
+        case WinNN::CmdShow_Hide          : return CmdDisplay_Normal;
         default:
-        case Win32::CmdShow_Normal        : return CmdDisplay_Normal;
-        case Win32::CmdShow_Minimized     : return CmdDisplay_Minimized;
-        case Win32::CmdShow_Maximized     : return CmdDisplay_Maximized;
-        case Win32::CmdShow_NoActivate    : return CmdDisplay_Normal;
-        case Win32::CmdShow_Show          : return CmdDisplay_Normal;
-        case Win32::CmdShow_Minimize      : return CmdDisplay_Minimized;
-        case Win32::CmdShow_MinNoActive   : return CmdDisplay_Minimized;
-        case Win32::CmdShow_NA            : return CmdDisplay_Normal;
-        case Win32::CmdShow_Restore       : return CmdDisplay_Restore;
-        case Win32::CmdShow_Default       : return CmdDisplay_Normal;
-        case Win32::CmdShow_ForceMinimize : return CmdDisplay_Minimized;
+        case WinNN::CmdShow_Normal        : return CmdDisplay_Normal;
+        case WinNN::CmdShow_Minimized     : return CmdDisplay_Minimized;
+        case WinNN::CmdShow_Maximized     : return CmdDisplay_Maximized;
+        case WinNN::CmdShow_NoActivate    : return CmdDisplay_Normal;
+        case WinNN::CmdShow_Show          : return CmdDisplay_Normal;
+        case WinNN::CmdShow_Minimize      : return CmdDisplay_Minimized;
+        case WinNN::CmdShow_MinNoActive   : return CmdDisplay_Minimized;
+        case WinNN::CmdShow_NA            : return CmdDisplay_Normal;
+        case WinNN::CmdShow_Restore       : return CmdDisplay_Restore;
+        case WinNN::CmdShow_Default       : return CmdDisplay_Normal;
+        case WinNN::CmdShow_ForceMinimize : return CmdDisplay_Minimized;
        }
     }
 
@@ -65,7 +65,7 @@ Char ToLowerCase(Char ch)
      Sys::SurrogateCouple couple(ch);
      Sys::WChar buf[3]={couple.hi,couple.lo,0};
 
-     Win32::CharLowerW(buf);
+     WinNN::CharLowerW(buf);
 
      return Sys::Surrogate(buf[0],buf[1]);
     }
@@ -73,7 +73,7 @@ Char ToLowerCase(Char ch)
     {
      Sys::WChar buf[2]={(Sys::WChar)ch,0};
 
-     Win32::CharLowerW(buf);
+     WinNN::CharLowerW(buf);
 
      return buf[0];
     }
@@ -94,7 +94,7 @@ void ShellVerb(StrLen verb_,StrLen file_name_)
      Printf(Exception,"CCore::Video::ShellVerb(...,file_name) : #;",error);
     }
 
-  Win32::ShellExecuteW(0,verb,file_name,0,0,Win32::CmdShow_Show);
+  WinNN::ShellExecuteW(0,verb,file_name,0,0,WinNN::CmdShow_Show);
  }
 
 /* class CharMapTable */
@@ -103,9 +103,9 @@ CharMapTable::CharMapTable()
  {
   AllChars( [this] (char ch)
                    {
-                    Win32::wchar out;
+                    WinNN::wchar out;
 
-                    int len=Win32::MultiByteToWideChar(Win32::CodePageActive,Win32::MultiBytePrecomposed|Win32::MultiByteUseGlyphChars,&ch,1,&out,1);
+                    int len=WinNN::MultiByteToWideChar(WinNN::CodePageActive,WinNN::MultiBytePrecomposed|WinNN::MultiByteUseGlyphChars,&ch,1,&out,1);
 
                     if( len!=1 )
                       {
