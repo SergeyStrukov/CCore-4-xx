@@ -27,8 +27,6 @@ namespace CCore {
 
 class JobObject;
 
-class JobAccObject;
-
 class JobList;
 
 class JobQueue;
@@ -59,19 +57,6 @@ class JobObject : public MemBase_nocopy
    virtual ~JobObject() {}
 
    virtual void job(bool stop_flag)=0;
- };
-
-/* class JobAccObject */
-
-class JobAccObject : public JobObject
- {
-  public:
-
-   JobAccObject();
-
-   virtual ~JobAccObject() {}
-
-   virtual void setupAcc()=0;
  };
 
 /* class JobList */
@@ -208,9 +193,12 @@ class FuncJobObject : public JobObject
 
    virtual void job(bool stop_flag)
     {
-     if( !stop_flag ) func();
+     ScopeGuard guard( [this] ()
+                       {
+                        delete this;
+                       } );
 
-     delete this;
+     if( !stop_flag ) func();
     }
  };
 
@@ -224,7 +212,7 @@ class FuncJobAntiSemObject : public JobObject
 
   public:
 
-   FuncJobAntiSemObject(const FuncInit &func_init,AntiSem &asem_) : func(func_init),asem(asem_) {}
+   FuncJobAntiSemObject(const FuncInit &func_init,AntiSem &asem_) : func(func_init),asem(asem_) { asem.inc(); }
 
    virtual ~FuncJobAntiSemObject() {}
 
@@ -232,9 +220,8 @@ class FuncJobAntiSemObject : public JobObject
     {
      ScopeGuard guard( [this] ()
                        {
-                        asem.dec();
-
                         delete this;
+                        asem.dec();
                        } );
 
      if( !stop_flag ) func();
@@ -259,11 +246,7 @@ void AddFuncJob(FuncInitArgType<> auto func_init)
 
 void AddFuncJob(FuncInitArgType<> auto func_init,AntiSem &asem)
  {
-  JobObject *job=new FuncJobAntiSemObject(func_init,asem);
-
-  asem.inc();
-
-  AddJob(job);
+  AddJob(new FuncJobAntiSemObject(func_init,asem));
  }
 
 } // namespace CCore
