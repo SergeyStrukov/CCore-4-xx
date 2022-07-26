@@ -83,6 +83,50 @@ void JobQueue::destroyAll()
     }
  }
 
+/* class JobPool */
+
+JobPool::JobPool()
+ : mutex("JobPool.mutex"),
+   asem("JobPool.asem")
+ {
+ }
+
+JobPool::~JobPool()
+ {
+  list.destroyAll();
+ }
+
+void JobPool::fill(JobObject *job)
+ {
+  list.add(job);
+ }
+
+JobObject * JobPool::get()
+ {
+  JobObject *job;
+
+  {
+   Mutex::Lock lock(mutex);
+
+   job=list.get();
+  }
+
+  if( job ) asem.inc();
+
+  return job;
+ }
+
+void JobPool::put(JobObject *job)
+ {
+  {
+   Mutex::Lock lock(mutex);
+
+   list.add(job);
+  }
+
+  asem.dec();
+ }
+
 /* class JobMachine */
 
 JobObject * JobMachine::getJob()

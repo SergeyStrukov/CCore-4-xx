@@ -31,7 +31,7 @@ class JobList;
 
 class JobQueue;
 
-class JobSet;
+class JobPool;
 
 class JobMachine;
 
@@ -106,19 +106,28 @@ class JobQueue : NoCopy
    void destroyAll();
  };
 
-/* class JobSet */
+/* class JobPool */
 
-class JobSet : NoCopy
+class JobPool : NoCopy
  {
-   JobQueue queue;
+   Mutex mutex;
+   AntiSem asem;
+
+   JobQueue list;
 
   public:
 
-   JobSet() {}
+   JobPool();
 
-   ~JobSet() { queue.destroyAll(); }
+   ~JobPool();
 
-   JobObject * add(JobObject *job) { queue.add(job); return job; }
+   void fill(JobObject *job);
+
+   JobObject * get();
+
+   void put(JobObject *job);
+
+   void waitComplete() { asem.wait(); }
  };
 
 /* class JobMachine */
