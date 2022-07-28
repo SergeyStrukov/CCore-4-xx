@@ -25,27 +25,27 @@ TaskEventHostType TaskEventHost CCORE_INITPRI_1 ;
 
 void TickTask::task()
  {
-  for(;;)
+  while( !stop_flag )
     {
-     if( stop.wait(100_msec) )
+     recorder.setTime(timer.get());
+
+     if( time_scope.nextScope_skip() )
        {
-        return;
-       }
-     else
-       {
-        TaskEventHost.tick();
+        TaskEventHost.tick(); // 10 Hz
        }
     }
  }
 
-TickTask::TickTask()
+TickTask::TickTask(TaskEventRecorder &recorder_)
+ : recorder(recorder_),
+   time_scope(100_msec)
  {
   RunFuncTask(function_task(),wait_stop.function_trigger());
  }
 
 TickTask::~TickTask()
  {
-  stop.trigger();
+  stop_flag=1;
 
   wait_stop.wait();
  }

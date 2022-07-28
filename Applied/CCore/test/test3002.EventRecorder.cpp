@@ -97,7 +97,7 @@ bool Testit<3002>::Main()
   TaskEventRecorder recorder(25_MByte);
 
   {
-   TickTask tick_task;
+   TickTask tick_task(recorder);
 
    RunTask run_task;
 

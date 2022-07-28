@@ -24,7 +24,7 @@ namespace CCore {
 
 /* consts */
 
-inline constexpr bool TaskEventEnable = false ;
+inline constexpr bool TaskEventEnable = true ;
 
 inline constexpr bool TaskEventEnableSync  = true ;
 inline constexpr bool TaskEventEnableProto = true ;
@@ -49,6 +49,7 @@ struct TaskEventAlgo
   class AllocPos : FastMutexBase
    {
      ulen off;
+     EventTimeType time;
 
     public:
 
@@ -65,7 +66,7 @@ struct TaskEventAlgo
        EventRecordPos ret;
 
        ret.pos=off;
-       ret.time=(EventTimeType)Sys::GetClockTime();
+       ret.time=time;
 
        off+=len;
 
@@ -77,6 +78,13 @@ struct TaskEventAlgo
        Lock lock(*this);
 
        off-=len;
+      }
+
+     void setTime(EventTimeType t)
+      {
+       Lock lock(*this);
+
+       time=t;
       }
    };
  };
@@ -186,8 +194,11 @@ extern TaskEventHostType TaskEventHost;
 
 class TickTask : public Funchor_nocopy
  {
-   Event stop;
+   TaskEventRecorder &recorder;
+   Atomic stop_flag;
    Event wait_stop;
+   ClockTimer timer;
+   TimeScope time_scope;
 
   private:
 
@@ -197,7 +208,7 @@ class TickTask : public Funchor_nocopy
 
   public:
 
-   TickTask();
+   explicit TickTask(TaskEventRecorder &recorder);
 
    ~TickTask();
  };

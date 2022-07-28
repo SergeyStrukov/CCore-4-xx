@@ -1115,6 +1115,8 @@ class EventRecorder : public EventMetaInfo
      MemFree(buf);
     }
 
+   void setTime(EventTimeType t) { pos.setTime(t); }
+
    template <class T,class ... SS>
    void add(SS && ... ss) requires ( EventInitArg<T,SS...> )
     {

@@ -203,7 +203,7 @@ void Test(StrLen file_name)
   TaskEventRecorder recorder(100_MByte);
 
   {
-   TickTask tick_task;
+   TickTask tick_task(recorder);
    TaskEventHostType::StartStop event_start_stop(TaskEventHost,&recorder);
    typename Engine::StartStop start_stop(engine);
 
