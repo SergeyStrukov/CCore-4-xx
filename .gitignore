@@ -3,6 +3,7 @@
 tools/Volume/test1/*
 tools/Volume/test.vol
 
+test*.txt
 *Log.txt
 **/root/**
 **/.obj/**
