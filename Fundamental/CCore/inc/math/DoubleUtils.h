@@ -213,7 +213,6 @@ struct DoubleTo10Based : NoCopy
 
   using BaseType = uint64;
 
-  int digit_len;
   int dec_exp;
   BaseType base;
 

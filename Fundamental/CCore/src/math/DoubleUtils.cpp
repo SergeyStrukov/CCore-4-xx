@@ -479,7 +479,6 @@ DoubleToDec::DoubleToDec(double value,unsigned digit_len)
 
   if( kind==DoubleIsPos || kind==DoubleIsNeg )
     {
-     digit_len=obj.digit_len;
      dec_exp=obj.dec_exp;
 
      base.do_uint(obj.base);
