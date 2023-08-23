@@ -5,10 +5,10 @@
          "path": "."
       },
       {
-         "path": "Target/WIN32"
+         "path": "Target/WIN64"
       },
       {
-         "path": "Target/WIN32/test"
+         "path": "Target/WIN64/test"
       },
       {
          "path": "tools/vmake"
@@ -20,7 +20,7 @@
       "C_Cpp.default.includePath":
       [
          "${workspaceFolder}",
-         "${workspaceFolder}/../../Target/WIN32",
+         "${workspaceFolder}/../../Target/WIN64",
          "${workspaceFolder}/../../HCore",
          "${workspaceFolder}/../../Simple",
          "${workspaceFolder}/../../Fundamental",
